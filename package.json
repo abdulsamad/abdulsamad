@@ -41,6 +41,7 @@
     "develop": "netlify dev",
     "preload-fonts": "gatsby-preload-fonts --no-sandbox ",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "type-check": "tsc --noEmit",
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
