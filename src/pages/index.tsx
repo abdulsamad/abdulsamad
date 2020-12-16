@@ -4,6 +4,7 @@ import { Normalize } from 'styled-normalize';
 import { ThemeProvider } from 'styled-components';
 
 import theme from '../theme';
+import GlobalStyle from '../components/utils/GlobalStyle';
 
 type DataProps = {
   site: {
@@ -13,9 +14,12 @@ type DataProps = {
 
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data, path }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Normalize />
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+      </ThemeProvider>
+    </>
   );
 };
 
