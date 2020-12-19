@@ -6,8 +6,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #1f1f1f;
-    color: #f5f5f5;
+    background: ${({ theme }) => theme.color.dark};
+    color: ${({ theme }) => theme.color.font};
     font-family: Open-Sans, Helvetica, Sans-Serif;
   }
 
