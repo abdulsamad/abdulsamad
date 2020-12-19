@@ -10,7 +10,7 @@ const Index: React.FC = () => {
   return (
     <Container>
       <Navbar>
-        <Logo height={48} />
+        <Logo height={48} fill='#f5f5f5' />
         <NavMenu>
           <NavLink href='#skills'>Skills</NavLink>
           <NavLink href='#projects'>Projects</NavLink>

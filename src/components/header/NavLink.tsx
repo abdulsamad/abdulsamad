@@ -8,7 +8,7 @@ const NavLink = styled.a`
   align-items: center;
   text-decoration: none;
   margin: 0 30px;
-  color: ${({ theme }) => theme.color.dark};
+  color: ${({ theme }) => theme.color.font};
 
   &::after {
     content: '';
