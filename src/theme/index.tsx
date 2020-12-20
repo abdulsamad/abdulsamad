@@ -6,6 +6,7 @@ const theme: DefaultTheme = {
     secondary: '#30e3ca',
     light: '#f5f5f5',
     dark: '#1f1f1f',
+    background: '#1f1f1f',
     font: '#f5f5f5',
   },
   fontFamily: {
