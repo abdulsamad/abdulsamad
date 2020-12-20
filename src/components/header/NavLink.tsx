@@ -9,7 +9,6 @@ const NavLink = styled.a`
   text-decoration: none;
   margin: 0 30px;
   color: ${({ theme }) => theme.color.font};
-  font-family: ${({ theme }) => theme.fontFamily.primary};
 
   &::after {
     content: '';

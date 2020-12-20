@@ -10,7 +10,7 @@ const theme: DefaultTheme = {
   },
   fontFamily: {
     primary: 'Montserrat',
-    secondary: 'Lato',
+    secondary: 'Lora',
   },
 };
 
