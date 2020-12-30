@@ -9,6 +9,10 @@ const Button = styled.button`
   border: none;
   color: ${({ theme }) => theme.color.font};
   box-shadow: 2px 2px 4px rgba(87, 87, 87, 0.5);
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 const SVG = styled.svg`
