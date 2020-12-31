@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Buttons = styled.a`
+const Button = styled.a`
   text-decoration: none;
   background: ${({ theme }) => theme.color.primary}
     linear-gradient(to right, rgba(47, 136, 252, 0.513), #2f89fc);
@@ -13,4 +13,4 @@ const Buttons = styled.a`
   }
 `;
 
-export default Buttons;
+export default Button;

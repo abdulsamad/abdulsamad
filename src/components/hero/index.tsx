@@ -5,7 +5,7 @@ import HeroText from './HeroText';
 import Shapes from '../utils/Shapes';
 import Intro from './Intro';
 import Message from './Message';
-import Button from '../utils/Buttons';
+import Button from '../utils/Button';
 
 interface Props {
   title?: string;
