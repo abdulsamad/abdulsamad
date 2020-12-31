@@ -10,12 +10,7 @@ interface Props {
 }
 
 const Index: React.FC<Props> = ({ path, data }) => {
-  return (
-    <Footer>
-      You're currently on the page "{path}" which was built on{' '}
-      {data.site.buildTime}.
-    </Footer>
-  );
+  return <Footer>&copy; {new Date().getFullYear()} - abdulsamad.dev</Footer>;
 };
 
 export default Index;
