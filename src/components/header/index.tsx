@@ -5,6 +5,7 @@ import NavMenu from './NavMenu';
 import NavLink from './NavLink';
 import Logo from './Logo';
 import Container from '../utils/Container';
+import HamburgerMenu from './HamburgerMenu';
 
 const Index: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const Index: React.FC = () => {
           <NavLink href='#projects'>Projects</NavLink>
           <NavLink href='#contact'>Contact</NavLink>
         </NavMenu>
+        <HamburgerMenu />
       </Header>
     </Container>
   );
