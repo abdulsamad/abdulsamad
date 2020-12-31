@@ -33,7 +33,7 @@ const SEO = ({ description, lang, meta, title }: Props) => {
         lang,
       }}
       title={title}
-      titleTemplate={defaultTitle ? '%s | ${defaultTitle}' : undefined}
+      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}
       meta={[
         {
           name: 'description',
