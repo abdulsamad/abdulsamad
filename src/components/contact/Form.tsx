@@ -4,6 +4,10 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 50vw;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export default Form;
