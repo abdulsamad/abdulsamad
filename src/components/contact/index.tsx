@@ -10,7 +10,7 @@ import Textarea from './TextArea';
 const index = () => {
   return (
     <Contact id='contact'>
-      <Form data-netlify='true' name='contact' method='post'>
+      <Form data-netlify='true' name='contact' method='post' action='#'>
         <h1>Get in touch!</h1>
         <Label>Name</Label>
         <Input type='text' placeholder='John Doe' name='name' />
