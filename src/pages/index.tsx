@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageProps, graphql } from 'gatsby';
 import { Normalize } from 'styled-normalize';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import theme from '../theme';
 import GlobalStyle from '../components/utils/GlobalStyle';
@@ -19,13 +19,25 @@ type DataProps = {
   };
 };
 
+const Alert = styled.h2`
+  background-color: #2f89fc;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+`;
+
 const IndexPage: React.FC<PageProps<DataProps>> = ({ data, path }) => {
   return (
     <>
       <Normalize />
+
       <SEO title='AbdulSamad Portfolio' />
       <ThemeProvider theme={theme}>
         <GlobalStyle />
+        <Alert>
+          🚧 Website in under active development — Please visit again later! 🚧
+        </Alert>
         <Header />
         <Hero />
         <Skills />
