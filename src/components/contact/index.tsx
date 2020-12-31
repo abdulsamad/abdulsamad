@@ -10,15 +10,16 @@ import Textarea from './TextArea';
 const index = () => {
   return (
     <Contact id='contact'>
-      <Form data-netlify='true' name='contact'>
+      <Form data-netlify='true' name='contact' method='post'>
         <h1>Get in touch!</h1>
         <Label>Name</Label>
         <Input type='text' placeholder='John Doe' name='name' />
         <Label>Email</Label>
         <Input type='email' placeholder='john@example.com' name='email' />
         <Label>Message</Label>
-        <Textarea />
-        <SubmitBtn>Send</SubmitBtn>
+        <Textarea placeholder='Your Message' name='message' />
+        <div data-netlify-recaptcha='true' />
+        <SubmitBtn type='submit'>Send</SubmitBtn>
       </Form>
     </Contact>
   );
