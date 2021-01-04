@@ -12,7 +12,6 @@ interface CircleProps {
 }
 
 const Circle = styled.div<CircleProps>`
-  z-index: -1;
   position: absolute;
   top: ${({ top }) => top};
   right: ${({ right }) => right};

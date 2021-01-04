@@ -6,7 +6,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.color.background};
     color: ${({ theme }) => theme.color.font};
     font-family: ${({ theme }) => theme.fontFamily.primary};
   }
