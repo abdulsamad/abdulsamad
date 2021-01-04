@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const Projects = styled.section`
-  background-color: #1f1f1f;
+  background-color: #2f2f2f;
   padding: 2rem;
-  text-align: center;
+  scroll-margin-top: 60px;
 `;
 
 export default Projects;
