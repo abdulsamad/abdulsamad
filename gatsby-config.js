@@ -29,6 +29,7 @@ module.exports = {
     },
     'gatsby-plugin-eslint',
     'gatsby-plugin-preload-fonts',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
