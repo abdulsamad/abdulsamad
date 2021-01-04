@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Header from './Header';
 import NavMenu from './NavMenu';
@@ -8,6 +8,18 @@ import Container from '../utils/Container';
 import HamburgerMenu from './HamburgerMenu';
 
 const Index: React.FC = () => {
+  // const changeNavbar = () => {
+  //   console.log(123);
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener('scroll', changeNavbar);
+
+  //   return () => {
+  //     window.removeEventListener('scroll', changeNavbar);
+  //   };
+  // }, []);
+
   return (
     <Container>
       <Header>

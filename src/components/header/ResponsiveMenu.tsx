@@ -9,10 +9,10 @@ const MobileNav = styled.nav`
   right: 0;
   width: 100%;
   background-color: ${({ theme }) => theme.color.primary};
-  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(100px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  transform-origin: top;
 `;
 
 const MobileNavLink = styled.a`
@@ -23,6 +23,7 @@ const MobileNavLink = styled.a`
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.color.font};
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 `;
 
 interface Props {
@@ -32,9 +33,9 @@ interface Props {
 const ResponsiveMenu: React.FC<Props> = ({ open }) => (
   <Transition
     items={open}
-    from={{ opacity: 0 }}
-    enter={{ opacity: 1 }}
-    leave={{ opacity: 0 }}>
+    from={{ opacity: 0, transform: 'scaleY(0)' }}
+    enter={{ opacity: 1, transform: 'scaleY(1)' }}
+    leave={{ opacity: 0, transform: 'scaleY(0)' }}>
     {(show) =>
       show &&
       ((props) => (
