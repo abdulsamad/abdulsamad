@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Skills from './Skills';
+import Heading from '../utils/Heading';
 import List from './List';
 import ListItem from './ListItem';
 import Container from '../utils/Container';
@@ -8,9 +9,8 @@ import Container from '../utils/Container';
 const Index = () => {
   return (
     <Skills id='skills'>
+      <Heading>Skills</Heading>
       <Container>
-        <h1>Skills</h1>
-
         <List>
           <ListItem>HTML5</ListItem>
           <ListItem>CSS3</ListItem>
