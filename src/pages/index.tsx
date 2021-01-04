@@ -8,6 +8,7 @@ import GlobalStyle from '../components/utils/GlobalStyle';
 import SEO from '../components/utils/SEO';
 import Header from '../components/header';
 import Hero from '../components/hero';
+import Testimonials from '../components/testimonials';
 import Skills from '../components/skills';
 import Projects from '../components/projects';
 import Contact from '../components/contact';
@@ -22,6 +23,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <GlobalStyle />
         <Header />
         <Hero />
+        <Testimonials />
         <Skills />
         <Projects />
         <Contact />
