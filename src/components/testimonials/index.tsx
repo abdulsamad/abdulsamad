@@ -6,19 +6,20 @@ import Heading from '../utils/Heading';
 import Card from './Card';
 import Quote from './Quote';
 import Name from './Name';
+import Company from './Company';
 
 const clients = [
   {
-    name: 'Vinod Kumar D.',
+    name: 'Vinod Kumar Dhara',
     text:
       'Samad developed my website for one of my project with great quality and dedication. I should appreaciate him for his awesome understanding skill. I would like to hire him again in future.',
-    country: 'India',
+    company: '4inall, India',
   },
   {
     name: 'Khadiga M',
     text:
       'Great work with Abdulsamad. He always kept me up to date with the progress, and handled any feedbacks I had well and delivered the requirements on time.',
-    country: 'Canada',
+    company: 'Klenka IT Solutions, Egypt',
   },
 ];
 
@@ -27,10 +28,11 @@ const Index: React.FC = () => {
     <Testimonials id='testimonials'>
       <Heading>Testimonials</Heading>
       <Container>
-        {clients.map(({ name, text }) => (
+        {clients.map(({ text, name, company }) => (
           <Card>
             <Quote>{text}</Quote>
-            <Name>{name}</Name>
+            <Name>{name}&#44;</Name>
+            <Company>{company}</Company>
           </Card>
         ))}
       </Container>
