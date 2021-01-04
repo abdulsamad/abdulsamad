@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
 const Label = styled.label`
-  line-height: 1.5rem;
-  margin: 0.7rem 0;
+  margin-bottom: 0.3rem;
+
+  &::after {
+    content: '*';
+    color: #f44336;
+    margin-left: 2px;
+  }
 `;
 
 export default Label;
