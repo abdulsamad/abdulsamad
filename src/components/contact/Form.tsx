@@ -8,6 +8,7 @@ const Form = styled.form`
   padding: 2rem;
 
   @media (max-width: 768px) {
+    padding: 0;
     width: 100%;
   }
 `;
