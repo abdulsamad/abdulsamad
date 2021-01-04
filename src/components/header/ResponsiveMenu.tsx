@@ -13,6 +13,7 @@ const MobileNav = styled.nav`
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.4);
   transform-origin: top;
+  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.616);
 `;
 
 const MobileNavLink = styled.a`

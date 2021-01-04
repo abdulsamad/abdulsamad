@@ -10,7 +10,6 @@ const Header = styled.header`
   box-sizing: border-box;
   background: ${({ theme }) => theme.color.primary};
   box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.616);
-  /* border-bottom: 1px solid rgba(255, 255, 255, 0.5); */
   backdrop-filter: blur(60px);
   position: fixed;
   top: 0;
