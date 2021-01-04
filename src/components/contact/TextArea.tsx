@@ -12,8 +12,10 @@ const Textarea = styled.textarea`
   padding: 0.85rem 0.5rem;
   border: none;
   border-radius: 8px;
-  background: #3f3f3f;
+  background: rgba(63, 63, 63, 0.5);
+  backdrop-filter: blur(10px);
   box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 3px;
   color: ${({ theme }) => theme.color.light};
 
   &:focus {
@@ -32,6 +34,14 @@ const Textarea = styled.textarea`
     transform-origin: left;
     transform: scaleX(0);
     animation: ${anim} 0.3s ease forwards;
+  }
+
+  &:focus + label {
+    font-weight: 600;
+  }
+
+  &::placeholder {
+    color: #adadad;
   }
 `;
 

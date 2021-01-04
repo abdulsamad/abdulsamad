@@ -34,7 +34,7 @@ const index = () => {
           </Field>
           <Field>
             <Textarea
-              rows={4}
+              rows={5}
               placeholder='Enter your message here...'
               name='message'
             />
