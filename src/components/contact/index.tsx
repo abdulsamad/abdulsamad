@@ -43,7 +43,10 @@ const index = () => {
             <span />
           </Field>
           <Field>
-            <ReCAPTCHA sitekey={process.env.SITE_RECAPTCHA_KEY} />
+            <ReCAPTCHA
+              sitekey={process.env.SITE_RECAPTCHA_KEY}
+              onChange={(ev: Event) => console.log(ev)}
+            />
           </Field>
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
