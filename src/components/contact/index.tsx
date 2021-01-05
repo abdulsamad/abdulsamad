@@ -11,16 +11,14 @@ import Input from './Input';
 import Label from './Label';
 import SubmitBtn from './SubmitBtn';
 import Textarea from './TextArea';
-import { string } from 'prop-types';
 
-const encode = (data) => {
-  return Object.keys(data)
+const encode = (data: Object) =>
+  Object.keys(data)
     .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&');
-};
 
 const Index = () => {
-  const [formData, setFormData] = useState<{ [key: string]: any }>({});
+  const [formData, setFormData] = useState<{ [key: string]: string }>({});
 
   const handleChange = (ev: React.ChangeEvent) =>
     setFormData({ [ev.target.name]: ev.target.value });
