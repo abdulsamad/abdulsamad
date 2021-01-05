@@ -8,7 +8,13 @@ import Quote from './Quote';
 import Name from './Name';
 import Company from './Company';
 
-const clients = [
+interface clientsTypes {
+  name: string;
+  text: string;
+  company: string;
+}
+
+const clients: clientsTypes[] = [
   {
     name: 'Vinod Kumar Dhara',
     text:
@@ -28,7 +34,7 @@ const Index: React.FC = () => {
     <Testimonials id='testimonials'>
       <Heading>Testimonials</Heading>
       <Container>
-        {clients.map(({ text, name, company }) => (
+        {clients.map(({ name, text, company }) => (
           <Card key={name}>
             <Quote>{text}</Quote>
             <Name>{name}&#44;</Name>

@@ -16,7 +16,7 @@ interface ProjectListTypes {
   source: string;
 }
 
-const projectsList: object[ProjectListTypes] = [
+const projectsList: ProjectListTypes[] = [
   {
     title: 'E-Commerce Project',
     description: 'An E-Commerce Store with admin controls',
