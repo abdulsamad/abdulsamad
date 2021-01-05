@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { navigate } from 'gatsby';
 
 import Container from '../utils/Container';
