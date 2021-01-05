@@ -13,9 +13,6 @@ import SubmitBtn from './SubmitBtn';
 import Textarea from './TextArea';
 
 const Index = () => {
-  const [name, setName] = useState({});
-  const [recaptchaValue, setRecaptchaValue] = useState({});
-
   return (
     <Contact id='contact'>
       <Container>
@@ -47,7 +44,7 @@ const Index = () => {
             <span />
           </Field>
           <Field>
-            <ReCAPTCHA sitekey={process.env.SITE_RECAPTCHA_KEY} />
+            <ReCAPTCHA />
           </Field>
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
