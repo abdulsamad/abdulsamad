@@ -29,7 +29,7 @@ const Index: React.FC = () => {
       <Heading>Testimonials</Heading>
       <Container>
         {clients.map(({ text, name, company }) => (
-          <Card>
+          <Card key={name}>
             <Quote>{text}</Quote>
             <Name>{name}&#44;</Name>
             <Company>{company}</Company>
