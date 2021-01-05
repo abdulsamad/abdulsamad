@@ -44,7 +44,7 @@ const Index = () => {
             <span />
           </Field>
           <Field>
-            <ReCAPTCHA />
+            <ReCAPTCHA sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY} />
           </Field>
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
