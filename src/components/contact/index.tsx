@@ -1,5 +1,4 @@
 import React from 'react';
-import { ReCAPTCHA } from 'react-google-recaptcha';
 
 import Container from '../utils/Container';
 import Contact from './Contact';
@@ -43,7 +42,7 @@ const index = () => {
             <span />
           </Field>
           <Field>
-            <ReCAPTCHA sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY} />
+            <div data-netlify-recaptcha='true' />
           </Field>
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
