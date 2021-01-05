@@ -18,26 +18,8 @@ const encode = (data: Object) =>
     .join('&');
 
 const Index = () => {
-  const [formData, setFormData] = useState<{ [key: string]: string }>({});
-  const [recaptcha, setRecaptcha] = useState('');
-
-  const handleChange = (ev: React.ChangeEvent) =>
-    setFormData({ [ev.target.name]: ev.target.value });
-
-  const handleSubmit = (ev: React.FormEvent) => {
-    ev.preventDefault();
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'g-recaptcha-response': recaptcha,
-        'form-name': ev.target.getAttribute('name'),
-        ...formData,
-      }),
-    })
-      .then(() => navigate('/thank-you/'))
-      .catch((error) => alert(error));
+  const handleChange = () => {
+    // TODO: Add hCaptcha
   };
 
   return (
@@ -47,8 +29,7 @@ const Index = () => {
           name='contact'
           method='POST'
           data-netlify='true'
-          data-netlify-recaptcha='true'
-          onSubmit={handleSubmit}>
+          action='/thank-you'>
           {/* Netlify Form Field */}
           <input type='hidden' name='form-name' value='contact' />
           <FormHeading>Get in touch!</FormHeading>
