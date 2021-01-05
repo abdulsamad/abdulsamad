@@ -65,14 +65,7 @@ const Index = () => {
             <Label>Message</Label>
             <span />
           </Field>
-          <Field>
-            <ReCAPTCHA
-              style={{ margin: 'auto' }}
-              theme='dark'
-              sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
-              onChange={(res: string) => setRecaptcha(res)}
-            />
-          </Field>
+          <Field></Field>
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
       </Container>
