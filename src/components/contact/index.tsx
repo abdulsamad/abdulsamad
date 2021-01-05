@@ -1,5 +1,6 @@
-import React from 'react';
-import { ReCAPTCHA } from 'react-google-recaptcha';
+import React, { useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { navigate } from 'gatsby';
 
 import Container from '../utils/Container';
 import Contact from './Contact';
@@ -11,15 +12,18 @@ import Label from './Label';
 import SubmitBtn from './SubmitBtn';
 import Textarea from './TextArea';
 
-const index = () => {
+const Index = () => {
+  const [name, setName] = useState({});
+  const [recaptchaValue, setRecaptchaValue] = useState({});
+
   return (
     <Contact id='contact'>
       <Container>
         <Form
           name='contact'
           method='POST'
-          data-netlify-recaptcha='true'
-          data-netlify='true'>
+          data-netlify='true'
+          data-netlify-recaptcha='true'>
           {/* Netlify Form Field */}
           <input type='hidden' name='form-name' value='contact' />
           <FormHeading>Get in touch!</FormHeading>
@@ -43,10 +47,7 @@ const index = () => {
             <span />
           </Field>
           <Field>
-            <ReCAPTCHA
-              sitekey={process.env.SITE_RECAPTCHA_KEY}
-              onChange={(ev: Event) => console.log(ev)}
-            />
+            <ReCAPTCHA sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY} />
           </Field>
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
@@ -55,4 +56,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
