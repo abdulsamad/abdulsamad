@@ -19,6 +19,7 @@ const encode = (data: Object) =>
 
 const Index = () => {
   const [formData, setFormData] = useState<{ [key: string]: string }>({});
+  const [recaptcha, setRecaptcha] = useState('');
 
   const handleChange = (ev: React.ChangeEvent) =>
     setFormData({ [ev.target.name]: ev.target.value });
@@ -26,18 +27,11 @@ const Index = () => {
   const handleSubmit = (ev: React.FormEvent) => {
     ev.preventDefault();
 
-    /*     fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact',, ...formData }),
-    })
-      .then(() => alert('Success!'))
-      .catch((error) => alert(error)); */
-
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
+        'g-recaptcha-response': recaptcha,
         'form-name': ev.target.getAttribute('name'),
         ...formData,
       }),
@@ -96,6 +90,7 @@ const Index = () => {
               style={{ margin: 'auto' }}
               theme='dark'
               sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
+              onChange={(res: string) => setRecaptcha(res)}
             />
           </Field>
           <SubmitBtn type='submit'>Send</SubmitBtn>
