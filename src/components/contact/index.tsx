@@ -26,12 +26,23 @@ const Index = () => {
   const handleSubmit = (ev: React.FormEvent) => {
     ev.preventDefault();
 
+    /*     fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact',, ...formData }),
+    })
+      .then(() => alert('Success!'))
+      .catch((error) => alert(error)); */
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...formData }),
+      body: encode({
+        'form-name': ev.target.getAttribute('name'),
+        ...formData,
+      }),
     })
-      .then(() => alert('Success!'))
+      .then(() => navigate('/thank-you/'))
       .catch((error) => alert(error));
   };
 
