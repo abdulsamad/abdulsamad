@@ -64,6 +64,7 @@ const Index = () => {
               placeholder='Your Name'
               name='name'
               onChange={handleChange}
+              required
             />
             <Label>Name</Label>
             <span />
@@ -74,6 +75,7 @@ const Index = () => {
               placeholder='john@example.com'
               name='email'
               onChange={handleChange}
+              required
             />
             <Label>Email</Label>
             <span />
@@ -84,6 +86,7 @@ const Index = () => {
               placeholder='Enter your message here...'
               name='message'
               onChange={handleChange}
+              required
             />
             <Label>Message</Label>
             <span />
