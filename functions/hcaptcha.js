@@ -1,19 +1,15 @@
-const fetch = require('node-fetch');
+const { verify } = require('hcaptcha');
 
 exports.handler = async (event) => {
   const { token } = event.queryStringParameters;
   const secret = process.env.SITE_RECAPTCHA_SECRET;
 
-  const verifyURL = `https://hcaptcha.com/siteverify?response=${token}&&secret=${secret}`;
-
   try {
-    const res = await fetch(verifyURL, {
-      method: 'POST',
-    });
+    const res = verify(secret, token);
 
     return {
       statusCode: 200,
-      body: JSON.stringify(res.json()),
+      body: JSON.stringify(res),
     };
   } catch (err) {
     return {
