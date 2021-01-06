@@ -60,10 +60,14 @@ const Index = () => {
             <Label>Message</Label>
             <span />
           </Field>
-          <HCaptcha
-            sitekey={`${process.env.GATSBY_SITE_RECAPTCHA_KEY}`}
-            onVerify={(token) => handleVerificationSuccess(token)}
-          />
+          <Field>
+            <form>
+              <HCaptcha
+                sitekey={`${process.env.GATSBY_SITE_RECAPTCHA_KEY}`}
+                onVerify={(token) => handleVerificationSuccess(token)}
+              />
+            </form>
+          </Field>
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
       </Container>
