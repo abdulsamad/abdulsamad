@@ -17,9 +17,9 @@ const Index = () => {
     // TODO: Add hCaptcha
   };
 
-  const handleVerificationSuccess = (token: string) => {
-    // TODO: Send hCaptcha to Backend
-    console.log(token);
+  const handleVerificationSuccess = async (token: string) => {
+    const res = await fetch('/api/hcaptcha');
+    console.log(res);
   };
 
   return (
