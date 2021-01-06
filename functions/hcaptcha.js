@@ -5,7 +5,7 @@ exports.handler = async (event) => {
   const secret = process.env.SITE_RECAPTCHA_SECRET;
 
   try {
-    const res = verify(secret, token);
+    const res = await verify(secret, token);
 
     return {
       statusCode: 200,

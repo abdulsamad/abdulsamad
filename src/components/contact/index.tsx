@@ -18,8 +18,10 @@ const Index = () => {
   };
 
   const handleVerificationSuccess = async (token: string) => {
-    const res = await fetch('/api/hcaptcha');
-    console.log(res);
+    const res = await fetch(`/api/hcaptcha?token=${token}`);
+    const data = await res.json();
+
+    console.log(data);
   };
 
   return (
