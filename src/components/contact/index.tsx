@@ -4,6 +4,7 @@ import { navigate } from 'gatsby';
 
 import Container from '../utils/Container';
 import Contact from './Contact';
+import Error from './Error';
 import Form from './Form';
 import FormHeading from './FormHeading';
 import Field from './Field';
@@ -12,29 +13,84 @@ import Label from './Label';
 import SubmitBtn from './SubmitBtn';
 import Textarea from './TextArea';
 
+const encode = (data: any) =>
+  Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+
 const Index = () => {
-  const handleChange = () => {
-    // TODO: Add hCaptcha
+  const [error, setError] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [captcha, setCaptcha] = useState({
+    success: false,
+    challenge_ts: null,
+    hostname: null,
+  });
+
+  const handleChange = (key: string) => (
+    ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const value = ev.target.value;
+
+    setFormData((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
   };
 
   const handleVerificationSuccess = async (token: string) => {
     const res = await fetch(`/api/hcaptcha?token=${token}`);
     const data = await res.json();
 
-    console.log(data);
+    setCaptcha(data);
+  };
+
+  const handleCaptchaExpire = () => {
+    setError('Captcha Expired! Please solve the captcha again for form submission.')
+    setCaptcha({
+      success: false,
+      challenge_ts: null,
+      hostname: null,
+    })
+  }
+
+  const handleSubmit = (ev: React.FormEvent) => {
+    const target = ev.target as Element;
+    ev.preventDefault();
+
+    if (!captcha.success) {
+      setError('Please solve the captcha before submitting a message.');
+      return;
+    }
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': target.getAttribute('name'),
+        ...formData,
+      }),
+    })
+      .then(() => navigate('/thank-you/'))
+      .catch(({ message }) => setError(message));
   };
 
   return (
     <Contact id='contact'>
       <Container>
-        <Form name='contact'>
+        <Form name='contact' onSubmit={handleSubmit}>
           <FormHeading>Get in touch!</FormHeading>
+          {error && <Error>{error}</Error>}
           <Field>
             <Input
               type='text'
               placeholder='Your Name'
               name='name'
-              onChange={handleChange}
+              onChange={handleChange('name')}
               required
             />
             <Label>Name</Label>
@@ -45,7 +101,7 @@ const Index = () => {
               type='email'
               placeholder='john@example.com'
               name='email'
-              onChange={handleChange}
+              onChange={handleChange('email')}
               required
             />
             <Label>Email</Label>
@@ -56,21 +112,18 @@ const Index = () => {
               rows={5}
               placeholder='Enter your message here...'
               name='message'
-              onChange={handleChange}
+              onChange={handleChange('message')}
               required
             />
             <Label>Message</Label>
             <span />
           </Field>
-          <Field>
-            <form>
-              <HCaptcha
-                sitekey={`${process.env.GATSBY_SITE_RECAPTCHA_KEY}`}
-                onVerify={(token) => handleVerificationSuccess(token)}
-                theme='dark'
-              />
-            </form>
-          </Field>
+          <HCaptcha
+            sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
+            onVerify={(handleVerificationSuccess}
+            onExpire={handleCaptchaExpire}
+            theme='dark'
+          />
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
       </Container>
