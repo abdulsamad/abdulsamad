@@ -5,7 +5,7 @@ const Label = styled.label`
 
   &::after {
     content: '*';
-    color: #f44336;
+    color: ${({ theme }) => theme.color.danger};
     margin-left: 2px;
   }
 `;
