@@ -25,13 +25,7 @@ const Index = () => {
   return (
     <Contact id='contact'>
       <Container>
-        <Form
-          name='contact'
-          method='POST'
-          data-netlify='true'
-          action='/thank-you'>
-          {/* Netlify Form Field */}
-          <input type='hidden' name='form-name' value='contact' />
+        <Form name='contact'>
           <FormHeading>Get in touch!</FormHeading>
           <Field>
             <Input
