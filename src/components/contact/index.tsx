@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { navigate } from 'gatsby';
 
 import Container from '../utils/Container';
@@ -11,14 +12,14 @@ import Label from './Label';
 import SubmitBtn from './SubmitBtn';
 import Textarea from './TextArea';
 
-const encode = (data: Object) =>
-  Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-
 const Index = () => {
   const handleChange = () => {
     // TODO: Add hCaptcha
+  };
+
+  const handleVerificationSuccess = (token: string) => {
+    // TODO: Send hCaptcha to Backend
+    console.log(token);
   };
 
   return (
@@ -65,7 +66,10 @@ const Index = () => {
             <Label>Message</Label>
             <span />
           </Field>
-          <Field></Field>
+          <HCaptcha
+            sitekey={`${process.env.GATSBY_SITE_RECAPTCHA_KEY}`}
+            onVerify={(token) => handleVerificationSuccess(token)}
+          />
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
       </Container>

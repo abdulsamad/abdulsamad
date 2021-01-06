@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "author": "Abdul Samad",
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^0.2.2",
     "@types/react-helmet": "^6.1.0",
     "@types/styled-components": "^5.1.5",
     "babel-plugin-styled-components": "^1.12.0",
@@ -28,6 +29,7 @@
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
+    "@types/hcaptcha__react-hcaptcha": "^0.1.4",
     "eslint": "^7.15.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.0.0",
