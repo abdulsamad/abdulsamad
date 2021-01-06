@@ -65,6 +65,7 @@ const Index = () => {
               <HCaptcha
                 sitekey={`${process.env.GATSBY_SITE_RECAPTCHA_KEY}`}
                 onVerify={(token) => handleVerificationSuccess(token)}
+                theme='dark'
               />
             </form>
           </Field>
