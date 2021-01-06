@@ -50,13 +50,15 @@ const Index = () => {
   };
 
   const handleCaptchaExpire = () => {
-    setError('Captcha Expired! Please solve the captcha again for form submission.')
+    setError(
+      'Captcha Expired! Please solve the captcha again for form submission.'
+    );
     setCaptcha({
       success: false,
       challenge_ts: null,
       hostname: null,
-    })
-  }
+    });
+  };
 
   const handleSubmit = (ev: React.FormEvent) => {
     const target = ev.target as Element;
@@ -120,7 +122,7 @@ const Index = () => {
           </Field>
           <HCaptcha
             sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
-            onVerify={(handleVerificationSuccess}
+            onVerify={handleVerificationSuccess}
             onExpire={handleCaptchaExpire}
             theme='dark'
           />
