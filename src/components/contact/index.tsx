@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { navigate } from 'gatsby';
 
@@ -30,6 +30,7 @@ const Index = () => {
     challenge_ts: null,
     hostname: null,
   });
+  const hCaptchaRef = useRef(null);
 
   const handleChange = (key: string) => (
     ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -42,7 +43,7 @@ const Index = () => {
     }));
   };
 
-  const handleVerificationSuccess = async (token: string) => {
+  const handleCaptchaSuccess = async (token: string) => {
     const res = await fetch(`/api/hcaptcha?token=${token}`);
     const data = await res.json();
 
@@ -52,6 +53,17 @@ const Index = () => {
   const handleCaptchaExpire = () => {
     setError(
       'Captcha Expired! Please solve the captcha again for form submission.'
+    );
+    setCaptcha({
+      success: false,
+      challenge_ts: null,
+      hostname: null,
+    });
+  };
+
+  const handleCaptchaError = () => {
+    setError(
+      'Captcha Error! Please solve the captcha again for form submission.'
     );
     setCaptcha({
       success: false,
@@ -77,7 +89,10 @@ const Index = () => {
         ...formData,
       }),
     })
-      .then(() => navigate('/thank-you/'))
+      .then(() => {
+        hCaptchaRef.current.resetCaptcha();
+        navigate('/thank-you/');
+      })
       .catch(({ message }) => setError(message));
   };
 
@@ -120,14 +135,16 @@ const Index = () => {
             <Label>Message</Label>
             <span />
           </Field>
-          <div>
+          <form>
             <HCaptcha
+              ref={hCaptchaRef}
               sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
-              onVerify={handleVerificationSuccess}
+              onVerify={handleCaptchaSuccess}
               onExpire={handleCaptchaExpire}
+              onError={handleCaptchaError}
               theme='dark'
             />
-          </div>
+          </form>
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
       </Container>
