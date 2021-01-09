@@ -120,12 +120,14 @@ const Index = () => {
             <Label>Message</Label>
             <span />
           </Field>
-          <HCaptcha
-            sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
-            onVerify={handleVerificationSuccess}
-            onExpire={handleCaptchaExpire}
-            theme='dark'
-          />
+          <div>
+            <HCaptcha
+              sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
+              onVerify={handleVerificationSuccess}
+              onExpire={handleCaptchaExpire}
+              theme='dark'
+            />
+          </div>
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
       </Container>
