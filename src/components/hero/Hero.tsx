@@ -7,6 +7,7 @@ const Hero = styled.section`
   overflow: hidden;
   padding-top: 60px;
   background: #1b1b1b;
+  box-sizing: border-box;
 `;
 
 export default Hero;
