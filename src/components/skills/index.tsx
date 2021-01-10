@@ -25,7 +25,7 @@ const Index: React.FC = () => (
     <Container>
       <List>
         {skills.map((skill) => (
-          <ListItem>{skill}</ListItem>
+          <ListItem key={skill}>{skill}</ListItem>
         ))}
       </List>
     </Container>
