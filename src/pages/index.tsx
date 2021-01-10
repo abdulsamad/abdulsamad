@@ -16,7 +16,9 @@ import Footer from '../components/footer';
 
 const IndexPage: React.FC<PageProps> = () => {
   useEffect(() => {
+    // prettier-ignore
     if (process.env.NODE_ENV === 'production') {
+      const txt = '%c This website is developed by AbdulSamad. Hopefully there are no error and warnings in console! 😄';
       const art = `%c
      ___   _____   _____   _   _   _       _____       ___       ___  ___       ___   _____  
     /   | |  _  \\ |  _  \\ | | | | | |     /  ___/     /   |     /   |/   |     /   | |  _  \\ 
@@ -25,14 +27,8 @@ const IndexPage: React.FC<PageProps> = () => {
  / /  | | | |_| | | |_| | | |_| | | |___   ___| |  / /  | |  / /       | |  / /  | | | |_| | 
 /_/   |_| |_____/ |_____/ \\_____/ |_____| /_____/ /_/   |_| /_/        |_| /_/   |_| |_____/ `;
 
-      const txt =
-        '%c This website is developed by AbdulSamad. Hopefully there are no error and warnings in console! 😄';
-
       console.log(art, 'font-weight: bold; color: #2f89fc;');
-      console.log(
-        txt,
-        'font-size: 16px; font-weight: 600; text-shadow: 1px 1px 2px #c4c4c4,1px 1px 2px #d3d3d3; margin: 5px 0;'
-      );
+      console.log(txt, 'font-size: 16px; font-weight: 600; text-shadow: 1px 1px 2px #c4c4c4,1px 1px 2px #d3d3d3; margin: 5px 0;');
     }
   }, []);
 
