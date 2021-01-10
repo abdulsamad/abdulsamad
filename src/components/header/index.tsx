@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import Header from './Header';
 import NavMenu from './NavMenu';
@@ -7,32 +7,18 @@ import Logo from './Logo';
 import Container from '../utils/Container';
 import HamburgerMenu from './HamburgerMenu';
 
-const Index: React.FC = () => {
-  // const changeNavbar = () => {
-  //   console.log(123);
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', changeNavbar);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', changeNavbar);
-  //   };
-  // }, []);
-
-  return (
-    <Container>
-      <Header>
-        <Logo height={48} />
-        <NavMenu>
-          <NavLink href='#skills'>Skills</NavLink>
-          <NavLink href='#projects'>Projects</NavLink>
-          <NavLink href='#contact'>Contact</NavLink>
-        </NavMenu>
-        <HamburgerMenu />
-      </Header>
-    </Container>
-  );
-};
+const Index: React.FC = () => (
+  <Container>
+    <Header>
+      <Logo height={48} />
+      <NavMenu>
+        <NavLink href='#skills'>Skills</NavLink>
+        <NavLink href='#projects'>Projects</NavLink>
+        <NavLink href='#contact'>Contact</NavLink>
+      </NavMenu>
+      <HamburgerMenu />
+    </Header>
+  </Container>
+);
 
 export default Index;
