@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Message = styled.h2`
+const Message = styled.h4`
   font-size: 3rem;
 `;
 
