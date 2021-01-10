@@ -18,8 +18,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'AbdulSamad',
-        short_name: 'AS',
+        name: 'AbdulSamad Ansari',
+        short_name: 'AbdulSamad',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
@@ -37,5 +37,6 @@ module.exports = {
         display: 'swap',
       },
     },
+    'gatsby-plugin-smoothscroll',
   ],
 };
