@@ -13,6 +13,10 @@ const SubmitBtn = styled.button`
   &:focus {
     outline: none;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export default SubmitBtn;

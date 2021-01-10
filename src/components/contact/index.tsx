@@ -30,6 +30,7 @@ const Index = () => {
     challenge_ts: null,
     hostname: null,
   });
+  const [submitting, setSubmitting] = useState(false);
   const hCaptchaRef = useRef(null);
 
   const handleChange = (key: string) => (
@@ -75,6 +76,8 @@ const Index = () => {
   const handleSubmit = (ev: React.FormEvent) => {
     const target = ev.target as Element;
     ev.preventDefault();
+    setSubmitting(true);
+    target.setAttribute('disabled', 'true');
 
     if (!captcha.success) {
       setError('Please solve the captcha before submitting a message.');
@@ -90,7 +93,19 @@ const Index = () => {
       }),
     })
       .then(() => {
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+        });
+        setCaptcha({
+          success: false,
+          challenge_ts: null,
+          hostname: null,
+        });
         hCaptchaRef.current.resetCaptcha();
+        target.removeAttribute('disabled');
+        setSubmitting(false);
         navigate('/thank-you/');
       })
       .catch(({ message }) => setError(message));
@@ -147,7 +162,9 @@ const Index = () => {
               />
             </form>
           </Field>
-          <SubmitBtn type='submit'>Send</SubmitBtn>
+          <SubmitBtn type='submit'>
+            {submitting ? 'Please Wait...' : 'Send'}
+          </SubmitBtn>
         </Form>
       </Container>
     </Contact>
