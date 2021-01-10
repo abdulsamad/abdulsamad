@@ -135,16 +135,18 @@ const Index = () => {
             <Label>Message</Label>
             <span />
           </Field>
-          <form>
-            <HCaptcha
-              ref={hCaptchaRef}
-              sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
-              onVerify={handleCaptchaSuccess}
-              onExpire={handleCaptchaExpire}
-              onError={handleCaptchaError}
-              theme='dark'
-            />
-          </form>
+          <Field>
+            <form>
+              <HCaptcha
+                ref={hCaptchaRef}
+                sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
+                onVerify={handleCaptchaSuccess}
+                onExpire={handleCaptchaExpire}
+                onError={handleCaptchaError}
+                theme='dark'
+              />
+            </form>
+          </Field>
           <SubmitBtn type='submit'>Send</SubmitBtn>
         </Form>
       </Container>
