@@ -1199,6 +1199,11 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@hcaptcha/react-hcaptcha@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@hcaptcha/react-hcaptcha/-/react-hcaptcha-0.2.2.tgz#84e475e4147877053fc5a2e40fd1434f10aaa49f"
+  integrity sha512-tAi0IPLvQCEwQVU238AWbdRiPRc+F195nyfptS2E6qI87k+2vadjjxekseLlQfRgMFmZXxMcFuRYgo5r54yRJw==
+
 "@iarna/toml@^2.2.5":
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
@@ -1707,6 +1712,13 @@
     "@types/events" "*"
     "@types/minimatch" "*"
     "@types/node" "*"
+
+"@types/hcaptcha__react-hcaptcha@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@types/hcaptcha__react-hcaptcha/-/hcaptcha__react-hcaptcha-0.1.4.tgz#145cab4f0ac29fe8925dc98ab16cf2dffacad7d5"
+  integrity sha512-eqEIBR7yn4Y1fRtxPnFlEP8SAHwX762Z27s/ifd5wfJicviz6HynF8gHCgUPPtfYlaQFHa/A0NkwBA5YNmNCmQ==
+  dependencies:
+    "@types/react" "*"
 
 "@types/history@*":
   version "4.7.8"
@@ -7259,6 +7271,11 @@ hasha@^5.2.0:
   dependencies:
     is-stream "^2.0.0"
     type-fest "^0.8.0"
+
+hcaptcha@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/hcaptcha/-/hcaptcha-0.0.2.tgz#18f4c055a2315db9f732ac77f9d0e30026bb2eb7"
+  integrity sha512-wWOncj/sY+q8s7tV12tjn3cFNoQhSu3l/7nTJi4QkFKALQi9XnduoXrV/KFzLg5lnB+5560zSAoi9YdYPDw6Eg==
 
 hex-color-regex@^1.1.0:
   version "1.1.0"
