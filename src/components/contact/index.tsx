@@ -139,7 +139,7 @@ const Index = () => {
             <form>
               <HCaptcha
                 ref={hCaptchaRef}
-                sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
+                sitekey={process.env.GATSBY_SITE_HCAPTCHA_KEY}
                 onVerify={handleCaptchaSuccess}
                 onExpire={handleCaptchaExpire}
                 onError={handleCaptchaError}
