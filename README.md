@@ -2,4 +2,10 @@
 
 ## My Portfolio 
 
-## :construction: Under Construction :construction:
+### :construction: Under Construction :construction:
+
+## Environment Variables
+```js
+GATSBY_SITE_HCAPTCHA_KEY=/*Your hCaptcha site key*/
+SITE_HCAPTCHA_SECRET=/*Your hCaptcha secret*/
+```
