@@ -9,6 +9,7 @@ const NavLink = styled.a`
   text-decoration: none;
   margin: 0 30px;
   color: ${({ theme }) => theme.color.font};
+  cursor: pointer;
 
   &::after {
     content: '';

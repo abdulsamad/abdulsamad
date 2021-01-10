@@ -1,5 +1,6 @@
 import React from 'react';
 import { Spring } from 'react-spring/renderprops';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 import Hero from './Hero';
 import HeroText from './HeroText';
@@ -51,8 +52,8 @@ const Index: React.FC<Props> = () => (
         )}
       </Spring>
       <div>
-        <Button href='#projects'>View Projects</Button>
-        <Button href='#contact'>Let&apos;s Talk</Button>
+        <Button onClick={() => scrollTo('#projects')}>View Projects</Button>
+        <Button onClick={() => scrollTo('#contact')}>Let&apos;s Talk</Button>
       </div>
     </HeroText>
   </Hero>

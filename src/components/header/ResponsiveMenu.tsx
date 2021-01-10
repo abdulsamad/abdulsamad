@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Transition, Trail } from 'react-spring/renderprops';
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const MobileNav = styled.nav`
   position: fixed;
@@ -52,7 +53,7 @@ const ResponsiveMenu: React.FC<Props> = ({ open }) => (
             from={{ transform: 'translate3d(0,-20px,0)', opacity: '0' }}
             to={{ transform: 'translate3d(0,0px,0)', opacity: '1' }}>
             {(item) => (props) => (
-              <MobileNavLink href={`#${item}`} style={props}>
+              <MobileNavLink onClick={() => scrollTo(`#${item}`)} style={props}>
                 {item}
               </MobileNavLink>
             )}
