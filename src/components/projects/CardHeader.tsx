@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const CardHeader = styled.h3`
+const CardHeader = styled.h4`
   font-size: 1.6rem;
 `;
 

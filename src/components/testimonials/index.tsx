@@ -29,21 +29,19 @@ const clients: clientsTypes[] = [
   },
 ];
 
-const Index: React.FC = () => {
-  return (
-    <Testimonials id='testimonials'>
-      <Heading>Testimonials</Heading>
-      <Container>
-        {clients.map(({ name, text, company }) => (
-          <Card key={name}>
-            <Quote>{text}</Quote>
-            <Name>{name}&#44;</Name>
-            <Company>{company}</Company>
-          </Card>
-        ))}
-      </Container>
-    </Testimonials>
-  );
-};
+const Index: React.FC = () => (
+  <Testimonials id='testimonials'>
+    <Heading>Testimonials</Heading>
+    <Container>
+      {clients.map(({ name, text, company }) => (
+        <Card key={name}>
+          <Quote>{text}</Quote>
+          <Name>{name}&#44;</Name>
+          <Company>{company}</Company>
+        </Card>
+      ))}
+    </Container>
+  </Testimonials>
+);
 
 export default Index;

@@ -16,10 +16,14 @@ const Button = styled.button<BtnProps>`
     height: 40px;
     width: 40px;
     position: relative;
-    background-color: ${({ theme }) => theme.color.primary};
+    background-color: #cecece;
     border: none;
-    color: ${({ theme }) => theme.color.font};
+    color: ${({ theme }) => theme.color.dark};
     box-shadow: 2px 2px 4px rgba(87, 87, 87, 0.5);
+  }
+
+  &:focus {
+    outline: 1px solid rgba(87, 87, 87, 0.5);
   }
 `;
 
@@ -72,8 +76,10 @@ const HamburgerBtn: React.FC<Props> = ({ maxWidth = 768 }) => {
     <>
       <Button
         maxWidth={maxWidth}
-        onClick={() => setOpen((prevState) => !prevState)}>
-        <SVG viewBox='0 0 100 100'>
+        onClick={() => setOpen((prevState) => !prevState)}
+        aria-label='Toggle Navigation Menu'
+        aria-expanded={open}>
+        <SVG viewBox='0 0 100 100' aria-hidden='true'>
           <Top
             open={open}
             d='M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058'

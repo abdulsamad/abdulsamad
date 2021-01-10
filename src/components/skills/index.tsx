@@ -19,19 +19,17 @@ const skills: string[] = [
   'Styled-Components',
 ];
 
-const Index: React.FC = () => {
-  return (
-    <Skills id='skills'>
-      <Heading>Skills</Heading>
-      <Container>
-        <List>
-          {skills.map((skill) => (
-            <ListItem>{skill}</ListItem>
-          ))}
-        </List>
-      </Container>
-    </Skills>
-  );
-};
+const Index: React.FC = () => (
+  <Skills id='skills'>
+    <Heading>Skills</Heading>
+    <Container>
+      <List>
+        {skills.map((skill) => (
+          <ListItem>{skill}</ListItem>
+        ))}
+      </List>
+    </Container>
+  </Skills>
+);
 
 export default Index;
