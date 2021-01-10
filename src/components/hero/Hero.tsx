@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Hero = styled.div`
+const Hero = styled.section`
   position: relative;
   height: 100vh;
   max-width: 100vw;
