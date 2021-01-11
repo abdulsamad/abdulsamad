@@ -77,13 +77,14 @@ const Index = () => {
   const handleSubmit = (ev: React.FormEvent) => {
     const target = ev.target as Element;
     ev.preventDefault();
-    setSubmitting(true);
-    target.setAttribute('disabled', 'true');
 
     if (!captcha.success) {
       setError('Please solve the captcha before submitting a message.');
       return;
     }
+
+    setSubmitting(true);
+    target.setAttribute('disabled', 'true');
 
     fetch('/', {
       method: 'POST',
