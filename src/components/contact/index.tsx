@@ -12,6 +12,7 @@ import Input from './Input';
 import Label from './Label';
 import SubmitBtn from './SubmitBtn';
 import Textarea from './TextArea';
+import Loader from '../utils/Loader';
 
 const encode = (data: any) =>
   Object.keys(data)
@@ -163,7 +164,7 @@ const Index = () => {
             </form>
           </Field>
           <SubmitBtn type='submit'>
-            {submitting ? 'Please Wait...' : 'Send'}
+            {submitting ? <Loader height={16} width={16} /> : 'Send'}
           </SubmitBtn>
         </Form>
       </Container>
