@@ -6,7 +6,7 @@ const HeroText = styled(Container)`
   position: relative;
   z-index: 10;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     margin: 100px 5vw;
   }
 `;

@@ -14,6 +14,9 @@ const theme: DefaultTheme = {
     primary: 'Montserrat',
     secondary: 'Lora',
   },
+  breakpoints: {
+    sm: '768px',
+  },
 };
 
 export default theme;

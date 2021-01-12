@@ -15,5 +15,8 @@ declare module 'styled-components' {
       primary: string;
       secondary: string;
     };
+    breakpoints: {
+      sm: string;
+    };
   }
 }

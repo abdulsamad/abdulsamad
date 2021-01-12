@@ -5,7 +5,7 @@ const Skills = styled.section`
   padding: 2rem;
   scroll-margin-top: 60px;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     text-align: center;
   }
 `;

@@ -9,7 +9,7 @@ const Hero = styled.section`
   background: #1b1b1b;
   box-sizing: border-box;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     box-sizing: content-box;
   }
 `;

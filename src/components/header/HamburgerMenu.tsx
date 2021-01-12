@@ -3,14 +3,10 @@ import styled from 'styled-components';
 
 import ResponsiveMenu from './ResponsiveMenu';
 
-interface BtnProps {
-  maxWidth: number;
-}
-
-const Button = styled.button<BtnProps>`
+const Button = styled.button`
   display: none;
 
-  @media (max-width: ${({ maxWidth }) => maxWidth}px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     z-index: 10;
     display: inline-block;
     height: 40px;
@@ -65,17 +61,12 @@ const Bottom = styled(Line)<LineProps>`
   stroke-width: 6;
 `;
 
-interface Props {
-  maxWidth?: number;
-}
-
-const HamburgerBtn: React.FC<Props> = ({ maxWidth = 768 }) => {
+const HamburgerBtn: React.FC = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <Button
-        maxWidth={maxWidth}
         onClick={() => setOpen((prevState) => !prevState)}
         aria-label='Toggle Navigation Menu'
         aria-expanded={open}>

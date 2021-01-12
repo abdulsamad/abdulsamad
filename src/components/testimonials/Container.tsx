@@ -5,7 +5,7 @@ const UpdatedContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     display: block;
   }
 `;
