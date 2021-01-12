@@ -1,16 +1,10 @@
 import styled from 'styled-components';
 
-const Error = styled.div`
-  padding: 1rem;
+const ErrorStyled = styled.div`
+  padding: 0.5rem 0;
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.color.danger};
-  color: ${({ theme }) => theme.color.light};
   font-weight: 600;
-
-  ::before {
-    content: '\2757';
-    color: white;
-  }
+  color: ${({ theme }) => theme.color.danger};
 `;
 
-export default Error;
+export default ErrorStyled;
