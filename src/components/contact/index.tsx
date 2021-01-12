@@ -123,7 +123,6 @@ const Index = () => {
       <Container>
         <Form name='contact' onSubmit={handleSubmit}>
           <FormHeading>Get in touch!</FormHeading>
-          {error && <Error>{error}</Error>}
           <Field>
             <Input
               type='text'
@@ -157,6 +156,7 @@ const Index = () => {
             <Label>Message</Label>
             <span />
           </Field>
+          {error && <Error>{error}</Error>}
           <Field>
             <form>
               <HCaptcha

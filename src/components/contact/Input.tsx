@@ -24,15 +24,7 @@ const Input = styled.input`
   }
 
   &:focus ~ span {
-    height: 3px;
-    width: 100%;
-    background: ${({ theme }) => theme.color.primary};
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform-origin: left;
-    transform: scaleX(0);
+    background-color: ${({ theme }) => theme.color.primary};
     animation: ${anim} 0.3s ease forwards;
   }
 
@@ -40,8 +32,29 @@ const Input = styled.input`
     font-weight: 600;
   }
 
+  &:valid ~ span {
+    background-color: ${({ theme }) => theme.color.success};
+    transform: scale(1);
+  }
+
+  &:not(:placeholder-shown):not(:focus):invalid ~ span {
+    background-color: ${({ theme }) => theme.color.danger};
+    transform: scale(1);
+  }
+
   &::placeholder {
     color: #adadad;
+  }
+
+  & ~ span {
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform-origin: left;
+    transform: scaleX(0);
   }
 `;
 
