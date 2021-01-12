@@ -8,6 +8,10 @@ const Hero = styled.section`
   padding-top: 60px;
   background: #1b1b1b;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    box-sizing: content-box;
+  }
 `;
 
 export default Hero;
