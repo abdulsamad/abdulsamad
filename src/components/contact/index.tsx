@@ -33,6 +33,7 @@ const Index = () => {
   });
   const [submitting, setSubmitting] = useState(false);
   const hCaptchaRef = useRef(null);
+  const submitBtnRef = useRef<HTMLButtonElement>(null);
 
   const handleChange = (key: string) => (
     ev: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -76,6 +77,7 @@ const Index = () => {
 
   const handleSubmit = (ev: React.FormEvent) => {
     const target = ev.target as Element;
+    const submitBtn = submitBtnRef.current as HTMLButtonElement;
     ev.preventDefault();
 
     if (!captcha.success) {
@@ -84,7 +86,7 @@ const Index = () => {
     }
 
     setSubmitting(true);
-    target.setAttribute('disabled', 'true');
+    submitBtn.setAttribute('disabled', 'true');
 
     fetch('/', {
       method: 'POST',
@@ -106,11 +108,14 @@ const Index = () => {
           hostname: null,
         });
         hCaptchaRef.current.resetCaptcha();
-        target.removeAttribute('disabled');
+        submitBtn.removeAttribute('disabled');
         setSubmitting(false);
         navigate('/thank-you/');
       })
-      .catch(({ message }) => setError(message));
+      .catch(({ message }) => {
+        setError(message);
+        setSubmitting(false);
+      });
   };
 
   return (
@@ -164,7 +169,7 @@ const Index = () => {
               />
             </form>
           </Field>
-          <SubmitBtn type='submit'>
+          <SubmitBtn type='submit' ref={submitBtnRef}>
             {submitting ? <Loader height={16} width={16} /> : 'Send'}
           </SubmitBtn>
         </Form>
