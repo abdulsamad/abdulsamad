@@ -20,10 +20,10 @@ const Index: React.FC = () => (
           <CardHeader>{title}</CardHeader>
           <CardBody>{description}</CardBody>
           <CardFooter>
-            <Link href={url} target='_blank'>
+            <Link href={url} target='_blank' rel='noopener'>
               Live
             </Link>
-            <Link href={source} target='_blank'>
+            <Link href={source} target='_blank' rel='noopener'>
               Source
             </Link>
           </CardFooter>
