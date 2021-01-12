@@ -44,7 +44,7 @@ const Index: React.FC<Props> = () => (
       <Spring
         from={{ opacity: 0, transform: 'translateY(-20px)' }}
         to={{ opacity: 1, transform: 'translateY(0)' }}
-        delay={1000}>
+        delay={500}>
         {(props) => (
           <Message style={props}>
             Your Technical Partner <br /> Towards Web Success
