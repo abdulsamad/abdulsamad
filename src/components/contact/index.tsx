@@ -128,10 +128,11 @@ const Index = () => {
               type='text'
               placeholder='Your Name'
               name='name'
+              id='name'
               onChange={handleChange('name')}
               required
             />
-            <Label>Name</Label>
+            <Label htmlFor='name'>Name</Label>
             <span />
           </Field>
           <Field>
@@ -139,10 +140,11 @@ const Index = () => {
               type='email'
               placeholder='john@example.com'
               name='email'
+              id='email'
               onChange={handleChange('email')}
               required
             />
-            <Label>Email</Label>
+            <Label htmlFor='email'>Email</Label>
             <span />
           </Field>
           <Field>
@@ -150,10 +152,11 @@ const Index = () => {
               rows={5}
               placeholder='Enter your message here...'
               name='message'
+              id='message'
               onChange={handleChange('message')}
               required
             />
-            <Label>Message</Label>
+            <Label htmlFor='message'>Message</Label>
             <span />
           </Field>
           {error && <Error>{error}</Error>}
