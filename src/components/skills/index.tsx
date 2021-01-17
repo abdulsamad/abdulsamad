@@ -10,6 +10,7 @@ const skills: string[] = [
   'HTML5',
   'CSS3',
   'JavaScript',
+  'TypeScript',
   'React',
   'Git',
   'Sass',
