@@ -19,7 +19,7 @@ const NavLink = styled.a`
     height: 3px;
     width: 100%;
     display: block;
-    background-color: ${({ theme }) => theme.color.primary};
+    background-color: ${({ theme }) => theme.color.font};
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }
