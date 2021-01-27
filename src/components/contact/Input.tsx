@@ -32,7 +32,7 @@ const Input = styled.input`
     font-weight: 600;
   }
 
-  &:valid ~ span {
+  &:not(:placeholder-shown):not(:focus):valid ~ span {
     background-color: ${({ theme }) => theme.color.success};
     transform: scale(1);
   }
