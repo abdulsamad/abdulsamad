@@ -13,7 +13,6 @@ const Textarea = styled.textarea`
   border: none;
   border-radius: 8px;
   background: rgba(63, 63, 63, 0.5);
-  backdrop-filter: blur(10px);
   box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 3px;
   color: ${({ theme }) => theme.color.light};
