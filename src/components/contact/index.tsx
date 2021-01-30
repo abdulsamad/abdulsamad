@@ -32,7 +32,7 @@ const Index = () => {
     hostname: null,
   });
   const [submitting, setSubmitting] = useState(false);
-  const hCaptchaRef = useRef(null);
+  const hCaptchaRef = useRef<any>(null);
   const submitBtnRef = useRef<HTMLButtonElement>(null);
 
   const handleChange = (key: string) => (
@@ -164,7 +164,7 @@ const Index = () => {
             <form>
               <HCaptcha
                 ref={hCaptchaRef}
-                sitekey={process.env.GATSBY_SITE_HCAPTCHA_KEY}
+                sitekey={process.env.GATSBY_SITE_HCAPTCHA_KEY as string}
                 onVerify={handleCaptchaSuccess}
                 onExpire={handleCaptchaExpire}
                 onError={handleCaptchaError}
