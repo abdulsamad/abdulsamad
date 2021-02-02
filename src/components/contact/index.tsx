@@ -161,16 +161,14 @@ const Index = () => {
           </Field>
           {error && <Error>{error}</Error>}
           <Field>
-            <form>
-              <HCaptcha
-                ref={hCaptchaRef}
-                sitekey={process.env.GATSBY_SITE_HCAPTCHA_KEY as string}
-                onVerify={handleCaptchaSuccess}
-                onExpire={handleCaptchaExpire}
-                onError={handleCaptchaError}
-                theme='dark'
-              />
-            </form>
+            <HCaptcha
+              ref={hCaptchaRef}
+              sitekey={process.env.GATSBY_SITE_HCAPTCHA_KEY as string}
+              onVerify={handleCaptchaSuccess}
+              onExpire={handleCaptchaExpire}
+              onError={handleCaptchaError}
+              theme='dark'
+            />
           </Field>
           <SubmitBtn type='submit' ref={submitBtnRef}>
             {submitting ? <Loader height={16} width={16} /> : 'Send'}
