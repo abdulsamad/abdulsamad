@@ -1181,10 +1181,10 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@hcaptcha/react-hcaptcha@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@hcaptcha/react-hcaptcha/-/react-hcaptcha-0.2.2.tgz#84e475e4147877053fc5a2e40fd1434f10aaa49f"
-  integrity sha512-tAi0IPLvQCEwQVU238AWbdRiPRc+F195nyfptS2E6qI87k+2vadjjxekseLlQfRgMFmZXxMcFuRYgo5r54yRJw==
+"@hcaptcha/react-hcaptcha@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@hcaptcha/react-hcaptcha/-/react-hcaptcha-0.3.2.tgz#8910ea4c111799336fb64de6aa7b74329a7d7579"
+  integrity sha512-+90hSDwtnKAk3PXJsyABi+wRHS1B+wgWjDO4nz68KpkLnE73rMz/XMdl+ckrwYkFFilzIDKI3o1IqOpMapEwgg==
 
 "@iarna/toml@^2.2.5":
   version "2.2.5"
