@@ -9,8 +9,8 @@ const projectsList: ProjectListTypes[] = [
   {
     title: 'E-Commerce Project',
     description: 'An E-Commerce Store with admin controls',
-    url: 'https://github.com/samad/MERN_E-COMMERCE',
-    source: 'https://github.com/samad/MERN_E-COMMERCE',
+    url: 'https://github.com/abdulsamad/fashop/tree/deprecated',
+    source: 'https://github.com/abdulsamad/fashop/tree/deprecated',
   },
   {
     title: 'Peek History',
