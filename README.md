@@ -11,7 +11,7 @@
 
 
 <p align="center">
-	Connect with me:
+	Connect with me: :coffee:
 </p>
 <p align="center">
 	<a href="https://www.linkedin.com/in/abdulsamad-ansari" target="_blank" title="Linkedin">
