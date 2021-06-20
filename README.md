@@ -3,7 +3,7 @@
 <h1 align="center">Hey there 👋, I'm AbdulSamad</h1>
 <h3 align="center">Welcome to my GitHub page. Feel free to poke around my projects.</h3>
 
-- 🔭 I’m currently working on [FaShop](https://fashop.netlify.app)
+- 🔭 I’m currently working on [FaShop](https://github.com/abdulsamad/fashop)
 
 - 💬 Ask me about **React, Javascript**
 
