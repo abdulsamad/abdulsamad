@@ -56,7 +56,9 @@ const Index: React.FC<Props> = () => {
       />
       <HeroText>
         {trail.map((props, index) => (
-          <animated.div style={props}>{heroTextArr[index]}</animated.div>
+          <animated.div key={index} style={props}>
+            {heroTextArr[index]}
+          </animated.div>
         ))}
         <div>
           <Button onClick={() => scrollTo('#contact')}>Let&apos;s Talk</Button>

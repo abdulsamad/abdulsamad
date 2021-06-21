@@ -15,7 +15,7 @@ const Index: React.FC = () => (
   <Project id='projects'>
     <Heading>Projects</Heading>
     <Container>
-      {projectsList.map(({ title, description, url, source }) => (
+      {projectsList.map(({ title, description, url, source_url }) => (
         <Card key={url}>
           <CardHeader>{title}</CardHeader>
           <CardBody>{description}</CardBody>
@@ -23,7 +23,7 @@ const Index: React.FC = () => (
             <Link href={url} target='_blank' rel='noopener'>
               Live
             </Link>
-            <Link href={source} target='_blank' rel='noopener'>
+            <Link href={source_url} target='_blank' rel='noopener'>
               Source
             </Link>
           </CardFooter>

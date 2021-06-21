@@ -11,6 +11,7 @@ const Card = styled.div`
   padding: 2rem;
   box-sizing: border-box;
   border-radius: 10px;
+  text-align: center;
 `;
 
 export default Card;

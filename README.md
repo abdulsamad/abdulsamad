@@ -1,12 +1,20 @@
-## My Portfolio 
+<img src="readme/background.svg" align="right" />
 
-### :construction: Under Construction! :construction:
+<h1 align="center">Hey there 👋, I'm AbdulSamad</h1>
+<h3 align="center">Welcome to my GitHub page. Feel free to poke around my projects.</h3>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/be1eecf4-f0be-4021-bd6a-7f0ec53c2a5d/deploy-status)](https://app.netlify.com/sites/abdulsamad-dev/deploys)
+- 🔭 I’m currently working on [FaShop](https://fashop.netlify.app)
 
-## Environment Variables
-```
-GATSBY_SITE_HCAPTCHA_KEY=/*Your hCaptcha site key*/
-SITE_HCAPTCHA_SECRET=/*Your hCaptcha secret*/
-```
+- 💬 Ask me about **React, Javascript**
 
+- 📫 How to reach me **hello@abdulsamad.dev**
+
+
+<p align="center">
+	Connect with me: :coffee:
+</p>
+<p align="center">
+	<a href="https://www.linkedin.com/in/abdulsamad-ansari" target="_blank" title="Linkedin">
+		<img src="https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white" />
+	</a>
+</p>
