@@ -5,7 +5,7 @@
 
 - 🔭 I’m currently working on [FaShop](https://github.com/abdulsamad/fashop)
 
-- 💬 Ask me about **React, Javascript**
+- 💬 Ask me about **Javascript, TypeScript, React**
 
 - 📫 How to reach me **hello@abdulsamad.dev**
 
