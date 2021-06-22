@@ -18,7 +18,7 @@ const projectsList: ProjectListTypes[] = [
     description:
       'A simple and minimal extension for quickly peeking and managing history.',
     url: 'https://chrome.google.com/webstore/detail/peek-history/gknodemjjckmkncijnedcpogffimkmbm?source=portfolio',
-    source_url: 'https://github.com/abdulsamad/peek_history',
+    source_url: 'https://github.com/abdulsamad/peek-history',
   },
   {
     title: 'WeatherX',
@@ -30,8 +30,8 @@ const projectsList: ProjectListTypes[] = [
     title: 'Loan Calculator',
     description:
       "This program help's you to calculate the loan repayment amount.",
-    url: 'https://abdulsamad.github.io/loan_calculator?source=portfolio',
-    source_url: 'https://github.com/abdulsamad/loan_calculator',
+    url: 'https://abdulsamad.github.io/loan-calculator?source=portfolio',
+    source_url: 'https://github.com/abdulsamad/loan-calculator',
   },
 ];
 
