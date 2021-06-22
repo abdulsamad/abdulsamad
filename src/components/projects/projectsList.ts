@@ -7,10 +7,11 @@ interface ProjectListTypes {
 
 const projectsList: ProjectListTypes[] = [
   {
-    title: 'E-Commerce Project',
-    description: 'An E-Commerce Store with admin controls',
-    url: 'https://fa-shop.herokuapp.com',
-    source_url: 'https://github.com/abdulsamad/fashop',
+    title: 'Frontend Fun',
+    description:
+      'Online Web-based code editor for HTML, CSS, and JavaScript with live reload can be used for practice, quick mockups or CSS experiments',
+    url: 'https://frontend-fun.vercel.app?source=portfolio',
+    source_url: 'https://github.com/abdulsamad/frontend-fun',
   },
   {
     title: 'Peek History',
