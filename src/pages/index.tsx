@@ -35,7 +35,11 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <>
       <Normalize />
-      <SEO title='AbdulSamad Portfolio' />
+      <SEO
+        title='Portfolio - AbdulSamad Ansari'
+        description='Your technical partner towards web success'
+        lang='en'
+      />
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
