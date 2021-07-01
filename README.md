@@ -1,9 +1,9 @@
 <img src="readme/background.svg" align="right" />
 
 <h1 align="center">Hey there 👋, I'm AbdulSamad</h1>
-<h3 align="center">Welcome to my GitHub page. Feel free to poke around my projects.</h3>
+<h3 align="center">Welcome to my GitHub profile. Feel free to poke around my projects.</h3>
 
-- 🔭 I’m currently working on [ShopperAve](https://github.com/shopperave)
+- 🔭 I’m currently working on [ShopperAve](https://github.com/abdulsamad/shopperave)
 
 - 💬 Ask me about **Javascript, TypeScript, React**
 
