@@ -44,9 +44,9 @@ const IndexPage: React.FC<PageProps> = () => {
         <GlobalStyle />
         <Header />
         <Hero />
-        <Testimonials />
         <Skills />
         <Projects />
+        <Testimonials />
         <Contact />
         <Footer />
       </ThemeProvider>
