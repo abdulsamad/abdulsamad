@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-const FormHeading = styled.h3`
-  font-size: 2rem;
+import Heading from '../utils/Heading';
+
+const FormHeading = styled(Heading)`
   margin: 0 0 1rem 0;
 `;
 

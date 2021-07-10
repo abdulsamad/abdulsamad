@@ -122,7 +122,7 @@ const Index = () => {
     <Contact id='contact'>
       <Container>
         <Form name='contact' onSubmit={handleSubmit}>
-          <FormHeading>Get in touch!</FormHeading>
+          <FormHeading textAlign='left'>Get in touch!</FormHeading>
           <Field>
             <Input
               type='text'
