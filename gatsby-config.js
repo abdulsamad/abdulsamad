@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-fonts',
       options: {
-        fonts: ['Montserrat', 'Lora'],
+        fonts: ['Inter'],
         display: 'swap',
       },
     },

@@ -12,8 +12,8 @@ const theme: DefaultTheme = {
     font: '#f5f5f5',
   },
   fontFamily: {
-    primary: 'Montserrat',
-    secondary: 'Lora',
+    primary: 'Inter',
+    secondary: 'Inter',
   },
   breakpoints: {
     sm: '768px',
