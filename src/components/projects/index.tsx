@@ -8,6 +8,7 @@ import CardBody from './CardBody';
 import CardFooter from './CardFooter';
 import Link from './Link';
 import Container from './Container';
+import GitHubLink from './GitHubLink';
 
 import projectsList from './projectsList';
 
@@ -29,6 +30,14 @@ const Index: React.FC = () => (
           </CardFooter>
         </Card>
       ))}
+    </Container>
+    <Container>
+      <GitHubLink
+        href='https://github.com/abdulsamad?tab=repositories&q=&type=source&language=&sort='
+        target='_blank'
+        rel='noopener'>
+        Checkout more on GitHub
+      </GitHubLink>
     </Container>
   </Project>
 );
