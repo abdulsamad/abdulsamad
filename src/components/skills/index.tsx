@@ -7,13 +7,13 @@ import ListItem from './ListItem';
 import Container from '../utils/Container';
 
 const skills: string[] = [
-  'HTML5',
-  'CSS3',
+  'HTML',
+  'CSS',
+  'Sass',
   'JavaScript',
   'TypeScript',
   'React',
   'Git',
-  'Sass',
   'Material UI',
   'Bootstrap',
   'Materialize CSS',
