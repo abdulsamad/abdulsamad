@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-    background-color: #effbff;
+    background-color: ${({ theme }) => theme.color.background};
     border: none;
   }
 
