@@ -28,7 +28,8 @@
     "react-helmet": "^6.1.0",
     "react-spring": "^8.0.27",
     "styled-components": "^5.2.1",
-    "styled-normalize": "^8.0.7"
+    "styled-normalize": "^8.0.7",
+    "vanilla-tilt": "^1.7.0"
   },
   "devDependencies": {
     "@types/hcaptcha__react-hcaptcha": "^0.1.4",
