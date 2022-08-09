@@ -10,7 +10,7 @@ const handler: Handler = async (event) => {
     const secret = process.env.HCAPTCHA_SITE_SECRET;
 
     // No token found
-    if (!token) throw new Error("No token found");
+    if (!token) throw new Error("No token found!");
 
     // Verify the hCaptcha token
     const res = await verify(secret, token);
