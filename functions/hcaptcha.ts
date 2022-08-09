@@ -1,15 +1,18 @@
 import { Handler } from "@netlify/functions";
 import { verify } from "hcaptcha";
 
-const handler: Handler = async (event, context) => {
+const handler: Handler = async (event) => {
   try {
-    const { token } = event.body as any;
-    const secret = process.env.SITE_HCAPTCHA_SECRET as string;
+    //  Check body contains data
+    if (!event.body) throw new Error("No data found in body!");
+
+    const { token } = JSON.parse(event.body);
+    const secret = process.env.HCAPTCHA_SITE_SECRET;
 
     // No token found
     if (!token) throw new Error("No token found");
 
-    //
+    // Verify the hCaptcha token
     const res = await verify(secret, token);
 
     return {
@@ -17,10 +20,11 @@ const handler: Handler = async (event, context) => {
       body: JSON.stringify(res),
     };
   } catch (err) {
-    // Catching Errors
+    const errMsg = JSON.stringify({ err });
+
     return {
       statusCode: 500,
-      body: JSON.stringify({ err }),
+      body: errMsg,
     };
   }
 };
