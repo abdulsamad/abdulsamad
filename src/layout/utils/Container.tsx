@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  border: 1px solid red;
   box-sizing: border-box;
   padding: auto 5vw auto 5vw;
   height: 60px;

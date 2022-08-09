@@ -1,5 +1,6 @@
 import Head from "next/head";
 import type { NextPage } from "next";
+import Container from "../src/layout/utils/Container";
 
 const ThankYou: NextPage = () => {
   return (
@@ -12,7 +13,10 @@ const ThankYou: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Thank you</h1>
+      <Container>
+        <h1>Thank you</h1>
+        <h6>Your email has been sent</h6>
+      </Container>
     </>
   );
 };
