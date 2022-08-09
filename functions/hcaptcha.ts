@@ -1,5 +1,5 @@
-import { Handler } from '@netlify/functions';
-import { verify } from 'hcaptcha';
+import { Handler } from "@netlify/functions";
+import { verify } from "hcaptcha";
 
 const handler: Handler = async (event, context) => {
   try {
@@ -7,7 +7,7 @@ const handler: Handler = async (event, context) => {
     const secret = process.env.SITE_HCAPTCHA_SECRET as string;
 
     // No token found
-    if (!token) throw new Error('No token found');
+    if (!token) throw new Error("No token found");
 
     //
     const res = await verify(secret, token);

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const NavLink = styled.a`
   position: relative;
@@ -12,7 +12,7 @@ const NavLink = styled.a`
   cursor: pointer;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -5px;
     left: 0;
