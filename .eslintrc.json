@@ -10,7 +10,12 @@
       "version": "detect"
     }
   },
-  "extends": ["eslint:recommended", "next", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next",
+    "prettier"
+  ],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }]

@@ -4,3 +4,9 @@ declare namespace NodeJS {
     HCAPTCHA_SITE_SECRET: string;
   }
 }
+
+declare namespace Express {
+  export interface Request {
+    token: string;
+  }
+}
