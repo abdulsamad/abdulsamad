@@ -12,6 +12,7 @@
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^1.4.4",
     "@netlify/functions": "^1.0.0",
+    "atropos": "^1.0.2",
     "hcaptcha": "^0.1.1",
     "next": "12.2.4",
     "react": "18.2.0",
