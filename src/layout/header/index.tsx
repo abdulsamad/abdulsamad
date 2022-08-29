@@ -9,7 +9,7 @@ import Container from "../utils/Container";
 const Index = () => (
   <Header>
     <Container>
-      <Logo height={48} />
+      <Logo height={40} />
       <NavMenu>
         <NavLink href="#skills">Skills</NavLink>
         <NavLink href="#projects">Projects</NavLink>
