@@ -1,7 +1,7 @@
 [build]
   functions = "functions"
-  command = "yarn run build && yarn run export"
-  publish = "out"
+  command = "yarn run build"
+  publish = ".next"
 
 [[redirects]]
   from = "/api/*"
