@@ -14,7 +14,7 @@ const Button = styled.button<ButtonProps>`
   border: ${({ theme, outlined }) =>
     outlined ? `1px solid ${theme.color.primary}` : "none"};
   border-radius: 10px;
-  color: #f5f5f5;
+  color: ${({ theme }) => theme.color.text};
 
   & + button {
     margin-left: 1.5rem;
