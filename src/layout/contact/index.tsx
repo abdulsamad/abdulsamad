@@ -14,7 +14,7 @@ import Label from "./Label";
 import SubmitBtn from "./SubmitBtn";
 import Textarea from "./TextArea";
 import Loader from "../utils/Loader";
-import HCaptchaContainer from "./hCaptchaContainer";
+import HCaptchaContainer from "./HCaptchaContainer";
 
 // Encode Form Data for Netlify
 const encodeFormData = (data: any) =>

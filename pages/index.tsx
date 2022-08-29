@@ -3,7 +3,11 @@ import Head from "next/head";
 import type { NextPage } from "next";
 
 import Header from "../src/layout/header";
+import Contact from "../src/layout/contact";
 import { initialProdLog } from "../src/utils";
+import Skills from "../src/layout/skills/Skills";
+import Testimonials from "../src/layout/testimonials";
+import Hero from "../src/layout/hero";
 
 const Home: NextPage = () => {
   useEffect(() => {
@@ -54,6 +58,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <Hero />
+      <Skills />
+      <Testimonials />
+      <Contact />
     </>
   );
 };
