@@ -1,6 +1,6 @@
 [build]
   functions = "functions"
-  command = "npm run build && npm run export"
+  command = "yarn run build && yarn run export"
   publish = "out"
 
 [[redirects]]
