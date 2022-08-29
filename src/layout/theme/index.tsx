@@ -10,6 +10,7 @@ const theme: DefaultTheme = {
     dark: "#1f1f1f",
     background: "#1f1f1f",
     text: "#313131",
+    white: "#ffffff",
   },
   fontFamily: {
     primary: "Inter",

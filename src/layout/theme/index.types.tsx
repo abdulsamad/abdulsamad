@@ -11,6 +11,7 @@ declare module "styled-components" {
       dark: string;
       background: string;
       text: string;
+      white: string;
     };
     fontFamily: {
       primary: string;
