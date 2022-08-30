@@ -151,7 +151,7 @@ const Index = () => {
               onVerify={handleCaptchaSuccess}
               onExpire={handleCaptchaExpire}
               onError={handleCaptchaError}
-              theme="dark"
+              theme="light"
             />
           </HCaptchaContainer>
           {"captcha" in errors && (
