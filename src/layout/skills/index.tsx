@@ -10,14 +10,14 @@ const skills: string[] = [
   "HTML",
   "CSS",
   "Sass",
+  "CSS-in-JS (Styled Components, Emotion)",
   "JavaScript",
   "TypeScript",
   "React",
+  "Node",
   "Git",
   "Material UI",
   "Bootstrap",
-  "Materialize CSS",
-  "Styled-Components",
 ];
 
 const Index = () => (
