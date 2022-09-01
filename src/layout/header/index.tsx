@@ -13,7 +13,7 @@ const Index = () => (
       <NavMenu>
         <NavLink href="#skills">Skills</NavLink>
         <NavLink href="#projects">Projects</NavLink>
-        <NavLink href="#contacts">Contact</NavLink>
+        <NavLink href="#contact">Contact</NavLink>
       </NavMenu>
     </Container>
   </Header>
