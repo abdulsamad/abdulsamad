@@ -14,8 +14,8 @@ const ThankYou: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <h1>Thank you</h1>
-        <h6>Your email has been sent</h6>
+         <h1>Thank you</h1>
+        <h6>Your message has been sent.</h6>
       </Container>
     </>
   );
