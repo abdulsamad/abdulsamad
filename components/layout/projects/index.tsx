@@ -43,7 +43,8 @@ const Index = () => {
         <GitHubLink
           href="https://github.com/abdulsamad?tab=repositories&q=&type=source&language=&sort="
           target="_blank"
-          rel="noopener">
+          rel="noopener"
+          outlined>
           More Projects
         </GitHubLink>
       </Container>

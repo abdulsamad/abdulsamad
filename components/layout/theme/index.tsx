@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   color: {
-    primary: '#2f89fc',
+    primary: '#7C65FB',
     secondary: '#30e3ca',
     danger: '#F44336',
     success: '#4CAF50',
@@ -11,6 +11,7 @@ const theme: DefaultTheme = {
     background: '#1f1f1f',
     text: '#313131',
     white: '#ffffff',
+    buttonBackground: 'linear-gradient(to right, #73A1FF, #7C65FB)',
   },
   fontFamily: {
     primary: 'Inter',
