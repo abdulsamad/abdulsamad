@@ -15,6 +15,9 @@ import SubmitBtn from './SubmitBtn';
 import Textarea from './TextArea';
 import Loader from '../../utils/Loader';
 import HCaptchaContainer from './HCaptchaContainer';
+import { Heading3 } from '../../utils/Heading';
+import { IconLink } from '../../utils/Links';
+import Social from './Social';
 import { encodeNetlifyFormData } from '../../../utils/index';
 
 interface IFormInput {
@@ -106,7 +109,9 @@ const Index = () => {
     <Contact id="contact">
       <Container>
         <Form name="contact" onSubmit={handleSubmit(onSubmit)}>
-          <FormHeading textAlign="left">Get in touch!</FormHeading>
+          <FormHeading textAlign="left">
+            Any questions or remarks? Just write me a message!
+          </FormHeading>
           <Field>
             <Input
               type="text"
@@ -156,6 +161,29 @@ const Index = () => {
             {isSubmitting ? <Loader height={16} width={16} /> : 'Send Message'}
           </SubmitBtn>
         </Form>
+        <Social>
+          <Heading3 margin="0 0 0.4em 0">Get in touch!</Heading3>
+          <IconLink
+            className="bi bi-github"
+            href="https://github.com/abdulsamad"
+            target="_blank"
+            aria-labelledby="githubLinkLabel"
+            contrastColor>
+            <span id="githubLinkLabel" hidden>
+              Github
+            </span>
+          </IconLink>
+          <IconLink
+            className="bi bi-linkedin"
+            href="https://www.linkedin.com/in/abdulsamad-ansari/"
+            target="_blank"
+            aria-labelledby="linkedinLinkLabel"
+            contrastColor>
+            <span id="linkedinLinkLabel" hidden>
+              LinkedIn
+            </span>
+          </IconLink>
+        </Social>
       </Container>
     </Contact>
   );
