@@ -15,7 +15,7 @@ const sharedStyles = css<ButtonProps>`
   color: ${({ theme, outlined }) =>
     outlined ? theme.color.text : theme.color.white};
 
-  & + button {
+  & + & {
     margin-left: 1.5em;
   }
 
@@ -33,8 +33,8 @@ export const Button = styled.button<ButtonProps>`
 `;
 
 export const ButtonLink = styled.a<ButtonProps>`
-  text-decoration: none;
   ${sharedStyles}
+  text-decoration: none;
 `;
 
 export default Button;
