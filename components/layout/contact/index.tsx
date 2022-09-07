@@ -15,12 +15,7 @@ import SubmitBtn from "./SubmitBtn";
 import Textarea from "./TextArea";
 import Loader from "../../utils/Loader";
 import HCaptchaContainer from "./HCaptchaContainer";
-
-// Encode Form Data for Netlify
-const encodeFormData = (data: any) =>
-  Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+import { encodeNetlifyFormData } from "../../../utils/index";
 
 interface IFormInput {
   name: string;
@@ -87,7 +82,7 @@ const Index = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodeFormData({
+      body: encodeNetlifyFormData({
         "form-name": ev.target.getAttribute("name"),
         ...data,
       }),

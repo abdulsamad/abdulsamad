@@ -14,3 +14,9 @@ export const initialProdLog = () => {
 			console.log(txt, 'font-size: 16px; font-weight: 600; text-shadow: 1px 1px 2px #c4c4c4,1px 1px 2px #d3d3d3; margin: 5px 0;');
 	}
 };
+
+// Encode Form Data for Netlify
+export const encodeNetlifyFormData = (data: any) =>
+  Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
