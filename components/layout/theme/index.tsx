@@ -15,7 +15,7 @@ const theme: DefaultTheme = {
   },
   fontFamily: {
     primary: 'Inter',
-    secondary: 'Inter',
+    secondary: 'Roboto, Helvetica, Sans-serif',
   },
   breakpoints: {
     sm: '576px',
