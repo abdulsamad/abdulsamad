@@ -6,18 +6,23 @@ import List from './List';
 import ListItem from './ListItem';
 import Container from '../../utils/Container';
 
-const skills: string[] = [
-  'HTML',
-  'CSS',
-  'Sass',
-  'CSS-in-JS (Styled Components, Emotion)',
-  'JavaScript',
-  'TypeScript',
-  'React',
-  'Node',
-  'Git',
-  'Material UI',
-  'Bootstrap',
+interface skill {
+  text: string;
+}
+
+const skills: skill[] = [
+  { text: 'HTML' },
+  { text: 'CSS' },
+  { text: 'Sass' },
+  { text: 'CSS-in-JS (Styled Components, Emotion)' },
+  { text: 'JavaScript' },
+  { text: 'TypeScript' },
+  { text: 'React' },
+  { text: 'Node' },
+  { text: 'MongoDB' },
+  { text: 'Git' },
+  { text: 'Material UI' },
+  { text: 'Bootstrap' },
 ];
 
 const Index = () => (
@@ -26,7 +31,7 @@ const Index = () => (
     <Container>
       <List>
         {skills.map((skill) => (
-          <ListItem key={skill}>{skill}</ListItem>
+          <ListItem key={skill.text}>{skill.text}</ListItem>
         ))}
       </List>
     </Container>
