@@ -14,8 +14,8 @@ const theme: DefaultTheme = {
     buttonBackground: 'linear-gradient(to right, #73A1FF, #7C65FB)',
   },
   fontFamily: {
-    primary: 'Inter',
-    secondary: 'Roboto, Helvetica, Sans-serif',
+    primary: 'Inter, sans-serif',
+    secondary: 'Roboto, Helvetica, sans-serif',
   },
   breakpoints: {
     sm: '576px',
