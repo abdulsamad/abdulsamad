@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import Heading from '../../utils/Heading';
+import { Heading5 } from '../../utils/Heading';
 
-const FormHeading = styled(Heading)`
+const FormHeading = styled(Heading5)`
   margin: 0 0 1rem 0;
 `;
 

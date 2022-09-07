@@ -18,6 +18,7 @@ import HCaptchaContainer from './HCaptchaContainer';
 import { Heading3 } from '../../utils/Heading';
 import { IconLink } from '../../utils/Links';
 import Social from './Social';
+import Shapes from '../../utils/Shapes';
 import { encodeNetlifyFormData } from '../../../utils/index';
 
 interface IFormInput {
@@ -107,6 +108,22 @@ const Index = () => {
 
   return (
     <Contact id="contact">
+      <Shapes
+        type="circle"
+        height="400px"
+        width="400px"
+        top="-100px"
+        right="-100px"
+        background="linear-gradient(to right, rgb(18, 194, 233), rgba(255, 193, 7, 1))"
+      />
+      <Shapes
+        type="circle"
+        height="200px"
+        width="200px"
+        top="160px"
+        right="160px"
+        background="linear-gradient(to right, rgba(33, 150, 243, 0.8),  rgba(33, 150, 243, 0.8))"
+      />
       <Container>
         <Form name="contact" onSubmit={handleSubmit(onSubmit)}>
           <FormHeading textAlign="left">
