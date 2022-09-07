@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Quote = styled.blockquote`
   min-height: 96px;

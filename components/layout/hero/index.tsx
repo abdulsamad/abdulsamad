@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import Hero from "./Hero";
-import HeroText from "./HeroText";
-import Shapes from "../../utils/Shapes";
-import Intro from "./Intro";
-import Message from "./Message";
-import Button from "../../utils/Button";
+import Hero from './Hero';
+import HeroText from './HeroText';
+import Shapes from '../../utils/Shapes';
+import Intro from './Intro';
+import Message from './Message';
+import Button from '../../utils/Button';
 
 const heroTextArr: React.ReactNode = (
   <>

@@ -1,5 +1,5 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
 
 interface Props {
   height?: number;
@@ -27,7 +27,7 @@ const Loader = ({
   height = 60,
   width = 60,
   borderWidth = 2,
-  color = "#f5f5f5",
+  color = '#f5f5f5',
 }: Props) => (
   <LoaderStyled
     height={height}

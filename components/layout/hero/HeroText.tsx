@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Container from "../../utils/Container";
+import styled from 'styled-components';
+import Container from '../../utils/Container';
 
 const HeroText = styled(Container)`
   height: 100%;

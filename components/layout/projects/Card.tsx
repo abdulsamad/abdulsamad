@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Card = styled.div`
   margin: 0 0 0 -60px;

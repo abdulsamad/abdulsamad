@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 interface CircleProps {
   height: string;
@@ -25,7 +25,7 @@ const Circle = styled.div<CircleProps>`
 `;
 
 interface ShapeProps {
-  type: "circle";
+  type: 'circle';
   height: string;
   width: string;
   top?: string;

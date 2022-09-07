@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import Head from "next/head";
-import type { NextPage } from "next";
+import { useEffect } from 'react';
+import Head from 'next/head';
+import type { NextPage } from 'next';
 
-import Header from "../components/layout/header";
-import Contact from "../components/layout/contact";
-import { initialProdLog } from "../utils";
-import Hero from "../components/layout/hero";
-import Testimonials from "../components/layout/testimonials";
-import Projects from "../components/layout/projects";
-import Skills from "../components/layout/skills";
+import Header from '../components/layout/header';
+import Contact from '../components/layout/contact';
+import { initialProdLog } from '../utils';
+import Hero from '../components/layout/hero';
+import Testimonials from '../components/layout/testimonials';
+import Projects from '../components/layout/projects';
+import Skills from '../components/layout/skills';
 
 const Home: NextPage = () => {
   useEffect(() => {

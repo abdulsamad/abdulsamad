@@ -1,23 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import Skills from "./Skills";
-import Heading from "../../utils/Heading";
-import List from "./List";
-import ListItem from "./ListItem";
-import Container from "../../utils/Container";
+import Skills from './Skills';
+import Heading from '../../utils/Heading';
+import List from './List';
+import ListItem from './ListItem';
+import Container from '../../utils/Container';
 
 const skills: string[] = [
-  "HTML",
-  "CSS",
-  "Sass",
-  "CSS-in-JS (Styled Components, Emotion)",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Node",
-  "Git",
-  "Material UI",
-  "Bootstrap",
+  'HTML',
+  'CSS',
+  'Sass',
+  'CSS-in-JS (Styled Components, Emotion)',
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'Node',
+  'Git',
+  'Material UI',
+  'Bootstrap',
 ];
 
 const Index = () => (

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Container = styled.div<{ justify?: string }>`
   box-sizing: border-box;
@@ -8,7 +8,7 @@ const Container = styled.div<{ justify?: string }>`
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: ${({ justify }) => justify ?? "space-between"};
+  justify-content: ${({ justify }) => justify ?? 'space-between'};
 `;
 
 export default Container;

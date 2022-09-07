@@ -18,5 +18,5 @@ export const initialProdLog = () => {
 // Encode Form Data for Netlify
 export const encodeNetlifyFormData = (data: any) =>
   Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');

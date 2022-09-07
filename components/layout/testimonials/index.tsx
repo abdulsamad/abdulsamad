@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import Testimonials from "./Testimonials";
-import Container from "./Container";
-import Heading from "../../utils/Heading";
-import Card from "./Card";
-import Quote from "./Quote";
-import Name from "./Name";
-import Company from "./Company";
+import Testimonials from './Testimonials';
+import Container from './Container';
+import Heading from '../../utils/Heading';
+import Card from './Card';
+import Quote from './Quote';
+import Name from './Name';
+import Company from './Company';
 
 interface reviewTypes {
   name: string;
@@ -16,14 +16,14 @@ interface reviewTypes {
 
 const reviews: reviewTypes[] = [
   {
-    name: "Vinod Kumar Dhara",
-    text: "Samad developed my website for one of my project with great quality and dedication. I should appreaciate him for his awesome understanding skill. I would like to hire him again in future.",
-    company: "4inall, India",
+    name: 'Vinod Kumar Dhara',
+    text: 'Samad developed my website for one of my project with great quality and dedication. I should appreaciate him for his awesome understanding skill. I would like to hire him again in future.',
+    company: '4inall, India',
   },
   {
-    name: "Khadiga M",
-    text: "Great work with Abdulsamad. He always kept me up to date with the progress, and handled any feedbacks I had well and delivered the requirements on time.",
-    company: "Klenka IT Solutions, Egypt",
+    name: 'Khadiga M',
+    text: 'Great work with Abdulsamad. He always kept me up to date with the progress, and handled any feedbacks I had well and delivered the requirements on time.',
+    company: 'Klenka IT Solutions, Egypt',
   },
 ];
 
