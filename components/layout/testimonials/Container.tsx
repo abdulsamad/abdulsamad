@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Container from "../../utils/Container";
 
 const UpdatedContainer = styled(Container)`
-  justify-content: space-between;
+  gap: 50px;
+  align-items: stretch;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     display: block;
