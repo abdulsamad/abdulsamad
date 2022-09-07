@@ -5,7 +5,7 @@ import HeroText from './HeroText';
 import Shapes from '../../utils/Shapes';
 import Intro from './Intro';
 import Message from './Message';
-import Button from '../../utils/Button';
+import { ButtonLink } from '../../utils/Button';
 
 const heroTextArr: React.ReactNode = (
   <>
@@ -32,10 +32,10 @@ const Index = () => {
       <HeroText>
         {heroTextArr}
         <div>
-          <Button onClick={() => null}>View Projects</Button>
-          <Button outlined={true} onClick={() => null}>
+          <ButtonLink href="#projects">View Projects</ButtonLink>
+          <ButtonLink href="#contact" outlined>
             Get in Touch
-          </Button>
+          </ButtonLink>
         </div>
       </HeroText>
     </Hero>
