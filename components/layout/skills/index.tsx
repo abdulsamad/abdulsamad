@@ -1,10 +1,10 @@
 import React from "react";
 
 import Skills from "./Skills";
-import Heading from "../utils/Heading";
+import Heading from "../../utils/Heading";
 import List from "./List";
 import ListItem from "./ListItem";
-import Container from "../utils/Container";
+import Container from "../../utils/Container";
 
 const skills: string[] = [
   "HTML",

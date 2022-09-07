@@ -3,7 +3,7 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 
-import Container from "../utils/Container";
+import Container from "../../utils/Container";
 import Contact from "./Contact";
 import Error from "./Error";
 import Form from "./Form";
@@ -13,7 +13,7 @@ import Input from "./Input";
 import Label from "./Label";
 import SubmitBtn from "./SubmitBtn";
 import Textarea from "./TextArea";
-import Loader from "../utils/Loader";
+import Loader from "../../utils/Loader";
 import HCaptchaContainer from "./HCaptchaContainer";
 
 // Encode Form Data for Netlify

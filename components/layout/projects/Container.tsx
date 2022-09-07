@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Container from "../utils/Container";
+import Container from "../../utils/Container";
 
 const UpdatedContainer = styled(Container)`
   display: flex;

@@ -4,7 +4,7 @@ import Header from "./Header";
 import NavMenu from "./Navbar";
 import NavLink from "./NavLink";
 import Logo from "./Logo";
-import Container from "../utils/Container";
+import Container from "../../utils/Container";
 
 const Index = () => (
   <Header>

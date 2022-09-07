@@ -2,7 +2,7 @@ import React from "react";
 
 import Testimonials from "./Testimonials";
 import Container from "./Container";
-import Heading from "../utils/Heading";
+import Heading from "../../utils/Heading";
 import Card from "./Card";
 import Quote from "./Quote";
 import Name from "./Name";

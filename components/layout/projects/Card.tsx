@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
 const Card = styled.div`
-  margin: auto;
-  height: 400px;
-  width: 280px;
+  margin: 0 0 0 -60px;
+  height: 150px;
+  width: 400px;
   background: linear-gradient(45deg, rgb(0, 159, 255), rgb(236, 47, 75));
-  border-right: 1px solid rgba(255, 255, 255, 0.5);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   padding: 2rem;
   box-sizing: border-box;
   border-radius: 10px;
