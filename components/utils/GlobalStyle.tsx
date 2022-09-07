@@ -16,14 +16,19 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar {
-    background-color: ${({ theme }) => theme.color.background};
     border: none;
-  }v
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: ${({ theme }) => theme.color.white};
+    border: 1px solid ${({ theme }) => theme.color.white};
+  }
 
   ::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.color.primary};
-    border-radius: 10px;
+    border-radius: 20px;
   }
+
 `;
 
 export default GlobalStyle;
