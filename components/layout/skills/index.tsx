@@ -29,7 +29,7 @@ const Index = () => (
   <Skills id="skills">
     <Heading>Skills</Heading>
     <Container>
-      <List>
+      <List role="list">
         {skills.map((skill) => (
           <ListItem key={skill.text}>{skill.text}</ListItem>
         ))}
