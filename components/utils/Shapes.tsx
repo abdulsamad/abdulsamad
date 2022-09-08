@@ -8,7 +8,8 @@ interface CircleProps {
   right?: string;
   bottom?: string;
   left?: string;
-  background: string;
+  background?: string;
+  border?: string;
 }
 
 const Circle = styled.div<CircleProps>`
@@ -21,18 +22,47 @@ const Circle = styled.div<CircleProps>`
   width: ${({ width }) => width};
   background: ${({ background }) => background};
   border-radius: 50%;
+  border: ${({ border }) => border};
   overflow: hidden;
 `;
 
-interface ShapeProps {
-  type: 'circle';
+interface SquareProps {
   height: string;
   width: string;
   top?: string;
   right?: string;
   bottom?: string;
   left?: string;
-  background: string;
+  background?: string;
+  border?: string;
+  radius?: string;
+}
+
+const Square = styled.div<SquareProps>`
+  position: absolute;
+  top: ${({ top }) => top};
+  right: ${({ right }) => right};
+  bottom: ${({ bottom }) => bottom};
+  left: ${({ left }) => left};
+  height: ${({ height }) => height};
+  width: ${({ width }) => width};
+  background: ${({ background }) => background};
+  border-radius: ${({ radius }) => radius};
+  border: ${({ border }) => border};
+  overflow: hidden;
+`;
+
+interface ShapeProps {
+  type: 'circle' | 'square' | 'triangle';
+  height: string;
+  width: string;
+  top?: string;
+  right?: string;
+  bottom?: string;
+  left?: string;
+  background?: string;
+  border?: string;
+  radius?: string;
 }
 
 const Shapes = ({
@@ -44,8 +74,41 @@ const Shapes = ({
   bottom,
   left,
   background,
+  border,
+  radius,
 }: ShapeProps) => {
   switch (type) {
+    case 'circle':
+      return (
+        <Circle
+          height={height}
+          width={width}
+          top={top}
+          right={right}
+          bottom={bottom}
+          left={left}
+          background={background}
+          border={border}
+          aria-hidden="true"
+        />
+      );
+
+    case 'square':
+      return (
+        <Square
+          height={height}
+          width={width}
+          top={top}
+          right={right}
+          bottom={bottom}
+          left={left}
+          background={background}
+          border={border}
+          radius={radius}
+          aria-hidden="true"
+        />
+      );
+
     default:
       return (
         <Circle
@@ -56,6 +119,7 @@ const Shapes = ({
           bottom={bottom}
           left={left}
           background={background}
+          border={border}
         />
       );
   }
