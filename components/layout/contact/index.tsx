@@ -127,7 +127,7 @@ const Index = () => {
       <Container>
         <Form name="contact" onSubmit={handleSubmit(onSubmit)}>
           <FormHeading textAlign="left">
-            Any questions or remarks? Just write me a message!
+            Any questions, remarks? Don&apos;t hesitate to write me a message!
           </FormHeading>
           <Field>
             <Input
