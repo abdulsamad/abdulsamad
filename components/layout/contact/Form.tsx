@@ -7,7 +7,7 @@ const Form = styled.form`
   max-width: 700px;
   padding: 2rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     padding: 0;
     width: 100%;
   }
