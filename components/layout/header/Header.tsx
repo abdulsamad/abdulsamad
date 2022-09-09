@@ -15,7 +15,6 @@ const Header = styled.header`
   right: 0;
   z-index: 50;
   backdrop-filter: blur(30px);
-  overflow: hidden;
 `;
 
 export default Header;
