@@ -4,6 +4,7 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     color: {
       primary: string;
+      primaryTextColor: string /* Font color on primary colored button, nav, etc.. */;
       secondary: string;
       danger: string;
       success: string;
