@@ -11,6 +11,7 @@ import CardFooter from './CardFooter';
 import Link from './Link';
 import Container from './Container';
 import GitHubLink from './GitHubLink';
+import ProjectImage from './ProjectImage';
 
 import projectsList from './projectsList';
 
@@ -22,7 +23,7 @@ const Index = () => {
         {projectsList.map(
           ({ title, description, url, source_url, image: { src, alt } }) => (
             <ProjectContainer key={src}>
-              <img src={src} alt={alt} />
+              <ProjectImage src={src} alt={alt} />
               <Card>
                 <CardHeader>{title}</CardHeader>
                 <CardBody>{description}</CardBody>
