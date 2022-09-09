@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const Header = styled.header`
-  height: 60px;
+  height: 70px;
   width: 100%;
-  padding: 1rem 0;
+  padding: 0.25em 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,6 +15,7 @@ const Header = styled.header`
   right: 0;
   z-index: 50;
   backdrop-filter: blur(30px);
+  overflow: hidden;
 `;
 
 export default Header;
