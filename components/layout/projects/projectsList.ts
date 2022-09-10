@@ -9,6 +9,8 @@ interface ProjectListTypes {
   };
 }
 
+const testImage = 'https://source.unsplash.com/random/700x200?nature';
+
 const projectsList: ProjectListTypes[] = [
   {
     title: 'Frontend Fun',
@@ -17,7 +19,7 @@ const projectsList: ProjectListTypes[] = [
     url: 'https://frontend-fun.vercel.app?source=portfolio',
     source_url: 'https://github.com/abdulsamad/frontend-fun',
     image: {
-      src: 'https://source.unsplash.com/random/700x200',
+      src: testImage,
       alt: '',
     },
   },
@@ -28,7 +30,7 @@ const projectsList: ProjectListTypes[] = [
     url: 'https://chrome.google.com/webstore/detail/peek-history/gknodemjjckmkncijnedcpogffimkmbm?source=portfolio',
     source_url: 'https://github.com/abdulsamad/peek-history',
     image: {
-      src: 'https://source.unsplash.com/random/700x200',
+      src: testImage,
       alt: '',
     },
   },
@@ -38,7 +40,7 @@ const projectsList: ProjectListTypes[] = [
     url: 'https://weatherx-abdulsamad.netlify.app?source=portfolio',
     source_url: 'https://github.com/abdulsamad/weatherx',
     image: {
-      src: 'https://source.unsplash.com/random/700x200',
+      src: testImage,
       alt: '',
     },
   },
@@ -49,7 +51,7 @@ const projectsList: ProjectListTypes[] = [
     url: 'https://abdulsamad.github.io/loan-calculator?source=portfolio',
     source_url: 'https://github.com/abdulsamad/loan-calculator',
     image: {
-      src: 'https://source.unsplash.com/random/700x200',
+      src: 'https://source.unsplash.com/random/700x200?nature',
       alt: '',
     },
   },

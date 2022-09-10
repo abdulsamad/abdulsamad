@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Atropos from 'atropos/react';
 
 import Project from './Projects';
@@ -13,25 +13,23 @@ import Container from './Container';
 import GitHubLink from './GitHubLink';
 import ProjectImage from './ProjectImage';
 
-import projectsList from './projectsList';
-
-const Index = () => {
+const Index = ({ gitHubPinnedItems }: { gitHubPinnedItems: object[] }) => {
   return (
     <Project id="projects">
       <Heading>Projects</Heading>
       <Container justify="center">
-        {projectsList.map(
-          ({ title, description, url, source_url, image: { src, alt } }) => (
-            <ProjectContainer key={src}>
-              <ProjectImage src={src} alt={alt} />
+        {gitHubPinnedItems.map(
+          ({ id, name, url, homepageUrl, description, openGraphImageUrl }) => (
+            <ProjectContainer key={id}>
+              <ProjectImage src={openGraphImageUrl} alt={openGraphImageUrl} />
               <Card>
-                <CardHeader>{title}</CardHeader>
+                <CardHeader>{name}</CardHeader>
                 <CardBody>{description}</CardBody>
                 <CardFooter>
-                  <Link href={url} target="_blank" rel="noopener">
+                  <Link href={homepageUrl} target="_blank" rel="noopener">
                     Live
                   </Link>
-                  <Link href={source_url} target="_blank" rel="noopener">
+                  <Link href={url} target="_blank" rel="noopener">
                     Source
                   </Link>
                 </CardFooter>
