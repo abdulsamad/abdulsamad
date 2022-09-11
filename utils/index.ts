@@ -20,3 +20,27 @@ export const encodeNetlifyFormData = (data: any) =>
   Object.keys(data)
     .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&');
+
+// GitHub GraphQL query for fetching pinned repositories
+export const githubPinnedReposQuery = JSON.stringify({
+  query: `
+		{
+			user(login: "abdulsamad") {
+				pinnedItems(first: 6) {
+					edges {
+						node {
+							... on Repository {
+								name
+								id
+								url
+								description
+								homepageUrl
+								openGraphImageUrl
+							}
+						}
+					}
+				}
+			}
+		}
+	`,
+});

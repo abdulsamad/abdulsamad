@@ -1,20 +1,21 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
 
 import Header from '../components/layout/header';
 import Contact from '../components/layout/contact';
-import { initialProdLog } from '../utils';
+import { initialProdLog, githubPinnedReposQuery } from '../utils';
 import Hero from '../components/layout/hero';
 import Testimonials from '../components/layout/testimonials';
 import Projects from '../components/layout/projects';
 import Skills from '../components/layout/skills';
+import { GitHubPinnedReposType, Node } from '../types';
 
-const Home: NextPage = ({ gitHubPinnedItems }) => {
+const Home: NextPage<{ githubPinnedItems: Node[] }> = ({
+  githubPinnedItems,
+}) => {
   useEffect(() => {
     initialProdLog();
-
-    console.log(gitHubPinnedItems);
   }, []);
 
   return (
@@ -63,55 +64,37 @@ const Home: NextPage = ({ gitHubPinnedItems }) => {
       <Header />
       <Hero />
       <Skills />
-      <Projects gitHubPinnedItems={gitHubPinnedItems} />
+      <Projects githubPinnedItems={githubPinnedItems} />
       <Testimonials />
       <Contact />
     </>
   );
 };
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
+  const headers = {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+  };
+
   const req = await fetch('https://api.github.com/graphql', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
-    },
-    body: JSON.stringify({
-      query: `
-      {
-        user(login: "abdulsamad") {
-          pinnedItems(first: 6) {
-            edges {
-              node {
-                ... on Repository {
-                  name
-                  id
-                  url
-                  description
-                  homepageUrl
-                  openGraphImageUrl
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
-    }),
+    headers,
+    body: githubPinnedReposQuery,
   });
 
   const res = await req.json();
+  const data: GitHubPinnedReposType = await res.data;
 
-  const filterProjectNodes = res.data.user.pinnedItems.edges.map(
+  const filterProjectNodes = data.user.pinnedItems.edges.map(
     ({ node }) => node
   );
 
   return {
     props: {
-      gitHubPinnedItems: filterProjectNodes,
+      githubPinnedItems: filterProjectNodes,
     },
   };
-}
+};
 
 export default Home;

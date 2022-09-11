@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Atropos from 'atropos/react';
 
 import Project from './Projects';
@@ -12,13 +12,14 @@ import Link from './Link';
 import Container from './Container';
 import GitHubLink from './GitHubLink';
 import ProjectImage from './ProjectImage';
+import { Node } from '../../../types';
 
-const Index = ({ gitHubPinnedItems }: { gitHubPinnedItems: object[] }) => {
+const Index = ({ githubPinnedItems }: { githubPinnedItems: Node[] }) => {
   return (
     <Project id="projects">
       <Heading>Projects</Heading>
       <Container justify="center">
-        {gitHubPinnedItems.map(
+        {githubPinnedItems.map(
           ({ id, name, url, homepageUrl, description, openGraphImageUrl }) => (
             <ProjectContainer key={id}>
               <ProjectImage src={openGraphImageUrl} alt={openGraphImageUrl} />
