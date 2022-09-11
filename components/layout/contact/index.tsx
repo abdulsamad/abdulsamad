@@ -98,6 +98,7 @@ const Index = () => {
           challenge_ts: null,
           hostname: null,
         });
+
         hCaptchaRef.current.resetCaptcha();
         router.push('/thank-you');
       })
@@ -182,7 +183,7 @@ const Index = () => {
           <Heading3 margin="0 0 0.4em 0">Get in touch!</Heading3>
           <IconLink
             className="bi bi-github"
-            href="https://github.com/abdulsamad"
+            href={process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}
             target="_blank"
             aria-labelledby="githubLinkLabel"
             contrastColor>
@@ -192,7 +193,7 @@ const Index = () => {
           </IconLink>
           <IconLink
             className="bi bi-linkedin"
-            href="https://www.linkedin.com/in/abdulsamad-ansari/"
+            href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
             target="_blank"
             aria-labelledby="linkedinLinkLabel"
             contrastColor>

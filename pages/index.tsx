@@ -11,9 +11,11 @@ import Projects from '../components/layout/projects';
 import Skills from '../components/layout/skills';
 import { GitHubPinnedReposType, Node } from '../types';
 
-const Home: NextPage<{ githubPinnedItems: Node[] }> = ({
-  githubPinnedItems,
-}) => {
+interface IHome {
+  githubPinnedItems: Node[];
+}
+
+const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
   useEffect(() => {
     initialProdLog();
   }, []);

@@ -41,7 +41,7 @@ const Index = ({ githubPinnedItems }: { githubPinnedItems: Node[] }) => {
       </Container>
       <Container>
         <GitHubLink
-          href="https://github.com/abdulsamad?tab=repositories&q=&type=source&language=&sort="
+          href={`${process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}?tab=repositories&q=&type=source&language=&sort=`}
           target="_blank"
           rel="noopener"
           outlined>
