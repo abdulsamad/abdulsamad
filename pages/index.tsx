@@ -88,13 +88,44 @@ export const getStaticProps: GetStaticProps = async () => {
   const res = await req.json();
   const data: GitHubPinnedReposType = await res.data;
 
-  const filterProjectNodes = data.user.pinnedItems.edges.map(
-    ({ node }) => node
+  const filteredProjects = data.user.pinnedItems.edges.map(
+    ({
+      node: {
+        description,
+        homepageUrl,
+        id,
+        name,
+        openGraphImageUrl,
+        url,
+        repositoryTopics,
+      },
+    }) => {
+      // Filters, cleans the topics and returs a new array
+      const topics = repositoryTopics.edges.map(
+        ({
+          node: {
+            topic: { name },
+          },
+        }) => {
+          return name;
+        }
+      );
+
+      return {
+        homepageUrl,
+        description,
+        name: name.split('-').join(' '),
+        id,
+        url,
+        openGraphImageUrl,
+        topics,
+      };
+    }
   );
 
   return {
     props: {
-      githubPinnedItems: filterProjectNodes,
+      githubPinnedItems: filteredProjects,
     },
   };
 };
