@@ -2,7 +2,7 @@ import React from 'react';
 
 import Testimonials from './Testimonials';
 import Container from './Container';
-import Heading from '../../utils/Heading';
+import SectionHeading from '../../utils/SectionHeading';
 import Card from './Card';
 import Quote from './Quote';
 import Name from './Name';
@@ -29,7 +29,7 @@ const reviews: reviewTypes[] = [
 
 const Index = () => (
   <Testimonials id="testimonials">
-    <Heading>Testimonials</Heading>
+    <SectionHeading>Testimonials</SectionHeading>
     <Container>
       {reviews.map(({ name, text, company }) => (
         <Card key={name}>

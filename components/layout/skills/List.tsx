@@ -7,6 +7,7 @@ const List = styled.ul`
   justify-content: center;
   font-weight: 600;
   width: 100%;
+  margin: 0;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     padding: 0;

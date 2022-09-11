@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Skills from './Skills';
-import Heading from '../../utils/Heading';
+import SectionHeading from '../../utils/SectionHeading';
 import List from './List';
 import ListItem from './ListItem';
 import Container from '../../utils/Container';
@@ -27,7 +27,7 @@ const skills: skill[] = [
 
 const Index = () => (
   <Skills id="skills">
-    <Heading>Skills</Heading>
+    <SectionHeading>Skills</SectionHeading>
     <Container>
       <List role="list">
         {skills.map((skill) => (
