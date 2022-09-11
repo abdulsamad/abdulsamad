@@ -172,9 +172,7 @@ const Index = () => {
               theme="light"
             />
           </HCaptchaContainer>
-          {'captcha' in errors && (
-            <Error margin="0">{errors.captcha?.message}</Error>
-          )}
+          {'captcha' in errors && <Error>{errors.captcha?.message}</Error>}
           <SubmitBtn type="submit" disabled={isSubmitting}>
             {isSubmitting ? <Loader height={16} width={16} /> : 'Send Message'}
           </SubmitBtn>
