@@ -9,7 +9,7 @@ import Hero from '../components/layout/hero';
 import Testimonials from '../components/layout/testimonials';
 import Projects from '../components/layout/projects';
 import Skills from '../components/layout/skills';
-import { GitHubPinnedReposType, Node } from '../types';
+import { GitHubPinnedReposType, Node } from '../utils/types';
 
 interface IHome {
   githubPinnedItems: Node[];
