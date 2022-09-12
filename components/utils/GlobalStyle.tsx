@@ -3,6 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 // Import Bootstrap Icons
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
+// Import Atropos Styles
+import 'atropos/css';
+
 const GlobalStyle = createGlobalStyle`
   html {
     scroll-behavior: smooth;
