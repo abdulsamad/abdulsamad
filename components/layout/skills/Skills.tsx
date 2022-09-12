@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const Skills = styled.section`
   background-color: ${({ theme }) => theme.color.white};
-  padding: 3rem 2rem;
-  scroll-margin-top: 60px;
+  padding: 3em 0;
+  scroll-margin-top: 70px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     text-align: center;
