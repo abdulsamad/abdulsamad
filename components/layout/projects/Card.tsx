@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Card = styled.div`
-  width: 100%;
+  width: 50ch;
   z-index: 10;
   box-sizing: border-box;
   text-align: center;

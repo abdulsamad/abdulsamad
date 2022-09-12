@@ -37,7 +37,12 @@ const Index = ({ githubPinnedItems }: IProjects) => {
           }) => (
             <Fragment key={id}>
               <ProjectContainer>
-                <ProjectImage src={openGraphImageUrl} alt={openGraphImageUrl} />
+                <div style={{ height: '100%', width: '50%' }}>
+                  <ProjectImage
+                    src={openGraphImageUrl}
+                    alt={openGraphImageUrl}
+                  />
+                </div>
                 <ProjectDescription>
                   <Card>
                     <CardHeader>{name}</CardHeader>
