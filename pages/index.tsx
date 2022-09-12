@@ -11,8 +11,12 @@ import Projects from '../components/layout/projects';
 import Skills from '../components/layout/skills';
 import { GitHubPinnedReposType, Node } from '../utils/types';
 
+export type GithubPinnedItemTypes = Omit<Node, 'repositoryTopics'> & {
+  topics: string[];
+};
+
 interface IHome {
-  githubPinnedItems: Node[];
+  githubPinnedItems: GithubPinnedItemTypes[];
 }
 
 const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
