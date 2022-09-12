@@ -9,6 +9,7 @@ const theme: DefaultTheme = {
     success: '#4CAF50',
     light: '#f5f5f5',
     dark: '#1f1f1f',
+    grey: '#9E9E9E',
     background: '#1f1f1f',
     text: '#313131',
     white: '#ffffff',
