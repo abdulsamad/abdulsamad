@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import Atropos from 'atropos/react';
 
 import Project from './Projects';
 import ProjectContainer from './ProjectContainer';
@@ -12,10 +11,10 @@ import Link from './Link';
 import Container from './Container';
 import GitHubLink from './GitHubLink';
 import ProjectImage from './ProjectImage';
-// import Tags from './Tags';
-import ProjectDescription from './ProjectDescription';
-import { GithubPinnedItemTypes } from '../../../pages/index';
 import Tags from './Tags';
+import ProjectDescription from './ProjectDescription';
+import ProjectImageContainer from './ProjectImageContainer';
+import { GithubPinnedItemTypes } from '../../../pages/index';
 
 interface IProjects {
   githubPinnedItems: GithubPinnedItemTypes[];
@@ -38,12 +37,12 @@ const Index = ({ githubPinnedItems }: IProjects) => {
           }) => (
             <Fragment key={id}>
               <ProjectContainer>
-                <div style={{ height: '100%', width: '50%' }}>
+                <ProjectImageContainer>
                   <ProjectImage
                     src={openGraphImageUrl}
                     alt={openGraphImageUrl}
                   />
-                </div>
+                </ProjectImageContainer>
                 <ProjectDescription>
                   <Card>
                     <CardHeader>{name}</CardHeader>
