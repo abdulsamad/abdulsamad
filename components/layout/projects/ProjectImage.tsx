@@ -2,9 +2,10 @@ import styled from 'styled-components';
 
 const ProjectImage = styled.img`
   display: block;
-  width: auto;
-  transform: skew(20px);
-  height: 400px;
+  height: auto;
+  width: 50%;
+  object-fit: cover;
+  border-radius: 0.6em;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     max-width: 100%;

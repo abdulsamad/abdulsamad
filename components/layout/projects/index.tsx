@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Atropos from 'atropos/react';
 
 import Project from './Projects';
 import ProjectContainer from './ProjectContainer';
-import Heading from '../../utils/Heading';
+import SectionHeading from '../../utils/SectionHeading';
 import Card from './Card';
 import CardHeader from './CardHeader';
 import CardBody from './CardBody';
@@ -12,40 +12,63 @@ import Link from './Link';
 import Container from './Container';
 import GitHubLink from './GitHubLink';
 import ProjectImage from './ProjectImage';
-import { Node } from '../../../types';
+// import Tags from './Tags';
+import ProjectDescription from './ProjectDescription';
+import { GithubPinnedItemTypes } from '../../../pages/index';
 
-const Index = ({ githubPinnedItems }: { githubPinnedItems: Node[] }) => {
+interface IProjects {
+  githubPinnedItems: GithubPinnedItemTypes[];
+}
+
+const Index = ({ githubPinnedItems }: IProjects) => {
   return (
     <Project id="projects">
-      <Heading>Projects</Heading>
+      <SectionHeading>Projects</SectionHeading>
       <Container justify="center">
         {githubPinnedItems.map(
-          ({ id, name, url, homepageUrl, description, openGraphImageUrl }) => (
-            <ProjectContainer key={id}>
-              <ProjectImage src={openGraphImageUrl} alt={openGraphImageUrl} />
-              <Card>
-                <CardHeader>{name}</CardHeader>
-                <CardBody>{description}</CardBody>
-                <CardFooter>
-                  <Link href={homepageUrl} target="_blank" rel="noopener">
-                    Live
-                  </Link>
-                  <Link href={url} target="_blank" rel="noopener">
-                    Source
-                  </Link>
-                </CardFooter>
-              </Card>
-            </ProjectContainer>
+          ({
+            id,
+            name,
+            url,
+            homepageUrl,
+            description,
+            openGraphImageUrl,
+            topics,
+          }) => (
+            <Fragment key={id}>
+              <ProjectContainer>
+                <ProjectImage src={openGraphImageUrl} alt={openGraphImageUrl} />
+                <ProjectDescription>
+                  <Card>
+                    <CardHeader>{name}</CardHeader>
+                    <CardBody>{description}</CardBody>
+                    <CardFooter>
+                      <Link href={homepageUrl} target="_blank" rel="noopener">
+                        Live{' '}
+                        <i
+                          className="bi bi-box-arrow-up-right"
+                          aria-hidden="true"
+                        />
+                      </Link>
+                      <Link href={url} target="_blank" rel="noopener">
+                        Code <i className="bi bi-github" aria-hidden="true" />
+                      </Link>
+                    </CardFooter>
+                  </Card>
+                </ProjectDescription>
+              </ProjectContainer>
+            </Fragment>
           )
         )}
       </Container>
       <Container>
         <GitHubLink
-          href={`${process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}?tab=repositories&q=&type=source&language=&sort=`}
+          href={`${process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}?tab=repositories&q=&type=source`}
           target="_blank"
           rel="noopener"
           outlined>
-          More Projects
+          More Projects{' '}
+          <i className="bi bi-box-arrow-up-right" aria-hidden="true" />
         </GitHubLink>
       </Container>
     </Project>
