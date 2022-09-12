@@ -36,7 +36,7 @@ export const githubPinnedReposQuery = JSON.stringify({
 								description
 								homepageUrl
 								openGraphImageUrl
-								repositoryTopics (first: 6) {
+								repositoryTopics (first: 100) {
 									edges {
 										node {
 											topic {
