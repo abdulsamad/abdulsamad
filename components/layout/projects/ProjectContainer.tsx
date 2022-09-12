@@ -5,6 +5,10 @@ const ProjectContainer = styled.div`
   align-items: center;
   justify-content: center;
 
+  & + & {
+    margin: 2em 0 0 0;
+  }
+
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     flex-direction: column;
     justify-items: center;
