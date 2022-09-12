@@ -15,6 +15,7 @@ import ProjectImage from './ProjectImage';
 // import Tags from './Tags';
 import ProjectDescription from './ProjectDescription';
 import { GithubPinnedItemTypes } from '../../../pages/index';
+import Tags from './Tags';
 
 interface IProjects {
   githubPinnedItems: GithubPinnedItemTypes[];
@@ -60,6 +61,7 @@ const Index = ({ githubPinnedItems }: IProjects) => {
                       </Link>
                     </CardFooter>
                   </Card>
+                  <Tags topics={topics} />
                 </ProjectDescription>
               </ProjectContainer>
             </Fragment>
