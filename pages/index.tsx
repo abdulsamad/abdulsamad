@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import type { NextPage, GetStaticProps } from 'next';
 
@@ -10,6 +10,7 @@ import Testimonials from '../components/layout/testimonials';
 import Projects from '../components/layout/projects';
 import Skills from '../components/layout/skills';
 import { GitHubPinnedReposType, Node } from '../utils/types';
+import Loader from '../components/utils/Loader';
 
 export type GithubPinnedItemTypes = Omit<Node, 'repositoryTopics'> & {
   topics: string[];
@@ -20,9 +21,15 @@ interface IHome {
 }
 
 const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     initialProdLog();
+
+    setLoading(false);
   }, []);
+
+  if (loading) return <Loader />;
 
   return (
     <>
