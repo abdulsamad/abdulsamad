@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import Atropos from 'atropos/react';
 
 import Project from './Projects';
 import ProjectContainer from './ProjectContainer';
@@ -39,12 +38,10 @@ const Index = ({ githubPinnedItems }: IProjects) => {
             <Fragment key={id}>
               <ProjectContainer>
                 <ProjectImageContainer>
-                  <Atropos key={name} activeOffset={40} shadowScale={1.05}>
-                    <ProjectImage
-                      src={openGraphImageUrl}
-                      alt={openGraphImageUrl}
-                    />
-                  </Atropos>
+                  <ProjectImage
+                    src={openGraphImageUrl}
+                    alt={openGraphImageUrl}
+                  />
                 </ProjectImageContainer>
                 <ProjectDescription>
                   <Card>
