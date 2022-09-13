@@ -20,11 +20,11 @@ const handler: Handler = async (event) => {
       body: JSON.stringify(res),
     };
   } catch (err) {
-    const errMsg = JSON.stringify({ err });
+    const errMsg = err instanceof Error ? err.message : 'Something went wrong!';
 
     return {
       statusCode: 500,
-      body: errMsg,
+      body: JSON.stringify({ err: errMsg }),
     };
   }
 };
