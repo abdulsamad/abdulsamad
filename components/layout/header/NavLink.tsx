@@ -36,7 +36,7 @@ const NavLink = styled.a`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    color: ${({ theme }) => theme.color.light};
+    color: currentColor;
   }
 `;
 
