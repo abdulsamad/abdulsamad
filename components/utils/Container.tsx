@@ -8,7 +8,7 @@ interface IContainer {
     | 'space-between'
     | 'space-around'
     | 'space-evenly';
-  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+  direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
 }
 
 const Container = styled.div<IContainer>`
@@ -20,6 +20,7 @@ const Container = styled.div<IContainer>`
   display: flex;
   align-items: center;
   justify-content: ${({ justify }) => justify ?? 'space-between'};
+  flex-direction: ${({ direction }) => direction ?? 'row'};
 `;
 
 export default Container;
