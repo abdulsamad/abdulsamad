@@ -34,6 +34,10 @@ const NavLink = styled.a`
   &:hover::after {
     transform: scaleX(1);
   }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    color: ${({ theme }) => theme.color.light};
+  }
 `;
 
 export default NavLink;

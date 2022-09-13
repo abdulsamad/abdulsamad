@@ -10,6 +10,7 @@ interface CircleProps {
   left?: string;
   background?: string;
   border?: string;
+  responsive?: boolean;
 }
 
 const Circle = styled.div<CircleProps>`
@@ -24,6 +25,7 @@ const Circle = styled.div<CircleProps>`
   border-radius: 50%;
   border: ${({ border }) => border};
   overflow: hidden;
+  display: ${({ responsive }) => (responsive ? 'block' : 'none')};
 `;
 
 interface SquareProps {
@@ -36,6 +38,7 @@ interface SquareProps {
   background?: string;
   border?: string;
   radius?: string;
+  responsive?: boolean;
 }
 
 const Square = styled.div<SquareProps>`
@@ -50,6 +53,7 @@ const Square = styled.div<SquareProps>`
   border-radius: ${({ radius }) => radius};
   border: ${({ border }) => border};
   overflow: hidden;
+  display: ${({ responsive }) => (responsive ? 'block' : 'none')};
 `;
 
 interface ShapeProps {
@@ -63,6 +67,7 @@ interface ShapeProps {
   background?: string;
   border?: string;
   radius?: string;
+  responsive?: boolean;
 }
 
 const Shapes = ({
@@ -76,6 +81,7 @@ const Shapes = ({
   background,
   border,
   radius,
+  responsive = true,
 }: ShapeProps) => {
   switch (type) {
     case 'circle':
@@ -89,6 +95,7 @@ const Shapes = ({
           left={left}
           background={background}
           border={border}
+          responsive={responsive}
           aria-hidden="true"
         />
       );
@@ -105,6 +112,7 @@ const Shapes = ({
           background={background}
           border={border}
           radius={radius}
+          responsive={responsive}
           aria-hidden="true"
         />
       );
@@ -120,6 +128,8 @@ const Shapes = ({
           left={left}
           background={background}
           border={border}
+          responsive={responsive}
+          aria-hidden="true"
         />
       );
   }

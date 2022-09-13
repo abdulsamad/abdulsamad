@@ -13,6 +13,7 @@ const Card = styled.div`
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     margin: 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
   }
 `;
 

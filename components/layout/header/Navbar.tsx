@@ -15,6 +15,8 @@ const Navbar = styled.nav<{ menuOpen: boolean }>`
     transition: 10s ease-in-out;
     opacity: ${({ menuOpen }) => (menuOpen ? 1 : 0)};
     left: 0;
+    background: ${({ theme }) => theme.color.primary};
+    color: ${({ theme }) => theme.color.light};
   }
 `;
 

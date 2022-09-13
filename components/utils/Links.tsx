@@ -21,6 +21,7 @@ export const Link = styled.a`
 export const IconLink = styled.a`
   ${sharedStyles}
   font-size: 1.4rem;
+  color: currentColor;
 `;
 
 export default Link;

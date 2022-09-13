@@ -15,7 +15,7 @@ const NewButton = styled(Button)`
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
+    z-index: 50;
     height: 40px;
     width: 40px;
     padding: 5px;

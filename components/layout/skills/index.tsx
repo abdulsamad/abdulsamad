@@ -14,7 +14,7 @@ const skills: skill[] = [
   { text: 'HTML' },
   { text: 'CSS' },
   { text: 'Sass' },
-  { text: 'CSS-in-JS (Styled Components, Emotion)' },
+  { text: 'CSS-in-JS \n (Styled Components, Emotion)' },
   { text: 'JavaScript' },
   { text: 'TypeScript' },
   { text: 'React' },

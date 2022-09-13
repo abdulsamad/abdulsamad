@@ -8,7 +8,7 @@ const ListItem = styled.li`
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     width: 100%;
     margin: 0;
-    white-space: wrap;
+    white-space: pre-line;
   }
 `;
 

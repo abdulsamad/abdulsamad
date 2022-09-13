@@ -3,7 +3,7 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
-import Container from '../../utils/Container';
+import Container from './Container';
 import Contact from './Contact';
 import Error from './Error';
 import Form from './Form';
@@ -116,6 +116,7 @@ const Index = () => {
         top="-100px"
         right="-100px"
         background="linear-gradient(to right, rgb(18, 194, 233), rgba(255, 193, 7, 1))"
+        responsive={false}
       />
       <Shapes
         type="circle"
@@ -124,6 +125,7 @@ const Index = () => {
         top="160px"
         right="160px"
         background="linear-gradient(to right, rgba(33, 150, 243, 0.8),  rgba(33, 150, 243, 0.8))"
+        responsive={false}
       />
       <Container>
         <Form name="contact" onSubmit={handleSubmit(onSubmit)}>
