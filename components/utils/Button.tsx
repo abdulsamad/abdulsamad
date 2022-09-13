@@ -34,6 +34,7 @@ export const Button = styled.button<ButtonProps>`
 
 export const ButtonLink = styled.a<ButtonProps>`
   ${sharedStyles}
+  display: inline-block;
   text-decoration: none;
 `;
 
