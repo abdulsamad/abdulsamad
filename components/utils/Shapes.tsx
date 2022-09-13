@@ -25,7 +25,11 @@ const Circle = styled.div<CircleProps>`
   border-radius: 50%;
   border: ${({ border }) => border};
   overflow: hidden;
-  display: ${({ responsive }) => (responsive ? 'block' : 'none')};
+  display: block;
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: ${({ responsive }) => (responsive ? 'block' : 'none')};
+  }
 `;
 
 interface SquareProps {
