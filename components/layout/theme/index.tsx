@@ -20,6 +20,7 @@ const theme: DefaultTheme = {
     secondary: 'Roboto, Helvetica, sans-serif',
   },
   breakpoints: {
+    xs: '320px',
     sm: '576px',
     md: '768px',
     lg: '992px',
