@@ -116,7 +116,7 @@ const Index = () => {
         top="-100px"
         right="-100px"
         background="linear-gradient(to right, rgb(18, 194, 233), rgba(255, 193, 7, 1))"
-        responsive={false}
+        hideOnMobile={true}
       />
       <Shapes
         type="circle"
@@ -125,7 +125,7 @@ const Index = () => {
         top="160px"
         right="160px"
         background="linear-gradient(to right, rgba(33, 150, 243, 0.8),  rgba(33, 150, 243, 0.8))"
-        responsive={false}
+        hideOnMobile={true}
       />
       <Container>
         <Form name="contact" onSubmit={handleSubmit(onSubmit)}>

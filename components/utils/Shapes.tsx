@@ -10,7 +10,7 @@ interface CircleProps {
   left?: string;
   background?: string;
   border?: string;
-  responsive?: boolean;
+  hideOnMobile?: boolean;
 }
 
 const Circle = styled.div<CircleProps>`
@@ -28,7 +28,7 @@ const Circle = styled.div<CircleProps>`
   display: block;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    display: ${({ responsive }) => (responsive ? 'block' : 'none')};
+    display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'block')};
   }
 `;
 
@@ -42,7 +42,7 @@ interface SquareProps {
   background?: string;
   border?: string;
   radius?: string;
-  responsive?: boolean;
+  hideOnMobile?: boolean;
 }
 
 const Square = styled.div<SquareProps>`
@@ -57,7 +57,7 @@ const Square = styled.div<SquareProps>`
   border-radius: ${({ radius }) => radius};
   border: ${({ border }) => border};
   overflow: hidden;
-  display: ${({ responsive }) => (responsive ? 'block' : 'none')};
+  display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'block')};
 `;
 
 interface ShapeProps {
@@ -71,7 +71,7 @@ interface ShapeProps {
   background?: string;
   border?: string;
   radius?: string;
-  responsive?: boolean;
+  hideOnMobile?: boolean;
 }
 
 const Shapes = ({
@@ -85,7 +85,7 @@ const Shapes = ({
   background,
   border,
   radius,
-  responsive = true,
+  hideOnMobile = false,
 }: ShapeProps) => {
   switch (type) {
     case 'circle':
@@ -99,7 +99,7 @@ const Shapes = ({
           left={left}
           background={background}
           border={border}
-          responsive={responsive}
+          hideOnMobile={hideOnMobile}
           aria-hidden="true"
         />
       );
@@ -116,7 +116,7 @@ const Shapes = ({
           background={background}
           border={border}
           radius={radius}
-          responsive={responsive}
+          hideOnMobile={hideOnMobile}
           aria-hidden="true"
         />
       );
@@ -132,7 +132,7 @@ const Shapes = ({
           left={left}
           background={background}
           border={border}
-          responsive={responsive}
+          hideOnMobile={hideOnMobile}
           aria-hidden="true"
         />
       );
