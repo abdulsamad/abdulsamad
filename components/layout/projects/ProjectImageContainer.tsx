@@ -4,7 +4,7 @@ const ProjectImageContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 100%;
-  height: auto;
+  height: 351px;
   display: block;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {

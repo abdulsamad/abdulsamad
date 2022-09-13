@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import {
-  motion,
-  AnimatePresence,
-  useTransform,
-  useMotionValue,
-  Variants,
-} from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 const TagsContainer = styled.div`
   margin: 1.5em 0 0 0;
@@ -15,6 +9,7 @@ const TagsContainer = styled.div`
   gap: 8px;
   width: 100%;
   max-width: 100%;
+  overflow: hidden;
 `;
 
 const Tag = styled.div`
@@ -29,6 +24,7 @@ const MoreButton = styled.button`
   background: ${({ theme }) => theme.color.grey};
   color: ${({ theme }) => theme.color.white};
   padding: 0.2em 0.5em;
+  height: 1.8em;
   font-size: 0.9rem;
   border-radius: 99px;
   border: none;
