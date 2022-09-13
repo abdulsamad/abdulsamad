@@ -22,8 +22,6 @@ interface IProjects {
 }
 
 const Index = ({ githubPinnedItems }: IProjects) => {
-  console.log(githubPinnedItems);
-
   return (
     <Project id="projects">
       <SectionHeading>Projects</SectionHeading>
