@@ -2,7 +2,6 @@
 
 const nextConfig = {
   reactStrictMode: true,
-  productionBrowserSourceMaps: true,
   compiler: {
     styledComponents: true,
   },
