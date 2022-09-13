@@ -5,6 +5,12 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: [
+      'repository-images.githubusercontent.com',
+      'opengraph.githubassets.com',
+    ],
+  },
 };
 
 module.exports = nextConfig;

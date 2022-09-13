@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import Image from 'next/image';
 
 import Project from './Projects';
 import ProjectContainer from './ProjectContainer';
@@ -10,17 +11,19 @@ import CardFooter from './CardFooter';
 import Link from './Link';
 import Container from './Container';
 import GitHubLink from './GitHubLink';
-import ProjectImage from './ProjectImage';
 import Tags from './Tags';
 import ProjectDescription from './ProjectDescription';
 import ProjectImageContainer from './ProjectImageContainer';
 import { GithubPinnedItemTypes } from '../../../pages/index';
+import theme from '../theme/index';
 
 interface IProjects {
   githubPinnedItems: GithubPinnedItemTypes[];
 }
 
 const Index = ({ githubPinnedItems }: IProjects) => {
+  console.log(githubPinnedItems);
+
   return (
     <Project id="projects">
       <SectionHeading>Projects</SectionHeading>
@@ -38,9 +41,14 @@ const Index = ({ githubPinnedItems }: IProjects) => {
             <Fragment key={id}>
               <ProjectContainer>
                 <ProjectImageContainer>
-                  <ProjectImage
+                  <Image
+                    layout="fill"
+                    objectFit="contain"
+                    sizes={`(max-width: ${theme.breakpoints.lg}) 100vw,
+                    max-width: ${theme.breakpoints.md}) 50vw,
+                    33vw`}
                     src={openGraphImageUrl}
-                    alt={openGraphImageUrl}
+                    alt={name}
                   />
                 </ProjectImageContainer>
                 <ProjectDescription>
