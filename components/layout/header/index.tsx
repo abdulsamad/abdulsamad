@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 import Header from './Header';
 import NavMenu from './Navbar';
@@ -16,7 +17,12 @@ const Index = () => {
   return (
     <Header>
       <Container>
-        <Logo height={40} />
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}>
+          <Logo height={40} />
+        </motion.div>
         <NavMenu menuOpen={menuOpen}>
           <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#projects">Projects</NavLink>

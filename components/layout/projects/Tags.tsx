@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import {
+  motion,
+  AnimatePresence,
+  useTransform,
+  useMotionValue,
+  Variants,
+} from 'framer-motion';
 
 const TagsContainer = styled.div`
   margin: 1.5em 0 0 0;
@@ -27,15 +34,37 @@ const MoreButton = styled.button`
   border: none;
 `;
 
+const variants: Variants = {
+  start: {
+    transformOrigin: 'top',
+    scale: 0,
+  },
+  mid: {
+    scale: 1,
+  },
+  end: {
+    scale: 0,
+  },
+};
+
 const Tags = ({ topics }: { topics: string[] }) => {
   const [more, setMore] = useState(false);
 
   return (
     <TagsContainer>
       <span>Tags:</span>
-      {topics.slice(0, more ? -1 : 3).map((topic) => (
-        <Tag key={topic}>{topic}</Tag>
-      ))}
+      <AnimatePresence>
+        {topics.slice(0, more ? -1 : 3).map((topic) => (
+          <motion.div
+            key={topic}
+            variants={variants}
+            initial="start"
+            animate="mid"
+            exit="end">
+            <Tag>{topic}</Tag>
+          </motion.div>
+        ))}
+      </AnimatePresence>
       <MoreButton
         type="button"
         onClick={() => setMore((prevState) => !prevState)}>
