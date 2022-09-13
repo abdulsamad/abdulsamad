@@ -43,7 +43,7 @@ const Index = ({ githubPinnedItems }: IProjects) => {
                     layout="fill"
                     objectFit="contain"
                     sizes={`(max-width: ${theme.breakpoints.lg}) 100vw,
-                    max-width: ${theme.breakpoints.md}) 50vw,
+                    (max-width: ${theme.breakpoints.md}) 50vw,
                     33vw`}
                     src={openGraphImageUrl}
                     alt={name}

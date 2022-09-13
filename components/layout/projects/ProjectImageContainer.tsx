@@ -8,9 +8,8 @@ const ProjectImageContainer = styled.div`
   display: block;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    width: 100%;
     max-width: 100%;
-    height: auto;
+    height: 251px;
   }
 `;
 
