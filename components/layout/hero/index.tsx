@@ -29,7 +29,6 @@ const Index = () => {
         left="10%"
         border="10px solid rgba(35, 63, 163, 0.68)"
         radius="20px"
-        hideOnMobile={true}
       />
       <Shapes
         type="circle"
