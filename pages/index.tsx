@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
+import type { NextPage, GetStaticProps } from 'next';
 
 import { initialProdLog, githubPinnedReposQuery } from '../utils';
 import { GitHubPinnedReposType, Node } from '../utils/types';
@@ -9,10 +8,9 @@ import Loader from '../components/utils/Loader';
 import Header from '../components/layout/header';
 import Hero from '../components/layout/hero';
 import Skills from '../components/layout/skills';
+import Projects from '../components/layout/projects';
 import Testimonials from '../components/layout/testimonials';
-
-const Projects = dynamic(() => import('../components/layout/projects'));
-const Contact = dynamic(() => import('../components/layout/contact'));
+import Contact from '../components/layout/contact';
 
 export type GithubPinnedItemTypes = Omit<Node, 'repositoryTopics'> & {
   topics: string[];
