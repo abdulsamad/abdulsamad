@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-const Message = styled.h4`
-  font-size: 3rem;
-  font-weight: 600;
-  margin: 0.8em 0;
+import { Heading4 } from '../../utils/Heading';
+
+const Message = styled(Heading4)`
+  font-size: 2.5rem;
+  margin: 0.4em 0;
 `;
 
 export default Message;

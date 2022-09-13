@@ -1,23 +1,14 @@
 import React from 'react';
 
 import Hero from './Hero';
-import HeroText from './HeroText';
+import Container from './Container';
 import Shapes from '../../utils/Shapes';
 import Intro from './Intro';
 import Message from './Message';
+import ButtonGroup from './ButtonGroup';
+import MessageContainer from './MessageContainer';
 import { ButtonLink } from '../../utils/Button';
 import GridIcon from './GridIcon';
-
-const heroTextMessage: React.ReactNode = (
-  <div>
-    <GridIcon className="bi bi-grid-3x3-gap-fill" aria-hidden="true" />
-    <Intro>
-      Hi, I&apos;m <span>AbdulSamad</span>, <br /> Web <span>Developer</span>{' '}
-      &amp;
-    </Intro>
-    <Message>I paint the web.</Message>
-  </div>
-);
 
 const Index = () => {
   return (
@@ -38,6 +29,7 @@ const Index = () => {
         left="10%"
         border="10px solid rgba(35, 63, 163, 0.68)"
         radius="20px"
+        hideOnMobile={true}
       />
       <Shapes
         type="circle"
@@ -46,16 +38,24 @@ const Index = () => {
         top="500px"
         left="57ch"
         border="8px solid rgba(0, 0, 0, 0.42)"
+        hideOnMobile={true}
       />
-      <HeroText>
-        {heroTextMessage}
-        <div>
+      <Container>
+        <MessageContainer>
+          <GridIcon src="grid-icon.svg" alt="grid image" aria-hidden="true" />
+          <Intro>
+            Hi, I&apos;m <span>AbdulSamad</span>, <br /> Web{' '}
+            <span>Developer</span> &amp;
+          </Intro>
+          <Message>I paint the web.</Message>
+        </MessageContainer>
+        <ButtonGroup>
           <ButtonLink href="#projects">View Projects</ButtonLink>
           <ButtonLink href="#contact" outlined>
             Get in Touch
           </ButtonLink>
-        </div>
-      </HeroText>
+        </ButtonGroup>
+      </Container>
     </Hero>
   );
 };

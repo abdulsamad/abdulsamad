@@ -1,19 +1,15 @@
 import styled from 'styled-components';
 import Container from '../../utils/Container';
 
-const HeroText = styled(Container)`
-  height: 100%;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
+const HeroContainer = styled(Container)`
   align-items: flex-start;
-  position: relative;
+  flex-direction: column;
   z-index: 10;
-  transform: translateY(-15%);
+  margin: 0 0 0 60px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     margin: 100px 5vw;
   }
 `;
 
-export default HeroText;
+export default HeroContainer;

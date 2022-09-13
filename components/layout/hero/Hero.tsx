@@ -5,9 +5,10 @@ const Hero = styled.section`
   height: 100vh;
   max-width: 100vw;
   overflow: hidden;
-  padding-top: 60px;
   background: ${({ theme }) => theme.color.white};
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     box-sizing: content-box;
