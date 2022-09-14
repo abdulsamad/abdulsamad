@@ -6,7 +6,7 @@ const GridIcon = styled.img`
   top: 0;
   left: 0;
   z-index: -10;
-  margin: -2.3em 0 0 -2.3em;
+  margin: -1.5em 0 0 -1.5em;
   opacity: 0.75;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {

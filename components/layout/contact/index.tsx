@@ -15,9 +15,9 @@ import SubmitBtn from './SubmitBtn';
 import Textarea from './TextArea';
 import Loader from '../../utils/Loader';
 import HCaptchaContainer from './HCaptchaContainer';
-import { Heading3 } from '../../utils/Heading';
 import { IconLink } from '../../utils/Links';
 import Social from './Social';
+import SocialHeading from './SocialHeading';
 import Shapes from '../../utils/Shapes';
 import { encodeNetlifyFormData } from '../../../utils/index';
 
@@ -180,7 +180,7 @@ const Index = () => {
           </SubmitBtn>
         </Form>
         <Social>
-          <Heading3 margin="0 0 0.4em 0">Get in touch!</Heading3>
+          <SocialHeading margin="0 0 0.4em 0">Get in touch!</SocialHeading>
           <IconLink
             className="bi bi-github"
             href={process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}

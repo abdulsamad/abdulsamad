@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import { Heading3 } from '../../utils/Heading';
-
-const Intro = styled(Heading3)`
+const Intro = styled.div`
   text-align: left;
   font-size: 1.5rem;
   font-weight: 500;
