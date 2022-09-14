@@ -123,10 +123,19 @@ const Index = () => {
         hideOnMobile={true}
       />
       <Container>
-        <Form name="contact" onSubmit={handleSubmit(onSubmit)}>
+        <Form
+          name="contact"
+          netlify-honeypot="bot-field"
+          data-netlify="true"
+          onSubmit={handleSubmit(onSubmit)}>
           <FormHeading textAlign="left">
             Any questions, remarks? Don&apos;t hesitate to write me a message!
           </FormHeading>
+          <p className="hidden">
+            <label>
+              Don’t fill this out if you’re human: <input name="bot-field" />
+            </label>
+          </p>
           <Field>
             <Input
               type="text"
