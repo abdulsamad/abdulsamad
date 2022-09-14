@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0; 
     color: ${({ theme }) => theme.color.text};
     font-family: ${({ theme }) => theme.fontFamily.primary};
+    background: ${({ theme }) => theme.color.background}
   }
 
   ::-webkit-scrollbar {
@@ -20,8 +21,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
-    background-color: ${({ theme }) => theme.color.white};
-    border: 1px solid ${({ theme }) => theme.color.white};
+    background-color: ${({ theme }) => theme.color.backgroundSecondary};
+    border: 1px solid ${({ theme }) => theme.color.backgroundSecondary};
   }
 
   ::-webkit-scrollbar-thumb {

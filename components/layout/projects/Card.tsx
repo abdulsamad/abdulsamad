@@ -5,7 +5,7 @@ const Card = styled.div`
   z-index: 10;
   box-sizing: border-box;
   text-align: center;
-  background-color: ${({ theme }) => theme.color.light};
+  background-color: ${({ theme }) => theme.color.backgroundSecondary};
   color: ${({ theme }) => theme.color.text};
   border-radius: 0.8em;
   padding: 1.5em;

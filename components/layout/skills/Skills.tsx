@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Skills = styled.section`
-  background-color: ${({ theme }) => theme.color.white};
+  background-color: ${({ theme }) => theme.color.backgroundSecondary};
   padding: 3em 0;
   scroll-margin-top: 70px;
 
