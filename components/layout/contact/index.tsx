@@ -13,7 +13,6 @@ import Label from './Label';
 import SubmitBtn from './SubmitBtn';
 import Textarea from './TextArea';
 import Loader from '../../utils/Loader';
-import HCaptchaContainer from './HCaptchaContainer';
 import { IconLink } from '../../utils/Links';
 import Social from './Social';
 import SocialHeading from './SocialHeading';
