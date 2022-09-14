@@ -77,7 +77,7 @@ const Index = () => {
               </Intro>
             </motion.div>
             <motion.div variants={messageVariant}>
-              <Message>Crafting Amazing Web Experiences</Message>
+              <Message>Crafting Awesome Web Experiences</Message>
             </motion.div>
           </motion.div>
         </MessageContainer>
