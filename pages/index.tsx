@@ -39,7 +39,7 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
         <meta name="title" content="AbdulSamad Ansari - Web Developer" />
         <meta
           name="description"
-          content="Your technical partner towards web success"
+          content="A web developer who loves crafting awesome web experiences. Skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
         />
         <meta name="author" content="AbdulSamad Ansari" />
         <meta

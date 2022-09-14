@@ -1,5 +1,4 @@
-import React, { useState, useRef } from 'react';
-import HCaptcha from '@hcaptcha/react-hcaptcha';
+import React from 'react';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 
@@ -29,12 +28,12 @@ interface IFormInput {
 }
 
 const Index = () => {
-  const [captcha, setCaptcha] = useState({
-    success: false,
-    challenge_ts: null,
-    hostname: null,
-  });
-  const hCaptchaRef = useRef<any>(null);
+  // const [captcha, setCaptcha] = useState({
+  //   success: false,
+  //   challenge_ts: null,
+  //   hostname: null,
+  // });
+  // const hCaptchaRef = useRef<any>(null);
   const router = useRouter();
   const {
     register,
@@ -44,46 +43,46 @@ const Index = () => {
     reset,
   } = useForm<IFormInput>();
 
-  const handleCaptchaSuccess = async (token: string) => {
-    const res = await fetch(`/api/hcaptcha?token=${token}`);
-    const data = await res.json();
+  // const handleCaptchaSuccess = async (token: string) => {
+  //   const res = await fetch(`/api/hcaptcha?token=${token}`);
+  //   const data = await res.json();
 
-    setCaptcha(data);
-  };
+  //   setCaptcha(data);
+  // };
 
-  const handleCaptchaExpire = () => {
-    setError('captcha', {
-      message:
-        'Captcha Expired! Please solve the captcha again for form submission.',
-    });
-    setCaptcha({
-      success: false,
-      challenge_ts: null,
-      hostname: null,
-    });
-  };
+  // const handleCaptchaExpire = () => {
+  //   setError('captcha', {
+  //     message:
+  //       'Captcha Expired! Please solve the captcha again for form submission.',
+  //   });
+  //   setCaptcha({
+  //     success: false,
+  //     challenge_ts: null,
+  //     hostname: null,
+  //   });
+  // };
 
-  const handleCaptchaError = () => {
-    setError('captcha', {
-      message:
-        'Captcha Error! Please solve the captcha again for form submission.',
-    });
-    setCaptcha({
-      success: false,
-      challenge_ts: null,
-      hostname: null,
-    });
-  };
+  // const handleCaptchaError = () => {
+  //   setError('captcha', {
+  //     message:
+  //       'Captcha Error! Please solve the captcha again for form submission.',
+  //   });
+  //   setCaptcha({
+  //     success: false,
+  //     challenge_ts: null,
+  //     hostname: null,
+  //   });
+  // };
 
   const onSubmit = (data: IFormInput, ev: any) => {
-    console.log(captcha);
+    // if (!captcha.success) {
+    //   setError('captcha', {
+    //     message: 'Please solve captcha to submit a form.',
+    //   });
+    //   return;
+    // }
 
-    if (!captcha.success) {
-      setError('captcha', {
-        message: 'Please solve captcha to submit a form.',
-      });
-      return;
-    }
+    console.log(data);
 
     fetch('/', {
       method: 'POST',
@@ -95,16 +94,11 @@ const Index = () => {
     })
       .then(() => {
         reset();
-        setCaptcha({
-          success: false,
-          challenge_ts: null,
-          hostname: null,
-        });
 
-        hCaptchaRef.current.resetCaptcha();
         router.push('/thank-you');
       })
       .catch(({ message }) => {
+        console.log(message);
         setError('captcha', { message });
       });
   };
@@ -166,7 +160,7 @@ const Index = () => {
             <span />
           </Field>
           {'message' in errors && <Error>{errors.message?.message}</Error>}
-          <HCaptchaContainer>
+          {/* <HCaptchaContainer>
             <HCaptcha
               ref={hCaptchaRef}
               sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}
@@ -175,7 +169,7 @@ const Index = () => {
               onError={handleCaptchaError}
               theme="light"
             />
-          </HCaptchaContainer>
+          </HCaptchaContainer> */}
           {'captcha' in errors && <Error>{errors.captcha?.message}</Error>}
           <SubmitBtn type="submit" disabled={isSubmitting}>
             {isSubmitting ? <Loader height={16} width={16} /> : 'Send Message'}
