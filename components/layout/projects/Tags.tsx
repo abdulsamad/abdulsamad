@@ -48,7 +48,6 @@ const Tags = ({ topics }: { topics: string[] }) => {
 
   return (
     <TagsContainer>
-      <span>Tags:</span>
       <AnimatePresence>
         {topics.slice(0, more ? -1 : 3).map((topic) => (
           <motion.div
