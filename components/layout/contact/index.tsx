@@ -76,6 +76,8 @@ const Index = () => {
   };
 
   const onSubmit = (data: IFormInput, ev: any) => {
+    console.log(captcha);
+
     if (!captcha.success) {
       setError('captcha', {
         message: 'Please solve captcha to submit a form.',
