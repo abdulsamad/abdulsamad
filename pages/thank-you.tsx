@@ -7,11 +7,12 @@ const ThankYou: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Thank You</title>
+        <title>Thank You - AbdulSamad Ansari</title>
         <meta
           name="description"
-          content="Your technical partner towards web success"
+          content="A web developer who loves crafting awesome web experiences. Skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
         />
+        <meta name="robots" content="noindex,nofollow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThankYouContent />
