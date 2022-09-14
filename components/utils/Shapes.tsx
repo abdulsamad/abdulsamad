@@ -25,7 +25,7 @@ const Circle = styled.div<CircleProps>`
   border-radius: 50%;
   border: ${({ border }) => border};
   overflow: hidden;
-  display: block;
+  pointer-events: none;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
     display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'block')};
@@ -57,7 +57,11 @@ const Square = styled.div<SquareProps>`
   border-radius: ${({ radius }) => radius};
   border: ${({ border }) => border};
   overflow: hidden;
-  display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'block')};
+  pointer-events: none;
+
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'block')};
+  }
 `;
 
 interface ShapeProps {
