@@ -131,7 +131,7 @@ const Index = () => {
           <FormHeading textAlign="left">
             Any questions, remarks? Don&apos;t hesitate to write me a message!
           </FormHeading>
-          <p className="hidden">
+          <p style={{ opacity: 0, visibility: 'hidden', height: 0, width: 0 }}>
             <label>
               Don’t fill this out if you’re human: <input name="bot-field" />
             </label>
