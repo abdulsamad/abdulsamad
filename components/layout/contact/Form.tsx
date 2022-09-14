@@ -5,7 +5,7 @@ const Form = styled.form`
   flex-direction: column;
   width: 35vw;
   max-width: 700px;
-  padding: 2rem;
+  padding: 2rem 0;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     padding: 0;
