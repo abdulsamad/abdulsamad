@@ -55,7 +55,7 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
         />
         <meta
           property="og:description"
-          content="A web developer who loves crafting awesome web experiences"
+          content="A web developer who loves crafting awesome web experiences. Skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
         />
         <meta
           property="og:image"
@@ -69,7 +69,7 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
         />
         <meta
           property="twitter:description"
-          content="A web developer who loves crafting awesome web experiences"
+          content="A web developer who loves crafting awesome web experiences. Skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
         />
         <meta
           property="twitter:image"
