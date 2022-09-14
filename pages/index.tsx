@@ -34,7 +34,7 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
   return (
     <>
       <Head>
-        <title>AbdulSamad Ansari - Portfolio</title>
+        <title>AbdulSamad Ansari</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="title" content="AbdulSamad Ansari - Web Developer" />
         <meta
