@@ -36,7 +36,7 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
       <Head>
         <title>AbdulSamad Ansari - Portfolio</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="title" content="AbdulSamad Ansari - Portfolio" />
+        <meta name="title" content="AbdulSamad Ansari - Web Developer" />
         <meta
           name="description"
           content="Your technical partner towards web success"
@@ -55,9 +55,12 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
         />
         <meta
           property="og:description"
-          content="Your technical partner towards web success"
+          content="A web developer who loves crafting awesome web experiences"
         />
-        {/* <meta property='og:image' content="https://abdulsamad.dev/assets/abdul-samad-ansari.jpg" /> */}
+        <meta
+          property="og:image"
+          content="/abdulsamad.dev-above-the-fold.jpg"
+        />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://abdulsamad.dev" />
         <meta
@@ -66,12 +69,12 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
         />
         <meta
           property="twitter:description"
-          content="Your technical partner towards web success"
+          content="A web developer who loves crafting awesome web experiences"
         />
-        {/* <meta
+        <meta
           property="twitter:image"
-          content="https://abdulsamad.dev/assets/abdul-samad-ansari.jpg"
-        /> */}
+          content="/abdulsamad.dev-above-the-fold.jpg"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
