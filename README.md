@@ -6,9 +6,8 @@
 - 💬 Ask me about **Javascript, TypeScript, React**
 
 - 📫 How to reach me <a href="https://www.linkedin.com/in/abdulsamad-ansari" target="_blank" title="Linkedin">
-		LinkedIn 
-	</a>
-
+  LinkedIn
+  </a>
 
 <p align="center">
 	Connect with me: :coffee:

@@ -1,6 +1,7 @@
 [build]
-  publish = "public"
   functions = "functions"
+  command = "yarn run build"
+  publish = ".next"
 
 [[redirects]]
   from = "/api/*"
