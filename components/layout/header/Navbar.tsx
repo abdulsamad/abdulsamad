@@ -1,11 +1,20 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-const Navbar = styled(motion.nav)`
+export const Navbar = styled(motion.nav)`
   display: flex;
   justify-content: flex-end;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    display: none;
+  }
+`;
+
+export const ResponsiveNavbar = styled(motion.nav)`
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
