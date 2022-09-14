@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, Variants } from 'framer-motion';
 
 import Hero from './Hero';
 import Container from './Container';
@@ -9,6 +10,29 @@ import ButtonGroup from './ButtonGroup';
 import MessageContainer from './MessageContainer';
 import { ButtonLink } from '../../utils/Button';
 import GridIcon from './GridIcon';
+
+const messageContainerVariant: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      delay: 0.2,
+      delayChildren: 0.2,
+      staggerChildren: 0.3,
+    },
+  },
+};
+
+const messageVariant: Variants = {
+  hidden: {
+    translateY: -10,
+    opacity: 0,
+  },
+  show: {
+    translateY: 0,
+    opacity: 1,
+  },
+};
 
 const Index = () => {
   return (
@@ -42,11 +66,20 @@ const Index = () => {
       <Container>
         <MessageContainer>
           <GridIcon src="grid-icon.svg" alt="grid image" aria-hidden="true" />
-          <Intro>
-            Hi, I&apos;m <span>AbdulSamad</span>, <br /> Web{' '}
-            <span>Developer</span> who loves
-          </Intro>
-          <Message>Crafting Amazing Web Experiences</Message>
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={messageContainerVariant}>
+            <motion.div variants={messageVariant}>
+              <Intro>
+                Hi, I&apos;m <span>AbdulSamad</span>, <br /> Web{' '}
+                <span>Developer</span> who loves
+              </Intro>
+            </motion.div>
+            <motion.div variants={messageVariant}>
+              <Message>Crafting Amazing Web Experiences</Message>
+            </motion.div>
+          </motion.div>
         </MessageContainer>
         <ButtonGroup>
           <ButtonLink href="#projects">View Projects</ButtonLink>
