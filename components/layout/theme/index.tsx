@@ -43,7 +43,7 @@ export const lightTheme: DefaultTheme = {
     grey: '#9E9E9E',
     background: '#f1f1f1',
     backgroundSecondary: '#f5f5f5',
-    text: '#f5f5f5',
+    text: '#1f1f1f',
     white: '#ffffff',
     black: '#000000',
     buttonBackground: 'linear-gradient(to right, #73A1FF, #7C65FB)',
