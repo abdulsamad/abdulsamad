@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const GridIcon = styled.img`
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;

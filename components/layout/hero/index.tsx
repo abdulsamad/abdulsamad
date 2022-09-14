@@ -34,7 +34,7 @@ const Index = () => {
         type="circle"
         height="40px"
         width="40px"
-        top="500px"
+        bottom="300px"
         left="57ch"
         border="8px solid rgba(0, 0, 0, 0.42)"
         hideOnMobile={true}
@@ -44,9 +44,9 @@ const Index = () => {
           <GridIcon src="grid-icon.svg" alt="grid image" aria-hidden="true" />
           <Intro>
             Hi, I&apos;m <span>AbdulSamad</span>, <br /> Web{' '}
-            <span>Developer</span> &amp;
+            <span>Developer</span> who loves
           </Intro>
-          <Message>I paint the web.</Message>
+          <Message>Crafting Amazing Web Experiences</Message>
         </MessageContainer>
         <ButtonGroup>
           <ButtonLink href="#projects">View Projects</ButtonLink>
