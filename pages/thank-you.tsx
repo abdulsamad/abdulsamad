@@ -1,9 +1,5 @@
 import Head from 'next/head';
 import type { NextPage } from 'next';
-import { ThemeProvider } from 'styled-components';
-
-import theme from '../components/layout/theme/index';
-import GlobalStyle from '../components/utils/GlobalStyle';
 
 import ThankYouContent from '../components/layout/thank-you';
 
@@ -19,10 +15,7 @@ const ThankYou: NextPage = () => {
         <meta name="robots" content="noindex,nofollow" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <ThankYouContent />
-      </ThemeProvider>
+      <ThankYouContent />
     </>
   );
 };
