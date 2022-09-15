@@ -4,9 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   compiler: {
-    styledComponents: {
-      ssr: false,
-    },
+    styledComponents: true,
   },
   images: {
     domains: [

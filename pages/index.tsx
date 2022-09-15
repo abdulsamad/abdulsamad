@@ -32,7 +32,7 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
   if (loading) return <Loader />;
 
   return (
-    <>
+    <div>
       <Head>
         <title>AbdulSamad Ansari</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -83,7 +83,7 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
       <Projects githubPinnedItems={githubPinnedItems} />
       <Testimonials />
       <Contact />
-    </>
+    </div>
   );
 };
 
