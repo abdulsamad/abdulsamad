@@ -33,46 +33,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="title" content="AbdulSamad Ansari - Web Developer" />
-          <meta
-            name="description"
-            content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
-          />
-          <meta name="author" content="AbdulSamad Ansari" />
-          <meta
-            name="keywords"
-            content="web developer, abdul samad ansari, software engineer"
-          />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://abdulsamad.dev" />
-          <meta
-            property="og:title"
-            content="AbdulSamad Ansari - Portfolio"
-            key="title"
-          />
-          <meta
-            property="og:description"
-            content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
-          />
-          <meta
-            property="og:image"
-            content="/abdulsamad.dev-above-the-fold.jpg"
-          />
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://abdulsamad.dev" />
-          <meta
-            property="twitter:title"
-            content="AbdulSamad Ansari - Portfolio"
-          />
-          <meta
-            property="twitter:description"
-            content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
-          />
-          <meta
-            property="twitter:image"
-            content="/abdulsamad.dev-above-the-fold.jpg"
-          />
-          <link rel="icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
