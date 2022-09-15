@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import type { NextPage, GetStaticProps } from 'next';
+import { ThemeProvider } from 'styled-components';
 
+import theme from '../components/layout/theme/index';
+import GlobalStyle from '../components/utils/GlobalStyle';
 import { initialProdLog, githubPinnedReposQuery } from '../utils';
 import { GitHubPinnedReposType, Node } from '../utils/types';
 import Loader from '../components/utils/Loader';
@@ -29,7 +32,13 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
     setLoading(false);
   }, []);
 
-  if (loading) return <Loader />;
+  if (loading)
+    return (
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Loader />
+      </ThemeProvider>
+    );
 
   return (
     <div>
@@ -77,12 +86,15 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <Hero />
-      <Skills />
-      <Projects githubPinnedItems={githubPinnedItems} />
-      <Testimonials />
-      <Contact />
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header />
+        <Hero />
+        <Skills />
+        <Projects githubPinnedItems={githubPinnedItems} />
+        <Testimonials />
+        <Contact />
+      </ThemeProvider>
     </div>
   );
 };
