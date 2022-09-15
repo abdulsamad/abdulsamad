@@ -3,9 +3,6 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  compiler: {
-    styledComponents: true,
-  },
   images: {
     domains: [
       'repository-images.githubusercontent.com',
