@@ -34,7 +34,7 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
   return (
     <div>
       <Head>
-        <title>AbdulSamad Ansari</title>
+        <title>AbdulSamad Ansari - Web Developer</title>
       </Head>
       <Header />
       <Hero />
