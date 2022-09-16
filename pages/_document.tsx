@@ -60,7 +60,7 @@ export default class MyDocument extends Document {
           />
           <meta
             property="og:image"
-            content="/abdulsamad.dev-above-the-fold.jpg"
+            content="https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg"
           />
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:url" content="https://abdulsamad.dev" />
@@ -74,7 +74,7 @@ export default class MyDocument extends Document {
           />
           <meta
             property="twitter:image"
-            content="/abdulsamad.dev-above-the-fold.jpg"
+            content="https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg"
           />
           <link rel="icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
