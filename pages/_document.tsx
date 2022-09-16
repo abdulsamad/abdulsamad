@@ -77,12 +77,6 @@ export default class MyDocument extends Document {
             content="https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg"
           />
           <link rel="icon" href="/favicon.ico" />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin=""
-          />
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
