@@ -35,47 +35,6 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
     <div>
       <Head>
         <title>AbdulSamad Ansari</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="title" content="AbdulSamad Ansari - Web Developer" />
-        <meta
-          name="description"
-          content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
-        />
-        <meta name="author" content="AbdulSamad Ansari" />
-        <meta
-          name="keywords"
-          content="web developer, abdul samad ansari, software engineer"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://abdulsamad.dev" />
-        <meta
-          property="og:title"
-          content="AbdulSamad Ansari - Portfolio"
-          key="title"
-        />
-        <meta
-          property="og:description"
-          content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
-        />
-        <meta
-          property="og:image"
-          content="/abdulsamad.dev-above-the-fold.jpg"
-        />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://abdulsamad.dev" />
-        <meta
-          property="twitter:title"
-          content="AbdulSamad Ansari - Portfolio"
-        />
-        <meta
-          property="twitter:description"
-          content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
-        />
-        <meta
-          property="twitter:image"
-          content="/abdulsamad.dev-above-the-fold.jpg"
-        />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <Hero />
