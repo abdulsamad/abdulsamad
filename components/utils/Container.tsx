@@ -21,6 +21,7 @@ const Container = styled.div<IContainer>`
   align-items: center;
   justify-content: ${({ justify }) => justify ?? 'space-between'};
   flex-direction: ${({ direction }) => direction ?? 'row'};
+  position: relative;
 `;
 
 export default Container;

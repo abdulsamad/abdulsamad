@@ -59,7 +59,7 @@ const Index = () => {
         height="40px"
         width="40px"
         bottom="300px"
-        left="57ch"
+        left="80ch"
         border="8px solid rgba(0, 0, 0, 0.42)"
         hideOnMobile={true}
       />
