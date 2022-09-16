@@ -28,6 +28,12 @@
   to = "https://t.me/AbdulSamadDev"
   status = 301
 
+[[headers]]
+	for = "/*"
+
+	[[headers.values]]
+		X-Frame-Options = "DENY"
+
 # [[headers]]
 #   for = "*.js"
 #   [headers.values]
