@@ -49,11 +49,7 @@ export default class MyDocument extends Document {
           />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://abdulsamad.dev" />
-          <meta
-            property="og:title"
-            content="AbdulSamad Ansari - Portfolio"
-            key="title"
-          />
+          <meta property="og:title" content="AbdulSamad Ansari" key="title" />
           <meta
             property="og:description"
             content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
@@ -64,10 +60,7 @@ export default class MyDocument extends Document {
           />
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:url" content="https://abdulsamad.dev" />
-          <meta
-            property="twitter:title"
-            content="AbdulSamad Ansari - Portfolio"
-          />
+          <meta property="twitter:title" content="AbdulSamad Ansari" />
           <meta
             property="twitter:description"
             content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
