@@ -1,7 +1,7 @@
 [build]
   functions = "functions"
   command = "yarn run build"
-  publish = ".next"
+  publish = "out"
 
 [[redirects]]
   from = "/api/*"
@@ -11,6 +11,21 @@
 [[redirects]]
   from = "/resume"
   to = "https://bit.ly/2Tbfyqx"
+  status = 301
+
+[[redirects]]
+  from = "/linkedin"
+  to = "https://www.linkedin.com/in/abdulsamad-ansari"
+  status = 301
+
+[[redirects]]
+  from = "/github"
+  to = "https://github.com/abdulsamad"
+  status = 301
+
+[[redirects]]
+  from = "/telegram"
+  to = "https://t.me/AbdulSamadDev"
   status = 301
 
 # [[headers]]

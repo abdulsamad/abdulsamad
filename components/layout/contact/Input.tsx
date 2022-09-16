@@ -12,7 +12,7 @@ const Input = styled.input`
   padding: 0.85rem 0.5rem;
   border: none;
   border-radius: 10px;
-  background: ${({ theme }) => theme.color.backgroundSecondary};
+  background: ${({ theme }) => theme.color.white};
   box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   color: ${({ theme }) => theme.color.dark};
