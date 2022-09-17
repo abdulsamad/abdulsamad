@@ -1,7 +1,7 @@
 [build]
   functions = "functions"
   command = "yarn run build"
-  publish = "out"
+  publish = ".next"
 
 [[redirects]]
   from = "/api/*"
@@ -27,6 +27,12 @@
   from = "/telegram"
   to = "https://t.me/AbdulSamadDev"
   status = 301
+
+[[headers]]
+	for = "/*"
+
+	[headers.values]
+		X-Frame-Options = "DENY"
 
 # [[headers]]
 #   for = "*.js"

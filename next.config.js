@@ -4,8 +4,6 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    loader: 'akamai',
-    path: '',
     domains: [
       'repository-images.githubusercontent.com',
       'opengraph.githubassets.com',
