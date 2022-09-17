@@ -1,7 +1,7 @@
 [build]
   functions = "functions"
   command = "yarn run build"
-  publish = "out"
+  publish = ".next"
 
 [[redirects]]
   from = "/api/*"
@@ -31,7 +31,7 @@
 [[headers]]
 	for = "/*"
 
-	[[headers.values]]
+	[headers.values]
 		X-Frame-Options = "DENY"
 
 # [[headers]]
