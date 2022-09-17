@@ -4,7 +4,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    loader: 'akamai',
+    loader: 'default',
     path: '',
     domains: [
       'repository-images.githubusercontent.com',
