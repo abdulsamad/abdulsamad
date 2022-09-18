@@ -23,7 +23,7 @@
 <br />
 
 <p align="center">
-	<img src="https://github-readme-stats.vercel.app/api?username=abdulsamad&show_icons=true&locale=en" alt="abdulsamad github stats" />
+	<img src="https://github-readme-stats.vercel.app/api?username=abdulsamad&show_icons=true&locale=en" alt="abdulsamad ansari github stats" />
 </p>
 
 <!-- <p align="center">
