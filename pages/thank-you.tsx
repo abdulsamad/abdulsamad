@@ -7,6 +7,9 @@ const ThankYou: NextPage = () => {
   return (
     <>
       <Head>
+        <meta charSet="UTF-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <title>Thank You - AbdulSamad Ansari</title>
         <meta
           name="description"
