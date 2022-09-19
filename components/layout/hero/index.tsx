@@ -72,7 +72,7 @@ const Index = () => {
             variants={messageContainerVariant}>
             <motion.div variants={messageVariant}>
               <Intro>
-                Hi, I&apos;m <span>AbdulSamad</span>, <br /> Web{' '}
+                Hi, I&apos;m <span>Abdul Samad</span>, <br /> Web{' '}
                 <span>Developer</span> who loves
               </Intro>
             </motion.div>

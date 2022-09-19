@@ -37,7 +37,7 @@ const Home: NextPage<IHome> = ({ githubPinnedItems }) => {
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <title>AbdulSamad Ansari - Web Developer</title>
+        <title>Abdul Samad Ansari - Web Developer</title>
       </Head>
       <Header />
       <Hero />

@@ -33,12 +33,12 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="title" content="AbdulSamad Ansari - Web Developer" />
+          <meta name="title" content="Abdul Samad Ansari - Web Developer" />
           <meta
             name="description"
             content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
           />
-          <meta name="author" content="AbdulSamad Ansari" />
+          <meta name="author" content="Abdul Samad Ansari" />
           <meta
             name="keywords"
             content="web developer, abdul samad ansari, software engineer, react developer"
@@ -47,7 +47,7 @@ export default class MyDocument extends Document {
           <meta property="og:url" content="https://abdulsamad.dev" />
           <meta
             property="og:title"
-            content="AbdulSamad Ansari - Web Developer"
+            content="Abdul Samad Ansari - Web Developer"
             key="title"
           />
           <meta
@@ -62,7 +62,7 @@ export default class MyDocument extends Document {
           <meta property="twitter:url" content="https://abdulsamad.dev" />
           <meta
             property="twitter:title"
-            content="AbdulSamad Ansari - Web Developer"
+            content="Abdul Samad Ansari - Web Developer"
           />
           <meta
             property="twitter:description"
