@@ -26,7 +26,6 @@ const Circle = styled.div<CircleProps>`
   border: ${({ border }) => border};
   overflow: hidden;
   pointer-events: none;
-  z-index: -10;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
     display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'block')};
@@ -59,7 +58,6 @@ const Square = styled.div<SquareProps>`
   border: ${({ border }) => border};
   overflow: hidden;
   pointer-events: none;
-  z-index: -10;
 
   @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
     display: ${({ hideOnMobile }) => (hideOnMobile ? 'none' : 'block')};
