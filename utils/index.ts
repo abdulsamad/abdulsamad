@@ -15,6 +15,47 @@ export const initialProdLog = () => {
 	}
 };
 
+export const technologies = [
+  'html',
+  'css',
+  'scss',
+  'javascript',
+  'typescript',
+  'react',
+  'css-in-js',
+  'material-ui',
+  'dayjs',
+  'vite',
+  'emotion',
+  'content-api',
+  'mongoosejs',
+  'localforage',
+  'monaco-editor',
+  'react-split',
+  'styled-components',
+  'xterm',
+  'mongodb',
+  'pwa',
+  'node',
+  'nodejs',
+  'open-weather-map-api',
+  'axios',
+  'superagent',
+  'redux',
+  'redux-toolkit',
+  'react-spring',
+  'famer-motion',
+  'react-router-dom',
+  'nextjs',
+  'gatsby',
+  'reach-router',
+  'alpine-js',
+  'bulma',
+  'jspdf',
+  'parcel-bundler',
+  'workbox',
+];
+
 // Encode Form Data for Netlify
 export const encodeNetlifyFormData = (data: { [key: string]: string }) =>
   Object.keys(data)
@@ -26,7 +67,7 @@ export const githubPinnedReposQuery = JSON.stringify({
   query: `
 		{
 			user(login: "abdulsamad") {
-				pinnedItems(first: 6) {
+				pinnedItems(first: 50) {
 					edges {
 						node {
 							... on Repository {

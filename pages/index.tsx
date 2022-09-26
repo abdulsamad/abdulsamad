@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import type { NextPage, GetStaticProps } from 'next';
 
-import { initialProdLog, githubPinnedReposQuery } from '../utils';
+import { initialProdLog, githubPinnedReposQuery, technologies } from '../utils';
 import { GitHubPinnedReposType, Node } from '../utils/types';
 import Loader from '../components/utils/Loader';
 import Header from '../components/layout/header';
@@ -76,8 +76,8 @@ export const getStaticProps: GetStaticProps = async () => {
         repositoryTopics,
       },
     }) => {
-      // Filters, cleans the topics and returs a new array
-      const topics = repositoryTopics.edges.map(
+      // Cleans the topics
+      const cleanedTopics = repositoryTopics.edges.map(
         ({
           node: {
             topic: { name },
@@ -85,6 +85,11 @@ export const getStaticProps: GetStaticProps = async () => {
         }) => {
           return name;
         }
+      );
+
+      // Filter the topics
+      const topics = cleanedTopics.filter((name: string) =>
+        technologies.includes(name)
       );
 
       return {
