@@ -18,6 +18,7 @@ import ProjectImageContainer from './ProjectImageContainer';
 import type { GithubPinnedItemTypes } from '../../../pages/index';
 import theme from '../theme/index';
 import { GitHubIcon } from '../../utils/Icons';
+import socialLinks from '../../../utils/social';
 
 interface IProjects {
   githubPinnedItems: GithubPinnedItemTypes[];
@@ -79,7 +80,7 @@ const Index = ({ githubPinnedItems }: IProjects) => {
       </Container>
       <Container>
         <GitHubLink
-          href={`${process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}?tab=repositories&q=&type=source`}
+          href={`${socialLinks.github}?tab=repositories&q=&type=source`}
           target="_blank"
           rel="noopener"
           outlined>
