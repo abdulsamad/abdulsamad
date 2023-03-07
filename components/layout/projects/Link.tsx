@@ -11,7 +11,6 @@ const Link = styled.a`
     display: block;
     height: 2px;
     width: 100%;
-    width: calc(100% - 2.5ch);
     background-color: ${({ theme }) => theme.color.text};
     transform: scaleX(0);
     transform-origin: left;
