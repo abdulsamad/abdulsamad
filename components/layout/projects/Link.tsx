@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Link = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.color.text};
-  padding: 5px 10px;
+  padding: 5px 12px;
   position: relative;
 
   &::after {
@@ -26,7 +26,12 @@ const Link = styled.a`
     margin: 0 0.5em;
   }
 
-  i {
+  i,
+  svg {
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
     margin: 0 0 0 3px;
   }
 `;

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
+import {
+  ChevronDoubleUpIcon,
+  ChevronDoubleDownIcon,
+} from '@heroicons/react/24/outline';
 
 const TagsContainer = styled.div`
   margin: 1.5em 0 0 0;
@@ -23,11 +27,22 @@ const Tag = styled.div`
 const MoreButton = styled.button`
   background: ${({ theme }) => theme.color.grey};
   color: ${({ theme }) => theme.color.white};
-  padding: 0.2em 0.5em;
+  padding: 0.2em 0.7em;
   height: 1.8em;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   border-radius: 99px;
   border: none;
+
+  span {
+    display: flex;
+    gap: 3px;
+
+    svg {
+      color: currentColor;
+      height: 16px;
+      width: 16px;
+    }
+  }
 `;
 
 const variants: Variants = {
@@ -65,11 +80,11 @@ const Tags = ({ topics }: { topics: string[] }) => {
         onClick={() => setMore((prevState) => !prevState)}>
         {more ? (
           <span>
-            Less <i className="bi bi-chevron-double-up" />
+            Less <ChevronDoubleUpIcon />
           </span>
         ) : (
           <span>
-            More <i className="bi bi-chevron-double-down" />
+            More <ChevronDoubleDownIcon />
           </span>
         )}
       </MoreButton>

@@ -22,6 +22,12 @@ export const IconLink = styled.a`
   ${sharedStyles}
   font-size: 1.4rem;
   color: currentColor;
+
+  svg {
+    height: 1.4rem;
+    width: 1.4rem;
+    color: currentColor;
+  }
 `;
 
 export default Link;

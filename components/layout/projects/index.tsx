@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Image from 'next/image';
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 
 import Project from './Projects';
 import ProjectContainer from './ProjectContainer';
@@ -14,8 +15,9 @@ import GitHubLink from './GitHubLink';
 import Tags from './Tags';
 import ProjectDescription from './ProjectDescription';
 import ProjectImageContainer from './ProjectImageContainer';
-import { GithubPinnedItemTypes } from '../../../pages/index';
+import type { GithubPinnedItemTypes } from '../../../pages/index';
 import theme from '../theme/index';
+import { GitHubIcon } from '../../utils/Icons';
 
 interface IProjects {
   githubPinnedItems: GithubPinnedItemTypes[];
@@ -56,13 +58,15 @@ const Index = ({ githubPinnedItems }: IProjects) => {
                     <CardFooter>
                       <Link href={homepageUrl} target="_blank" rel="noopener">
                         Live{' '}
-                        <i
-                          className="bi bi-box-arrow-up-right"
-                          aria-hidden="true"
+                        <ArrowTopRightOnSquareIcon
+                          style={{
+                            height: '16px',
+                            width: '16px',
+                          }}
                         />
                       </Link>
                       <Link href={url} target="_blank" rel="noopener">
-                        Code <i className="bi bi-github" aria-hidden="true" />
+                        Code <GitHubIcon />
                       </Link>
                     </CardFooter>
                   </Card>
@@ -80,7 +84,13 @@ const Index = ({ githubPinnedItems }: IProjects) => {
           rel="noopener"
           outlined>
           More Projects{' '}
-          <i className="bi bi-box-arrow-up-right" aria-hidden="true" />
+          <ArrowTopRightOnSquareIcon
+            style={{
+              height: '18px',
+              width: '18px',
+              transform: 'translateY(3px)',
+            }}
+          />
         </GitHubLink>
       </Container>
     </Project>
