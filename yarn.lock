@@ -1464,6 +1464,11 @@ hastscript@^7.0.0:
     property-information "^6.0.0"
     space-separated-tokens "^2.0.0"
 
+hcaptcha@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/hcaptcha/-/hcaptcha-0.1.1.tgz#0a5c3469ac55e3f3827f2fd07c2bf27859067d12"
+  integrity sha512-iMrDmH2VpIEKOrcKWidVjI89FdDKTEdZ7PfPWkP27sTazIIkob8YfdY2ezaufAnWBiUUcvzsn0qF+dyXtBH2Vw==
+
 html-escaper@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/html-escaper/-/html-escaper-3.0.3.tgz#4d336674652beb1dcbc29ef6b6ba7f6be6fdfed6"
