@@ -1,8 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-// Import Bootstrap Icons
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
 const GlobalStyle = createGlobalStyle`
   html {
     scroll-behavior: smooth;

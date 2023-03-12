@@ -18,6 +18,8 @@ import Social from './Social';
 import SocialHeading from './SocialHeading';
 import Shapes from '../../utils/Shapes';
 import { encodeNetlifyFormData } from '../../../utils/index';
+import { GitHubIcon, LinkedInIcon } from '../../utils/Icons';
+import socialLinks from '../../../utils/social';
 
 interface IFormInput {
   name: string;
@@ -97,7 +99,6 @@ const Index = () => {
         router.push('/thank-you');
       })
       .catch(({ message }) => {
-        console.log(message);
         setError('captcha', { message });
       });
   };
@@ -177,21 +178,21 @@ const Index = () => {
         <Social>
           <SocialHeading margin="0 0 0.4em 0">Get in touch!</SocialHeading>
           <IconLink
-            className="bi bi-github"
-            href={process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}
+            href={socialLinks.github}
             target="_blank"
             aria-labelledby="githubLinkLabel"
             contrastColor>
+            <GitHubIcon />
             <span id="githubLinkLabel" hidden>
               Github
             </span>
           </IconLink>
           <IconLink
-            className="bi bi-linkedin"
-            href={process.env.NEXT_PUBLIC_LINKEDIN_URL}
+            href={socialLinks.linkedIn}
             target="_blank"
             aria-labelledby="linkedinLinkLabel"
             contrastColor>
+            <LinkedInIcon />
             <span id="linkedinLinkLabel" hidden>
               LinkedIn
             </span>
