@@ -1,0 +1,47 @@
+[build]
+  functions = "functions"
+  command = "yarn run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/resume"
+  to = "https://bit.ly/2Tbfyqx"
+  status = 301
+
+[[redirects]]
+  from = "/linkedin"
+  to = "https://www.linkedin.com/in/abdulsamad-ansari"
+  status = 301
+
+[[redirects]]
+  from = "/github"
+  to = "https://github.com/abdulsamad"
+  status = 301
+
+[[redirects]]
+  from = "/telegram"
+  to = "https://t.me/AbdulSamadDev"
+  status = 301
+
+[[headers]]
+	for = "/*"
+
+	[headers.values]
+		X-Frame-Options = "DENY"
+
+# [[headers]]
+#   for = "*.js"
+#   [headers.values]
+#     Cache-Control = "public, max-age=604800"
+# [[headers]]
+#   for = "*.css"
+#   [headers.values]
+#     Cache-Control = "public, max-age=604800"
