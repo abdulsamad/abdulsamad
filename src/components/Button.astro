@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'button'> {
+  variant?: 'filled' | 'outline';
+  className?: string;
+}
+
+const { variant = 'filled', className = '', ...buttonProps } = Astro.props;
+---
+
+<button
+  class={`px-3 py-2 border border-solid border-primary shadow rounded-lg ${
+    variant === 'filled' ? 'bg-gradient' : 'bg-transparent'
+  } ${className}`}
+  {...buttonProps}>
+  <slot />
+</button>

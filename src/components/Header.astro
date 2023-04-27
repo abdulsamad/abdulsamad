@@ -1,0 +1,18 @@
+---
+import Logo from '../components/Logo.astro';
+---
+
+<header class="flex items-center justify-between w-full p-2 md:p-4">
+  <Logo height={40} />
+  <nav class="flex gap-10 py-2 [&>a]:h-full">
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contacts">Contacts</a>
+    <a
+      href="https://blog.abdulsamad.dev"
+      target="_blank"
+      rel="noopener"
+      class="bg-primary text-white rounded-full px-4">Blog</a
+    >
+  </nav>
+</header>
