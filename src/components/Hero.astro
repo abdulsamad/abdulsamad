@@ -1,19 +1,19 @@
 ---
-import Button from '../components/Button.astro';
+import Link from '../layouts/Link.astro';
 ---
 
-<section class="h-[600px] flex items-center justify-start">
+<section class="h-[700px] flex items-center justify-start">
   <div class="flex flex-col">
-    <h1 class="text-4xl leading-10 text-gray-800">
+    <h1 class="text-xl lg:text-4xl leading-8 lg:leading-12 text-gray-800">
       Hi, I'm Abdul Samad, <br /> Web Developer who loves <br />
-      <span
-        class="text-5xl text-gradient font-bold bg-clip-text text-transparent [background-image:var(--accent-gradient)] [background-position:0%] [background-size:400%]"
-        >Crafting Awesome Web Experiences</span
-      >
+      <div
+        class="text-3xl my-2 lg:text-5xl bg-gradient font-bold bg-clip-text text-transparent h-14 [background-size:400%] animate-text-gradient">
+        Crafting Awesome Web Experiences
+      </div>
     </h1>
-    <div class="flex gap-5 my-5">
-      <Button variant="filled">View Projects</Button>
-      <Button variant="outline">Get In Touch</Button>
+    <div class="flex gap-5 mt-3">
+      <Link variant="filled" href="#contact">Get In Touch</Link>
+      <Link variant="outline" href="#projects">View Projects</Link>
     </div>
   </div>
 </section>

@@ -1,0 +1,24 @@
+---
+interface skill {
+  text: string;
+}
+
+const skills: skill[] = [
+  { text: 'HTML' },
+  { text: 'CSS' },
+  { text: 'Sass' },
+  { text: 'CSS-in-JS \n (Styled Components, Emotion)' },
+  { text: 'JavaScript' },
+  { text: 'TypeScript' },
+  { text: 'React' },
+  { text: 'Node' },
+  { text: 'MongoDB' },
+  { text: 'Git' },
+  { text: 'Material UI' },
+  { text: 'Bootstrap' },
+];
+---
+
+<section id="skills">
+  {skills.map(({ text }) => <div>{text}</div>)}
+</section>

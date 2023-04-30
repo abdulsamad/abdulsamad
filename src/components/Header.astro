@@ -1,10 +1,12 @@
 ---
-import Logo from '../components/Logo.astro';
+import Logo from '../layouts/Logo.astro';
 ---
 
-<header class="flex items-center justify-between w-full p-2 md:p-4">
+<header
+  class="flex flex-col md:flex-row items-center justify-between w-full p-2 md:p-4">
   <Logo height={40} />
-  <nav class="flex items-stretch gap-12 [&>a]:py-1">
+  <nav
+    class="hidden md:flex flex-col md:flex-row items-stretch gap-12 [&>a]:py-1">
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#contacts">Contacts</a>
@@ -12,7 +14,8 @@ import Logo from '../components/Logo.astro';
       href="https://blog.abdulsamad.dev"
       target="_blank"
       rel="noopener"
-      class="bg-primary text-white rounded-full px-5 ml-10">Blog</a
+      class="bg-primary outline outline-2 outline-offset-4 outline-white text-white rounded-full px-5 ml-0 lg:ml-10"
+      >Blog</a
     >
   </nav>
 </header>
