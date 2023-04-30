@@ -1,25 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Abdul Samad Ansari - Web Developer">
   <main class="p-6 w-full">
     <Hero />
+    <Skills />
+    <Projects />
+    <Contact />
   </main>
 </Layout>
-
-<style>
-  .instructions code {
-    font-size: 0.875em;
-    font-weight: bold;
-    background: rgba(var(--accent), 12%);
-    color: rgb(var(--accent));
-    border-radius: 4px;
-    padding: 0.3em 0.45em;
-  }
-
-  .instructions strong {
-    color: rgb(var(--accent));
-  }
-</style>
