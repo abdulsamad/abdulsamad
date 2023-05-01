@@ -4,9 +4,9 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "paths": {
-      "@components/*": ["src/components"],
-      "@layouts/*": ["src/layouts"],
-      "@utils/*": ["src/utils"]
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@utils/*": ["src/utils/*"]
     }
   }
 }
