@@ -5,13 +5,13 @@ interface Props
     React.HTMLAttributes<HTMLElement>,
     HTMLElement
   > {
-  class?: string;
+  classNames?: string;
 }
 
 const Section = ({ children, ...props }: Props) => {
   return (
     <section
-      className={`relative px-[4vw] w-full max-w-[1920px] mx-auto ${props.class}`}
+      className={`relative px-[4vw] w-full max-w-[1920px] mx-auto ${props.classNames}`}
       {...props}>
       {children}
     </section>
