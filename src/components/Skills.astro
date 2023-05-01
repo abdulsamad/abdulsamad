@@ -1,4 +1,6 @@
 ---
+import Section from '@components/utils/Section.astro';
+
 interface skill {
   text: string;
 }
@@ -19,6 +21,6 @@ const skills: skill[] = [
 ];
 ---
 
-<section id="skills">
+<Section id="skills">
   {skills.map(({ text }) => <div>{text}</div>)}
-</section>
+</Section>
