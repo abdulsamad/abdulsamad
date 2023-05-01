@@ -7,9 +7,3 @@ declare namespace NodeJS {
     GITHUB_ACCESS_TOKEN: string;
   }
 }
-
-declare namespace Express {
-  export interface Request {
-    token: string;
-  }
-}
