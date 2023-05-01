@@ -1,21 +1,24 @@
 ---
-import Logo from '../layouts/Logo.astro';
+import Logo from '@components/utils/Logo.astro';
+import Section from '@components/utils/Section.astro';
 ---
 
-<header
-  class="flex flex-col md:flex-row items-center justify-between w-full p-2 md:p-4">
-  <Logo height={40} />
-  <nav
-    class="hidden md:flex flex-col md:flex-row items-stretch gap-12 [&>a]:py-1">
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contacts">Contacts</a>
-    <a
-      href="https://blog.abdulsamad.dev"
-      target="_blank"
-      rel="noopener"
-      class="bg-primary outline outline-2 outline-offset-4 outline-white text-white rounded-full px-5 ml-0 lg:ml-10"
-      >Blog</a
-    >
-  </nav>
-</header>
+<Section>
+  <header
+    class="flex flex-col md:flex-row items-center justify-between w-full p-2 md:p-4">
+    <Logo height={40} />
+    <nav
+      class="hidden md:flex flex-col md:flex-row items-stretch gap-12 [&>a]:py-1">
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contacts">Contacts</a>
+      <a
+        href="https://blog.abdulsamad.dev"
+        target="_blank"
+        rel="noopener"
+        class="bg-primary outline outline-2 outline-offset-4 outline-white text-white rounded-full px-5 ml-0 lg:ml-10"
+        >Blog</a
+      >
+    </nav>
+  </header>
+</Section>
