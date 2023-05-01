@@ -7,8 +7,8 @@ import type {
 
 interface Props
   extends React.DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
+    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
+    HTMLTextAreaElement
   > {
   label: string;
   register: any;
@@ -16,11 +16,10 @@ interface Props
   error: FieldError | undefined;
 }
 
-const Input = ({ type, name, label, error, ...props }: Props) => (
+const TextArea = ({ name, label, error, ...props }: Props) => (
   <div>
     <div className="relative my-4 flex flex-col-reverse items-start">
-      <input
-        type={type}
+      <textarea
         className={`w-full relative py-3 px-2 border-none rounded-lg focus:rounded-lg focus:shadow-lg [&:focus~span]:bg-primary`}
         name={name}
         {...props}
@@ -39,4 +38,4 @@ const Input = ({ type, name, label, error, ...props }: Props) => (
   </div>
 );
 
-export default Input;
+export default TextArea;
