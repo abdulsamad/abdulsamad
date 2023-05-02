@@ -1,4 +1,4 @@
-/// <reference types="astro/client" />
+/// <reference types="astro/image/client" />
 
 interface ImportMetaEnv {
   readonly PUBLIC_HCAPTCHA_SITE_KEY: string;
