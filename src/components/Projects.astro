@@ -3,11 +3,11 @@ import Section from '@components/utils/Section.astro';
 import Card from '@components/Card.astro';
 import type { Node } from '@utils/types';
 
-const res = await fetch('/.netlify/functions/pinnedRepos');
+const res = await fetch('/api/pinnedRepos');
 const data: Node[] = await res.json();
 ---
 
-<Section id="projects" class="px-8">
+<Section id="projects">
   <h2 class="my-5 text-center text-2xl">Projects</h2>
   <div class="space-y-6">
     {

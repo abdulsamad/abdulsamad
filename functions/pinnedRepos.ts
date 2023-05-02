@@ -3,6 +3,7 @@ import fetch from 'node-fetch';
 
 import { githubPinnedReposQuery, technologies } from '@utils/index';
 import type { GitHubPinnedReposType } from '@utils/types';
+import fallbackProjects from '@utils/fallback-projects.json';
 
 const handler: Handler = async (event, context) => {
   try {
@@ -76,7 +77,7 @@ const handler: Handler = async (event, context) => {
 
     return {
       statusCode: 500,
-      body: JSON.stringify({ err: errMsg }),
+      body: JSON.stringify({ fallbackProjects }),
     };
   }
 };
