@@ -1,7 +1,7 @@
 [build]
   functions = "functions"
   command = "yarn run build"
-  publish = ".next"
+  publish = "dist"
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
