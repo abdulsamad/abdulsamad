@@ -31,6 +31,11 @@
   to = "https://t.me/AbdulSamadDev"
   status = 301
 
+[[redirects]]
+  from = "/twitter"
+  to = "https://twitter.com/AbdulSamadDev"
+  status = 301
+
 [[headers]]
 	for = "/*"
 
