@@ -1,4 +1,5 @@
 import type { Handler } from '@netlify/functions';
+import fetch from 'node-fetch';
 
 import { githubPinnedReposQuery, technologies } from '@utils/index';
 import type { GitHubPinnedReposType } from '@utils/types';
@@ -25,7 +26,7 @@ const handler: Handler = async (event, context) => {
       headers,
       body: githubPinnedReposQuery,
     });
-    const data: GitHubPinnedReposType = (await res.json()).data;
+    const data = ((await res.json()) as any).data as GitHubPinnedReposType;
     const filteredProjects = data.user.pinnedItems.edges.map(
       ({
         node: {
