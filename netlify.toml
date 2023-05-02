@@ -3,6 +3,12 @@
   command = "yarn run build"
   publish = "dist"
 
+[dev]
+  functionsPort = 8885
+  targetPort = 3000
+  port = 8888
+  publish = 'dist'
+
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
 
