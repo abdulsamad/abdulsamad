@@ -37,7 +37,7 @@ module.exports = {
       },
       backgroundImage: {
         gradient: 'linear-gradient(45deg, #7c65fb, #da62c4 30%, #7c65fb 60%)',
-        'contact-gradient': `linear-gradient(90deg, #673AB7 50%, #fff 50%, #fff 100%)`,
+        'contact-gradient': `linear-gradient(90deg, #673AB7 50%, #0f182a 50%, #0f182a 100%)`,
       },
       lineHeight: {
         12: '3rem',
