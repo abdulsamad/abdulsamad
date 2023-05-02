@@ -5,7 +5,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["utils/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
