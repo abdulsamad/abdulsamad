@@ -10,7 +10,6 @@ const data: Node[] = await res.json();
 <Section id="projects" class="">
   <h2 class="my-5 text-center text-2xl">Projects</h2>
   <div class="space-y-6">
-    <h1>Hello, World!</h1>
     {
       data.map(({ name, url, description }) => (
         <Card href={url} title={name} body={description} />
