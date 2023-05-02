@@ -1,7 +1,111 @@
 ---
-import Section from '@components/utils/Section';
+import Section from '@components/utils/Section.astro';
+import Card from '@components/Card.astro';
+import { technologies } from '@utils/index';
+import type { GitHubPinnedReposType } from '@utils/types';
+
+const headers = {
+  'Content-Type': 'application/json',
+  Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+};
+
+const res = await fetch('https://api.github.com/graphql', {
+  method: 'POST',
+  headers,
+  body: JSON.stringify({
+    query: `
+		{
+			user(login: "abdulsamad") {
+				pinnedItems(first: 50) {
+					edges {
+						node {
+							... on Repository {
+								name
+								id
+								url
+								description
+								homepageUrl
+								openGraphImageUrl
+								repositoryTopics (first: 100) {
+									edges {
+										node {
+											topic {
+												name
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	`,
+  }),
+});
+const data: GitHubPinnedReposType = (await res.json()).data;
+const filteredProjects = data.user.pinnedItems.edges.map(
+  ({
+    node: {
+      description,
+      homepageUrl,
+      id,
+      name,
+      openGraphImageUrl,
+      url,
+      repositoryTopics,
+    },
+  }) => {
+    // Cleans the topics
+    const cleanedTopics = repositoryTopics.edges.map(
+      ({
+        node: {
+          topic: { name },
+        },
+      }) => {
+        return name;
+      }
+    );
+
+    // Filter the topics
+    const topics = cleanedTopics.filter((name: string) =>
+      technologies.includes(name)
+    );
+
+    return {
+      homepageUrl,
+      description,
+      name: name.split('-').join(' '),
+      id,
+      url,
+      openGraphImageUrl,
+      topics,
+    };
+  }
+);
 ---
 
-<Section id="projects" classNames="h-[400px]">
-  <h1>Projects</h1>
+<Section id="projects" class="">
+  {console.log(data)}
+  <h2 class="my-5 text-center text-2xl">Projects</h2>
+  <div class="space-y-6">
+    {
+      filteredProjects.map(({ name, url, description }) => (
+        <Card href={url} title={name} body={description} />
+      ))
+    }
+  </div>
 </Section>
+
+<style>
+  :root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(
+      45deg,
+      rgb(var(--accent)),
+      #da62c4 30%,
+      white 60%
+    );
+  }
+</style>

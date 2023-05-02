@@ -1,0 +1,78 @@
+---
+import Section from '@components/utils/Section.astro';
+import Button from '@components/utils/Button.astro';
+import Input from '@components/utils/Input.astro';
+import TextArea from '@components/utils/TextArea.astro';
+import socialLinks from '@utils/social';
+---
+
+<Section id="contact" class="bg-contact-gradient grid lg:grid-cols-2">
+  <form
+    class="lg:pr-10 text-white"
+    name="contact"
+    method="POST"
+    data-netlify="true">
+    <h5 class="mb-4 text-xl">
+      Any questions, remarks? Don&apos;t hesitate to write me a message!
+    </h5>
+    <Input
+      type="text"
+      label="Name"
+      name="name"
+      placeholder="Your Name"
+      required
+    />
+    <Input
+      type="email"
+      label="Email"
+      name="email"
+      placeholder="john@example.com"
+      required
+    />
+    <TextArea
+      label="Message"
+      name="message"
+      placeholder="Enter your message here..."
+      rows={5}
+      required
+    />
+    <Button type="submit" class="mt-5">
+      <!-- {
+          isSubmitting ? (
+            <img src="/icons/Loader.svg" alt="loading..." />
+          ) : (
+            'Send Message'
+          )
+        } -->
+      Send Message
+    </Button>
+  </form>
+  <div class="relative">
+    <div class="flex flex-col items-center justify-center h-full">
+      <h5 class="mb-4 text-3xl">Get in Touch!</h5>
+      <div class="flex items-center justify-start gap-x-6">
+        <a
+          class="no-underline"
+          href={socialLinks.github}
+          rel="noopener"
+          target="_blank">
+          <img src="icons/github.svg" alt="GitHub" />
+        </a>
+        <a
+          class="no-underline"
+          href={socialLinks.github}
+          rel="noopener"
+          target="_blank">
+          <img src="icons/linkedin.svg" alt="LinkedIn" />
+        </a>
+        <a
+          class="no-underline"
+          href={socialLinks.twitter}
+          rel="noopener"
+          target="_blank">
+          <img src="icons/twitter.svg" alt="Twitter" />
+        </a>
+      </div>
+    </div>
+  </div>
+</Section>
