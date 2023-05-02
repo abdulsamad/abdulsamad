@@ -22,6 +22,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'Open Sans', 'sans-serif'],
+        display: ['Bruno Ace SC'],
       },
       screens: {
         sm: '640px',
