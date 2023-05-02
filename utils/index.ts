@@ -15,6 +15,39 @@ export const initialProdLog = () => {
 	}
 };
 
+// GitHub GraphQL query for fetching pinned repositories
+export const githubPinnedReposQuery = JSON.stringify({
+  query: `
+		{
+			user(login: "abdulsamad") {
+				pinnedItems(first: 50) {
+					edges {
+						node {
+							... on Repository {
+								name
+								id
+								url
+								description
+								homepageUrl
+								openGraphImageUrl
+								repositoryTopics (first: 100) {
+									edges {
+										node {
+											topic {
+												name
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	`,
+});
+
 export const technologies = [
   'html',
   'css',
@@ -55,36 +88,3 @@ export const technologies = [
   'parcel-bundler',
   'workbox',
 ];
-
-// GitHub GraphQL query for fetching pinned repositories
-export const githubPinnedReposQuery = JSON.stringify({
-  query: `
-		{
-			user(login: "abdulsamad") {
-				pinnedItems(first: 50) {
-					edges {
-						node {
-							... on Repository {
-								name
-								id
-								url
-								description
-								homepageUrl
-								openGraphImageUrl
-								repositoryTopics (first: 100) {
-									edges {
-										node {
-											topic {
-												name
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	`,
-});
