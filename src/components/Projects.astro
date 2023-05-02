@@ -3,7 +3,9 @@ import Section from '@components/utils/Section.astro';
 import Card from '@components/Card.astro';
 import type { Node } from '@utils/types';
 
-const res = await fetch('/api/pinnedRepos');
+const mode = import.meta.env.MODE;
+const pinnedReposURL = mode === 'development' ? 'http://localhost:8888' : '';
+const res = await fetch(`${pinnedReposURL}/api/pinnedRepos`);
 const data: Node[] = await res.json();
 ---
 
