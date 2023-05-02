@@ -44,10 +44,13 @@ module.exports = {
         14: '3.5rem',
       },
       animation: {
-        'text-gradient': 'text-gradient 10s linear infinite',
+        'text-gradient': 'text-gradient 8s linear infinite',
       },
       keyframes: {
         'text-gradient': {
+          from: {
+            'background-position': '100%',
+          },
           to: {
             'background-position': '400%',
           },
