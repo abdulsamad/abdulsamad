@@ -11,19 +11,22 @@ const { href, title, body, ...props } = Astro.props;
 ---
 
 <div
-  class="link-card flex p-1 bg-white bg-none shadow-md rounded-[0.6rem] [background-position:100%] [background-size:400%]"
+  class="link-card flex flex-col p-1 bg-white bg-none shadow-md rounded-[0.6rem] [background-position:100%] [background-size:400%]"
   {...props}>
-  <a
-    href={href}
-    class="w-full no-underline leading-6 py-4 px-5 rounded-md text-[#111] bg-white opacity-80">
-    <h2 class="capitalize m-0 text-lg">
+  <div
+    class="no-underline flex-1 leading-6 p-5 rounded-md text-[#111] bg-white opacity-80">
+    <h2 class="capitalize m-0 text-lg w-full text-primary font-semibold">
       {title}
-      <span>&rarr;</span>
+      <span class="">&rarr;</span>
     </h2>
     <p class="mt-2 mb-0 text-[#444]">
       {body}
+      <div class="flex justify-around mt-8 text-black">
+        <a href={href} class="w-1/2 text-center">GitHub</a>
+        <a href={href} class="w-1/2 text-center">Link</a>
+      </div>
     </p>
-  </a>
+  </div>
 </div>
 <style>
   .link-card {

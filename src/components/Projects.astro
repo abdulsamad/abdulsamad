@@ -1,6 +1,9 @@
 ---
+import { Image } from '@astrojs/image/components';
+
 import Section from '@components/utils/Section.astro';
 import Card from '@components/Card.astro';
+import Button from '@components/utils/Button.astro';
 import type { Node } from '@utils/types';
 
 const mode = import.meta.env.MODE;
@@ -11,12 +14,31 @@ const data: Node[] = await res.json();
 
 <Section id="projects">
   <h2 class="my-5 text-center text-3xl">Projects</h2>
-  <div class="space-y-6">
+  <div class="grid grid-cols-[repeat(2,400px)] justify-center gap-10">
     {
-      data.map(({ name, url, description }) => (
-        <Card href={url} title={name} body={description} />
+      data.map(({ name, url, description, openGraphImageUrl }) => (
+        <>
+          <Image
+            src={openGraphImageUrl}
+            class="mx-auto rounded-lg"
+            height={0}
+            width={800}
+            aspectRatio={16 / 9}
+            alt={name}
+            format="webp"
+          />
+          <Card
+            href={url}
+            class="items-center h-full"
+            title={name}
+            body={description}
+          />
+        </>
       ))
     }
+  </div>
+  <div class="text-center mt-8">
+    <Button class="w-56 text-lg">Checkout GitHub</Button>
   </div>
 </Section>
 
