@@ -45,6 +45,8 @@ module.exports = {
       },
       animation: {
         'text-gradient': 'text-gradient 8s linear infinite',
+        'mouse-scroller':
+          'mouse-scroller 2.2s cubic-bezier(0.15, 0.41, 0.69, 0.94) 0s infinite',
       },
       keyframes: {
         'text-gradient': {
@@ -54,6 +56,11 @@ module.exports = {
           to: {
             'background-position': '400%',
           },
+        },
+        'mouse-scroller': {
+          '0%': { opacity: 0 },
+          '10%': { transform: 'translateY(0)', opacity: 1 },
+          '100%': { transform: 'translateY(15px)', opacity: 0 },
         },
       },
     },
