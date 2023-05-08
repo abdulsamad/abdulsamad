@@ -14,7 +14,8 @@ const data: Repository[] = await res.json();
 
 <Section id="projects">
   <h2 class="my-5 text-center text-3xl">Projects</h2>
-  <div class="grid grid-cols-[repeat(2,400px)] justify-center gap-10">
+  <div
+    class="px-4 lg:px-0 grid lg:grid-cols-[repeat(2,400px)] justify-center gap-10">
     {
       data.map(({ name, url, description, openGraphImageUrl }) => (
         <>
