@@ -11,10 +11,10 @@ export interface PinnedItems {
 }
 
 export interface Edge {
-  node: Node;
+  node: Repository;
 }
 
-export interface Node {
+export interface Repository {
   name: string;
   id: string;
   url: string;

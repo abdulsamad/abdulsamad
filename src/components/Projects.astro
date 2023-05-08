@@ -4,12 +4,12 @@ import { Image } from '@astrojs/image/components';
 import Section from '@components/utils/Section.astro';
 import Card from '@components/Card.astro';
 import Button from '@components/utils/Button.astro';
-import type { Node } from '@utils/types';
+import type { Repository } from '@utils/types';
 
 const mode = import.meta.env.MODE;
 const pinnedReposURL = mode === 'development' ? 'http://localhost:8888' : '';
 const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
-const data: Node[] = await res.json();
+const data: Repository[] = await res.json();
 ---
 
 <Section id="projects">
