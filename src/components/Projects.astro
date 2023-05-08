@@ -7,7 +7,7 @@ import Button from '@components/utils/Button.astro';
 import type { Repository } from '@utils/types';
 
 const mode = import.meta.env.MODE;
-const pinnedReposURL = mode === 'development' ? 'http://localhost:8888' : '';
+const pinnedReposURL = mode === 'development' ? 'http://localhost:8888' : process.env.DEPLOY_URL;
 const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
 const data: Repository[] = await res.json();
 ---
