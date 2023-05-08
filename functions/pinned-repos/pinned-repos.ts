@@ -27,18 +27,11 @@ const handler: Handler = async (event, context) => {
       headers,
       body: githubPinnedReposQuery,
     });
-    const data = ((await res.json()) as any).data as GitHubPinnedReposType;
+    const json: any = await res.json();
+    const data: GitHubPinnedReposType = json.data;
     const filteredProjects = data.user.pinnedItems.edges.map(
       ({
-        node: {
-          description,
-          homepageUrl,
-          id,
-          name,
-          openGraphImageUrl,
-          url,
-          repositoryTopics,
-        },
+        node: { description, homepageUrl, id, name, openGraphImageUrl, url, repositoryTopics },
       }) => {
         // Cleans the topics
         const cleanedTopics = repositoryTopics.edges.map(
@@ -52,9 +45,7 @@ const handler: Handler = async (event, context) => {
         );
 
         // Filter the topics
-        const topics = cleanedTopics.filter((name: string) =>
-          technologies.includes(name)
-        );
+        const topics = cleanedTopics.filter((name: string) => technologies.includes(name));
 
         return {
           homepageUrl,
