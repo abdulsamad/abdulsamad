@@ -77,7 +77,7 @@
 
 "@astrojs/netlify@^2.2.2":
   version "2.2.2"
-  resolved "https://registry.npmjs.org/@astrojs/netlify/-/netlify-2.2.2.tgz"
+  resolved "https://registry.yarnpkg.com/@astrojs/netlify/-/netlify-2.2.2.tgz#a2b4c59674330c859a30734c83aa24a355a188a4"
   integrity sha512-/G7jfG1WK27MxLN0whYCDyaAIw4VE54R7ifC+OSphyIGhc1AwxJh7KqkUbJPYMHhWYsxqQ6zkiG5b7mUJe4gtw==
   dependencies:
     "@astrojs/webapi" "^2.1.0"
@@ -1265,7 +1265,7 @@ esbuild-darwin-64@0.15.18:
 
 esbuild-darwin-arm64@0.15.18:
   version "0.15.18"
-  resolved "https://registry.npmjs.org/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.15.18.tgz"
+  resolved "https://registry.yarnpkg.com/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.15.18.tgz#b6dfc7799115a2917f35970bfbc93ae50256b337"
   integrity sha512-tKPSxcTJ5OmNb1btVikATJ8NftlyNlc8BVNtyT/UAr62JFOhwHlnoPrhYWz09akBLHI9nElFVfWSTSRsrZiDUA==
 
 esbuild-freebsd-64@0.15.18:
@@ -1350,7 +1350,7 @@ esbuild-windows-arm64@0.15.18:
 
 esbuild@^0.15.18:
   version "0.15.18"
-  resolved "https://registry.npmjs.org/esbuild/-/esbuild-0.15.18.tgz"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.15.18.tgz#ea894adaf3fbc036d32320a00d4d6e4978a2f36d"
   integrity sha512-x/R72SmW3sSFRm5zrrIjAhCeQSAWoni3CmHEqfQrZIQTM3lVCdehdwuIqaOtfC2slvpdlLa62GYoN8SxT23m6Q==
   optionalDependencies:
     "@esbuild/android-arm" "0.15.18"
