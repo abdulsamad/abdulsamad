@@ -6,12 +6,9 @@ import Card from '@components/Card.astro';
 import Button from '@components/utils/Button.astro';
 import type { Repository } from '@utils/types';
 
-console.log(`%c${process.env.DEPLOY_URL}`, 'font-size: 20px; color: red');
 const mode = import.meta.env.MODE;
-const pinnedReposURL =
-  mode === 'development'
-    ? 'http://localhost:8888'
-    : 'https://develop--abdulsamad-ansari.netlify.app';
+const pinnedReposURL = mode === 'development' ? 'http://localhost:8888' : process.env.DEPLOY_URL;
+console.log(`${pinnedReposURL}/api/pinned-repos`);
 const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
 const data: Repository[] = await res.json();
 ---
