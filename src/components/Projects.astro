@@ -1,6 +1,4 @@
 ---
-import { Image } from '@astrojs/image/components';
-
 import Section from '@components/utils/Section.astro';
 import Card from '@components/Card.astro';
 import Link from '@components/utils/Link.astro';
@@ -21,25 +19,15 @@ const data: Response[] = await res.json();
   <div class="px-4 lg:px-0 grid lg:grid-cols-[repeat(2,400px)] justify-center gap-10">
     {
       data.map(({ name, url, homepageUrl, description, openGraphImageUrl, topics }) => (
-        <>
-          <Image
-            src={openGraphImageUrl}
-            class="mx-auto rounded-lg"
-            height={0}
-            width={800}
-            aspectRatio={16 / 9}
-            alt={name}
-            format="webp"
-          />
-          <Card
-            class="items-center h-full"
-            title={name}
-            body={description}
-            repo-link={url}
-            live-link={homepageUrl}
-            topics={topics}
-          />
-        </>
+        <Card
+          class="items-center h-full"
+          title={name}
+          body={description}
+          imageUrl={openGraphImageUrl}
+          repo-link={url}
+          live-link={homepageUrl}
+          topics={topics}
+        />
       ))
     }
   </div>
@@ -52,10 +40,3 @@ const data: Response[] = await res.json();
     </Link>
   </div>
 </Section>
-
-<style>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-  }
-</style>
