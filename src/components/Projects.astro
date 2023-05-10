@@ -15,7 +15,7 @@ const data: Response[] = await res.json();
 ---
 
 <Section id="projects">
-  <h2 class="my-5 text-center text-3xl">Projects</h2>
+  <h2 class="mb-16 text-center text-3xl">Projects</h2>
   <div class="px-4 lg:px-0 grid lg:grid-cols-[450px,400px] justify-center gap-10">
     {
       data.map(({ name, url, homepageUrl, description, openGraphImageUrl, topics }) => (
@@ -35,6 +35,7 @@ const data: Response[] = await res.json();
     <Link
       href="https://github.com/abdulsamad?tab=repositories&q=&type=source"
       rel="noopener"
+      target="_blank"
       class="w-56 text-lg">
       Checkout GitHub
     </Link>
