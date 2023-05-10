@@ -37,7 +37,7 @@ const {
       const mouseX = clientX - left;
       const mouseY = clientY - top;
 
-      elem.style.background = `radial-gradient(250px circle at ${mouseX}px ${mouseY}px, rgba(14, 165, 233, 0.35), transparent 80%)`;
+      elem.style.background = `radial-gradient(250px circle at ${mouseX}px ${mouseY}px, rgba(236, 72, 153, 0.35), transparent 80%)`;
 
       // 3D transition effect
       const THRESHOLD = 3;
@@ -54,7 +54,7 @@ const {
       const elem = ev.currentTarget as HTMLDivElement;
 
       // Hover radial gradient
-      elem.style.background = `radial-gradient(circle at center, rgba(14, 165, 233, 0.35), transparent 80%)`;
+      elem.style.background = ``;
       // 3D transition effect
       elem.style.transform = `perspective(${elem.clientWidth}px) rotateX(0deg) rotateY(0deg)`;
     });
@@ -64,7 +64,7 @@ const {
 <div class="flex items-center justify-center">
   <Image
     src={imageUrl}
-    class="mx-auto rounded-3xl"
+    class="mx-auto rounded-2xl"
     height={0}
     width={720}
     aspectRatio={16 / 9}
@@ -72,7 +72,7 @@ const {
     format="webp"
   />
 </div>
-<div class="card flex flex-col p-1 backdrop-blur-md rounded-3xl transition-transform" {...props}>
+<div class="card flex flex-col p-1 backdrop-blur-md rounded-2xl transition-transform" {...props}>
   <div class="no-underline flex-1 leading-6 p-5 rounded-md">
     <h2 class="capitalize m-0 text-lg w-full font-bold text-primary-400">
       {title}
@@ -113,7 +113,6 @@ const {
 
 <style>
   .card {
-    background: radial-gradient(circle at center, rgba(14, 165, 233, 0.35), transparent 80%);
     box-shadow: -20px 20px 60px #2f2f2f, 20px -20px 60px #000 inset;
   }
 </style>
