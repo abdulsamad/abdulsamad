@@ -4,26 +4,48 @@ import type { HTMLAttributes } from 'astro/types';
 export interface Props extends HTMLAttributes<'div'> {
   title: string;
   body: string;
-  href: string;
+  'repo-link': string;
+  'live-link': string;
+  topics: string[];
 }
 
-const { href, title, body, ...props } = Astro.props;
+const { title, body, 'repo-link': repoLink, 'live-link': liveLink, topics, ...props } = Astro.props;
 ---
 
-<div
-  class="link-card flex flex-col p-1 bg-white bg-none shadow-md rounded-[0.6rem] [background-position:100%] [background-size:400%]"
-  {...props}>
-  <div
-    class="no-underline flex-1 leading-6 p-5 rounded-md text-[#111] bg-white opacity-80">
-    <h2 class="capitalize m-0 text-lg w-full text-primary font-semibold">
+<div class="link-card flex flex-col p-1 bg-none rounded-[0.6rem]" {...props}>
+  <div class="no-underline flex-1 leading-6 p-5 rounded-md">
+    <h2 class="capitalize m-0 text-lg w-full font-bold text-primary-400">
       {title}
       <span class="">&rarr;</span>
     </h2>
-    <p class="mt-2 mb-0 text-[#444]">
-      {body}
-      <div class="flex justify-around mt-8 text-black">
-        <a href={href} class="w-1/2 text-center">GitHub</a>
-        <a href={href} class="w-1/2 text-center">Link</a>
+    <p class="mt-2 mb-0">
+      <div class="text-base">
+        {body}
+      </div>
+      <div class="flex gap-2 flex-wrap mt-4 line-clamp-2">
+        {
+          topics.map((topic) => (
+            <span class="bg-primary rounded-full py-1 px-2 text-xs">{topic}</span>
+          ))
+        }
+      </div>
+      <div class="flex justify-around mt-6 text-">
+        <a
+          href={repoLink}
+          class="w-1/2 inline-flex justify-center items-center"
+          rel="noopener"
+          target="_blank">
+          <span>Code</span>
+          <img src="/icons/github.svg" alt="github" class="ml-2.5 text-red h-[18px]" />
+        </a>
+        <a
+          href={liveLink}
+          class="w-1/2 inline-flex justify-center items-center"
+          rel="noopener"
+          target="_blank">
+          <span>Link</span>
+          <img src="/icons/link.svg" alt="link" class="ml-2.5 text-primary h-[14px]" />
+        </a>
       </div>
     </p>
   </div>
@@ -31,6 +53,11 @@ const { href, title, body, ...props } = Astro.props;
 <style>
   .link-card {
     transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
   }
 
   h2 {
