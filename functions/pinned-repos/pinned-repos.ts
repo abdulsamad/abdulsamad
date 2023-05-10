@@ -2,8 +2,9 @@ import type { Handler } from '@netlify/functions';
 import fetch from 'node-fetch';
 
 import { githubPinnedReposQuery, technologies } from '@utils/index';
-import type { GitHubPinnedReposType } from '@utils/types';
-import fallbackProjects from '@utils/fallback-projects.json';
+import fallbackProjects from './fallback-projects.json';
+
+import type { GitHubPinnedReposType } from './types';
 
 const handler: Handler = async (event, context) => {
   try {
