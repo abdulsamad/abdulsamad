@@ -7,28 +7,10 @@ import { socialLinks } from '@utils/index';
 ---
 
 <Section id="contact" class="bg-contact-gradient grid lg:grid-cols-2">
-  <form
-    class="lg:pr-10 text-white"
-    name="contact"
-    method="POST"
-    data-netlify="true">
-    <h5 class="mb-4 text-xl">
-      Any questions, remarks? Don&apos;t hesitate to write me a message!
-    </h5>
-    <Input
-      type="text"
-      label="Name"
-      name="name"
-      placeholder="Your Name"
-      required
-    />
-    <Input
-      type="email"
-      label="Email"
-      name="email"
-      placeholder="john@example.com"
-      required
-    />
+  <form class="lg:pr-10" name="contact" method="POST" data-netlify="true">
+    <h5 class="mb-4 text-xl">Any questions, remarks? Don&apos;t hesitate to write me a message!</h5>
+    <Input type="text" label="Name" name="name" placeholder="Your Name" required />
+    <Input type="email" label="Email" name="email" placeholder="john@example.com" required />
     <TextArea
       label="Message"
       name="message"
@@ -36,26 +18,13 @@ import { socialLinks } from '@utils/index';
       rows={5}
       required
     />
-    <Button type="submit" class="mt-5">
-      <!-- {
-          isSubmitting ? (
-            <img src="/icons/Loader.svg" alt="loading..." />
-          ) : (
-            'Send Message'
-          )
-        } -->
-      Send Message
-    </Button>
+    <Button type="submit" class="mt-5">Send Message</Button>
   </form>
   <div class="relative">
     <div class="flex flex-col items-center justify-center h-full">
-      <h5 class="mb-4 text-3xl">Get in Touch!</h5>
+      <h5 class="mb-4 text-3xl heading">Get in Touch!</h5>
       <div class="flex items-center justify-start gap-x-6">
-        <a
-          class="no-underline text-white"
-          href={socialLinks.github}
-          rel="noopener"
-          target="_blank">
+        <a class="no-underline text-white" href={socialLinks.github} rel="noopener" target="_blank">
           <img src="icons/github.svg" class="fill-white" alt="GitHub" />
         </a>
         <a
@@ -65,11 +34,7 @@ import { socialLinks } from '@utils/index';
           target="_blank">
           <img src="icons/linkedin.svg" alt="LinkedIn" />
         </a>
-        <a
-          class="no-underline"
-          href={socialLinks.twitter}
-          rel="noopener"
-          target="_blank">
+        <a class="no-underline" href={socialLinks.twitter} rel="noopener" target="_blank">
           <img src="icons/twitter.svg" alt="Twitter" />
         </a>
       </div>
