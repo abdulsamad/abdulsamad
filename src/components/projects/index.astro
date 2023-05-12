@@ -1,8 +1,9 @@
 ---
 import Section from '@components/utils/Section.astro';
-import Card from '@components/Card.astro';
 import Link from '@components/utils/Link.astro';
 import type { Repository } from '@functions/pinned-repos/types';
+
+import Card from './Card.astro';
 
 interface Response extends Omit<Repository, 'repositoryTopics'> {
   topics: string[];
