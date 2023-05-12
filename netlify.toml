@@ -9,8 +9,8 @@
   port = 8888
   publish = 'dist'
 
-# [functions]
-#   external_node_modules = ["astro"]
+[functions]
+  external_node_modules = ["astro"]
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
