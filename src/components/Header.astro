@@ -4,11 +4,11 @@ import Logo from '@components/utils/Logo.astro';
 ---
 
 <Section class="py-[0px]">
-  <header
-    class="flex flex-col md:flex-row items-center justify-between w-full px-2 lg:p-4">
-    <Logo height={44} fill="#fff" />
-    <nav
-      class="hidden md:flex flex-col md:flex-row items-stretch gap-12 [&>a]:py-1">
+  <header class="flex flex-col md:flex-row items-center justify-between w-full px-2 lg:p-4">
+    <a href="/">
+      <Logo height={44} fill="#fff" />
+    </a>
+    <nav class="hidden md:flex flex-col md:flex-row items-stretch gap-12 [&>a]:py-1">
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contacts</a>
