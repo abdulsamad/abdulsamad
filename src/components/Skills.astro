@@ -1,29 +1,39 @@
 ---
+import { Icon } from 'astro-icon';
+
 import Section from '@components/utils/Section.astro';
 
 interface skill {
   text: string;
+  icon: string;
 }
 
 const skills: skill[] = [
-  { text: 'HTML' },
-  { text: 'CSS' },
-  { text: 'Sass' },
-  { text: 'CSS-in-JS \n (Styled Components, Emotion)' },
-  { text: 'JavaScript' },
-  { text: 'TypeScript' },
-  { text: 'React' },
-  { text: 'Node' },
-  { text: 'MongoDB' },
-  { text: 'Git' },
-  { text: 'Material UI' },
-  { text: 'Bootstrap' },
+  { text: 'HTML', icon: 'logos:html-5' },
+  { text: 'CSS', icon: 'logos:css-3' },
+  { text: 'Sass', icon: 'logos:sass' },
+  { text: 'Styled Components', icon: 'simple-icons:styled-components' },
+  { text: 'Tailwind CSS', icon: 'logos:tailwindcss-icon' },
+  { text: 'JavaScript', icon: 'logos:javascript' },
+  { text: 'TypeScript', icon: 'vscode-icons:file-type-typescript-official' },
+  { text: 'React', icon: 'logos:react' },
+  { text: 'Node', icon: 'vscode-icons:file-type-node' },
+  { text: 'MongoDB', icon: 'logos:mongodb' },
+  { text: 'Git', icon: 'vscode-icons:file-type-git' },
+  { text: 'Material UI', icon: 'logos:material-ui' },
 ];
 ---
 
-<Section id="skills" class="mb-[0px]">
+<Section id="skills">
   <h2 class="text-3xl my-5 text-center">Skills</h2>
-  <div class="text-center">
-    {skills.map(({ text }) => <div class="my-4">{text}</div>)}
+  <div class="grid grid-cols-[repeat(auto-fit,_300px)] justify-between place-items-center gap-10">
+    {
+      skills.map(({ text, icon }) => (
+        <div class="inline-flex items-center my-5">
+          <span aria-hidden="true">{<Icon name={icon} class="h-12 w-12 mr-5" />}</span>
+          <span>{text}</span>
+        </div>
+      ))
+    }
   </div>
 </Section>
