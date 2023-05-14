@@ -16,6 +16,7 @@ const { type, label, name, error, required, ...props } = Astro.props;
       type={type}
       class={`w-full relative text-slate-700 border border-primary-200 shadow py-3 px-2 rounded-lg focus:rounded-lg focus:shadow-lg [&:focus~span]:bg-primary`}
       name={name}
+      id={name}
       required={required}
       {...props}
     />

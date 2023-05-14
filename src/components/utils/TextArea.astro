@@ -15,6 +15,7 @@ const { label, name, error, required, ...props } = Astro.props;
     <textarea
       class={`w-full text-slate-700 relative py-3 px-2 rounded-lg focus:rounded-lg shadow border border-primary-200 focus:shadow-lg [&:focus~span]:bg-primary`}
       name={name}
+      id={name}
       required={required}
       {...props}></textarea>
     <label
