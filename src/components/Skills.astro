@@ -29,7 +29,7 @@ const skills: skill[] = [
   <div class="grid grid-cols-[repeat(auto-fit,_300px)] justify-between place-items-center gap-10">
     {
       skills.map(({ text, icon }) => (
-        <div class="inline-flex items-center my-5">
+        <div class="inline-flex items-center my-5 grayscale hover:grayscale-0 hover:scale-110 transition-all">
           <span aria-hidden="true">{<Icon name={icon} class="h-12 w-12 mr-5" />}</span>
           <span>{text}</span>
         </div>
