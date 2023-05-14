@@ -11,7 +11,7 @@ const { author, comment, company, designation, country } = Astro.props;
 ---
 
 <div
-  class="card flex flex-col relative p-5 backdrop-blur-md transition-transform text-slate-300 rounded-r-2xl border-l-[6px] border-primary before:font-serif before:absolute before:text-[22rem] before:overflow-hidden before:text-gray-300 before:block before:h-full before:w-full before:content-[open-quote] before:opacity-10 before:inset-0 before:left-0 before:transition-transform">
+  class="testimonial-card flex flex-col relative p-5 backdrop-blur-md transition-transform text-slate-300 rounded-r-2xl border-l-[6px] border-primary before:font-serif before:absolute before:text-[22rem] before:overflow-hidden before:text-gray-300 before:block before:h-full before:w-full before:content-[open-quote] before:opacity-10 before:inset-0 before:left-0 before:transition-transform">
   <blockquote
     class="flex-1 before:content-[open-quote] before:text-5xl before:text-gray-300 after:content-[close-quote] after:text-5xl after:text-gray-300 after:absolute after:translate-x-2 after:translate-y-3">
     {comment}
@@ -29,7 +29,7 @@ const { author, comment, company, designation, country } = Astro.props;
 </div>
 
 <style>
-  .card {
-    box-shadow: -20px 20px 60px #2f2f2f, 20px -20px 60px #000 inset;
+  .testimonial-card {
+    box-shadow: inset 28.23px 28.23px 24px #080c15, inset -28.23px -28.23px 24px #17243f;
   }
 </style>
