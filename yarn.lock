@@ -472,6 +472,16 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.17.19.tgz#8cfaf2ff603e9aabb910e9c0558c26cf32744061"
   integrity sha512-lAhycmKnVOuRYNtRtatQR1LPQf2oYCkRGkSFnseDAKPl8lu5SOsK/e1sXe5a0Pc5kHIHe6P2I/ilntNv2xf3cA==
 
+"@fontsource-variable/inter@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@fontsource-variable/inter/-/inter-5.0.1.tgz#df1a11f16ad482be3596b5bcdcd8196e557a20bc"
+  integrity sha512-cqBEayOWZqERrWnwDUTyUsClZpN1Pv3w/1+NRxwKV4sRdy3RyyRL9DRIgauq8ySxNtJ5ZkNimxsZzCdoiR2Fcw==
+
+"@fontsource/bruno-ace-sc@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/bruno-ace-sc/-/bruno-ace-sc-5.0.1.tgz#3bfdf6a564736052d8bc1e0748e91c994b89865e"
+  integrity sha512-/cyyHxYbMukFtT6ftGTB0Kqrh7ilLFaFFcVDEGKRTuPNzr7gaQTluwqmXZ0f2DT5H3RtiAHvVBVCv51b/fJUbA==
+
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"

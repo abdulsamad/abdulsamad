@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
@@ -21,7 +23,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'Open Sans', 'sans-serif'],
+        sans: ['Inter', 'Open Sans', ...defaultTheme.fontFamily.sans],
         display: ['Bruno Ace SC'],
       },
       screens: {
@@ -45,8 +47,7 @@ module.exports = {
       },
       animation: {
         'text-gradient': 'text-gradient 8s linear infinite',
-        'mouse-scroller':
-          'mouse-scroller 2.2s cubic-bezier(0.15, 0.41, 0.69, 0.94) 0s infinite',
+        'mouse-scroller': 'mouse-scroller 2.2s cubic-bezier(0.15, 0.41, 0.69, 0.94) 0s infinite',
       },
       keyframes: {
         'text-gradient': {
