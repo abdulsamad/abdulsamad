@@ -9,7 +9,7 @@ interface Response extends Omit<Repository, 'repositoryTopics'> {
   topics: string[];
 }
 
-const DEPLOY_URL = import.meta.env.DEPLOY_PRIME_URL;
+const DEPLOY_URL = process.env.DEPLOY_PRIME_URL;
 
 const isDevelopmentMode = import.meta.env.MODE === 'development';
 const pinnedReposURL = isDevelopmentMode ? 'http://localhost:8888' : DEPLOY_URL;
