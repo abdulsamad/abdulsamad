@@ -1,0 +1,134 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Image } from '@astrojs/image/components';
+
+export interface Props extends HTMLAttributes<'div'> {
+  title: string;
+  body: string;
+  imageUrl: string;
+  'repo-link': string;
+  'live-link': string;
+  topics: string[];
+}
+
+const {
+  title,
+  body,
+  imageUrl,
+  'repo-link': repoLink,
+  'live-link': liveLink,
+  topics,
+  ...props
+} = Astro.props;
+---
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  cards.forEach((card) => {
+    card.addEventListener('mouseover', (ev) => {
+      const { clientX, clientY } = ev as MouseEvent;
+      const elem = ev.currentTarget as HTMLDivElement;
+
+      const { left, top } = elem.getBoundingClientRect();
+      const { clientWidth, clientHeight, offsetLeft, offsetTop } = elem;
+
+      // Hover radial gradient
+      const mouseX = clientX - left;
+      const mouseY = clientY - top;
+
+      elem.style.background = `radial-gradient(250px circle at ${mouseX}px ${mouseY}px, rgba(236, 72, 153, 0.35), transparent 80%)`;
+
+      // 3D transition effect
+      const THRESHOLD = 3;
+
+      const horizontal = (clientX - offsetLeft) / clientWidth;
+      const vertical = (clientY - offsetTop) / clientHeight;
+      const rotateX = (THRESHOLD / 2 - horizontal * THRESHOLD).toFixed(2);
+      const rotateY = (vertical * THRESHOLD - THRESHOLD / 2).toFixed(2);
+
+      elem.style.transform = `perspective(${clientWidth}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg) scale3d(1, 1, 1)`;
+    });
+
+    card.addEventListener('mouseleave', (ev) => {
+      const elem = ev.currentTarget as HTMLDivElement;
+
+      // Hover radial gradient
+      elem.style.background = ``;
+      // 3D transition effect
+      elem.style.transform = `perspective(${elem.clientWidth}px) rotateX(0deg) rotateY(0deg)`;
+    });
+  });
+</script>
+
+<div class="flex items-center justify-center rounded-2xl overflow-hidden">
+  <Image
+    src={imageUrl}
+    class="mx-auto hover:scale-110 transition-transform"
+    height={0}
+    width={720}
+    aspectRatio={16 / 9}
+    alt={title}
+    format="webp"
+  />
+</div>
+<div class="card flex flex-col p-1 backdrop-blur-md rounded-2xl transition-transform" {...props}>
+  <div class="no-underline flex-1 leading-6 p-5 rounded-md">
+    <h3 class="capitalize m-0 text-lg w-full font-bold text-primary-400">
+      {title}
+      <span class="">&rarr;</span>
+    </h3>
+    <div class="mt-2 mb-0 flex-1">
+      <div class="text-base">
+        {body}
+      </div>
+      <div class="flex gap-2 flex-wrap mt-4 line-clamp-2">
+        {
+          topics
+            .slice(0, 4)
+            .map((topic) => (
+              <span class="bg-primary text-slate-950 font-[400] rounded-full py-1 px-2 text-xs">
+                {topic}
+              </span>
+            ))
+        }
+      </div>
+      <div class="flex justify-around mt-6 text-">
+        <a
+          href={repoLink}
+          class="w-1/2 inline-flex justify-center items-center"
+          rel="noopener"
+          target="_blank">
+          <span>Code</span>
+          <img
+            src="/icons/github.svg"
+            alt="github"
+            height={18}
+            width={18}
+            class="ml-2.5 text-red h-[18px]"
+          />
+        </a>
+        <a
+          href={liveLink}
+          class="w-1/2 inline-flex justify-center items-center"
+          rel="noopener"
+          target="_blank">
+          <span>Link</span>
+          <img
+            src="/icons/link.svg"
+            alt="link"
+            height={18}
+            width={18}
+            class="ml-2.5 text-primary h-[14px]"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .card {
+    box-shadow: -20px 20px 60px #2f2f2f, 20px -20px 60px #000 inset;
+  }
+</style>

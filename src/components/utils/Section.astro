@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'section'> {}
+
+const { ...props } = Astro.props;
+---
+
+<section
+  class={`relative px-[4vw] py-10 w-full max-w-[1920px] mx-auto ${props.class}`}
+  {...props}>
+  <slot />
+</section>

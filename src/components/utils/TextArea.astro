@@ -1,0 +1,29 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'textarea'> {
+  name: string;
+  label: string;
+  error?: string;
+}
+
+const { label, name, error, required, ...props } = Astro.props;
+---
+
+<div>
+  <div class="relative my-4 flex flex-col-reverse items-start">
+    <textarea
+      class={`w-full text-slate-700 relative py-3 px-2 rounded-lg focus:rounded-lg shadow border border-primary-200 focus:shadow-lg [&:focus~span]:bg-primary`}
+      name={name}
+      id={name}
+      required={required}
+      {...props}></textarea>
+    <label
+      for={name}
+      class={`mb-2 font-semibold ml-[2px] 
+        ${required ? '[&::after]:[content:"*"] [&::after]:text-red-400' : ''}`}>
+      {label}
+    </label>
+  </div>
+  {error && <div class="-m-4 pb-2.5 text-sm text-red-500 text-center">{error}</div>}
+</div>

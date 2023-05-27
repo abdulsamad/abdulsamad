@@ -1,10 +1,19 @@
 [build]
   functions = "functions"
   command = "yarn run build"
-  publish = ".next"
+  publish = "dist"
+
+[dev]
+  functionsPort = 8885
+  targetPort = 3000
+  port = 8888
+  publish = 'dist'
+
+# [functions]
+#   external_node_modules = ["astro"]
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs"
+  package = "@netlify/plugin-lighthouse"
 
 [[redirects]]
   from = "/api/*"
@@ -29,6 +38,16 @@
 [[redirects]]
   from = "/telegram"
   to = "https://t.me/AbdulSamadDev"
+  status = 301
+
+[[redirects]]
+  from = "/twitter"
+  to = "https://twitter.com/AbdulSamadDev"
+  status = 301
+
+[[redirects]]
+  from = "/facebook"
+  to = "https://facebook.com/AbdulSamadDev"
   status = 301
 
 [[headers]]

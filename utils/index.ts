@@ -1,3 +1,9 @@
+export const socialLinks = {
+  linkedIn: 'https://www.linkedin.com/in/abdulsamad-ansari',
+  github: 'https://github.com/abdulsamad',
+  twitter: 'https://twitter.com/AbdulSamadDev',
+};
+
 export const initialProdLog = () => {
   // prettier-ignore
   if (process.env.NODE_ENV === 'production') {
@@ -14,6 +20,39 @@ export const initialProdLog = () => {
 			console.log(txt, 'font-size: 16px; font-weight: 600; text-shadow: 1px 1px 2px #c4c4c4,1px 1px 2px #d3d3d3; margin: 5px 0;');
 	}
 };
+
+// GitHub GraphQL query for fetching pinned repositories
+export const githubPinnedReposQuery = JSON.stringify({
+  query: `
+		{
+			user(login: "abdulsamad") {
+				pinnedItems(first: 50) {
+					edges {
+						node {
+							... on Repository {
+								name
+								id
+								url
+								description
+								homepageUrl
+								openGraphImageUrl
+								repositoryTopics (first: 100) {
+									edges {
+										node {
+											topic {
+												name
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	`,
+});
 
 export const technologies = [
   'html',
@@ -55,42 +94,3 @@ export const technologies = [
   'parcel-bundler',
   'workbox',
 ];
-
-// Encode Form Data for Netlify
-export const encodeNetlifyFormData = (data: { [key: string]: string }) =>
-  Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-
-// GitHub GraphQL query for fetching pinned repositories
-export const githubPinnedReposQuery = JSON.stringify({
-  query: `
-		{
-			user(login: "abdulsamad") {
-				pinnedItems(first: 50) {
-					edges {
-						node {
-							... on Repository {
-								name
-								id
-								url
-								description
-								homepageUrl
-								openGraphImageUrl
-								repositoryTopics (first: 100) {
-									edges {
-										node {
-											topic {
-												name
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	`,
-});

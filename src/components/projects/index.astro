@@ -1,0 +1,46 @@
+---
+import Section from '@components/utils/Section.astro';
+import Link from '@components/utils/Link.astro';
+import type { Repository } from '@functions/pinned-repos/types';
+
+import Card from './Card.astro';
+
+interface Response extends Omit<Repository, 'repositoryTopics'> {
+  topics: string[];
+}
+
+const DEPLOY_URL = import.meta.env.DEPLOY_PRIME_URL;
+
+const isDevelopmentMode = import.meta.env.MODE === 'development';
+const pinnedReposURL = isDevelopmentMode ? 'http://localhost:8888' : DEPLOY_URL;
+const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
+const data: Response[] = await res.json();
+---
+
+<Section id="projects">
+  <h2 class="mb-16 text-center text-3xl">Projects</h2>
+  <div class="px-4 lg:px-0 grid lg:grid-cols-[450px,400px] justify-center gap-10">
+    {
+      data.map(({ name, url, homepageUrl, description, openGraphImageUrl, topics }) => (
+        <Card
+          class="items-center h-full"
+          title={name}
+          body={description}
+          imageUrl={openGraphImageUrl}
+          repo-link={url}
+          live-link={homepageUrl}
+          topics={topics}
+        />
+      ))
+    }
+  </div>
+  <div class="text-center mt-10 mb-8">
+    <Link
+      href="https://github.com/abdulsamad?tab=repositories&q=&type=source"
+      rel="noopener"
+      target="_blank"
+      class="text-lg">
+      <span>More on GitHub</span>
+    </Link>
+  </div>
+</Section>

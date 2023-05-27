@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'a'> {
+  variant?: 'filled' | 'outline';
+  className?: string;
+}
+
+const { variant = 'filled', className = '', ...linkProps } = Astro.props;
+---
+
+<a
+  class={`px-5 py-2 shadow rounded-3xl text-white ${
+    variant === 'filled'
+      ? 'bg-gradient-to-r from-primary via-purple-500 to-pink-500'
+      : 'bg-transparent border-white border-2 border-solid'
+  } ${className}`}
+  {...linkProps}>
+  <slot />
+</a>
