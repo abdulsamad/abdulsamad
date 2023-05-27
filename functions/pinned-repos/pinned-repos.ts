@@ -66,6 +66,8 @@ const handler: Handler = async (event, context) => {
     };
   } catch (err) {
     const errMsg = err instanceof Error ? err.message : 'Something went wrong!';
+
+    // Error Log
     console.error(errMsg);
 
     return {
