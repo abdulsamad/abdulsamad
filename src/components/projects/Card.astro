@@ -86,7 +86,11 @@ const {
         {
           topics
             .slice(0, 4)
-            .map((topic) => <span class="bg-primary rounded-full py-1 px-2 text-xs">{topic}</span>)
+            .map((topic) => (
+              <span class="bg-primary text-slate-950 font-[400] rounded-full py-1 px-2 text-xs">
+                {topic}
+              </span>
+            ))
         }
       </div>
       <div class="flex justify-around mt-6 text-">
