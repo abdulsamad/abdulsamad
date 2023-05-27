@@ -8,9 +8,6 @@ import type { GitHubPinnedReposType } from './types';
 
 const handler: Handler = async (event, context) => {
   try {
-    //  Check body contains data
-    // if (!event.body) throw new Error('No data found in body!');
-
     const GITHUB_ACCESS_TOKEN = process.env.GITHUB_ACCESS_TOKEN;
 
     // No access token found
