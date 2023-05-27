@@ -71,7 +71,7 @@ const handler: Handler = async (event, context) => {
     console.error(errMsg);
 
     return {
-      statusCode: 200,
+      statusCode: 500,
       body: JSON.stringify(fallbackProjects.githubPinnedItems),
     };
   }
