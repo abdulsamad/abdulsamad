@@ -69,7 +69,7 @@ const handler: Handler = async (event, context) => {
 
     return {
       statusCode: 500,
-      body: JSON.stringify({ fallbackProjects }),
+      body: JSON.stringify(fallbackProjects.githubPinnedItems),
     };
   }
 };

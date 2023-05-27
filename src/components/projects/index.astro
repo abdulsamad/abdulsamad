@@ -15,6 +15,8 @@ const isDevelopmentMode = import.meta.env.MODE === 'development';
 const pinnedReposURL = isDevelopmentMode ? 'http://localhost:8888' : DEPLOY_URL;
 const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
 const data: Response[] = await res.json();
+
+console.log({ data });
 ---
 
 <Section id="projects">
