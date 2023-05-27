@@ -66,6 +66,7 @@ const handler: Handler = async (event, context) => {
     };
   } catch (err) {
     const errMsg = err instanceof Error ? err.message : 'Something went wrong!';
+    console.error(errMsg);
 
     return {
       statusCode: 500,
