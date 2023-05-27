@@ -15,6 +15,9 @@ const isDevelopmentMode = import.meta.env.MODE === 'development';
 const pinnedReposURL = isDevelopmentMode ? 'http://localhost:8888' : DEPLOY_URL;
 const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
 const data: Response[] = await res.json();
+
+if (res.status === 500)
+  console.log('\x1b[33m%s\x1b[0m', 'LOG: Unable to fetch repository. Fallback projects used.');
 ---
 
 <Section id="projects">
