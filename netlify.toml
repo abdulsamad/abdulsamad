@@ -1,6 +1,6 @@
 [build]
 functions = "functions"
-command = "yarn run build"
+command = "netlify build"
 publish = "dist"
 
 [dev]
