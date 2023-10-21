@@ -26,7 +26,8 @@ const skills: skill[] = [
 
 <Section id="skills">
   <h2 class="text-3xl my-5 text-center">Skills</h2>
-  <div class="grid grid-cols-[repeat(auto-fit,_300px)] justify-between place-items-center gap-10">
+  <div
+    class="grid grid-cols-1 lg:grid-cols-[repeat(auto-fit,_300px)] justify-between place-items-center gap-10">
     {
       skills.map(({ text, icon }) => (
         <div class="inline-flex items-center my-5 grayscale hover:grayscale-0 hover:scale-110 transition-all">
