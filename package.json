@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "netlify dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "CI= astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
