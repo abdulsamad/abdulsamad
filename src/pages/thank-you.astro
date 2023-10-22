@@ -5,13 +5,28 @@ import Layout from '@layouts/Layout.astro';
 import Section from '@components/utils/Section.astro';
 ---
 
+<script>
+  const queryParams = new URLSearchParams(window.location.search);
+  const nameElem = document.querySelector('#name') as HTMLSpanElement;
+  const name = queryParams.get('name');
+
+  if (name) nameElem.innerText = `, ${name}`;
+</script>
+
 <Layout title="Abdul Samad Ansari - Developer - Thank You" noindex={true}>
   <Section class="min-h-[calc(100vh-76px)] w-full flex items-center justify-center">
-    <div class="flex justify-center items-center gap-2">
-      <Icon name="ic:baseline-check-circle" class="h-8 w-8 text-green-500" />
-      <h1 class="text-xl">
-        Thanks for submitting your query. I will get back to you as soon as possible.
+    <div class="flex justify-center items-center gap-4 flex-col">
+      <h1 class="text-2xl text-center flex gap-1">
+        <Icon name="ic:baseline-check-circle" class="h-8 w-8 text-green-500 fill-white" />
+        <span>
+          Thank you for submitting your query <strong
+            id="name"
+            class="font-semibold italic whitespace-nowrap"></strong>.
+        </span>
       </h1>
+      <h2 class="text-xl text-center">
+        I appreciate your message and will respond to you as promptly as possible 😃
+      </h2>
     </div>
   </Section>
 </Layout>
