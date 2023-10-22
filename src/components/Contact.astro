@@ -12,17 +12,17 @@ import { socialLinks } from '@utils/index';
     ev.preventDefault();
 
     try {
-      // const form = ev.target as HTMLFormElement;
-      // const formData = new FormData(form);
-      // const redirect_url = `/thank-you?name=${formData.get('name')}`;
+      const form = ev.target as HTMLFormElement;
+      const formData = new FormData(form);
+      const redirect_url = `/thank-you?name=${formData.get('name')}`;
 
-      // await fetch('/', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      //   body: new URLSearchParams(formData as any).toString(),
-      // });
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
+      });
 
-      window.location.href = '/thank-you';
+      window.location.href = redirect_url;
     } catch (err) {
       console.error(err);
     }
