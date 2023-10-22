@@ -14,12 +14,15 @@ const { type, label, name, error, required, ...props } = Astro.props;
   <div class="relative my-4 flex flex-col-reverse items-start">
     <input
       type={type}
-      class={`w-full relative text-slate-700 border border-primary-200 shadow py-3 px-2 rounded-lg focus:rounded-lg focus:shadow-lg [&:focus~span]:bg-primary`}
+      class="w-full relative text-slate-700 border border-primary-200 shadow py-3 px-2 focus:outline-none rounded-lg focus:rounded-lg focus:shadow-lg"
       name={name}
       id={name}
       required={required}
       {...props}
     />
+    <span
+      class="w-full h-[5px] absolute left-0 right-0 bottom-0 translate-y-[1px] origin-left scale-x-0 rounded-md transition-transform"
+      aria-hidden="true"></span>
     <label
       for={name}
       class={`mb-2 font-semibold ml-[2px] 
@@ -29,3 +32,30 @@ const { type, label, name, error, required, ...props } = Astro.props;
   </div>
   {error && <div class="-m-4 pb-2.5 text-sm text-red-500 text-center">{error}</div>}
 </div>
+
+<style>
+  input {
+    animation: grow 0.5s ease forwards;
+  }
+
+  input:focus ~ span {
+    /* background-color: #ec4899; */
+    animation: grow 0.5s ease forwards;
+  }
+
+  input:not(:placeholder-shown):not(:focus):valid ~ span {
+    background-color: rgb(22 163 74);
+    transform: scale(1);
+  }
+
+  input:not(:placeholder-shown):not(:focus):invalid ~ span {
+    background-color: rgb(239 68 68);
+    transform: scale(1);
+  }
+
+  @keyframes grow {
+    to {
+      transform: scaleX(1);
+    }
+  }
+</style>
