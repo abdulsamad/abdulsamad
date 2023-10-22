@@ -4,7 +4,7 @@ import Link from '@components/utils/Link.astro';
 ---
 
 <Section class="min-h-[calc(100vh-72px)] flex items-center justify-start">
-  <div class="flex flex-col">
+  <div class="flex flex-col min-h-[350px]">
     <h1 class="text-xl font-display lg:text-4xl leading-8 lg:leading-12">
       Hi, I'm Abdul Samad, <br /> Web Developer who loves <br />
       <div
@@ -13,8 +13,8 @@ import Link from '@components/utils/Link.astro';
       </div>
     </h1>
     <div class="flex gap-5 mt-3">
-      <Link variant="filled" href="#contact">Get In Touch</Link>
-      <Link variant="outline" href="#projects">View Projects</Link>
+      <Link variant="filled" href="#contact" className="whitespace-nowrap">Get In Touch</Link>
+      <Link variant="outline" href="#projects" className="whitespace-nowrap">View Projects</Link>
     </div>
   </div>
   <button
