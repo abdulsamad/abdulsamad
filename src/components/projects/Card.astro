@@ -20,6 +20,20 @@ const {
   topics,
   ...props
 } = Astro.props;
+
+// Words to Uppercased
+const shouldBeUppercased = new Set(['json']);
+
+const updatedTitle = title
+  .split(' ')
+  .map((word) => {
+    if (shouldBeUppercased.has(word.toLowerCase())) {
+      return word.toUpperCase();
+    }
+
+    return word;
+  })
+  .join(' ');
 ---
 
 <script>
@@ -75,8 +89,10 @@ const {
 <div class="card flex flex-col p-1 backdrop-blur-md rounded-2xl transition-transform" {...props}>
   <div class="no-underline flex-1 leading-6 p-5 rounded-md">
     <h3 class="capitalize m-0 text-lg w-full font-bold text-primary-400">
-      {title}
-      <span class="">&rarr;</span>
+      <a href={repoLink}>
+        {updatedTitle}
+        <span class="">&rarr;</span>
+      </a>
     </h3>
     <div class="mt-2 mb-0 flex-1">
       <div class="text-base">
