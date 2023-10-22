@@ -108,20 +108,24 @@ const {
             class="ml-2.5 text-red h-[18px]"
           />
         </a>
-        <a
-          href={liveLink}
-          class="w-1/2 inline-flex justify-center items-center"
-          rel="noopener"
-          target="_blank">
-          <span>Link</span>
-          <img
-            src="/icons/link.svg"
-            alt="link"
-            height={18}
-            width={18}
-            class="ml-2.5 text-primary h-[14px]"
-          />
-        </a>
+        {
+          liveLink && (
+            <a
+              href={liveLink}
+              class="w-1/2 inline-flex justify-center items-center"
+              rel="noopener"
+              target="_blank">
+              <span>Link</span>
+              <img
+                src="/icons/link.svg"
+                alt="link"
+                height={18}
+                width={18}
+                class="ml-2.5 text-primary h-[14px]"
+              />
+            </a>
+          )
+        }
       </div>
     </div>
   </div>
