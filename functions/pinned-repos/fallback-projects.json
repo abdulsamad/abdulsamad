@@ -1,24 +1,13 @@
 {
   "githubPinnedItems": [
     {
-      "homepageUrl": "https://chrome.google.com/webstore/detail/peek-history/gknodemjjckmkncijnedcpogffimkmbm",
-      "description": "A simple and minimal chrome extension for quickly peeking and managing history",
-      "name": "peek history",
-      "id": "MDEwOlJlcG9zaXRvcnkyMTg3NDE3MDI=",
-      "url": "https://github.com/abdulsamad/peek-history",
-      "openGraphImageUrl": "https://repository-images.githubusercontent.com/218741702/aa2d6680-cd72-11eb-9b9a-967dbbf97895",
-      "topics": [
-        "javascript",
-        "react",
-        "typescript",
-        "material-ui",
-        "dayjs",
-        "vite",
-        "emotion",
-        "css-in-js",
-        "redux",
-        "redux-toolkit"
-      ]
+      "homepageUrl": "",
+      "description": "An e-commerce store created with MERN (MongoDB, Express, React, Node) and TurboRepo",
+      "name": "shopper ave",
+      "id": "MDEwOlJlcG9zaXRvcnkzNTY4NjM3Njk=",
+      "url": "https://github.com/abdulsamad/shopper-ave",
+      "openGraphImageUrl": "https://opengraph.githubassets.com/f8ce89e07cd730a47eae683d4d3777c1a6ae2fe6d9235e77d765ad8a3f3dff96/abdulsamad/shopper-ave",
+      "topics": ["react", "node", "mongodb", "javascript", "typescript"]
     },
     {
       "homepageUrl": "https://frontend-fun.netlify.app",
