@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import '@fontsource/bruno-ace-sc';
 import '@fontsource-variable/inter';
 
@@ -50,21 +51,21 @@ const { title, noindex } = Astro.props;
       content="https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg"
     />
     <link rel="icon" href="/favicon.ico" />
+    <ViewTransitions />
   </head>
   <body>
     <div class="text-white">
-      <Header />
+      <Header transition:persist />
       <slot />
     </div>
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #0f182a;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background: #0f182a;
-  }
-</style>

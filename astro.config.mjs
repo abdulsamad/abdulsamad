@@ -9,4 +9,7 @@ export default defineConfig({
   server: {
     port: 8888,
   },
+  experimental: {
+    viewTransitions: true,
+  },
 });
