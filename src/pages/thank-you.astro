@@ -13,7 +13,7 @@ import Social from '@components/Social.astro';
 
   if (name) {
     nameElem.innerText = ` ${name}.`;
-  } else {
+  } else if (import.meta.env.PROD) {
     window.location.replace('/');
   }
 </script>
