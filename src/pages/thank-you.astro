@@ -11,7 +11,11 @@ import Social from '@components/Social.astro';
   const nameElem = document.querySelector('#name') as HTMLSpanElement;
   const name = queryParams.get('name');
 
-  if (name) nameElem.innerText = ` ${name}.`;
+  if (name) {
+    nameElem.innerText = ` ${name}.`;
+  } else {
+    window.location.replace('/');
+  }
 </script>
 
 <Layout title="Abdul Samad Ansari - Developer - Thank You" noindex={true}>
