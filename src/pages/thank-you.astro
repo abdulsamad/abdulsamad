@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon';
 
 import Layout from '@layouts/Layout.astro';
 import Section from '@components/utils/Section.astro';
+import Social from '@components/Social.astro';
 ---
 
 <script>
@@ -10,23 +11,29 @@ import Section from '@components/utils/Section.astro';
   const nameElem = document.querySelector('#name') as HTMLSpanElement;
   const name = queryParams.get('name');
 
-  if (name) nameElem.innerText = `, ${name}`;
+  if (name) nameElem.innerText = ` ${name}.`;
 </script>
 
 <Layout title="Abdul Samad Ansari - Developer - Thank You" noindex={true}>
-  <Section class="min-h-[calc(100vh-76px)] w-full flex items-center justify-center">
-    <div class="flex justify-center items-center gap-4 flex-col">
+  <Section class="min-h-[calc(100vh-76px)] w-full flex flex-col items-center justify-between">
+    <div aria-hidden="true" class="invisible"></div>
+    <div class="flex justify-center items-center gap-6 flex-col">
       <h1 class="text-2xl text-center flex gap-1">
         <Icon name="ic:baseline-check-circle" class="h-8 w-8 text-green-500 fill-white" />
         <span>
-          Thank you for submitting your query <strong
+          Thank you for submitting your query,<strong
             id="name"
-            class="font-semibold italic whitespace-nowrap"></strong>.
+            class="font-semibold font-display whitespace-nowrap relative after:content-[''] after:block after:h-[4px] after:rounded-lg after:bg-primary after:absolute after:w-[120%] after:-bottom-3 after:right-0 before:block before:h-[4px] before:rounded-lg before:bg-primary before:absolute before:w-full before:-bottom-1 before:left-0 before:right-0"
+          ></strong>
         </span>
       </h1>
       <h2 class="text-xl text-center">
         I appreciate your message and will respond to you as promptly as possible 😃
       </h2>
+    </div>
+    <div class="flex items-center flex-col gap-y-4 mt-16">
+      <h3 class="text-lg">More ways to connect with me</h3>
+      <Social />
     </div>
   </Section>
 </Layout>

@@ -1,8 +1,8 @@
-export const socialLinks = {
-  linkedIn: 'https://www.linkedin.com/in/abdulsamad-ansari',
-  github: 'https://github.com/abdulsamad',
-  twitter: 'https://twitter.com/AbdulSamadDev',
-};
+export const socialLinks = [
+  { name: 'LinkedIn', iconName: 'linkedin', url: 'https://www.linkedin.com/in/abdulsamad-ansari' },
+  { name: 'GitHub', iconName: 'github', url: 'https://github.com/abdulsamad' },
+  { name: 'Twitter', iconName: 'twitter', url: 'https://twitter.com/AbdulSamadDev' },
+];
 
 export const initialProdLog = () => {
   // prettier-ignore
