@@ -3,6 +3,15 @@ import Section from '@components/utils/Section.astro';
 import Link from '@components/utils/Link.astro';
 ---
 
+<script>
+  const button = document.querySelector('#hero-mouse-button') as HTMLButtonElement;
+
+  // Scroll page up by 500px
+  button.addEventListener('click', () => {
+    window.scrollBy(0, 500);
+  });
+</script>
+
 <Section class="min-h-[calc(100vh-72px)] flex items-center justify-start">
   <div class="flex flex-col min-h-[350px]">
     <h1 class="text-xl font-display lg:text-4xl leading-8 lg:leading-12">
@@ -23,13 +32,4 @@ import Link from '@components/utils/Link.astro';
     <div class="w-1 h-[10px] rounded-[25%] bg-white animate-mouse-scroller"></div>
     <div class="sr-only">Scroll below</div>
   </button>
-
-  <script>
-    const button = document.querySelector('#hero-mouse-button') as HTMLButtonElement;
-
-    // Scroll page up by 500px
-    button.addEventListener('click', () => {
-      window.scrollBy(0, 500);
-    });
-  </script>
 </Section>
