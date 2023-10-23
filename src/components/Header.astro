@@ -10,9 +10,18 @@ import Logo from '@components/utils/Logo.astro';
     const target = ev.target as HTMLButtonElement;
     const nav = document.querySelector('#nav') as HTMLElement;
 
-    target.classList.toggle('active');
-    nav.classList.toggle('hidden');
-    nav.classList.toggle('flex');
+    const navClassList = nav.classList;
+    const targetClassList = target.classList;
+
+    targetClassList.toggle('active');
+
+    if (targetClassList.contains('active')) {
+      navClassList.remove('hidden');
+      navClassList.add('flex');
+    } else {
+      navClassList.add('hidden');
+      navClassList.remove('flex');
+    }
   });
 </script>
 
@@ -23,7 +32,7 @@ import Logo from '@components/utils/Logo.astro';
     </a>
     <nav
       id="nav"
-      class="z-10 text-center md:text-left absolute inset-0 p-5 md:p-0 translate-y-16 md:translate-y-0 md:relative hidden md:flex flex-col md:flex-row items-stretch gap-5 md:gap-12 [&>a]:py-1 bg-[#0f182a] overflow-hidden h-[320px] md:h-auto">
+      class="z-10 text-center md:text-left absolute inset-0 p-5 md:p-0 translate-y-16 md:translate-y-0 md:relative hidden md:flex flex-col md:flex-row items-stretch gap-5 md:gap-12 [&>a]:py-1 bg-[#0f182a] overflow-hidden h-[240px] md:h-auto">
       <a href="/#skills">Skills</a>
       <a href="/#projects">Projects</a>
       <a href="/#contact">Contacts</a>
@@ -92,5 +101,19 @@ import Logo from '@components/utils/Logo.astro';
   .active .bottom {
     stroke-dasharray: 90 207;
     stroke-dashoffset: -134;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  nav {
+    animation: fadeIn 0.5s;
+    transition: opacity 0.3s ease-out;
   }
 </style>
