@@ -10,9 +10,7 @@ interface Response extends Omit<Repository, 'repositoryTopics'> {
 }
 
 const DEPLOY_URL = process.env.DEPLOY_PRIME_URL;
-
-const isDevelopmentMode = import.meta.env.MODE === 'development';
-const pinnedReposURL = isDevelopmentMode ? 'http://localhost:3000' : DEPLOY_URL;
+const pinnedReposURL = DEPLOY_URL;
 const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
 const data: Response[] = await res.json();
 ---
