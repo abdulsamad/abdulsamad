@@ -68,7 +68,7 @@ const handler: Handler = async (event, context) => {
     console.error(errMsg);
 
     return {
-      statusCode: 500,
+      statusCode: 200,
       body: JSON.stringify(fallbackProjects.githubPinnedItems),
     };
   }
