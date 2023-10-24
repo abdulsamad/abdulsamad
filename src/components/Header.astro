@@ -7,21 +7,15 @@ import Logo from '@components/utils/Logo.astro';
   const menuBtn = document.querySelector('#menu-btn');
 
   menuBtn?.addEventListener('click', (ev) => {
-    const target = ev.target as HTMLButtonElement;
+    const target = ev.currentTarget as HTMLButtonElement;
     const nav = document.querySelector('#nav') as HTMLElement;
 
     const navClassList = nav.classList;
     const targetClassList = target.classList;
 
     targetClassList.toggle('active');
-
-    if (targetClassList.contains('active')) {
-      navClassList.remove('hidden');
-      navClassList.add('flex');
-    } else {
-      navClassList.add('hidden');
-      navClassList.remove('flex');
-    }
+    navClassList.toggle('hidden');
+    navClassList.toggle('flex');
   });
 </script>
 
