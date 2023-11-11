@@ -9,6 +9,6 @@
       "@functions/*": ["functions/*"]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "@builder.io/qwik"
   }
 }
