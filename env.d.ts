@@ -1,13 +1,17 @@
+/// <reference path="../.astro/types.d.ts" />
+/// <reference types="astro/image/client" />
+
 declare namespace NodeJS {
   interface ProcessEnv {
-    NEXT_PUBLIC_HCAPTCHA_SITE_KEY: string;
-    HCAPTCHA_SITE_SECRET: string;
-    GITHUB_ACCESS_TOKEN: string;
+    readonly HCAPTCHA_SITE_SECRET: string;
+    readonly GITHUB_ACCESS_TOKEN: string;
   }
 }
 
-declare namespace Express {
-  export interface Request {
-    token: string;
-  }
+interface ImportMetaEnv {
+  readonly PUBLIC_HCAPTCHA_SITE_KEY: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
 }
