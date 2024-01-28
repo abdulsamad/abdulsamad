@@ -1,60 +1,60 @@
 [build]
-	functions = "functions"
-	command = "yarn run build"
-	publish = "dist"
+functions = "functions"
+command = "pnpm run build"
+publish = "dist"
 
 [dev]
-	functionsPort = 8885
-	targetPort = 8888
-	port = 3000
-	publish = 'dist'
+functionsPort = 8885
+targetPort = 8888
+port = 3000
+publish = 'dist'
 
 # [functions]
 #   external_node_modules = ["astro"]
 
 [[plugins]]
-	package = "@netlify/plugin-lighthouse"
+package = "@netlify/plugin-lighthouse"
 
 [[redirects]]
-	from = "/api/*"
-	to = "/.netlify/functions/:splat"
-	status = 200
+from = "/api/*"
+to = "/.netlify/functions/:splat"
+status = 200
 
 [[redirects]]
-	from = "/resume"
-	to = "https://bit.ly/2Tbfyqx"
-	status = 301
+from = "/resume"
+to = "https://bit.ly/2Tbfyqx"
+status = 301
 
 [[redirects]]
-	from = "/linkedin"
-	to = "https://www.linkedin.com/in/abdulsamad-ansari"
-	status = 301
+from = "/linkedin"
+to = "https://www.linkedin.com/in/abdulsamad-ansari"
+status = 301
 
 [[redirects]]
-	from = "/github"
-	to = "https://github.com/abdulsamad"
-	status = 301
+from = "/github"
+to = "https://github.com/abdulsamad"
+status = 301
 
 [[redirects]]
-	from = "/telegram"
-	to = "https://t.me/AbdulSamadDev"
-	status = 301
+from = "/telegram"
+to = "https://t.me/AbdulSamadDev"
+status = 301
 
 [[redirects]]
-	from = "/twitter"
-	to = "https://twitter.com/AbdulSamadDev"
-	status = 301
+from = "/twitter"
+to = "https://twitter.com/AbdulSamadDev"
+status = 301
 
 [[redirects]]
-	from = "/facebook"
-	to = "https://facebook.com/AbdulSamadDev"
-	status = 301
+from = "/facebook"
+to = "https://facebook.com/AbdulSamadDev"
+status = 301
 
 [[headers]]
-	for = "/*"
+for = "/*"
 
 [headers.values]
-	X-Frame-Options = "DENY"
+X-Frame-Options = "DENY"
 
 # [[headers]]
 #   for = "*.js"

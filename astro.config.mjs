@@ -1,17 +1,16 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import image from '@astrojs/image';
-import qwikdev from '@qwikdev/astro';
 
 // https://astro.build/config
 export default defineConfig({
   root: '.',
   output: 'static',
-  integrations: [tailwind(), image(), qwikdev()],
+  integrations: [tailwind()],
   server: {
     port: 8888,
   },
-  experimental: {
-    viewTransitions: true,
+  image: {
+    remotePatterns: [{ protocol: 'https' }],
+    domains: ['githubassets.com'],
   },
 });
