@@ -13,9 +13,9 @@
   "dependencies": {
     "@astrojs/netlify": "^5.0.0",
     "@astrojs/tailwind": "^5.1.0",
-    "@fontsource-variable/inter": "^5.0.5",
-    "@fontsource/bruno-ace-sc": "^5.0.5",
-    "astro": "^3.6.4",
+    "@fontsource-variable/inter": "^5.0.16",
+    "@fontsource/bruno-ace-sc": "^5.0.18",
+    "astro": "^4.2.6",
     "astro-icon": "^0.8.2",
     "hcaptcha": "^0.1.1",
     "node-fetch": "^3.3.2",
@@ -24,8 +24,8 @@
   },
   "devDependencies": {
     "@netlify/functions": "^1.6.0",
-    "@types/node": "^20.4.4",
-    "typescript": "^5.1.6"
+    "@types/node": "^20.11.9",
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": "18.x"
