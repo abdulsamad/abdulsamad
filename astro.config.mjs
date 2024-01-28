@@ -1,15 +1,15 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import image from '@astrojs/image';
 
 export default defineConfig({
   root: '.',
   output: 'static',
-  integrations: [tailwind(), image()],
+  integrations: [tailwind()],
   server: {
     port: 8888,
   },
-  experimental: {
-    viewTransitions: true,
+  image: {
+    remotePatterns: [{ protocol: 'https' }],
+    domains: ['githubassets.com'],
   },
 });

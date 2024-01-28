@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 
 export interface Props extends HTMLAttributes<'div'> {
   title: string;
@@ -78,10 +78,9 @@ const updatedTitle = title
 <div class="flex items-center justify-center rounded-2xl overflow-hidden">
   <Image
     src={imageUrl}
-    class="mx-auto hover:scale-110 transition-transform"
-    height={0}
+    class="mx-auto hover:scale-110 transition-transform rounded-xl"
+    height={400}
     width={720}
-    aspectRatio={16 / 9}
     alt={title}
     format="webp"
   />

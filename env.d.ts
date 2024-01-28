@@ -1,5 +1,5 @@
 /// <reference path="../.astro/types.d.ts" />
-/// <reference types="astro/image/client" />
+/// <reference types="astro/client" />
 
 declare namespace NodeJS {
   interface ProcessEnv {
