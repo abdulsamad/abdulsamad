@@ -76,14 +76,16 @@ const updatedTitle = title
 </script>
 
 <div class="flex items-center justify-center rounded-2xl overflow-hidden">
-  <Image
-    src={imageUrl}
-    class="mx-auto hover:scale-110 transition-transform rounded-xl"
-    height={400}
-    width={720}
-    alt={title}
-    format="webp"
-  />
+  <div class="rounded-xl">
+    <Image
+      src={imageUrl}
+      class="mx-auto hover:scale-105 transition-transform"
+      height={400}
+      width={720}
+      alt={title}
+      format="webp"
+    />
+  </div>
 </div>
 <div class="card flex flex-col p-1 backdrop-blur-md rounded-2xl transition-transform" {...props}>
   <div class="no-underline flex-1 leading-6 p-5 rounded-md">
