@@ -3,19 +3,13 @@ import Section from '@components/utils/Section.astro';
 import Link from '@components/utils/Link.astro';
 ---
 
-<script>
-  const button = document.querySelector('#hero-mouse-button') as HTMLButtonElement;
-
-  // Scroll page up by 500px
-  button.addEventListener('click', () => {
-    window.scrollBy(0, 500);
-  });
-</script>
-
 <Section class="min-h-[calc(100vh-72px)] flex items-center justify-start">
   <div class="flex flex-col min-h-[350px]">
     <h1 class="text-xl font-display lg:text-4xl leading-8 lg:leading-12">
-      Hi, I'm Abdul Samad, <br /> Web Developer who loves <br />
+      Hi, I'm <span
+        class="relative after:content-[''] after:inline-block after:absolute after:-bottom-1 after:right-0 after:h-[4px] after:w-[6ch] after:bg-gradient after:duration-300 after:delay-500"
+        >Abdul Samad,</span
+      ><br />Web Developer who loves <br />
       <div
         class="text-3xl my-2 lg:text-5xl bg-gradient font-bold bg-clip-text text-transparent lg:h-14 [background-size:400%] animate-text-gradient">
         Crafting Awesome Web Experiences
@@ -33,3 +27,27 @@ import Link from '@components/utils/Link.astro';
     <div class="sr-only">Scroll below</div>
   </button>
 </Section>
+
+<script>
+  /* Scroll */
+  const button = document.querySelector('#hero-mouse-button') as HTMLButtonElement;
+  const SCROLL_LENGTH = 500;
+
+  // Scroll page up by 500px
+  button.addEventListener('click', () => {
+    window.scrollBy(0, SCROLL_LENGTH);
+  });
+
+  /* Document Title */
+  const title = document.title;
+  const messages = ["Don't you love me anymore? 😭", "I'm feeling lonely 😭", '(1) ❤️ Miss You!'];
+
+  window.addEventListener('blur', () => {
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    document.title = randomMessage;
+  });
+
+  window.addEventListener('focus', () => {
+    document.title = title;
+  });
+</script>
