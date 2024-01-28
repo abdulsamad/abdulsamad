@@ -9,7 +9,7 @@ interface Response extends Omit<Repository, 'repositoryTopics'> {
   topics: string[];
 }
 
-const DEPLOY_URL = `https://${process.env.SITE_NAME}.netlify.app` || process.env.DEPLOY_PRIME_URL;
+const DEPLOY_URL = process.env.DEPLOY_PRIME_URL;
 const pinnedReposURL = DEPLOY_URL;
 const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
 const data: Response[] = await res.json();
