@@ -13,7 +13,7 @@ export interface Props {
 const { title, noindex } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -22,6 +22,7 @@ const { title, noindex } = Astro.props;
     <title>{title}</title>
     <meta name="title" content={title} />
     {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#3F51B5" />
     <meta
       name="description"
       content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
