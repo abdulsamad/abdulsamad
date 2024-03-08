@@ -1,7 +1,7 @@
 <img src="readme/background.svg" align="right" />
 
 <h1 align="center">Hey there 👋, I'm AbdulSamad</h1>
-<p align="center">A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB</p>
+<p align="center">A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB.</p>
 <h3 align="center">Welcome to my GitHub profile. Feel free to poke around my projects.</h3>
 
 - 💬 Ask me about **Javascript, TypeScript, React**
