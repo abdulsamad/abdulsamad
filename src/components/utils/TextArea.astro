@@ -13,14 +13,14 @@ const { label, name, error, required, ...props } = Astro.props;
 <div>
   <div class="relative my-4 flex flex-col-reverse items-start">
     <textarea
-      class="w-full text-slate-700 relative py-3 px-2 rounded-lg focus:rounded-lg shadow border border-primary-200 focus:shadow-lg focus:outline-none"
+      class="relative w-full rounded-lg border border-primary-200 px-2 py-3 text-slate-700 shadow focus:rounded-lg focus:shadow-lg focus:outline-none"
       name={name}
       id={name}
       required={required}
       minlength="10"
       {...props}></textarea>
     <span
-      class="w-full h-[5px] absolute left-0 right-0 -translate-y-1 origin-left scale-x-0 rounded-md transition-transform"
+      class="absolute left-0 right-0 h-[5px] w-full origin-left -translate-y-1 scale-x-0 rounded-md transition-transform"
       aria-hidden="true"></span>
     <label
       for={name}
@@ -29,7 +29,7 @@ const { label, name, error, required, ...props } = Astro.props;
       {label}
     </label>
   </div>
-  {error && <div class="-m-4 pb-2.5 text-sm text-red-500 text-center">{error}</div>}
+  {error && <div class="-m-4 pb-2.5 text-center text-sm text-red-500">{error}</div>}
 </div>
 
 <style>

@@ -7,12 +7,12 @@ const Header = component$(() => {
   const isOpen = open.value;
 
   return (
-    <header class="flex flex-row items-center justify-between w-full px-2 lg:p-4 md:bg-transparent">
+    <header class="flex w-full flex-row items-center justify-between px-2 md:bg-transparent lg:p-4">
       <a class="my-5 lg:my-0" href="/">
         <Logo height={44} fill="#fff" />
       </a>
       <nav
-        class={`z-10 text-center md:text-left absolute inset-0 p-5 md:p-0 translate-y-16 md:translate-y-0 md:relative  md:flex flex-col md:flex-row items-stretch gap-5 md:gap-12 [&>a]:py-1 bg-[#0f182a] overflow-hidden h-[240px] md:h-auto transition-opacity duration-300 ease-out animate-nav ${
+        class={`absolute inset-0 z-10 h-[240px] translate-y-16 animate-nav flex-col items-stretch gap-5 overflow-hidden bg-[#0f182a] p-5 text-center transition-opacity duration-300 ease-out md:relative md:flex md:h-auto md:translate-y-0 md:flex-row md:gap-12 md:p-0 md:text-left [&>a]:py-1 ${
           isOpen ? 'flex' : 'hidden'
         }`}>
         <a href="/#skills">Skills</a>
@@ -22,13 +22,13 @@ const Header = component$(() => {
           href="https://blog.abdulsamad.dev"
           target="_blank"
           rel="noopener"
-          class="bg-primary text-white rounded-full px-5 ml-0 lg:ml-10">
+          class="ml-0 rounded-full bg-primary px-5 text-white lg:ml-10">
           Blog
         </a>
       </nav>
       <button
         onClick$={() => (open.value = !isOpen)}
-        class={`md:hidden flex items-center justify-center z-50 h-[40px] w-[40px] p-1 relative border-none text-slate-50 shadow-sm focus:outline-1 focus:outline- focus:outline-[rgba(87,87,87,0.5)] ${
+        class={`focus:outline- relative z-50 flex h-[40px] w-[40px] items-center justify-center border-none p-1 text-slate-50 shadow-sm focus:outline-1 focus:outline-[rgba(87,87,87,0.5)] md:hidden ${
           open ? '' : 'active'
         }`}>
         <svg

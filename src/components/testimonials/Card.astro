@@ -11,18 +11,18 @@ const { author, comment, company, designation, country } = Astro.props;
 ---
 
 <div
-  class="testimonial-card flex flex-col relative p-5 backdrop-blur-md transition-transform rounded-r-2xl overflow-hidden border-l-[6px] border-primary before:font-serif before:h-[200px] before:flex before:items-center before:justify-center before:absolute before:left-12 before:top-[60%] before:text-[22rem] before:text-gray-300 before:content-[open-quote] before:opacity-10 before:transition-transform">
+  class="testimonial-card relative flex flex-col overflow-hidden rounded-r-2xl border-l-[6px] border-primary p-5 backdrop-blur-md transition-transform before:absolute before:left-12 before:top-[60%] before:flex before:h-[200px] before:items-center before:justify-center before:font-serif before:text-[22rem] before:text-gray-300 before:opacity-10 before:transition-transform before:content-[open-quote]">
   <blockquote
-    class="flex-1 text-slate-200 before:content-[open-quote] before:text-5xl before:text-gray-300 after:content-[close-quote] after:text-5xl after:text-gray-300 after:absolute after:translate-x-2 after:translate-y-3">
+    class="flex-1 text-slate-200 before:text-5xl before:text-gray-300 before:content-[open-quote] after:absolute after:translate-x-2 after:translate-y-3 after:text-5xl after:text-gray-300 after:content-[close-quote]">
     {comment}
   </blockquote>
-  <div class="text-right mt-2">
+  <div class="mt-2 text-right">
     <cite
-      class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 font-semibold">
+      class="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text font-semibold text-transparent">
       {author}
     </cite>
     <div
-      class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-yellow-600 font-semibold">
+      class="bg-gradient-to-r from-indigo-400 to-yellow-600 bg-clip-text font-semibold text-transparent">
       {designation}{designation && ', '}{company}
     </div>
   </div>
@@ -30,6 +30,8 @@ const { author, comment, company, designation, country } = Astro.props;
 
 <style>
   .testimonial-card {
-    box-shadow: -20px 20px 60px #2f2f2f, 20px -20px 60px #000 inset;
+    box-shadow:
+      -20px 20px 60px #2f2f2f,
+      20px -20px 60px #000 inset;
   }
 </style>

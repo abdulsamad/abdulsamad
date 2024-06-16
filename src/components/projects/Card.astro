@@ -75,11 +75,11 @@ const updatedTitle = title
   });
 </script>
 
-<div class="flex items-center justify-center rounded-2xl overflow-hidden">
+<div class="flex items-center justify-center overflow-hidden rounded-2xl">
   <div class="rounded-xl">
     <Image
       src={imageUrl}
-      class="mx-auto hover:scale-105 transition-transform"
+      class="mx-auto transition-transform hover:scale-105"
       height={400}
       width={720}
       alt={title}
@@ -87,33 +87,33 @@ const updatedTitle = title
     />
   </div>
 </div>
-<div class="card flex flex-col p-1 backdrop-blur-md rounded-2xl transition-transform" {...props}>
-  <div class="no-underline flex-1 leading-6 p-5 rounded-md">
-    <h3 class="capitalize m-0 text-lg w-full font-bold text-primary-400">
+<div class="card flex flex-col rounded-2xl p-1 backdrop-blur-md transition-transform" {...props}>
+  <div class="flex-1 rounded-md p-5 leading-6 no-underline">
+    <h3 class="m-0 w-full text-lg font-bold capitalize text-primary-400">
       <a href={repoLink}>
         {updatedTitle}
         <span class="">&rarr;</span>
       </a>
     </h3>
-    <div class="mt-2 mb-0 flex-1">
+    <div class="mb-0 mt-2 flex-1">
       <div class="text-base">
         {body}
       </div>
-      <div class="flex gap-2 flex-wrap mt-4 line-clamp-2">
+      <div class="mt-4 line-clamp-2 flex flex-wrap gap-2">
         {
           topics
             .slice(0, 4)
             .map((topic) => (
-              <span class="bg-primary text-slate-950 font-[400] rounded-full py-1 px-2 text-xs">
+              <span class="rounded-full bg-primary px-2 py-1 text-xs font-[400] text-slate-950">
                 {topic}
               </span>
             ))
         }
       </div>
-      <div class="flex justify-around mt-6 text-">
+      <div class="text- mt-6 flex justify-around">
         <a
           href={repoLink}
-          class="w-1/2 inline-flex justify-center items-center"
+          class="inline-flex w-1/2 items-center justify-center"
           rel="noopener"
           target="_blank">
           <span>Code</span>
@@ -123,14 +123,14 @@ const updatedTitle = title
             aria-hidden="true"
             height={18}
             width={18}
-            class="ml-2.5 text-red h-[18px]"
+            class="text-red ml-2.5 h-[18px]"
           />
         </a>
         {
           liveLink && (
             <a
               href={liveLink}
-              class="w-1/2 inline-flex justify-center items-center"
+              class="inline-flex w-1/2 items-center justify-center"
               rel="noopener"
               target="_blank">
               <span>Link</span>
@@ -140,7 +140,7 @@ const updatedTitle = title
                 aria-hidden="true"
                 height={18}
                 width={18}
-                class="ml-2.5 text-primary h-[14px]"
+                class="ml-2.5 h-[14px] text-primary"
               />
             </a>
           )
@@ -152,6 +152,8 @@ const updatedTitle = title
 
 <style>
   .card {
-    box-shadow: -20px 20px 60px #2f2f2f, 20px -20px 60px #000 inset;
+    box-shadow:
+      -20px 20px 60px #2f2f2f,
+      20px -20px 60px #000 inset;
   }
 </style>

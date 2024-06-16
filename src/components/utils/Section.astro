@@ -1,13 +1,15 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-export interface Props extends HTMLAttributes<'section'> {}
+export interface Props extends HTMLAttributes<'section'> {
+  containerClasses?: astroHTML.JSX.HTMLAttributes['class'];
+}
 
-const { ...props } = Astro.props;
+const { containerClasses, ...props } = Astro.props;
 ---
 
-<section
-  class={`relative px-[4vw] py-10 w-full max-w-[1920px] mx-auto ${props.class}`}
-  {...props}>
-  <slot />
+<section {...props}>
+  <div class:list={['relative mx-auto w-full max-w-[1920px] px-[4vw] py-10', containerClasses]}>
+    <slot />
+  </div>
 </section>

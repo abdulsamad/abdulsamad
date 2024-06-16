@@ -6,7 +6,7 @@ import { socialLinks } from '@utils/index';
   {
     socialLinks.map(({ iconName, url, name }) => (
       <a
-        class={`no-underline rounded ${name === 'LinkedIn' && 'bg-white'}`}
+        class={`rounded no-underline ${name === 'LinkedIn' && 'bg-white'}`}
         href={url}
         rel="noopener"
         target="_blank">

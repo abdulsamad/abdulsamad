@@ -17,11 +17,11 @@ const data: Response[] = await res.json();
 
 <Section id="projects">
   <h2 class="mb-16 text-center text-3xl">Projects</h2>
-  <div class="px-4 lg:px-0 grid lg:grid-cols-[450px,400px] justify-center gap-10">
+  <div class="grid justify-center gap-10 px-4 lg:grid-cols-[450px,400px] lg:px-0">
     {
       data.map(({ name, url, homepageUrl, description, openGraphImageUrl, topics }) => (
         <Card
-          class="items-center h-full"
+          class="h-full items-center"
           title={name}
           body={description}
           imageUrl={openGraphImageUrl}
@@ -32,8 +32,8 @@ const data: Response[] = await res.json();
       ))
     }
   </div>
-  <div class="text-center mt-10 mb-8">
-    <div class="flex w-[200px] mx-auto">
+  <div class="mb-8 mt-10 text-center">
+    <div class="mx-auto flex w-[200px]">
       <Link
         href="https://github.com/abdulsamad?tab=repositories&q=&type=source"
         rel="noopener"
@@ -46,7 +46,7 @@ const data: Response[] = await res.json();
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="w-6 h-6">
+          class="h-6 w-6">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
