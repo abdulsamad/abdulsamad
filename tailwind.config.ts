@@ -1,8 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme';
 
-const defaultTheme = require('tailwindcss/defaultTheme');
-
-module.exports = {
+const config = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
@@ -23,7 +22,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'Open Sans', ...defaultTheme.fontFamily.sans],
+        sans: ['Nunito', 'Open Sans', ...defaultTheme.fontFamily.sans],
         display: ['Bruno Ace SC'],
       },
       screens: {
@@ -69,3 +68,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+export default config;

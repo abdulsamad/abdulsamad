@@ -17,9 +17,9 @@ importers:
       '@builder.io/qwik':
         specifier: ^1.5.6
         version: 1.5.7(@types/node@20.14.2)(undici@6.19.0)
-      '@fontsource-variable/inter':
-        specifier: ^5.0.18
-        version: 5.0.18
+      '@fontsource-variable/nunito':
+        specifier: ^5.0.19
+        version: 5.0.19
       '@fontsource/bruno-ace-sc':
         specifier: ^5.0.20
         version: 5.0.20
@@ -522,8 +522,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource-variable/inter@5.0.18':
-    resolution: {integrity: sha512-rJzSrtJ3b7djiGFvRuTe6stDfbYJGhdQSfn2SI2WfXviee7Er0yKAHE5u7FU7OWVQQQ1x3+cxdmx9NdiAkcrcA==}
+  '@fontsource-variable/nunito@5.0.19':
+    resolution: {integrity: sha512-kY+1OIFhl167U25iY+V2GLk6E389UKIu0rnJXAj2y4qc6mYqbMcyeT0Y7G+btT6ZdItL2dcvX0bOfe0cbddQYg==}
 
   '@fontsource/bruno-ace-sc@5.0.20':
     resolution: {integrity: sha512-E/mH5uaaMeppjvlsa/VMZ9Ap/fgIBEC1IVdlHztU4qyAVc6OYh1/lZ6wWI/GUPE1MrPSIg54fbHCIpTA3o5Syg==}
@@ -3038,7 +3038,7 @@ snapshots:
   '@esbuild/win32-x64@0.21.5':
     optional: true
 
-  '@fontsource-variable/inter@5.0.18': {}
+  '@fontsource-variable/nunito@5.0.19': {}
 
   '@fontsource/bruno-ace-sc@5.0.20': {}
 
