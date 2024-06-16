@@ -1,19 +1,27 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
+type variant = 'filled' | 'outline';
+
 export interface Props extends HTMLAttributes<'button'> {
-  variant?: 'filled' | 'outline';
+	variant?: variant;
 }
 
 const { class: className, variant = 'filled', ...buttonProps } = Astro.props;
+
+const variants: Record<variant, string> = {
+	filled:
+		'text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 focus:ring-purple-300 hover:bg-gradient-to-br dark:focus:ring-purple-800',
+	outline: '',
+};
 ---
 
 <button
-  class={`px-5 py-2 shadow rounded-3xl text-white ${
-    variant === 'filled'
-      ? 'bg-gradient-to-r from-primary via-purple-500 to-pink-500'
-      : 'bg-transparent border-white border-2 border-solid'
-  } ${className}`}
-  {...buttonProps}>
-  <slot />
+	class:list={[
+		'focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2',
+		variants[variant],
+		className,
+	]}
+	{...buttonProps}>
+	<slot />
 </button>
