@@ -4,5 +4,6 @@
   "singleQuote": true,
   "trailingComma": "es5",
   "requirePragma": false,
-  "printWidth": 100
+  "printWidth": 100,
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"]
 }
