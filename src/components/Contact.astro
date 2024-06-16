@@ -35,7 +35,7 @@ import Social from '@components/Social.astro';
 <Section
 	id='contact'
 	class='mobile-contact-gradient overflow-hidden'
-	containerClasses='grid grid-cols-2 py-16'>
+	containerClasses='grid md:grid-cols-2 md:py-12'>
 	<form class='lg:pr-10' id='contact-form' name='contact' method='POST' data-netlify='true'>
 		<h2 class='mb-4 text-xl'>Any questions, remarks? Don&apos;t hesitate to write me a message!</h2>
 		<Input type='text' label='Name' name='name' placeholder='Your Name' maxlength={50} required />
@@ -58,7 +58,7 @@ import Social from '@components/Social.astro';
 		<Button type='submit' class='mt-5'>Send Message</Button>
 	</form>
 
-	<div class='relative h-[250px] md:h-[auto]'>
+	<div class='relative md:h-[auto]'>
 		<div class='flex h-full flex-col items-center justify-center'>
 			<div class='z-10 flex flex-col items-center justify-center'>
 				<h2 class='heading mb-4 text-3xl'>Get in Touch!</h2>
