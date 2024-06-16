@@ -4,38 +4,38 @@ import { Icon } from 'astro-icon/components';
 import Section from '@components/utils/Section.astro';
 
 interface skill {
-  text: string;
-  icon: string;
+	text: string;
+	icon: string;
 }
 
 const skills: skill[] = [
-  { text: 'HTML', icon: 'logos:html-5' },
-  { text: 'CSS', icon: 'logos:css-3' },
-  { text: 'Tailwind', icon: 'logos:tailwindcss-icon' },
-  { text: 'JavaScript', icon: 'logos:javascript' },
-  { text: 'TypeScript', icon: 'vscode-icons:file-type-typescript-official' },
-  { text: 'React', icon: 'logos:react' },
-  { text: 'Astro', icon: 'logos:astro-icon' },
-  { text: 'Node', icon: 'vscode-icons:file-type-node' },
-  { text: 'MongoDB', icon: 'logos:mongodb-icon' },
-  { text: 'Postgres', icon: 'logos:postgresql' },
-  { text: 'Git', icon: 'vscode-icons:file-type-git' },
-  { text: 'Material UI', icon: 'logos:material-ui' },
+	{ text: 'HTML', icon: 'logos:html-5' },
+	{ text: 'CSS', icon: 'logos:css-3' },
+	{ text: 'Tailwind', icon: 'logos:tailwindcss-icon' },
+	{ text: 'JavaScript', icon: 'logos:javascript' },
+	{ text: 'TypeScript', icon: 'vscode-icons:file-type-typescript-official' },
+	{ text: 'React', icon: 'logos:react' },
+	{ text: 'Astro', icon: 'logos:astro-icon' },
+	{ text: 'Node', icon: 'vscode-icons:file-type-node' },
+	{ text: 'MongoDB', icon: 'logos:mongodb-icon' },
+	{ text: 'Postgres', icon: 'logos:postgresql' },
+	{ text: 'Git', icon: 'vscode-icons:file-type-git' },
+	{ text: 'Material UI', icon: 'logos:material-ui' },
 ];
 ---
 
-<Section id="skills">
-  <h2 class="my-5 text-center text-3xl">Skills</h2>
-  <div
-    class="grid grid-cols-1 place-items-center justify-between gap-10 lg:grid-cols-[repeat(auto-fit,_300px)]">
-    {
-      skills.map(({ text, icon }) => (
-        <div class="my-5 inline-flex cursor-default items-center grayscale transition-all hover:scale-110 hover:grayscale-0">
-          <span aria-hidden="true">{<Icon name={icon} class="mr-5 h-12 w-12" />}</span>
-          <span>{text}</span>
-        </div>
-      ))
-    }
-  </div>
-  <div class="mt-10 text-center text-3xl italic text-gray-600">and much more.</div>
+<Section id='skills'>
+	<h2 class='my-5 text-center text-3xl'>Skills</h2>
+	<div
+		class='grid grid-cols-1 place-items-center justify-between gap-10 md:grid-cols-[repeat(auto-fit,300px)] lg:grid-cols-[repeat(auto-fit,400px)]'>
+		{
+			skills.map(({ text, icon }) => (
+				<div class='my-5 inline-flex cursor-default items-center grayscale transition-all hover:scale-110 hover:grayscale-0'>
+					<span aria-hidden='true'>{<Icon name={icon} class='mr-5 h-12 w-12' />}</span>
+					<span>{text}</span>
+				</div>
+			))
+		}
+	</div>
+	<div class='mt-10 text-center text-3xl italic text-gray-600'>and much more.</div>
 </Section>
