@@ -7,62 +7,63 @@ import Social from '@components/Social.astro';
 ---
 
 <script>
-  const contactForm = document.querySelector('#contact-form') as HTMLFormElement;
-  const handleSubmit = async (ev: SubmitEvent) => {
-    ev.preventDefault();
+	const contactForm = document.querySelector('#contact-form') as HTMLFormElement;
+	const handleSubmit = async (ev: SubmitEvent) => {
+		ev.preventDefault();
 
-    try {
-      const form = ev.target as HTMLFormElement;
-      const formData = new FormData(form);
-      const redirect_url = `/thank-you?name=${formData.get('name')}`;
+		try {
+			const form = ev.target as HTMLFormElement;
+			const formData = new FormData(form);
+			const redirect_url = `/thank-you?name=${formData.get('name')}`;
 
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
-      });
+			await fetch('/', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: new URLSearchParams(formData as any).toString(),
+			});
 
-      window.location.href = redirect_url;
-    } catch (err) {
-      console.error(err);
-    }
-  };
+			window.location.href = redirect_url;
+		} catch (err) {
+			console.error(err);
+		}
+	};
 
-  // Add submit listener
-  contactForm.addEventListener('submit', handleSubmit);
+	// Add submit listener
+	contactForm.addEventListener('submit', handleSubmit);
 </script>
 
 <Section
-  id="contact"
-  class="mobile-contact-gradient grid overflow-hidden lg:grid-cols-2 lg:bg-contact-gradient">
-  <form class="lg:pr-10" id="contact-form" name="contact" method="POST" data-netlify="true">
-    <h2 class="mb-4 text-xl">Any questions, remarks? Don&apos;t hesitate to write me a message!</h2>
-    <Input type="text" label="Name" name="name" placeholder="Your Name" maxlength={50} required />
-    <Input
-      type="email"
-      label="Email"
-      name="email"
-      placeholder="john@example.com"
-      maxlength={100}
-      required
-    />
-    <TextArea
-      label="Message"
-      name="message"
-      placeholder="Enter your message here..."
-      maxlength={2000}
-      rows={5}
-      required
-    />
-    <Button type="submit" class="mt-5">Send Message</Button>
-  </form>
+	id='contact'
+	class='mobile-contact-gradient overflow-hidden'
+	containerClasses='grid grid-cols-2 py-16'>
+	<form class='lg:pr-10' id='contact-form' name='contact' method='POST' data-netlify='true'>
+		<h2 class='mb-4 text-xl'>Any questions, remarks? Don&apos;t hesitate to write me a message!</h2>
+		<Input type='text' label='Name' name='name' placeholder='Your Name' maxlength={50} required />
+		<Input
+			type='email'
+			label='Email'
+			name='email'
+			placeholder='john@example.com'
+			maxlength={100}
+			required
+		/>
+		<TextArea
+			label='Message'
+			name='message'
+			placeholder='Enter your message here...'
+			maxlength={2000}
+			rows={5}
+			required
+		/>
+		<Button type='submit' class='mt-5'>Send Message</Button>
+	</form>
 
-  <div class="relative h-[250px] md:h-[auto]">
-    <div class="flex h-full flex-col items-center justify-center">
-      <div class="z-10 flex flex-col items-center justify-center">
-        <h2 class="heading mb-4 text-3xl">Get in Touch!</h2>
-        <Social />
-      </div>
-    </div>
-  </div>
+	<div class='relative h-[250px] md:h-[auto]'>
+		<div class='flex h-full flex-col items-center justify-center'>
+			<div class='z-10 flex flex-col items-center justify-center'>
+				<h2 class='heading mb-4 text-3xl'>Get in Touch!</h2>
+				<Social />
+			</div>
+		</div>
+	</div>
 </Section>
