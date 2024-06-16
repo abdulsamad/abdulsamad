@@ -46,6 +46,11 @@ to = "https://twitter.com/AbdulSamadDev"
 status = 301
 
 [[redirects]]
+from = "/x"
+to = "https://x.com/AbdulSamadDev"
+status = 301
+
+[[redirects]]
 from = "/facebook"
 to = "https://facebook.com/AbdulSamadDev"
 status = 301
