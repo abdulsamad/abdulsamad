@@ -11,7 +11,7 @@ interface Response extends Omit<Repository, 'repositoryTopics'> {
 
 const DEPLOY_URL = process.env.DEPLOY_PRIME_URL;
 const pinnedReposURL = DEPLOY_URL;
-const res = await fetch(`https://abdulsamad.dev/api/pinned-repos`);
+const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
 const data: Response[] = await res.json();
 ---
 
