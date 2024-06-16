@@ -4,9 +4,10 @@ import Link from '@components/utils/Link.astro';
 import type { Repository } from '@functions/pinned-repos/types';
 
 import Card from './Card.astro';
+import { Icon } from 'astro-icon/components';
 
 interface Response extends Omit<Repository, 'repositoryTopics'> {
-  topics: string[];
+	topics: string[];
 }
 
 const DEPLOY_URL = process.env.DEPLOY_PRIME_URL;
@@ -15,44 +16,33 @@ const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
 const data: Response[] = await res.json();
 ---
 
-<Section id="projects">
-  <h2 class="mb-16 text-center text-3xl">Projects</h2>
-  <div class="grid justify-center gap-10 px-4 lg:grid-cols-[450px,400px] lg:px-0">
-    {
-      data.map(({ name, url, homepageUrl, description, openGraphImageUrl, topics }) => (
-        <Card
-          class="h-full items-center"
-          title={name}
-          body={description}
-          imageUrl={openGraphImageUrl}
-          repo-link={url}
-          live-link={homepageUrl}
-          topics={topics}
-        />
-      ))
-    }
-  </div>
-  <div class="mb-8 mt-10 text-center">
-    <div class="mx-auto flex w-[200px]">
-      <Link
-        href="https://github.com/abdulsamad?tab=repositories&q=&type=source"
-        rel="noopener"
-        target="_blank"
-        className="flex gap-2">
-        <span>More on GitHub</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="h-6 w-6">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"></path>
-        </svg>
-      </Link>
-    </div>
-  </div>
+<Section id='projects'>
+	<h2 class='mb-16 text-center text-3xl'>Projects</h2>
+	<div class='grid justify-center gap-10 px-4 lg:grid-cols-[450px,400px] lg:px-0'>
+		{
+			data.map(({ name, url, homepageUrl, description, openGraphImageUrl, topics }) => (
+				<Card
+					class='h-full items-center'
+					title={name}
+					body={description}
+					imageUrl={openGraphImageUrl}
+					repo-link={url}
+					live-link={homepageUrl}
+					topics={topics}
+				/>
+			))
+		}
+	</div>
+	<div class='mb-8 mt-10 text-center'>
+		<div class='mx-auto flex w-[200px]'>
+			<Link
+				href='https://github.com/abdulsamad?tab=repositories&q=&type=source'
+				rel='noopener'
+				target='_blank'
+				class='flex items-center gap-2 text-lg'>
+				<span>More on GitHub</span>
+				<Icon name='mdi:call-made' class='h-5 w-5' />
+			</Link>
+		</div>
+	</div>
 </Section>
