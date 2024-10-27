@@ -12,31 +12,31 @@
     "format": "prettier format --write ."
   },
   "dependencies": {
-    "@astrojs/netlify": "^5.3.0",
-    "@astrojs/tailwind": "^5.1.0",
-    "@builder.io/qwik": "^1.5.6",
-    "@fontsource-variable/nunito": "^5.0.19",
-    "@fontsource/bruno-ace-sc": "^5.0.20",
-    "@iconify-json/ic": "^1.1.17",
-    "@iconify-json/logos": "^1.1.43",
-    "@iconify-json/mdi": "^1.1.66",
-    "@iconify-json/simple-icons": "^1.1.105",
-    "@iconify-json/vscode-icons": "^1.1.35",
-    "@qwikdev/astro": "^0.5.16",
-    "astro": "^4.10.2",
-    "astro-icon": "^1.1.0",
-    "hcaptcha": "^0.1.1",
+    "@astrojs/netlify": "^5.5.4",
+    "@astrojs/tailwind": "^5.1.2",
+    "@builder.io/qwik": "^1.9.1",
+    "@fontsource-variable/nunito": "^5.1.0",
+    "@fontsource/bruno-ace-sc": "^5.1.0",
+    "@iconify-json/ic": "^1.2.1",
+    "@iconify-json/logos": "^1.2.3",
+    "@iconify-json/mdi": "^1.2.1",
+    "@iconify-json/simple-icons": "^1.2.9",
+    "@iconify-json/vscode-icons": "^1.2.2",
+    "@qwikdev/astro": "^0.6.3",
+    "astro": "^4.16.7",
+    "astro-icon": "^1.1.1",
+    "hcaptcha": "^0.2.0",
     "node-fetch": "^3.3.2",
-    "sharp": "^0.33.4",
-    "tailwindcss": "^3.4.4"
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.14"
   },
   "devDependencies": {
-    "@netlify/functions": "^2.7.0",
-    "@types/node": "^20.14.2",
-    "prettier": "^3.3.2",
-    "prettier-plugin-astro": "^0.14.0",
-    "prettier-plugin-tailwindcss": "^0.6.4",
-    "typescript": "^5.4.5"
+    "@netlify/functions": "^2.8.2",
+    "@types/node": "^22.8.1",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "typescript": "^5.6.3"
   },
   "engines": {
     "node": "18.x"
