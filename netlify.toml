@@ -7,7 +7,7 @@ publish = "dist"
 functionsPort = 8885
 targetPort = 8888
 port = 3000
-publish = 'dist'
+publish = 'dist/client'
 
 # [functions]
 #   external_node_modules = ["astro"]
