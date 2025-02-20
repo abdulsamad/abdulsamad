@@ -1,0 +1,71 @@
+{
+  "githubPinnedItems": [
+    {
+      "homepageUrl": "",
+      "description": "An e-commerce store created with MERN (MongoDB, Express, React, Node) and TurboRepo",
+      "name": "shopper ave",
+      "id": "MDEwOlJlcG9zaXRvcnkzNTY4NjM3Njk=",
+      "url": "https://github.com/abdulsamad/shopper-ave",
+      "openGraphImageUrl": "https://opengraph.githubassets.com/f8ce89e07cd730a47eae683d4d3777c1a6ae2fe6d9235e77d765ad8a3f3dff96/abdulsamad/shopper-ave",
+      "topics": ["react", "node", "mongodb", "javascript", "typescript"]
+    },
+    {
+      "homepageUrl": "https://frontend-fun.netlify.app",
+      "description": "Online web-based code editor for HTML, CSS, and JavaScript with live reload can be used for practice, quick mockups or CSS experiments",
+      "name": "frontend fun",
+      "id": "MDEwOlJlcG9zaXRvcnkzNzU1OTkxMzY=",
+      "url": "https://github.com/abdulsamad/frontend-fun",
+      "openGraphImageUrl": "https://repository-images.githubusercontent.com/375599136/2d31e3f5-3693-44d8-9da1-58db27757b37",
+      "topics": [
+        "react",
+        "javascript",
+        "mongoosejs",
+        "typescript",
+        "localforage",
+        "monaco-editor",
+        "react-split",
+        "styled-components",
+        "xterm",
+        "mongodb",
+        "pwa"
+      ]
+    },
+    {
+      "homepageUrl": "https://weatherx-abdulsamad.netlify.app",
+      "description": "A clean and minimal weather PWA aims towards mobile",
+      "name": "weather x",
+      "id": "MDEwOlJlcG9zaXRvcnkyOTAxNTA1MjM=",
+      "url": "https://github.com/abdulsamad/weather-x",
+      "openGraphImageUrl": "https://repository-images.githubusercontent.com/290150523/4c0dd1b1-ca17-4ed7-bf67-5a0ba489ce7f",
+      "topics": [
+        "javascript",
+        "open-weather-map-api",
+        "pwa",
+        "react",
+        "typescript",
+        "axios",
+        "dayjs",
+        "react-router-dom",
+        "react-spring"
+      ]
+    },
+    {
+      "homepageUrl": "https://autoshow.netlify.app",
+      "description": "A simple invoice generator created with Alpinejs",
+      "name": "invoice generator",
+      "id": "MDEwOlJlcG9zaXRvcnkzODI4NTAzMTQ=",
+      "url": "https://github.com/abdulsamad/invoice-generator",
+      "openGraphImageUrl": "https://repository-images.githubusercontent.com/382850314/a764364e-4ee1-4750-9ecb-3188d30a4137",
+      "topics": [
+        "alpine-js",
+        "javascript",
+        "bulma",
+        "jspdf",
+        "parcel-bundler",
+        "workbox",
+        "pwa",
+        "typescript"
+      ]
+    }
+  ]
+}
