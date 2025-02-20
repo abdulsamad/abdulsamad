@@ -16,7 +16,7 @@ import Social from '@components/Social.astro';
 			const formData = new FormData(form);
 			const redirect_url = `/thank-you?name=${formData.get('name')}`;
 
-			await fetch('/', {
+			await fetch('https://abdulsamad-ansari.netlify.app/', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 				body: new URLSearchParams(formData as any).toString(),
@@ -35,8 +35,8 @@ import Social from '@components/Social.astro';
 <Section
 	id='contact'
 	class='mobile-contact-gradient overflow-hidden'
-	containerClasses='grid md:grid-cols-2 md:py-12'>
-	<form class='lg:pr-10' id='contact-form' name='contact' method='POST' data-netlify='true'>
+	containerClasses='grid md:grid-cols-1 items-center md:py-12'>
+	<!-- <form class='lg:pr-10' id='contact-form' name='contact' method='POST' data-netlify='true'>
 		<h2 class='mb-4 text-xl'>Any questions, remarks? Don&apos;t hesitate to write me a message!</h2>
 		<Input type='text' label='Name' name='name' placeholder='Your Name' maxlength={50} required />
 		<Input
@@ -56,7 +56,7 @@ import Social from '@components/Social.astro';
 			required
 		/>
 		<Button type='submit' class='mt-5'>Send Message</Button>
-	</form>
+	</form> -->
 
 	<div class='relative md:h-[auto]'>
 		<div class='flex h-full flex-col items-center justify-center'>

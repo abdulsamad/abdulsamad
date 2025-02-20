@@ -1,7 +1,7 @@
 ---
 import Section from '@components/utils/Section.astro';
 import Link from '@components/utils/Link.astro';
-import type { Repository } from '@functions/pinned-repos/types';
+import type { Repository } from '@pages/pinned-repos/_types';
 
 import Card from './Card.astro';
 import { Icon } from 'astro-icon/components';
@@ -10,9 +10,7 @@ interface Response extends Omit<Repository, 'repositoryTopics'> {
 	topics: string[];
 }
 
-const DEPLOY_URL = process.env.DEPLOY_PRIME_URL;
-const pinnedReposURL = DEPLOY_URL;
-const res = await fetch(`${pinnedReposURL}/api/pinned-repos`);
+const res = await fetch(import.meta.env.PINNED_REPOS_API);
 const data: Response[] = await res.json();
 ---
 
