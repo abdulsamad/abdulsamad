@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import '@fontsource/bruno-ace-sc';
 import '@fontsource-variable/nunito';
@@ -54,7 +54,7 @@ const { title, noindex, description } = Astro.props;
 			content='https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg'
 		/>
 		<link rel='icon' href='/favicon.ico' />
-		<ViewTransitions />
+		<ClientRouter />
 	</head>
 	<body>
 		<SpeedInsights />
