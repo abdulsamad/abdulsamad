@@ -7,32 +7,31 @@ const Header = component$(() => {
   const isOpen = open.value;
 
   return (
-    <header class="flex w-full flex-row items-center justify-between px-2 md:bg-transparent lg:p-4">
-      <a class="my-5 lg:my-0" href="/">
-        <Logo height={44} fill="#fff" />
+    <header class="flex items-center justify-center p-4">
+      <a class="mx-auto" href="/">
+        <Logo height={35} fill="#fff" />
       </a>
       <nav
-        class={`absolute inset-0 z-10 h-[240px] translate-y-16 animate-nav flex-col items-stretch gap-5 overflow-hidden bg-[#0f182a] p-5 text-center transition-opacity duration-300 ease-out md:relative md:flex md:h-auto md:translate-y-0 md:flex-row md:gap-12 md:p-0 md:text-left [&>a]:py-1 ${
-          isOpen ? 'flex' : 'hidden'
-        }`}>
-        <a href="/#skills">Skills</a>
-        <a href="/#projects">Projects</a>
-        <a href="/#contact">Contacts</a>
+        class={[
+          'animate-nav absolute top-16 bg-[#0F182A] p-5 transition-opacity duration-300 ease-out md:top-0 md:right-0 md:flex',
+          isOpen ? 'flex w-full justify-center' : 'hidden',
+        ]}>
         <a
           href="https://blog.abdulsamad.dev"
           target="_blank"
           rel="noopener"
-          class="ml-0 rounded-full bg-primary px-5 text-white lg:ml-10">
+          class="bg-primary ml-0 flex h-8 w-28 items-center justify-center rounded-full px-5 text-center text-[#f5f5f5_!important] no-underline md:mx-auto">
           Blog
         </a>
       </nav>
       <button
         onClick$={() => (open.value = !isOpen)}
-        class={`focus:outline- relative z-50 flex h-[40px] w-[40px] items-center justify-center border-none p-1 text-slate-50 shadow-sm focus:outline-1 focus:outline-[rgba(87,87,87,0.5)] md:hidden ${
-          open ? '' : 'active'
-        }`}>
+        class={[
+          'focus:outline- relative z-50 flex size-[40px] items-center justify-center border-none p-1 text-slate-50 shadow-sm focus:outline-1 focus:outline-[rgba(87,87,87,0.5)] md:hidden',
+          open ? '' : 'active',
+        ]}>
         <svg
-          class="h-[35px] w-[35px] [&>*]:fill-none [&>*]:stroke-current [&>*]:stroke-[6] [&_path]:transition-[stroke-dasharray_450ms_cubic-bezier(0.4,0,0.2,1),_stroke-dashoffset_450ms_cubic-bezier(0.4,0,0.2,1)]"
+          class="h-[35px] w-[35px] [&_path]:transition-[stroke-dasharray_450ms_cubic-bezier(0.4,0,0.2,1),_stroke-dashoffset_450ms_cubic-bezier(0.4,0,0.2,1)] [&>*]:fill-none [&>*]:stroke-current [&>*]:stroke-[6]"
           height="35px"
           width="35px"
           viewBox="0 0 100 100"

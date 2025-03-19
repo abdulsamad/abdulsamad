@@ -11,34 +11,43 @@
     "format": "prettier format --write ."
   },
   "dependencies": {
-    "@astrojs/netlify": "^6.2.0",
+    "@astrojs/mdx": "^4.2.1",
+    "@astrojs/netlify": "^6.2.3",
     "@astrojs/tailwind": "^6.0.0",
-    "@astrojs/vercel": "^8.0.7",
-    "@builder.io/qwik": "^1.12.0",
-    "@fontsource-variable/nunito": "^5.1.1",
-    "@fontsource/bruno-ace-sc": "^5.1.1",
+    "@astrojs/vercel": "^8.1.2",
+    "@builder.io/qwik": "^1.12.1",
+    "@fontsource-variable/nunito": "^5.2.5",
+    "@fontsource/bruno-ace-sc": "^5.2.5",
     "@iconify-json/ic": "^1.2.2",
     "@iconify-json/logos": "^1.2.4",
     "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.25",
-    "@iconify-json/vscode-icons": "^1.2.14",
+    "@iconify-json/simple-icons": "^1.2.29",
+    "@iconify-json/vscode-icons": "^1.2.16",
     "@qwikdev/astro": "^0.7.10",
+    "@tailwindcss/vite": "^4.0.14",
     "@vercel/speed-insights": "^1.2.0",
-    "astro": "^5.3.0",
+    "astro": "^5.5.3",
     "astro-icon": "^1.1.5",
     "node-fetch": "^3.3.2",
     "sharp": "^0.33.5",
     "supports-color": "^10.0.0",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^4.0.14"
   },
   "devDependencies": {
-    "@types/node": "^22.13.4",
-    "prettier": "^3.5.1",
+    "@types/node": "^22.13.10",
+    "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "engines": {
     "node": "22.x"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@vercel/speed-insights",
+      "esbuild",
+      "sharp"
+    ]
   }
 }

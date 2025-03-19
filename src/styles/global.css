@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-50: #f2f0ff;
+  --color-primary-100: #e6e1fe;
+  --color-primary-200: #ccc3fd;
+  --color-primary-300: #aea1fd;
+  --color-primary-400: #9583fc;
+  --color-primary-500: #7c65fb;
+  --color-primary-600: #401ff9;
+  --color-primary-700: #2305cc;
+  --color-primary-800: #18048b;
+  --color-primary-900: #0c0246;
+  --color-primary-950: #060123;
+  --color-primary: #7c65fb;
+
+  --font-family-sans: 'Nunito', 'Open Sans', system-ui, sans-serif;
+  --font-family-display: 'Bruno Ace SC';
+
+  --screen-sm: 640px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+  --screen-2xl: 1536px;
+
+  --spacing-128: 32rem;
+  --spacing-144: 36rem;
+
+  --background-gradient: linear-gradient(45deg, #7c65fb, #da62c4 30%, #7c65fb 60%);
+  --background-contact-gradient: linear-gradient(90deg, #673ab7 50%, #0f182a 50%, #0f182a 100%);
+
+  --line-height-12: 3rem;
+  --line-height-14: 3.5rem;
+
+  --animation-text-gradient: text-gradient 8s linear infinite;
+  --animation-mouse-scroller: mouse-scroller 2.2s cubic-bezier(0.15, 0.41, 0.69, 0.94) 0s infinite;
+  --animation-nav: fadeIn 0.5s;
+
+  @keyframes text-gradient {
+    from {
+      background-position: 100%;
+    }
+    to {
+      background-position: 400%;
+    }
+  }
+
+  @keyframes mouse-scroller {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(15px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

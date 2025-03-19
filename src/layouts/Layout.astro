@@ -4,7 +4,11 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 import '@fontsource/bruno-ace-sc';
 import '@fontsource-variable/nunito';
 
-import Header from '@components/Header.astro';
+import Header from '@components/header/index.astro';
+import Footer from '@components/Footer.astro';
+import PostHog from '@components/PostHog.astro';
+
+import '../styles/global.css';
 
 export interface Props {
 	title: string;
@@ -55,12 +59,14 @@ const { title, noindex, description } = Astro.props;
 		/>
 		<link rel='icon' href='/favicon.ico' />
 		<ClientRouter />
+		<PostHog />
 	</head>
 	<body>
 		<SpeedInsights />
 		<div class='text-white'>
 			<Header transition:persist />
 			<slot />
+			<Footer />
 		</div>
 		<style is:global>
 			html {
@@ -69,6 +75,10 @@ const { title, noindex, description } = Astro.props;
 
 			body {
 				background: #0f182a;
+			}
+
+			a {
+				color: var(--color-primary);
 			}
 		</style>
 	</body>

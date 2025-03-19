@@ -1,0 +1,21 @@
+---
+import { socialLinks } from '@utils/index';
+
+import Section from '@components/utils/Section.astro';
+---
+
+<Section containerClasses='pb-16'>
+	<div class='flex items-center justify-center gap-x-6'>
+		{
+			socialLinks.map(({ iconName, url, name }) => (
+				<a
+					class:list={['rounded no-underline', name.toLowerCase() === 'linkedin' && 'bg-white']}
+					href={url}
+					rel='noopener'
+					target='_blank'>
+					<img src={`/icons/${iconName}.svg`} alt={name} height={20} width={20} loading='lazy' />
+				</a>
+			))
+		}
+	</div>
+</Section>

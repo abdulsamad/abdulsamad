@@ -10,7 +10,7 @@ const { containerClasses, ...props } = Astro.props;
 
 <section class:list={['relative', props.class]} {...props}>
 	<slot name='outer-elem' />
-	<div class:list={['mx-auto w-full max-w-[1920px] px-[4vw] py-10', containerClasses]}>
+	<div class:list={['mx-auto w-full max-w-[1920px]', containerClasses]}>
 		<slot />
 	</div>
 </section>

@@ -1,27 +1,7 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-
-type variant = 'filled' | 'outline';
-
-export interface Props extends HTMLAttributes<'a'> {
-	variant?: variant;
-}
-
-const { class: className, variant = 'filled', ...linkProps } = Astro.props;
-
-const variants: Record<variant, string> = {
-	filled:
-		'text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 focus:ring-purple-300 hover:bg-gradient-to-br dark:focus:ring-purple-800',
-	outline: 'border-2',
-};
+const { ...props } = Astro.props;
 ---
 
-<a
-	class:list={[
-		'rounde-xl mb-2 mr-2 rounded-3xl px-5 py-2.5 text-center text-sm font-medium focus:ring-4',
-		variants[variant],
-		className,
-	]}
-	{...linkProps}>
+<a class:list={[props.class, 'text-primary']} target='_blank' rel='noopener' {...props}>
 	<slot />
 </a>

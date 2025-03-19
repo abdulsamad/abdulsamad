@@ -4,11 +4,11 @@
     "baseUrl": ".",
     "types": ["astro/client"],
     "paths": {
-      "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
-      "@layouts/*": ["src/layouts/*"],
+      "@components/*": ["src/components/*"],
       "@utils/*": ["utils/*"],
-      "@functions/*": ["functions/*"]
+      "@layouts/*": ["src/layouts/*"],
+      "@content/*": ["src/content/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "@builder.io/qwik"
