@@ -62,6 +62,9 @@ importers:
       node-fetch:
         specifier: ^3.3.2
         version: 3.3.2
+      posthog-node:
+        specifier: ^4.10.1
+        version: 4.10.1
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
@@ -2001,6 +2004,10 @@ packages:
   postcss@8.5.3:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
     engines: {node: ^10 || ^12 || >=14}
+
+  posthog-node@4.10.1:
+    resolution: {integrity: sha512-rEzVszfaOkUFTjEabDcRLJNRqMwTOeU1WpqKgQEDV3x82O4ODifkvkoCERaPxl/ossi1NtqKXBOZ+XnhQ19pNQ==}
+    engines: {node: '>=15.0.0'}
 
   prettier-plugin-astro@0.14.1:
     resolution: {integrity: sha512-RiBETaaP9veVstE4vUwSIcdATj6dKmXljouXc/DDNwBSPTp8FRkLGDSGFClKsAFeeg+13SB0Z1JZvbD76bigJw==}
@@ -4923,6 +4930,12 @@ snapshots:
       nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  posthog-node@4.10.1:
+    dependencies:
+      axios: 1.8.4
+    transitivePeerDependencies:
+      - debug
 
   prettier-plugin-astro@0.14.1:
     dependencies:

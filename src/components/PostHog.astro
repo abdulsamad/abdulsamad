@@ -53,6 +53,13 @@ const PUBLIC_POSTHOG_HOST = import.meta.env.PUBLIC_POSTHOG_HOST;
 		posthog.init(PUBLIC_POSTHOG_KEY, {
 			api_host: PUBLIC_POSTHOG_HOST,
 			person_profiles: 'always',
+			loaded: (posthog) => {
+				const distinctId = document.querySelector('.did').innerHTML;
+
+				if (posthog.get_distinct_id() && posthog.get_distinct_id() !== distinctId) {
+					posthog.identify(distinctId);
+				}
+			},
 		});
 	}
 

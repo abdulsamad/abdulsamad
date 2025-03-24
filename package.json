@@ -29,6 +29,7 @@
     "astro": "^5.5.3",
     "astro-icon": "^1.1.5",
     "node-fetch": "^3.3.2",
+    "posthog-node": "^4.10.1",
     "sharp": "^0.33.5",
     "supports-color": "^10.0.0",
     "tailwindcss": "^4.0.14"
