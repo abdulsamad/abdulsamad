@@ -11,6 +11,7 @@
     "format": "prettier format --write ."
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.3.0",
     "@astrojs/mdx": "^4.2.1",
     "@astrojs/netlify": "^6.2.3",
     "@astrojs/tailwind": "^6.0.0",
