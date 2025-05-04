@@ -20,7 +20,7 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
-# Local Netlify folder
+.wrangler
 .netlify
 .vercel
 

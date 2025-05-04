@@ -6,8 +6,10 @@
   "scripts": {
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "astro build && wrangler pages dev",
     "astro": "astro",
+    "deploy": "astro build && wrangler pages deploy",
+    "cf-typegen": "wrangler types",
     "format": "prettier format --write ."
   },
   "dependencies": {
@@ -15,7 +17,6 @@
     "@astrojs/mdx": "^4.2.1",
     "@astrojs/netlify": "^6.2.3",
     "@astrojs/tailwind": "^6.0.0",
-    "@astrojs/vercel": "^8.1.2",
     "@builder.io/qwik": "^1.12.1",
     "@fontsource-variable/nunito": "^5.2.5",
     "@fontsource/bruno-ace-sc": "^5.2.5",
@@ -36,11 +37,13 @@
     "tailwindcss": "^4.0.14"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250504.0",
     "@types/node": "^22.13.10",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "wrangler": "^4.14.1"
   },
   "engines": {
     "node": "22.x"
