@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
 import qwikdev from '@qwikdev/astro';
-import vercel from '@astrojs/vercel';
 import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
+import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   root: '.',
@@ -28,8 +28,8 @@ export default defineConfig({
     domains: ['githubassets.com'],
   },
 
-  adapter: vercel({
-    webAnalytics: {
+  adapter: cloudflare({
+    platformProxy: {
       enabled: true,
     },
   }),
