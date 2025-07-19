@@ -5,7 +5,7 @@ import '@fontsource-variable/nunito';
 
 import Header from '@components/header/index.astro';
 import Footer from '@components/Footer.astro';
-// import PostHog from '@components/PostHog.astro';
+import PostHog from '@components/PostHog.astro';
 
 import '../styles/global.css';
 
@@ -58,7 +58,7 @@ const { title, noindex, description } = Astro.props;
 		/>
 		<link rel='icon' href='/favicon.ico' />
 		<ClientRouter />
-		<!-- <PostHog /> -->
+		<PostHog />
 	</head>
 	<body>
 		<div class='text-white'>

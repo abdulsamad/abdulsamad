@@ -52,6 +52,7 @@ const PUBLIC_POSTHOG_HOST = import.meta.env.PUBLIC_POSTHOG_HOST;
 	if (!isDev) {
 		posthog.init(PUBLIC_POSTHOG_KEY, {
 			api_host: PUBLIC_POSTHOG_HOST,
+			default: '2025-05-24',
 			person_profiles: 'always',
 			loaded: (posthog) => {
 				const distinctId = document.querySelector('.did').innerHTML;
@@ -72,9 +73,7 @@ const PUBLIC_POSTHOG_HOST = import.meta.env.PUBLIC_POSTHOG_HOST;
 				ph.opt_out_capturing();
 				ph.set_config({ disable_session_recording: true });
 			},
-			bootstrap: {
-				featureFlags: {},
-			},
+			bootstrap: { featureFlags: {} },
 		});
 	}
 </script>
