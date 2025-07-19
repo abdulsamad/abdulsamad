@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+import axios from 'axios';
 
 import { githubPinnedReposQuery, technologies } from '@utils/index';
 import fallbackProjects from './_fallback-projects.json';
@@ -19,13 +19,12 @@ export const GET = async () => {
     };
 
     // Request
-    const res = await fetch('https://api.github.com/graphql', {
+    const res = await axios.post('https://api.github.com/graphql', {
       method: 'POST',
       headers,
       body: githubPinnedReposQuery,
     });
-    const json: any = await res.json();
-    const data: GitHubPinnedReposType = json.data;
+    const data: GitHubPinnedReposType = res.data;
     const filteredProjects = data.user.pinnedItems.edges.map(
       ({
         node: { description, homepageUrl, id, name, openGraphImageUrl, url, repositoryTopics },
