@@ -52,6 +52,7 @@ const PUBLIC_POSTHOG_HOST = import.meta.env.PUBLIC_POSTHOG_HOST;
 	if (!isDev) {
 		posthog.init(PUBLIC_POSTHOG_KEY, {
 			api_host: PUBLIC_POSTHOG_HOST,
+			ui_host: 'https://us.posthog.com',
 			default: '2025-05-24',
 			person_profiles: 'always',
 			loaded: (posthog) => {
