@@ -2,6 +2,8 @@ name = "abdulsamad"
 main = "./dist/_worker.js/index.js"
 compatibility_date = "2025-05-04"
 compatibility_flags = ["nodejs_compat"]
+workers_dev = false
+minify = true
 
 
 [assets]
