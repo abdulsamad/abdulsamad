@@ -1,16 +1,13 @@
-#:schema node_modules/wrangler/config-schema.json
 name = "abdulsamad"
+main = "./dist/_worker.js/index.js"
 compatibility_date = "2025-05-04"
 compatibility_flags = ["nodejs_compat"]
-observability = { enabled = true }
+
 
 [assets]
+binding = "ASSETS"
 directory = "dist"
 not_found_handling = "404-page"
 
-# Automatically place your workloads in an optimal location to minimize latency.
-# If you are running back-end logic in a Pages Function, running it closer to your back-end infrastructure
-# rather than the end user may result in better performance.
-# Docs: https://developers.cloudflare.com/pages/functions/smart-placement/#smart-placement
-[placement]
-mode = "smart"
+[observability]
+enabled = true

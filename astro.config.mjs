@@ -7,7 +7,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   root: '.',
-  output: 'static',
+  output: 'server',
   integrations: [
     icon(),
     qwikdev(),

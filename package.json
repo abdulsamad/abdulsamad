@@ -6,9 +6,9 @@
   "scripts": {
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro build && wrangler pages dev",
+    "preview": "astro build && wrangler dev",
     "astro": "astro",
-    "deploy": "astro build && wrangler pages deploy",
+    "deploy": "astro build && wrangler deploy",
     "cf-typegen": "wrangler types",
     "format": "prettier format --write ."
   },
@@ -27,7 +27,6 @@
     "@iconify-json/vscode-icons": "^1.2.16",
     "@qwikdev/astro": "^0.7.10",
     "@tailwindcss/vite": "^4.0.14",
-    "@vercel/speed-insights": "^1.2.0",
     "astro": "^5.5.3",
     "astro-icon": "^1.1.5",
     "node-fetch": "^3.3.2",
@@ -50,7 +49,6 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@vercel/speed-insights",
       "esbuild",
       "sharp"
     ]
