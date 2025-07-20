@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "astro dev",
+    "start": "astro dev && wrangler dev",
     "build": "astro build",
     "preview": "astro build && wrangler dev",
     "astro": "astro",
