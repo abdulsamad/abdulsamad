@@ -15,34 +15,34 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.0",
     "@astrojs/mdx": "^4.3.1",
-    "@astrojs/netlify": "^6.5.1",
+    "@astrojs/netlify": "^6.5.2",
     "@astrojs/tailwind": "^6.0.2",
-    "@builder.io/qwik": "^1.14.1",
+    "@builder.io/qwik": "^1.15.0",
     "@fontsource-variable/nunito": "^5.2.6",
     "@fontsource/bruno-ace-sc": "^5.2.6",
     "@iconify-json/ic": "^1.2.2",
     "@iconify-json/logos": "^1.2.4",
     "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.43",
+    "@iconify-json/simple-icons": "^1.2.44",
     "@iconify-json/vscode-icons": "^1.2.23",
     "@qwikdev/astro": "^0.7.12",
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.12.0",
+    "astro": "^5.12.1",
     "astro-icon": "^1.1.5",
     "axios": "^1.10.0",
-    "posthog-node": "^4.18.0",
+    "posthog-node": "^5.6.0",
     "sharp": "^0.33.5",
     "supports-color": "^10.0.0",
-    "tailwindcss": "^4.0.14"
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250504.0",
-    "@types/node": "^22.13.10",
-    "prettier": "^3.5.3",
+    "@cloudflare/workers-types": "^4.20250722.0",
+    "@types/node": "^22.16.5",
+    "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "typescript": "^5.8.2",
-    "wrangler": "^4.14.1"
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "typescript": "^5.8.3",
+    "wrangler": "^4.25.1"
   },
   "engines": {
     "node": "22.x"
