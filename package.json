@@ -26,7 +26,6 @@
     "axios": "^1.19.0",
     "posthog-node": "^5.50.0",
     "@qwikdev/astro": "^0.8.3",
-    "sharp": "^0.35.3",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
