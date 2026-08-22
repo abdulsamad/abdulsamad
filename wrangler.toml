@@ -1,10 +1,11 @@
 name = "abdulsamad"
-main = "./dist/_worker.js/index.js"
-compatibility_date = "2025-05-04"
+main = "@astrojs/cloudflare/entrypoints/server"
+compatibility_date = "2026-08-04"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = false
-minify = true
 
+[vars]
+POSTHOG_UPSTREAM_HOST = "https://us.i.posthog.com"
 
 [assets]
 binding = "ASSETS"

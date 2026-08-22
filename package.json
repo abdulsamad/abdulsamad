@@ -2,7 +2,7 @@
   "name": "abdulsamad",
   "type": "module",
   "version": "2.0.0",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
     "start": "astro dev && wrangler dev",
     "build": "astro build",
@@ -15,42 +15,30 @@
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.0",
     "@astrojs/mdx": "^4.3.1",
-    "@astrojs/netlify": "^6.5.2",
-    "@astrojs/tailwind": "^6.0.2",
-    "@builder.io/qwik": "^1.15.0",
-    "@fontsource-variable/nunito": "^5.2.6",
-    "@fontsource/bruno-ace-sc": "^5.2.6",
-    "@iconify-json/ic": "^1.2.2",
-    "@iconify-json/logos": "^1.2.4",
-    "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.44",
-    "@iconify-json/vscode-icons": "^1.2.23",
-    "@qwikdev/astro": "^0.7.12",
-    "@tailwindcss/vite": "^4.1.11",
+    "@builder.io/qwik": "^1.20.0",
+    "@fontsource-variable/nunito": "^5.3.0",
+    "@fontsource/bruno-ace-sc": "^5.3.0",
+    "@iconify-json/logos": "^1.2.13",
+    "@iconify-json/vscode-icons": "^1.2.74",
+    "@tailwindcss/vite": "^4.3.3",
     "astro": "^5.12.1",
-    "astro-icon": "^1.1.5",
-    "axios": "^1.10.0",
-    "posthog-node": "^5.6.0",
-    "sharp": "^0.33.5",
-    "supports-color": "^10.0.0",
-    "tailwindcss": "^4.1.11"
+    "astro-icon": "^1.2.0",
+    "axios": "^1.19.0",
+    "posthog-node": "^5.50.0",
+    "@qwikdev/astro": "^0.8.3",
+    "sharp": "^0.35.3",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250722.0",
-    "@types/node": "^22.16.5",
-    "prettier": "^3.6.2",
+    "@cloudflare/workers-types": "^5.20260821.1",
+    "@types/node": "^24.0.0",
+    "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.14",
-    "typescript": "^5.8.3",
-    "wrangler": "^4.25.1"
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.125.0"
   },
   "engines": {
-    "node": "22.x"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild",
-      "sharp"
-    ]
+    "node": ">=24.0.0"
   }
 }
