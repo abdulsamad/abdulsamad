@@ -29,23 +29,6 @@
         "mongodb",
         "pwa"
       ]
-    },
-    {
-      "homepageUrl": "https://autoshow.abdulsamad.dev",
-      "description": "A simple invoice generator created with Alpinejs",
-      "name": "invoice generator",
-      "id": "MDEwOlJlcG9zaXRvcnkzODI4NTAzMTQ=",
-      "url": "https://github.com/abdulsamad/invoice-generator",
-      "openGraphImageUrl": "https://repository-images.githubusercontent.com/382850314/a764364e-4ee1-4750-9ecb-3188d30a4137",
-      "topics": [
-        "alpine-js",
-        "javascript",
-        "bulma",
-        "jspdf",
-        "workbox",
-        "pwa",
-        "typescript"
-      ]
     }
   ]
 }
