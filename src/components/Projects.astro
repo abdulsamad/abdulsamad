@@ -1,10 +1,14 @@
 ---
-import fallbackProjects from '@pinned-repos/_fallback-projects.json';
+import fallbackProjects from '@pinned-repos/fallback.json';
+import { githubProfileUrl } from '@utils/github';
 
 const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
 ---
 
-<section class="projects" aria-labelledby="projects-title">
+<section
+  class="projects"
+  aria-labelledby="projects-title"
+  data-github-profile-url={githubProfileUrl}>
   <div class="section-heading">
     <div>
       <p class="eyebrow">Selected work</p>
@@ -12,7 +16,7 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
     </div>
     <a
       class="section-link"
-      href="https://github.com/abdulsamad"
+      href={githubProfileUrl}
       target="_blank"
       rel="noopener"
       data-track="portfolio_github_profile_clicked"
@@ -70,8 +74,12 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
         <h2 id="project-modal-title" data-project-modal-title></h2>
         <p data-project-modal-description></p>
         <div class="project-modal-actions">
-          <a data-project-modal-homepage target="_blank" rel="noopener" hidden>Live site <span aria-hidden="true">↗</span></a>
-          <a data-project-modal-github target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+          <a data-project-modal-homepage target="_blank" rel="noopener" hidden
+            >Live site <span aria-hidden="true">↗</span></a
+          >
+          <a data-project-modal-github target="_blank" rel="noopener"
+            >GitHub <span aria-hidden="true">↗</span></a
+          >
         </div>
       </header>
       <div class="project-readme" data-project-readme aria-live="polite">
@@ -88,6 +96,7 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
   const getRepositoryName = (project: { url: string }) => project.url.split('/').pop() ?? '';
 
   const projectSection = document.querySelector<HTMLElement>('.projects');
+  const githubProfileUrl = projectSection?.dataset.githubProfileUrl ?? '';
   if (projectSection && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -112,11 +121,36 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
         >;
       })
       .then((projects) => {
-        projects.slice(0, 2).forEach((project, index) => {
-          const card = grid?.querySelectorAll<HTMLElement>('[data-project-card]')[index];
-          if (!card) return;
+        const cards = new Map(
+          [...grid.querySelectorAll<HTMLElement>('[data-project-card]')].map((card) => [
+            card.dataset.projectRepo,
+            card,
+          ])
+        );
+        const visibleProjects = projects.slice(0, 2);
+        const visibleRepositories = new Set(visibleProjects.map(getRepositoryName));
 
-          card.dataset.projectRepo = getRepositoryName(project);
+        cards.forEach((card, repositoryName) => {
+          if (repositoryName && !visibleRepositories.has(repositoryName)) card.remove();
+        });
+
+        visibleProjects.forEach((project, index) => {
+          const repositoryName = getRepositoryName(project);
+          let card = cards.get(repositoryName);
+          if (!card) {
+            card = document.createElement('article');
+            card.className = 'project-card';
+            card.dataset.projectCard = '';
+            card.setAttribute('role', 'button');
+            card.tabIndex = 0;
+            card.innerHTML =
+              '<div class="project-card-top"><span class="project-index"></span><a target="_blank" rel="noopener"><span aria-hidden="true">↗</span></a></div><h3 data-project-name></h3><p data-project-description></p>';
+            grid.appendChild(card);
+          }
+
+          card.dataset.projectRepo = repositoryName;
+          card.setAttribute('aria-label', `Open details for ${project.name}`);
+          card.querySelector<HTMLElement>('.project-index')!.textContent = `0${index + 1}`;
 
           const title = card.querySelector('[data-project-name]');
           const description = card.querySelector('[data-project-description]');
@@ -167,7 +201,7 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
       title.textContent = repositoryName.replaceAll('-', ' ');
       description.textContent = '';
       homepage.hidden = true;
-      github.href = `https://github.com/abdulsamad/${repositoryName}`;
+      github.href = `${githubProfileUrl}/${repositoryName}`;
       setReadmeStatus('Loading README…');
       if (!modal.open) {
         modal.showModal();
@@ -194,7 +228,9 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
           homepage.hidden = false;
         }
 
-        readme.innerHTML = project.readmeHtml || '<p class="project-readme-status">No README available for this project.</p>';
+        readme.innerHTML =
+          project.readmeHtml ||
+          '<p class="project-readme-status">No README available for this project.</p>';
         readme
           .querySelectorAll('.js-render-enrichment-loader')
           .forEach((loader) => loader.remove());
@@ -237,20 +273,25 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
           link.rel = 'noopener';
         });
 
-        const mermaidBlocks = Array.from(readme.querySelectorAll<HTMLElement>('pre')).filter((block) => {
-          const code = block.querySelector('code');
-          const mermaidAncestor = block.closest<HTMLElement>('[class*="mermaid"], [data-language="mermaid"]');
-          const definition = code?.textContent?.trim() ?? block.textContent?.trim() ?? '';
-          const looksLikeMermaid = /^(?:%%\{init|graph\s|flowchart\s|sequenceDiagram|classDiagram|stateDiagram|erDiagram|journey|gantt|pie\s|gitGraph|mindmap|timeline|quadrantChart|xychart-beta|C4Context|zenuml)/i.test(
-            definition
-          );
-          return Boolean(
-            /mermaid/i.test(block.className) ||
-            /mermaid/i.test(code?.className ?? '') ||
-            mermaidAncestor ||
-            looksLikeMermaid
-          );
-        });
+        const mermaidBlocks = Array.from(readme.querySelectorAll<HTMLElement>('pre')).filter(
+          (block) => {
+            const code = block.querySelector('code');
+            const mermaidAncestor = block.closest<HTMLElement>(
+              '[class*="mermaid"], [data-language="mermaid"]'
+            );
+            const definition = code?.textContent?.trim() ?? block.textContent?.trim() ?? '';
+            const looksLikeMermaid =
+              /^(?:%%\{init|graph\s|flowchart\s|sequenceDiagram|classDiagram|stateDiagram|erDiagram|journey|gantt|pie\s|gitGraph|mindmap|timeline|quadrantChart|xychart-beta|C4Context|zenuml)/i.test(
+                definition
+              );
+            return Boolean(
+              /mermaid/i.test(block.className) ||
+              /mermaid/i.test(code?.className ?? '') ||
+              mermaidAncestor ||
+              looksLikeMermaid
+            );
+          }
+        );
 
         if (mermaidBlocks.length) {
           try {
@@ -272,11 +313,17 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
 
             await Promise.all(
               mermaidBlocks.map(async (block, index) => {
-                const definition = block.querySelector('code')?.textContent?.trim() ?? block.textContent?.trim() ?? '';
+                const definition =
+                  block.querySelector('code')?.textContent?.trim() ??
+                  block.textContent?.trim() ??
+                  '';
                 if (!definition) return;
 
                 try {
-                  const { svg, bindFunctions } = await mermaid.render(`project-mermaid-${index}`, definition);
+                  const { svg, bindFunctions } = await mermaid.render(
+                    `project-mermaid-${index}`,
+                    definition
+                  );
                   block.classList.add('readme-mermaid');
                   block.innerHTML = svg;
                   bindFunctions?.(block);
@@ -323,7 +370,8 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
 
     modal.addEventListener('close', () => {
       document.documentElement.classList.remove('project-modal-open');
-      if (new URL(window.location.href).searchParams.has('project')) navigate(window.location.pathname);
+      if (new URL(window.location.href).searchParams.has('project'))
+        navigate(window.location.pathname);
     });
   };
 

@@ -1,3 +1,5 @@
+import { githubOwner } from './github';
+
 export const initialProdLog = () => {
   // prettier-ignore
   if (process.env.NODE_ENV === 'production') {
@@ -19,7 +21,7 @@ export const initialProdLog = () => {
 export const githubPinnedReposQuery = JSON.stringify({
   query: `
 		{
-			user(login: "abdulsamad") {
+			user(login: "${githubOwner}") {
 				pinnedItems(first: 50) {
 					edges {
 						node {
