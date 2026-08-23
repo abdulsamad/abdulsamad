@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { githubPinnedReposQuery, technologies } from '@utils/index';
+import { githubPinnedReposQuery } from '@utils/index';
 import fallbackProjects from './_fallback-projects.json';
 
 import type { GitHubPinnedReposType } from './_types';
@@ -41,6 +41,46 @@ export const GET = async () => {
         );
 
         // Filter the topics
+        const technologies = [
+          'html',
+          'css',
+          'scss',
+          'javascript',
+          'typescript',
+          'react',
+          'css-in-js',
+          'material-ui',
+          'dayjs',
+          'vite',
+          'emotion',
+          'content-api',
+          'mongoosejs',
+          'localforage',
+          'monaco-editor',
+          'react-split',
+          'styled-components',
+          'xterm',
+          'mongodb',
+          'pwa',
+          'node',
+          'nodejs',
+          'open-weather-map-api',
+          'axios',
+          'superagent',
+          'redux',
+          'redux-toolkit',
+          'react-spring',
+          'famer-motion',
+          'react-router-dom',
+          'nextjs',
+          'gatsby',
+          'reach-router',
+          'alpine-js',
+          'bulma',
+          'jspdf',
+          'workbox',
+        ];
+
         const topics = cleanedTopics.filter((name: string) => technologies.includes(name));
 
         return {
