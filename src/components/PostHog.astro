@@ -29,7 +29,72 @@ const PUBLIC_POSTHOG_UI_HOST = import.meta.env.PUBLIC_POSTHOG_UI_HOST;
       person_profiles: 'always',
       capture_pageview: 'history_change',
       capture_pageleave: true,
+      capture_exceptions: true,
+      session_recording: { maskAllInputs: false },
     });
+
+    const attribution = () => {
+      const params = new URLSearchParams(window.location.search);
+      return Object.fromEntries(
+        ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].flatMap((key) => {
+          const value = params.get(key);
+          return value ? [[key, value]] : [];
+        })
+      );
+    };
+
+    const capturePortfolioEvent = (eventName, properties = {}) => {
+      posthog.capture(eventName, {
+        ...attribution(),
+        page_path: window.location.pathname,
+        viewport: `${window.innerWidth}x${window.innerHeight}`,
+        ...properties,
+      });
+    };
+
+    window.portfolioAnalytics = {
+      capture: capturePortfolioEvent,
+      headers: () => {
+        const distinctId = typeof posthog.get_distinct_id === 'function' ? posthog.get_distinct_id() : '';
+        const sessionId = typeof posthog.get_session_id === 'function' ? posthog.get_session_id() : '';
+        return {
+          ...(distinctId ? { 'X-PostHog-Distinct-Id': distinctId } : {}),
+          ...(sessionId ? { 'X-PostHog-Session-Id': sessionId } : {}),
+        };
+      },
+    };
+
+    capturePortfolioEvent('portfolio_landing_viewed', { entry_type: performance.getEntriesByType('navigation')[0]?.type ?? 'navigate' });
+
+    const sections = document.querySelectorAll('[data-analytics-section]');
+    if ('IntersectionObserver' in window) {
+      const seenSections = new Set();
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach((entry) => {
+          const section = entry.target.getAttribute('data-analytics-section');
+          if (!entry.isIntersecting || !section || seenSections.has(section)) return;
+          seenSections.add(section);
+          capturePortfolioEvent('portfolio_section_viewed', { section });
+        }),
+        { threshold: 0.35 }
+      );
+      sections.forEach((section) => observer.observe(section));
+    }
+
+    const depthThresholds = [25, 50, 75, 100];
+    const seenDepths = new Set();
+    const captureDepth = () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const depth = height <= 0 ? 100 : Math.round((window.scrollY / height) * 100);
+      depthThresholds.forEach((threshold) => {
+        if (depth >= threshold && !seenDepths.has(threshold)) {
+          seenDepths.add(threshold);
+          capturePortfolioEvent('portfolio_scroll_depth_reached', { depth_percent: threshold });
+        }
+      });
+    };
+    window.addEventListener('scroll', captureDepth, { passive: true });
+    captureDepth();
 
     document.addEventListener('click', (event) => {
       const target = event.target instanceof Element ? event.target.closest('[data-track]') : null;
@@ -43,7 +108,7 @@ const PUBLIC_POSTHOG_UI_HOST = import.meta.env.PUBLIC_POSTHOG_UI_HOST;
         if (!attribute.startsWith('data-track-')) return;
         properties[attribute.replace('data-track-', '')] = target.getAttribute(attribute);
       });
-      posthog.capture(eventName, properties);
+      capturePortfolioEvent(eventName, properties);
     });
   }
 </script>

@@ -50,12 +50,10 @@ export const githubPinnedReposQuery = JSON.stringify({
 	`,
 });
 
-import { redirects } from './social-redirects';
-
 export { redirects } from './social-redirects';
 
 export const socialLinks = [
-  { name: 'Twitter', iconName: 'twitter', url: redirects['/twitter'].destination },
-  { name: 'LinkedIn', iconName: 'linkedin', url: redirects['/linkedin'].destination },
-  { name: 'GitHub', iconName: 'github', url: redirects['/github'].destination },
+  { name: 'Twitter', iconName: 'twitter', url: '/twitter' },
+  { name: 'LinkedIn', iconName: 'linkedin', url: '/linkedin' },
+  { name: 'GitHub', iconName: 'github', url: '/github' },
 ] as const;

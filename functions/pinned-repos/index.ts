@@ -10,6 +10,7 @@ import {
   runInBackground,
 } from '@lib/github-cache';
 import type { PagesEnv } from '@lib/pages-env';
+import { captureServerEvent } from '../posthog';
 
 const githubUrl = `${githubApiBaseUrl}/graphql`;
 const cacheKey = 'pinned-repositories';
@@ -17,13 +18,22 @@ const cacheMaxAgeSeconds = 900;
 
 export const onRequestGet = async ({
   env,
+  request,
   executionCtx,
 }: {
   env: PagesEnv;
+  request: Request;
   executionCtx?: { waitUntil(promise: Promise<unknown>): void };
 }) => {
   const cached = await getCachedResponse(cacheKey, cacheMaxAgeSeconds);
-  if (cached?.fresh) return responseFromCache(cached);
+  const trackResponse = (response: Response) => {
+    captureServerEvent({ request, env, executionCtx }, 'portfolio_pinned_projects_served', {
+      source: response.headers.get('X-Repository-Data-Source') ?? 'unknown',
+      status_code: response.status,
+    });
+    return response;
+  };
+  if (cached?.fresh) return trackResponse(responseFromCache(cached));
 
   const refresh = async () => {
     const token = env.GITHUB_ACCESS_TOKEN?.trim();
@@ -51,14 +61,14 @@ export const onRequestGet = async ({
 
   if (cached) {
     runInBackground(executionCtx, refresh());
-    return responseFromCache(cached);
+    return trackResponse(responseFromCache(cached));
   }
 
   try {
-    return await refresh();
+    return trackResponse(await refresh());
   } catch (error) {
     console.error(error instanceof Error ? error.message : 'Pinned repositories request failed');
     const fallback = PinnedProjectsFallbackSchema.parse(fallbackProjects);
-    return responseFromJson(fallback.githubPinnedItems, 'fallback');
+    return trackResponse(responseFromJson(fallback.githubPinnedItems, 'fallback'));
   }
 };

@@ -8,6 +8,7 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
 <section
   class="projects"
   aria-labelledby="projects-title"
+  data-analytics-section="projects"
   data-github-profile-url={githubProfileUrl}>
   <div class="section-heading">
     <div>
@@ -102,7 +103,7 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
       (entries) => {
         if (!entries.some((entry) => entry.isIntersecting)) return;
 
-        window.posthog?.capture('portfolio_projects_viewed', {
+        window.portfolioAnalytics?.capture('portfolio_projects_viewed', {
           project_count: grid?.querySelectorAll('[data-project-card]').length ?? 0,
         });
         observer.disconnect();
@@ -162,6 +163,7 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
           if (link) {
             link.href = project.url;
             link.setAttribute('aria-label', `View ${project.name} on GitHub`);
+            link.setAttribute('data-track', 'portfolio_project_clicked');
             link.setAttribute('data-track-project', project.name);
             link.setAttribute('data-track-repository', project.url);
           }
@@ -190,6 +192,7 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
     const github = modal.querySelector<HTMLAnchorElement>('[data-project-modal-github]');
     const readme = modal.querySelector<HTMLElement>('[data-project-readme]');
     const projectName = new URL(window.location.href).searchParams.get('project');
+    let activeProject = '';
 
     const setReadmeStatus = (message: string) => {
       if (readme) readme.innerHTML = `<p class="project-readme-status">${message}</p>`;
@@ -207,9 +210,16 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
         modal.showModal();
         document.documentElement.classList.add('project-modal-open');
       }
+      activeProject = repositoryName;
+      window.portfolioAnalytics?.capture('portfolio_project_details_opened', {
+        project_slug: repositoryName,
+        interaction_method: projectName ? 'deep_link' : 'card',
+      });
 
       try {
-        const response = await fetch(`/github-repo?repo=${encodeURIComponent(repositoryName)}`);
+        const response = await fetch(`/github-repo?repo=${encodeURIComponent(repositoryName)}`, {
+          headers: window.portfolioAnalytics?.headers(),
+        });
         if (!response.ok) throw new Error('Repository details request failed');
         const project = (await response.json()) as {
           name: string;
@@ -231,6 +241,10 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
         readme.innerHTML =
           project.readmeHtml ||
           '<p class="project-readme-status">No README available for this project.</p>';
+        if (project.readmeHtml)
+          window.portfolioAnalytics?.capture('portfolio_project_readme_viewed', {
+            project_slug: repositoryName,
+          });
         readme
           .querySelectorAll('.js-render-enrichment-loader')
           .forEach((loader) => loader.remove());
@@ -337,6 +351,10 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
           }
         }
       } catch {
+        window.portfolioAnalytics?.capture('portfolio_project_details_load_failed', {
+          project_slug: repositoryName,
+          endpoint: 'github_repo',
+        });
         setReadmeStatus('The project details could not be loaded right now.');
       }
     };
@@ -369,10 +387,28 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
     });
 
     modal.addEventListener('close', () => {
+      if (activeProject)
+        window.portfolioAnalytics?.capture('portfolio_project_details_closed', {
+          project_slug: activeProject,
+        });
+      activeProject = '';
       document.documentElement.classList.remove('project-modal-open');
       if (new URL(window.location.href).searchParams.has('project'))
         navigate(window.location.pathname);
     });
+
+    homepage?.addEventListener('click', () =>
+      window.portfolioAnalytics?.capture('portfolio_project_cta_clicked', {
+        project_slug: activeProject,
+        cta: 'live_site',
+      })
+    );
+    github?.addEventListener('click', () =>
+      window.portfolioAnalytics?.capture('portfolio_project_cta_clicked', {
+        project_slug: activeProject,
+        cta: 'github',
+      })
+    );
   };
 
   document.addEventListener('astro:page-load', initialiseProjectModal);

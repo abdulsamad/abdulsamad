@@ -13,6 +13,7 @@ import {
   responseFromJson,
   runInBackground,
 } from '@lib/github-cache';
+import { captureServerEvent } from '../posthog';
 
 const cacheMaxAgeSeconds = 3600;
 const githubHeaders = (token?: string) => ({
@@ -33,12 +34,24 @@ export const onRequestGet = async ({
 }) => {
   const repositoryName = new URL(request.url).searchParams.get('repo')?.trim();
   if (!repositoryName || !/^[a-zA-Z0-9._-]+$/.test(repositoryName)) {
+    captureServerEvent({ request, env, executionCtx }, 'portfolio_project_data_failed', {
+      outcome: 'invalid_request',
+    });
     return Response.json({ error: 'A valid repository name is required' }, { status: 400 });
   }
 
+  const trackResponse = (response: Response) => {
+    captureServerEvent({ request, env, executionCtx }, 'portfolio_project_data_served', {
+      project_slug: repositoryName.toLowerCase(),
+      source: response.headers.get('X-Repository-Data-Source') ?? 'unknown',
+      status_code: response.status,
+    });
+    return response;
+  };
+
   const cacheKey = `repository:${repositoryName.toLowerCase()}`;
   const cached = await getCachedResponse(cacheKey, cacheMaxAgeSeconds);
-  if (cached?.fresh) return responseFromCache(cached);
+  if (cached?.fresh) return trackResponse(responseFromCache(cached));
 
   const refresh = async () => {
     const token = env.GITHUB_ACCESS_TOKEN?.trim();
@@ -79,11 +92,11 @@ export const onRequestGet = async ({
 
   if (cached) {
     runInBackground(executionCtx, refresh());
-    return responseFromCache(cached);
+    return trackResponse(responseFromCache(cached));
   }
 
   try {
-    return await refresh();
+    return trackResponse(await refresh());
   } catch (error) {
     console.error(error instanceof Error ? error.message : 'Repository details request failed');
     const fallbackData = RepositoryDetailsFallbackSchema.parse(fallbackProjects);
@@ -91,7 +104,13 @@ export const onRequestGet = async ({
       fallbackData.repositories[
         repositoryName.toLowerCase() as keyof typeof fallbackProjects.repositories
       ];
-    if (!fallback) return Response.json({ error: 'Repository not found' }, { status: 404 });
-    return responseFromJson(fallback, 'fallback');
+    if (!fallback) {
+      captureServerEvent({ request, env, executionCtx }, 'portfolio_project_data_failed', {
+        project_slug: repositoryName.toLowerCase(),
+        outcome: 'not_found',
+      });
+      return Response.json({ error: 'Repository not found' }, { status: 404 });
+    }
+    return trackResponse(responseFromJson(fallback, 'fallback'));
   }
 };
