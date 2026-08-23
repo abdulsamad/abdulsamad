@@ -13,8 +13,8 @@ I work across frontend product development with React, TypeScript, Astro, and mo
 
 ## What I work with
 
-**Frontend:** React · TypeScript · JavaScript · Astro · Tailwind CSS  
-**Backend:** Node.js · Express · PostgreSQL · MongoDB  
+**Frontend:** React · TypeScript · JavaScript · Astro · Tailwind CSS
+**Backend:** Node.js · Express · PostgreSQL · MongoDB
 **Tools:** Git · Docker · CI/CD
 
 I care about clear systems, thoughtful interfaces, and code that stays maintainable as products grow.
