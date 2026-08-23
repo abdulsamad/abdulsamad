@@ -25,10 +25,7 @@ pnpm-debug.log*
 .netlify
 .vercel
 
-# Yarn
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+# AI
+.claude
+.codex
+graphify-out
