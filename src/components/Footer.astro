@@ -12,7 +12,9 @@ import Section from '@components/utils/Section.astro';
           class:list={['rounded no-underline', name.toLowerCase() === 'linkedin' && 'bg-white']}
           href={url}
           rel="noopener"
-          target="_blank">
+          target="_blank"
+          data-track="portfolio_social_clicked"
+          data-track-network={name.toLowerCase()}>
           <img src={`/icons/${iconName}.svg`} alt={name} height={20} width={20} loading="lazy" />
         </a>
       ))

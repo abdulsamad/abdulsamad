@@ -10,3 +10,12 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+interface PostHogClient {
+  capture: (eventName: string, properties?: Record<string, unknown>) => void;
+}
+
+interface Window {
+  posthog?: PostHogClient;
+  __posthog_initialized?: boolean;
+}

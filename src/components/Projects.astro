@@ -1,0 +1,112 @@
+---
+import fallbackProjects from '@pages/pinned-repos/_fallback-projects.json';
+
+const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
+---
+
+<section class="projects" aria-labelledby="projects-title">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">Selected work</p>
+      <h2 id="projects-title">Pinned on GitHub</h2>
+    </div>
+    <a
+      class="section-link"
+      href="https://github.com/abdulsamad"
+      target="_blank"
+      rel="noopener"
+      data-track="portfolio_github_profile_clicked"
+      data-track-destination="github_profile">
+      View all <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+
+  <div class="project-grid" id="project-grid">
+    {
+      projects.map((project, index) => (
+        <article class="project-card" data-project-card>
+          <div class="project-card-top">
+            <span class="project-index">0{index + 1}</span>
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener"
+              data-track="portfolio_project_clicked"
+              data-track-project={project.name}
+              data-track-repository={project.url}
+              aria-label={`View ${project.name} on GitHub`}>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <h3 data-project-name>{project.name}</h3>
+          <p data-project-description>{project.description}</p>
+          {/* <div class="project-meta">
+            {project.topics.slice(0, 4).map((topic) => (
+              <span>{topic}</span>
+            ))}
+          </div> */}
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  const grid = document.querySelector<HTMLElement>('#project-grid');
+
+  const projectSection = document.querySelector<HTMLElement>('.projects');
+  if (projectSection && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+
+        window.posthog?.capture('portfolio_projects_viewed', {
+          project_count: grid?.querySelectorAll('[data-project-card]').length ?? 0,
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.35 }
+    );
+    observer.observe(projectSection);
+  }
+
+  if (grid) {
+    fetch('/pinned-repos')
+      .then((response) => {
+        if (!response.ok) return Promise.reject(response.status);
+        return response.json() as Promise<
+          Array<{ name: string; description: string; url: string; topics: string[] }>
+        >;
+      })
+      .then((projects) => {
+        projects.slice(0, 2).forEach((project, index) => {
+          const card = grid?.querySelectorAll<HTMLElement>('[data-project-card]')[index];
+          if (!card) return;
+
+          const title = card.querySelector('[data-project-name]');
+          const description = card.querySelector('[data-project-description]');
+          const link = card.querySelector<HTMLAnchorElement>('.project-card-top a');
+          const meta = card.querySelector('.project-meta');
+
+          if (title) title.textContent = project.name;
+          if (description) description.textContent = project.description;
+          if (link) {
+            link.href = project.url;
+            link.setAttribute('aria-label', `View ${project.name} on GitHub`);
+            link.setAttribute('data-track-project', project.name);
+            link.setAttribute('data-track-repository', project.url);
+          }
+          if (meta) {
+            meta.replaceChildren(
+              ...project.topics.slice(0, 4).map((topic) => {
+                const tag = document.createElement('span');
+                tag.textContent = topic;
+                return tag;
+              })
+            );
+          }
+        });
+      })
+      .catch(() => undefined);
+  }
+</script>

@@ -3,17 +3,23 @@ import Layout from '@layouts/Layout.astro';
 import H1 from '@components/utils/H1.astro';
 import H3 from '@components/utils/H3.astro';
 import Link from '@components/utils/Link.astro';
+import Projects from '@components/Projects.astro';
+import Writing from '@components/Writing.astro';
 import { Content } from '@content/my-info.mdx';
 ---
 
 <Layout title="Abdul Samad Ansari - Developer">
-  <main class="container mx-auto px-8 pt-16 text-left">
-    <Content
-      components={{
-        h1: H1,
-        h3: H3,
-        a: Link,
-      }}
-    />
+  <main class="site-main">
+    <section class="intro" aria-label="Introduction">
+      <Content
+        components={{
+          h1: H1,
+          h3: H3,
+          a: Link,
+        }}
+      />
+    </section>
+    <Projects />
+    <Writing />
   </main>
 </Layout>

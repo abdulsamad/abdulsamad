@@ -5,24 +5,45 @@ const PUBLIC_POSTHOG_UI_HOST = import.meta.env.PUBLIC_POSTHOG_UI_HOST;
 ---
 
 <script define:vars={{ PUBLIC_POSTHOG_KEY, PUBLIC_POSTHOG_HOST, PUBLIC_POSTHOG_UI_HOST }} is:inline>
-  const posthog = (window.posthog = window.posthog || []);
-  posthog._i = posthog._i || [];
-  const posthogMethods = 'capture identify alias people.set people.set_once register register_once unregister opt_out_capturing opt_in_capturing reset'.split(' ');
-  posthogMethods.forEach((method) => {
-    posthog[method] = (...args) => posthog.push([method, ...args]);
-  });
-  posthog.init = function (key, options, name) {
-    const instance = name ? (posthog[name] = []) : posthog;
-    instance._i = instance._i || [];
-    posthog._i.push([key, options, name]);
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `${options.api_host}/static/array.js`;
-    document.head.appendChild(script);
-  };
-  posthog.init(PUBLIC_POSTHOG_KEY, {
-    api_host: PUBLIC_POSTHOG_HOST,
-    ui_host: PUBLIC_POSTHOG_UI_HOST,
-    person_profiles: 'always',
-  });
+  if (!window.__posthog_initialized) {
+    window.__posthog_initialized = true;
+
+    const posthog = (window.posthog = window.posthog || []);
+    posthog._i = posthog._i || [];
+    const posthogMethods = 'capture identify alias people.set people.set_once register register_once unregister opt_out_capturing opt_in_capturing reset'.split(' ');
+    posthogMethods.forEach((method) => {
+      posthog[method] = (...args) => posthog.push([method, ...args]);
+    });
+    posthog.init = function (key, options, name) {
+      const instance = name ? (posthog[name] = []) : posthog;
+      instance._i = instance._i || [];
+      posthog._i.push([key, options, name]);
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `${options.api_host}/static/array.js`;
+      document.head.appendChild(script);
+    };
+    posthog.init(PUBLIC_POSTHOG_KEY, {
+      api_host: PUBLIC_POSTHOG_HOST,
+      ui_host: PUBLIC_POSTHOG_UI_HOST,
+      person_profiles: 'always',
+      capture_pageview: 'history_change',
+      capture_pageleave: true,
+    });
+
+    document.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target.closest('[data-track]') : null;
+      if (!target) return;
+
+      const eventName = target.getAttribute('data-track');
+      if (!eventName) return;
+
+      const properties = {};
+      target.getAttributeNames().forEach((attribute) => {
+        if (!attribute.startsWith('data-track-')) return;
+        properties[attribute.replace('data-track-', '')] = target.getAttribute(attribute);
+      });
+      posthog.capture(eventName, properties);
+    });
+  }
 </script>
