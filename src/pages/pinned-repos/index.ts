@@ -19,12 +19,10 @@ export const GET = async () => {
     };
 
     // Request
-    const res = await axios.post('https://api.github.com/graphql', {
-      method: 'POST',
+    const res = await axios.post('https://api.github.com/graphql', githubPinnedReposQuery, {
       headers,
-      body: githubPinnedReposQuery,
     });
-    const data: GitHubPinnedReposType = res.data;
+    const data: GitHubPinnedReposType = res.data.data;
     const filteredProjects = data.user.pinnedItems.edges.map(
       ({
         node: { description, homepageUrl, id, name, openGraphImageUrl, url, repositoryTopics },
