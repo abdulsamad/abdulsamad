@@ -2,26 +2,52 @@
 
 :root {
   color-scheme: dark;
-  --surface: #0f182a;
-  --surface-raised: #141f34;
-  --surface-line: rgba(255, 255, 255, 0.1);
-  --muted: #9ba7bb;
-  --text: #f6f7fb;
+
+  /* Brand palette: change these values to retheme the site. */
+  --brand-primary-50: #f2f0ff;
+  --brand-primary-100: #e6e1fe;
+  --brand-primary-200: #ccc3fd;
+  --brand-primary-300: #aea1fd;
+  --brand-primary-400: #9583fc;
+  --brand-primary: #7c65fb;
+  --brand-primary-600: #401ff9;
+  --brand-primary-700: #2305cc;
+  --brand-primary-800: #18048b;
+  --brand-primary-900: #0c0246;
+  --brand-primary-950: #060123;
+  --brand-secondary: #da62c4;
+  --brand-wave: #4ca6ff;
+
+  /* Semantic colors: components should use these instead of raw values. */
+  --color-bg: #0f182a;
+  --color-surface: #141f34;
+  --color-text: #f6f7fb;
+  --color-text-muted: #9ba7bb;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-strong: rgba(174, 161, 253, 0.55);
+  --color-border-accent: rgba(174, 161, 253, 0.2);
+
+  /* Shared component defaults. */
+  --radius-card: 0;
+  --shadow-card-hover: 0 0.75rem 2rem rgba(6, 1, 35, 0.16);
+  --transition-fast: 180ms ease;
+  --wave-opacity: 0.25;
 }
 
 @theme {
-  --color-primary-50: #f2f0ff;
-  --color-primary-100: #e6e1fe;
-  --color-primary-200: #ccc3fd;
-  --color-primary-300: #aea1fd;
-  --color-primary-400: #9583fc;
-  --color-primary-500: #7c65fb;
-  --color-primary-600: #401ff9;
-  --color-primary-700: #2305cc;
-  --color-primary-800: #18048b;
-  --color-primary-900: #0c0246;
-  --color-primary-950: #060123;
-  --color-primary: #7c65fb;
+  --color-primary-50: var(--brand-primary-50);
+  --color-primary-100: var(--brand-primary-100);
+  --color-primary-200: var(--brand-primary-200);
+  --color-primary-300: var(--brand-primary-300);
+  --color-primary-400: var(--brand-primary-400);
+  --color-primary-500: var(--brand-primary);
+  --color-primary-600: var(--brand-primary-600);
+  --color-primary-700: var(--brand-primary-700);
+  --color-primary-800: var(--brand-primary-800);
+  --color-primary-900: var(--brand-primary-900);
+  --color-primary-950: var(--brand-primary-950);
+  --color-primary: var(--brand-primary);
+  --color-secondary: var(--brand-secondary);
 
   --font-family-sans: 'Nunito', 'Open Sans', system-ui, sans-serif;
   --font-family-display: 'Bruno Ace SC';
@@ -35,8 +61,8 @@
   --spacing-128: 32rem;
   --spacing-144: 36rem;
 
-  --background-gradient: linear-gradient(45deg, #7c65fb, #da62c4 30%, #7c65fb 60%);
-  --background-contact-gradient: linear-gradient(90deg, #673ab7 50%, #0f182a 50%, #0f182a 100%);
+  --background-gradient: linear-gradient(45deg, var(--brand-primary), var(--brand-secondary) 30%, var(--brand-primary) 60%);
+  --background-contact-gradient: linear-gradient(90deg, #673ab7 50%, var(--color-bg) 50%, var(--color-bg) 100%);
 
   --line-height-12: 3rem;
   --line-height-14: 3.5rem;
@@ -83,18 +109,39 @@
 }
 
 body {
+  position: relative;
   margin: 0;
-  background: var(--surface);
-  color: var(--text);
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: 'Nunito Variable', 'Nunito', system-ui, sans-serif;
   font-size: 1rem;
   line-height: 1.7;
   text-rendering: optimizeLegibility;
 }
 
+body::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(13rem, 31vw, 25rem);
+  background: var(--brand-wave);
+  -webkit-mask: url('/background.svg') top center / 100% 100% no-repeat;
+  mask: url('/background.svg') top center / 100% 100% no-repeat;
+  opacity: var(--wave-opacity);
+  pointer-events: none;
+}
+
+.text-white {
+  position: relative;
+  z-index: 1;
+}
+
 a {
-  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease,
-    transform 180ms ease;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+    background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 a:focus-visible,
@@ -115,7 +162,7 @@ button:focus-visible {
 
 .intro h1 {
   margin: 0 0 1.75rem;
-  color: var(--text);
+  color: var(--color-text);
   font-size: clamp(2.35rem, 6vw, 4.35rem);
   font-weight: 800;
   letter-spacing: -0.065em;
@@ -125,7 +172,7 @@ button:focus-visible {
 .intro p {
   max-width: 42rem;
   margin: 0 0 1.25rem;
-  color: var(--muted);
+  color: var(--color-text-muted);
   font-size: clamp(1.08rem, 1.8vw, 1.25rem);
   line-height: 1.8;
 }
@@ -144,7 +191,7 @@ button:focus-visible {
   justify-content: space-between;
   gap: 2rem;
   padding-bottom: 1.4rem;
-  border-bottom: 1px solid var(--surface-line);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .eyebrow,
@@ -166,14 +213,14 @@ button:focus-visible {
 
 .section-link {
   flex: 0 0 auto;
-  color: var(--muted);
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   text-decoration: none;
 }
 
 .section-link:hover,
 .project-card-top a:hover {
-  color: var(--text);
+  color: var(--color-text);
 }
 
 .section-link span {
@@ -183,7 +230,7 @@ button:focus-visible {
 }
 
 .section-meta {
-  color: var(--muted);
+  color: var(--color-text-muted);
   font-size: 0.8rem;
 }
 
@@ -197,14 +244,19 @@ button:focus-visible {
 .project-card {
   min-height: 18rem;
   padding: clamp(1.35rem, 3vw, 2rem);
-  border: 1px solid var(--surface-line);
-  background: linear-gradient(145deg, rgba(20, 31, 52, 0.92), rgba(15, 24, 42, 0.6));
-  transition: border-color 180ms ease, transform 180ms ease, background-color 180ms ease;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--color-surface) 92%, transparent),
+    color-mix(in srgb, var(--color-bg) 60%, transparent));
+  transition:
+    border-color var(--transition-fast), transform var(--transition-fast),
+    background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .project-card:hover {
-  border-color: rgba(174, 161, 253, 0.55);
-  background: var(--surface-raised);
+  border-color: var(--color-border-strong);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card-hover);
   transform: translateY(-4px);
 }
 
@@ -215,7 +267,7 @@ button:focus-visible {
 }
 
 .project-card-top a {
-  color: var(--muted);
+  color: var(--color-text-muted);
   font-size: 1.3rem;
   line-height: 1;
   text-decoration: none;
@@ -223,7 +275,7 @@ button:focus-visible {
 
 .project-card h3 {
   margin: 2.7rem 0 0.65rem;
-  color: var(--text);
+  color: var(--color-text);
   font-size: clamp(1.4rem, 3vw, 1.85rem);
   font-weight: 750;
   letter-spacing: -0.045em;
@@ -234,7 +286,7 @@ button:focus-visible {
 .project-card p {
   min-height: 4.9rem;
   margin: 0;
-  color: var(--muted);
+  color: var(--color-text-muted);
   font-size: 0.95rem;
   line-height: 1.65;
 }
@@ -248,7 +300,7 @@ button:focus-visible {
 
 .project-meta span {
   padding: 0.2rem 0.55rem;
-  border: 1px solid rgba(174, 161, 253, 0.2);
+  border: 1px solid var(--color-border-accent);
   color: var(--color-primary-200);
   font-size: 0.7rem;
   line-height: 1.4;
@@ -261,17 +313,23 @@ button:focus-visible {
   gap: 2rem;
   margin-top: 1rem;
   padding: clamp(1.5rem, 4vw, 2.6rem);
-  border: 1px solid var(--surface-line);
-  background: linear-gradient(110deg, rgba(20, 31, 52, 0.92), rgba(64, 31, 249, 0.12));
-  color: var(--text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: linear-gradient(110deg, color-mix(in srgb, var(--color-surface) 92%, transparent),
+    color-mix(in srgb, var(--color-primary-600) 12%, transparent));
+  color: var(--color-text);
   text-decoration: none;
-  transition: border-color 180ms ease, transform 180ms ease, background-color 180ms ease;
+  transition:
+    border-color var(--transition-fast), transform var(--transition-fast),
+    background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .writing-card:hover {
-  border-color: rgba(174, 161, 253, 0.55);
-  background: linear-gradient(110deg, rgba(20, 31, 52, 1), rgba(64, 31, 249, 0.18));
-  color: var(--text);
+  border-color: var(--color-border-strong);
+  background: linear-gradient(110deg, var(--color-surface),
+    color-mix(in srgb, var(--color-primary-600) 18%, transparent));
+  color: var(--color-text);
+  box-shadow: var(--shadow-card-hover);
   transform: translateY(-4px);
 }
 
@@ -295,7 +353,7 @@ button:focus-visible {
 .writing-description {
   max-width: 42rem;
   margin: 0;
-  color: var(--muted);
+  color: var(--color-text-muted);
   font-size: 1rem;
   line-height: 1.7;
 }
