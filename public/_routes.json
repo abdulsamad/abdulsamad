@@ -2,6 +2,7 @@
   "version": 1,
   "include": [
     "/pinned-repos",
+    "/github-repo",
     "/zen-route",
     "/zen-route/*",
     "/resume",

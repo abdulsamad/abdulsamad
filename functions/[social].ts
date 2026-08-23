@@ -1,5 +1,5 @@
-import { redirects } from '../utils/social-redirects';
-import type { PagesEnv } from '../src/lib/pages-env';
+import { redirects } from '@utils/social-redirects';
+import type { PagesEnv } from '@lib/pages-env';
 
 const aggregateDistinctId = 'social-redirect-anonymous';
 const eventName = 'social_redirect_clicked';

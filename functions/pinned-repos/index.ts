@@ -1,7 +1,7 @@
-import fallbackProjects from '../src/pages/pinned-repos/_fallback-projects.json';
-import { githubPinnedReposQuery } from '../utils';
-import { toPinnedProjects } from '../src/lib/github-pinned-repos';
-import type { PagesEnv } from '../src/lib/pages-env';
+import fallbackProjects from '@pinned-repos/_fallback-projects.json';
+import { githubPinnedReposQuery } from '@utils/index';
+import { toPinnedProjects } from '@lib/github-pinned-repos';
+import type { PagesEnv } from '@lib/pages-env';
 
 const githubUrl = 'https://api.github.com/graphql';
 const cacheHeaders = { 'Cache-Control': 'public, max-age=300, s-maxage=300' };

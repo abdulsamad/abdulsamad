@@ -53,7 +53,7 @@ import { redirects } from './social-redirects';
 export { redirects } from './social-redirects';
 
 export const socialLinks = [
+  { name: 'Twitter', iconName: 'twitter', url: redirects['/twitter'].destination },
   { name: 'LinkedIn', iconName: 'linkedin', url: redirects['/linkedin'].destination },
   { name: 'GitHub', iconName: 'github', url: redirects['/github'].destination },
-  { name: 'Twitter', iconName: 'twitter', url: redirects['/twitter'].destination },
 ] as const;

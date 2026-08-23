@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import type { PagesEnv } from '../../src/lib/pages-env';
+import type { PagesEnv } from '@lib/pages-env';
 
 const proxyPrefix = '/zen-route';
 const forwardedHeaders = [
