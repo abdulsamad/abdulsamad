@@ -42,6 +42,7 @@ export const onRequestGet = async ({ env, request }: { env: PagesEnv; request: R
         description: repository.description ?? '',
         url: repository.html_url,
         homepageUrl: repository.homepage ?? '',
+        defaultBranch: repository.default_branch ?? 'main',
         topics: repository.topics ?? [],
         language: repository.language ?? '',
         readmeHtml,
@@ -58,6 +59,7 @@ export const onRequestGet = async ({ env, request }: { env: PagesEnv; request: R
       {
         ...fallback,
         fullName: `abdulsamad/${repositoryName}`,
+        defaultBranch: 'main',
         readmeHtml: '',
       },
       { headers: cacheHeaders }

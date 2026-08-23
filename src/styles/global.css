@@ -117,6 +117,15 @@
   box-sizing: border-box;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
+html.project-modal-open,
+html.project-modal-open body {
+  overflow: hidden;
+}
+
 body {
   position: relative;
   margin: 0;
@@ -255,6 +264,7 @@ button:focus-visible {
 }
 
 .project-card {
+  cursor: pointer;
   min-height: 18rem;
   padding: clamp(1.35rem, 3vw, 2rem);
   border: 1px solid var(--color-border);
@@ -276,6 +286,12 @@ button:focus-visible {
   background: var(--color-surface);
   box-shadow: var(--shadow-card-hover);
   transform: translateY(-4px);
+}
+
+.project-card:focus-visible {
+  border-color: var(--color-border-strong);
+  outline: 2px solid var(--color-primary-300);
+  outline-offset: 4px;
 }
 
 .project-card-top {
@@ -322,6 +338,240 @@ button:focus-visible {
   color: var(--color-primary-200);
   font-size: 0.7rem;
   line-height: 1.4;
+}
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  width: min(100% - 2rem, 58rem);
+  max-height: min(90vh, 54rem);
+  height: fit-content;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 2rem 8rem rgba(6, 1, 35, 0.5);
+  scrollbar-color: var(--brand-primary) transparent;
+  animation: project-modal-slide-up 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.project-modal::backdrop {
+  background: rgba(6, 1, 35, 0.72);
+  backdrop-filter: blur(0.5rem);
+  animation: project-backdrop-in 280ms ease both;
+}
+
+.project-modal-shell {
+  position: relative;
+  max-height: min(90vh, 54rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  scrollbar-color: var(--brand-primary) transparent;
+}
+
+.project-modal-close {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  right: 1rem;
+  display: block;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.project-modal-close:hover {
+  background: var(--color-surface);
+  transform: rotate(90deg);
+}
+
+.project-modal-header {
+  max-width: 42rem;
+  margin-top: -1rem;
+  padding-right: 3rem;
+}
+
+.project-modal-header h2 {
+  margin: 0.45rem 0 0.75rem;
+  color: var(--color-text);
+  font-size: clamp(2rem, 6vw, 3.8rem);
+  letter-spacing: -0.07em;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+.project-modal-header > p:last-of-type {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.project-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.project-modal-actions a {
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--color-border-accent);
+  color: var(--color-primary-200);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.project-modal-actions a:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.project-readme {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.project-readme-status {
+  color: var(--color-text-muted);
+}
+
+.project-readme * {
+  max-width: 100%;
+}
+
+.project-readme h1,
+.project-readme h2,
+.project-readme h3,
+.project-readme h4 {
+  margin: 2rem 0 0.75rem;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.project-readme h1 { font-size: 2rem; }
+.project-readme h2 { font-size: 1.55rem; }
+.project-readme h3 { font-size: 1.2rem; }
+
+.project-readme p,
+.project-readme li {
+  color: var(--color-text-muted);
+}
+
+.project-readme a {
+  color: var(--color-primary-200);
+}
+
+.project-readme .readme-image-link-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.project-readme img {
+  height: auto;
+  margin: 1rem 0;
+  border: 1px solid var(--color-border);
+  pointer-events: none;
+}
+
+.project-readme pre {
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-primary-100);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.project-readme pre.readme-mermaid {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  background: var(--color-surface);
+}
+
+.project-readme pre.readme-mermaid svg {
+  display: block;
+  min-width: min(100%, 34rem);
+  height: auto;
+  max-width: none;
+}
+
+.project-readme pre.readme-mermaid-error {
+  border-color: color-mix(in srgb, #f87171 50%, var(--color-border));
+}
+
+.project-readme code {
+  color: var(--color-primary-100);
+  font-size: 0.9em;
+}
+
+.project-readme :not(pre) > code {
+  padding: 0.15rem 0.35rem;
+  background: color-mix(in srgb, var(--color-primary-600) 22%, transparent);
+}
+
+.project-readme blockquote {
+  margin: 1.25rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--brand-secondary);
+  color: var(--color-text-muted);
+}
+
+.project-readme table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.project-readme th,
+.project-readme td {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+
+@keyframes project-modal-slide-up {
+  from { opacity: 0; transform: translateY(4rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes project-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+::view-transition-old(root) {
+  animation: 240ms cubic-bezier(0.4, 0, 1, 1) both project-page-out;
+}
+
+::view-transition-new(root) {
+  animation: 420ms cubic-bezier(0.22, 1, 0.36, 1) both project-page-in;
+}
+
+@keyframes project-page-out {
+  to { opacity: 0; }
+}
+
+@keyframes project-page-in {
+  from { opacity: 0; }
 }
 
 .writing-card {
@@ -426,5 +676,10 @@ button:focus-visible {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+
+  .project-modal,
+  .project-modal::backdrop {
+    animation: none;
   }
 }
