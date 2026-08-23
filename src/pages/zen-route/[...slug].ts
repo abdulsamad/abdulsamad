@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { env } from 'cloudflare:workers';
 
-const PROXY_PREFIX = '/zen-route';
+const PROXY_PREFIX = import.meta.env.PUBLIC_POSTHOG_HOST || '/api/analytics';
 const DEFAULT_POSTHOG_HOST = import.meta.env.POSTHOG_UPSTREAM_HOST || 'https://us.i.posthog.com';
 
 const FORWARDED_REQUEST_HEADERS = [
