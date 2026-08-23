@@ -11,7 +11,7 @@ const cookie = Astro.cookies.get(`ph_${import.meta.env.PUBLIC_POSTHOG_KEY}_posth
 let distinctId = cookie?.json().distinct_id;
 
 if (!distinctId) {
-	distinctId = crypto.randomUUID();
+  distinctId = crypto.randomUUID();
 }
 
 // const phClient = PostHogClient();
@@ -22,15 +22,15 @@ if (!distinctId) {
 // });
 ---
 
-<Layout title='Abdul Samad Ansari - Developer'>
-	<main class='container mx-auto px-8 pt-16 text-left'>
-		<p style='display:none' class='did'>{distinctId}</p>
-		<Content
-			components={{
-				h1: H1,
-				h3: H3,
-				a: Link,
-			}}
-		/>
-	</main>
+<Layout title="Abdul Samad Ansari - Developer">
+  <main class="container mx-auto px-8 pt-16 text-left">
+    <p style="display:none" class="did">{distinctId}</p>
+    <Content
+      components={{
+        h1: H1,
+        h3: H3,
+        a: Link,
+      }}
+    />
+  </main>
 </Layout>

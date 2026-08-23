@@ -10,74 +10,74 @@ import PostHog from '@components/PostHog.astro';
 import '../styles/global.css';
 
 export interface Props {
-	title: string;
-	noindex?: boolean;
-	description?: string;
+  title: string;
+  noindex?: boolean;
+  description?: string;
 }
 
 const { title, noindex, description } = Astro.props;
 ---
 
-<html lang='en'>
-	<head>
-		<meta charset='UTF-8' />
-		<meta name='viewport' content='width=device-width' />
-		<meta name='generator' content={Astro.generator} />
-		<title>{title}</title>
-		<meta name='title' content={title} />
-		<meta name='description' content={description} />
-		{noindex && <meta name='robots' content='noindex' />}
-		<meta name='theme-color' content='#3F51B5' />
-		<meta
-			name='description'
-			content='A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB'
-		/>
-		<meta name='author' content='Abdul Samad Ansari' />
-		<meta
-			name='keywords'
-			content='web developer, abdul samad ansari, software engineer, react developer'
-		/>
-		<meta property='og:type' content='website' />
-		<meta property='og:url' content='https://abdulsamad.dev' />
-		<meta property='og:title' content={title} />
-		<meta
-			property='og:description'
-			content='A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB'
-		/>
-		<meta property='og:image' content='https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg' />
-		<meta property='twitter:card' content='summary_large_image' />
-		<meta property='twitter:url' content='https://abdulsamad.dev' />
-		<meta property='twitter:title' content={title} />
-		<meta
-			property='twitter:description'
-			content='A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB'
-		/>
-		<meta
-			property='twitter:image'
-			content='https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg'
-		/>
-		<link rel='icon' href='/favicon.ico' />
-		<ClientRouter />
-		<PostHog />
-	</head>
-	<body>
-		<div class='text-white'>
-			<Header transition:persist />
-			<slot />
-			<Footer />
-		</div>
-		<style is:global>
-			html {
-				scroll-behavior: smooth;
-			}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#3F51B5" />
+    <meta
+      name="description"
+      content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
+    />
+    <meta name="author" content="Abdul Samad Ansari" />
+    <meta
+      name="keywords"
+      content="web developer, abdul samad ansari, software engineer, react developer"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://abdulsamad.dev" />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
+    />
+    <meta property="og:image" content="https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://abdulsamad.dev" />
+    <meta property="twitter:title" content={title} />
+    <meta
+      property="twitter:description"
+      content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
+    />
+    <meta
+      property="twitter:image"
+      content="https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg"
+    />
+    <link rel="icon" href="/favicon.ico" />
+    <ClientRouter />
+    <PostHog />
+  </head>
+  <body>
+    <div class="text-white">
+      <Header transition:persist />
+      <slot />
+      <Footer />
+    </div>
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+      }
 
-			body {
-				background: #0f182a;
-			}
+      body {
+        background: #0f182a;
+      }
 
-			a {
-				color: var(--color-primary);
-			}
-		</style>
-	</body>
+      a {
+        color: var(--color-primary);
+      }
+    </style>
+  </body>
 </html>

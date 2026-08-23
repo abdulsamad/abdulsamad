@@ -2,15 +2,15 @@
 import type { HTMLAttributes } from 'astro/types';
 
 export interface Props extends HTMLAttributes<'section'> {
-	containerClasses?: astroHTML.JSX.HTMLAttributes['class'];
+  containerClasses?: astroHTML.JSX.HTMLAttributes['class'];
 }
 
 const { containerClasses, ...props } = Astro.props;
 ---
 
 <section class:list={['relative', props.class]} {...props}>
-	<slot name='outer-elem' />
-	<div class:list={['mx-auto w-full max-w-[1920px]', containerClasses]}>
-		<slot />
-	</div>
+  <slot name="outer-elem" />
+  <div class:list={['mx-auto w-full max-w-[1920px]', containerClasses]}>
+    <slot />
+  </div>
 </section>

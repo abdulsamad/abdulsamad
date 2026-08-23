@@ -2,6 +2,6 @@
 const { ...props } = Astro.props;
 ---
 
-<a class:list={[props.class, 'text-primary']} target='_blank' rel='noopener' {...props}>
-	<slot />
+<a class:list={[props.class, 'text-primary']} target="_blank" rel="noopener" {...props}>
+  <slot />
 </a>
