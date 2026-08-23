@@ -1,5 +1,18 @@
 {
   "version": 1,
-  "include": ["/pinned-repos", "/zen-route", "/zen-route/*"],
+  "include": [
+    "/pinned-repos",
+    "/zen-route",
+    "/zen-route/*",
+    "/resume",
+    "/linkedin",
+    "/github",
+    "/twitter",
+    "/x",
+    "/telegram",
+    "/instagram",
+    "/facebook",
+    "/bluesky"
+  ],
   "exclude": []
 }

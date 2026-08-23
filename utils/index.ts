@@ -48,40 +48,9 @@ export const githubPinnedReposQuery = JSON.stringify({
 	`,
 });
 
-export const redirects = {
-  '/resume': {
-    status: 301,
-    destination: 'https://bit.ly/2Tbfyqx',
-  },
-  '/linkedin': {
-    status: 301,
-    destination: 'https://www.linkedin.com/in/abdulsamad-ansari',
-  },
-  '/github': {
-    status: 301,
-    destination: 'https://github.com/abdulsamad',
-  },
-  '/telegram': {
-    status: 301,
-    destination: 'https://t.me/AbdulSamadDev',
-  },
-  '/twitter': {
-    status: 301,
-    destination: 'https://twitter.com/AbdulSamadDev',
-  },
-  '/x': {
-    status: 301,
-    destination: 'https://x.com/AbdulSamadDev',
-  },
-  '/facebook': {
-    status: 301,
-    destination: 'https://facebook.com/AbdulSamadDev',
-  },
-  '/bluesky': {
-    status: 301,
-    destination: 'https://bsky.app/profile/abdulsamad.bsky.social',
-  },
-} as const;
+import { redirects } from './social-redirects';
+
+export { redirects } from './social-redirects';
 
 export const socialLinks = [
   { name: 'LinkedIn', iconName: 'linkedin', url: redirects['/linkedin'].destination },
