@@ -2,13 +2,10 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
-import cloudflare from '@astrojs/cloudflare';
-
-import { redirects } from './utils';
 
 export default defineConfig({
   root: '.',
-  output: 'server',
+  output: 'static',
   integrations: [
     icon(),
     mdx({
@@ -23,22 +20,10 @@ export default defineConfig({
     port: 3000,
   },
 
-  image: {
-    remotePatterns: [{ protocol: 'https' }],
-    domains: ['githubassets.com'],
-  },
-
-  adapter: cloudflare({ imageService: 'compile' }),
-
-  redirects,
-
   vite: {
     plugins: [tailwindcss()],
     build: {
       minify: true,
-    },
-    ssr: {
-      external: ['axios'],
     },
   },
 });
