@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { env } from 'cloudflare:workers';
 
 const PROXY_PREFIX = '/zen-route';
 const DEFAULT_POSTHOG_HOST = import.meta.env.POSTHOG_UPSTREAM_HOST || 'https://us.i.posthog.com';
@@ -14,8 +15,8 @@ const FORWARDED_REQUEST_HEADERS = [
   'user-agent',
 ];
 
-const getUpstreamHost = (runtimeEnv?: Record<string, string | undefined>) => {
-  const configuredHost = runtimeEnv?.POSTHOG_UPSTREAM_HOST ?? import.meta.env.POSTHOG_UPSTREAM_HOST;
+const getUpstreamHost = () => {
+  const configuredHost = env.POSTHOG_UPSTREAM_HOST ?? import.meta.env.POSTHOG_UPSTREAM_HOST;
   const upstreamHost = new URL(configuredHost || DEFAULT_POSTHOG_HOST);
 
   if (upstreamHost.protocol !== 'https:' && upstreamHost.protocol !== 'http:') {
@@ -26,12 +27,11 @@ const getUpstreamHost = (runtimeEnv?: Record<string, string | undefined>) => {
   return upstreamHost;
 };
 
-const proxy: APIRoute = async ({ request, locals }) => {
-  const runtimeEnv = (locals as { runtime?: { env?: Record<string, string | undefined> } }).runtime?.env;
+const proxy: APIRoute = async ({ request }) => {
   let upstreamHost: URL;
 
   try {
-    upstreamHost = getUpstreamHost(runtimeEnv);
+    upstreamHost = getUpstreamHost();
   } catch {
     return new Response('Analytics proxy has an invalid upstream host', { status: 500 });
   }

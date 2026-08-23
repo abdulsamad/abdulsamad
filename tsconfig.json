@@ -8,8 +8,6 @@
       "@utils/*": ["./utils/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@content/*": ["./src/content/*"]
-    },
-    "jsx": "react-jsx",
-    "jsxImportSource": "@builder.io/qwik"
+    }
   }
 }

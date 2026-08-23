@@ -3,14 +3,12 @@ import mdx from '@astrojs/mdx';
 import icon from 'astro-icon';
 import tailwindcss from '@tailwindcss/vite';
 import cloudflare from '@astrojs/cloudflare';
-import qwikdev from '@qwikdev/astro';
 
 export default defineConfig({
   root: '.',
   output: 'server',
   integrations: [
     icon(),
-    qwikdev(),
     mdx({
       optimize: {
         // Prevent the optimizer from handling `h1` elements
@@ -30,9 +28,6 @@ export default defineConfig({
 
   adapter: cloudflare({
     imageService: 'compile',
-    platformProxy: {
-      enabled: true,
-    },
   }),
 
   redirects: {

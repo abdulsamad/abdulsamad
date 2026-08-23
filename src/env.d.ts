@@ -13,3 +13,9 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+declare namespace Cloudflare {
+  interface Env {
+    POSTHOG_UPSTREAM_HOST?: string;
+  }
+}
