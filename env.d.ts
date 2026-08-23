@@ -4,7 +4,6 @@
 
 interface ImportMetaEnv {
   readonly GITHUB_ACCESS_TOKEN: string;
-  readonly PINNED_REPOS_API: string;
   readonly PUBLIC_POSTHOG_HOST: string;
   readonly PUBLIC_POSTHOG_KEY: string;
   readonly POSTHOG_UPSTREAM_HOST?: string;
