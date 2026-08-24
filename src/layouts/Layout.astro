@@ -61,36 +61,6 @@ const { title, noindex, description } = Astro.props;
     <PostHog />
   </head>
   <body>
-    <svg
-      class="background-wave"
-      viewBox="0 0 1440 320"
-      preserveAspectRatio="none"
-      role="presentation"
-      aria-hidden="true"
-      focusable="false">
-      <g>
-        <animateTransform
-          attributeName="transform"
-          type="translate"
-          from="16 -10"
-          to="0 0"
-          dur="400ms"
-          calcMode="spline"
-          keySplines="0.16 1 0.3 1"
-          fill="freeze"></animateTransform>
-        <path
-          fill="currentColor"
-          d="M0,96L48,117.3C96,139,192,181,288,218.7C384,256,480,288,576,256C672,224,768,128,864,106.7C960,85,1056,139,1152,181.3C1248,224,1344,256,1392,272L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
-          <animate
-            attributeName="d"
-            values="M0,74L48,100C96,126,192,165,288,204C384,243,480,276,576,246C672,216,768,140,864,112C960,84,1056,128,1152,173C1248,218,1344,250,1392,268L1440,284L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;M0,96L48,117.3C96,139,192,181,288,218.7C384,256,480,288,576,256C672,224,768,128,864,106.7C960,85,1056,139,1152,181.3C1248,224,1344,256,1392,272L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-            dur="400ms"
-            calcMode="spline"
-            keySplines="0.4 0 0.2 1"
-            fill="freeze"></animate>
-        </path>
-      </g>
-    </svg>
     <div class="text-white">
       <Header transition:persist />
       <slot />

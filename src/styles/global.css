@@ -123,7 +123,7 @@ html {
 
 html.project-modal-open,
 html.project-modal-open body {
-  overflow: visible;
+  overflow: hidden;
 }
 
 body {
@@ -135,38 +135,22 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
 }
 
-.background-wave {
-  --wave-angle: 5deg;
-  --wave-height: clamp(13rem, 25vw, 25rem);
+body::before {
+  content: '';
   position: absolute;
   z-index: 0;
   top: 0;
-  right: -50px;
+  right: 0;
   width: 100%;
-  height: var(--wave-height);
-  color: var(--brand-wave);
-  opacity: 0.8;
-  overflow: hidden;
-  transform: rotate(var(--wave-angle));
-  transform-origin: top right;
+  height: clamp(13rem, 25vw, 25rem);
+  background: var(--brand-wave);
+  -webkit-mask: url('/background.svg') top center / 100% 100% no-repeat;
+  mask: url('/background.svg') top center / 100% 100% no-repeat;
+  opacity: var(--wave-opacity);
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .background-wave {
-    opacity: 0.8;
-  }
-
-  .background-wave animate {
-    display: none;
-  }
-
-  .background-wave animateTransform {
-    display: none;
-  }
+  opacity: 0.8;
 }
 
 .text-white {
@@ -406,9 +390,7 @@ button:focus-visible {
   cursor: pointer;
   font-size: 1.6rem;
   line-height: 1;
-  transition:
-    transform var(--transition-fast),
-    background-color var(--transition-fast);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
 }
 
 .project-modal-close:hover {
@@ -481,15 +463,9 @@ button:focus-visible {
   line-height: 1.2;
 }
 
-.project-readme h1 {
-  font-size: 2rem;
-}
-.project-readme h2 {
-  font-size: 1.55rem;
-}
-.project-readme h3 {
-  font-size: 1.2rem;
-}
+.project-readme h1 { font-size: 2rem; }
+.project-readme h2 { font-size: 1.55rem; }
+.project-readme h3 { font-size: 1.2rem; }
 
 .project-readme p,
 .project-readme li {
@@ -573,23 +549,13 @@ button:focus-visible {
 }
 
 @keyframes project-modal-slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(4rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(4rem); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes project-backdrop-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 ::view-transition-old(root) {
@@ -601,15 +567,11 @@ button:focus-visible {
 }
 
 @keyframes project-page-out {
-  to {
-    opacity: 0;
-  }
+  to { opacity: 0; }
 }
 
 @keyframes project-page-in {
-  from {
-    opacity: 0;
-  }
+  from { opacity: 0; }
 }
 
 .writing-card {
