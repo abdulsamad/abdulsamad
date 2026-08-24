@@ -6,6 +6,17 @@ type AnalyticsContext = {
   executionCtx?: { waitUntil(promise: Promise<unknown>): void };
 };
 
+const analyticsHeaders = (request: Request) => {
+  const headers = new Headers({ 'Content-Type': 'application/json' });
+  const clientIp = request.headers.get('CF-Connecting-IP')?.trim();
+  if (clientIp) headers.set('X-Forwarded-For', clientIp);
+
+  const userAgent = request.headers.get('User-Agent');
+  if (userAgent) headers.set('User-Agent', userAgent);
+
+  return headers;
+};
+
 const captureServerEvent = (
   { request, env, executionCtx }: AnalyticsContext,
   event: string,
@@ -23,7 +34,7 @@ const captureServerEvent = (
     const sessionId = request.headers.get('X-PostHog-Session-Id');
     await fetch(captureUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: analyticsHeaders(request),
       body: JSON.stringify({
         api_key: apiKey,
         event,

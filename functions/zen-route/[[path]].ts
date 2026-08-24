@@ -13,6 +13,13 @@ const forwardedHeaders = [
   'user-agent',
 ];
 
+const setClientIpHeader = (request: Request, headers: Headers) => {
+  // PostHog uses this standard proxy header for geo-IP enrichment. Do not forward
+  // an incoming X-Forwarded-For value: it is client-controlled at this stage.
+  const clientIp = request.headers.get('CF-Connecting-IP')?.trim();
+  if (clientIp) headers.set('X-Forwarded-For', clientIp);
+};
+
 const upstreamSchema = z.url().trim().refine((value) => new URL(value).protocol === 'https:', {
   message: 'POSTHOG_UPSTREAM_HOST must be an HTTPS URL',
 });
@@ -40,6 +47,7 @@ export const onRequest = async ({ request, env }: { request: Request; env: Pages
     const value = request.headers.get(headerName);
     if (value) headers.set(headerName, value);
   }
+  setClientIpHeader(request, headers);
 
   try {
     const response = await fetch(upstreamUrl, {

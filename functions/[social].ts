@@ -5,6 +5,17 @@ const aggregateDistinctId = 'social-redirect-anonymous';
 const eventName = 'social_redirect_clicked';
 const trackedQueryParams = ['source', 'placement', 'campaign'] as const;
 
+const analyticsHeaders = (request: Request) => {
+  const headers = new Headers({ 'Content-Type': 'application/json' });
+  const clientIp = request.headers.get('CF-Connecting-IP')?.trim();
+  if (clientIp) headers.set('X-Forwarded-For', clientIp);
+
+  const userAgent = request.headers.get('User-Agent');
+  if (userAgent) headers.set('User-Agent', userAgent);
+
+  return headers;
+};
+
 type RedirectContext = {
   request: Request;
   env: PagesEnv;
@@ -81,7 +92,7 @@ const captureRedirect = async (context: RedirectContext, path: keyof typeof redi
     const distinctId = await hashVisitor(context.request, context.env.SOCIAL_REDIRECT_HASH_SALT);
     const response = await fetch(captureUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: analyticsHeaders(context.request),
       body: JSON.stringify({
         api_key: apiKey,
         event: eventName,
