@@ -273,6 +273,14 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
         });
 
         readme.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
+          if (link.querySelector('img')) {
+            link.removeAttribute('href');
+            link.removeAttribute('target');
+            link.removeAttribute('rel');
+            link.classList.add('readme-image-link-disabled');
+            return;
+          }
+
           const href = link.getAttribute('href') ?? '';
           if (href.startsWith('#')) {
             link.removeAttribute('target');
