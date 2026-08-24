@@ -1,8 +1,7 @@
 import { redirects } from '@utils/social-redirects';
 import type { PagesEnv } from '@lib/pages-env';
 
-const aggregateDistinctId = 'social-redirect-anonymous';
-const eventName = 'social_redirect_clicked';
+const aggregateDistinctId = 'external-redirect-anonymous';
 const trackedQueryParams = ['source', 'placement', 'campaign'] as const;
 
 const analyticsHeaders = (request: Request) => {
@@ -25,10 +24,11 @@ type RedirectContext = {
 };
 
 const getRedirectPath = (params: RedirectContext['params']) => {
-  const social = params.social;
-  if (typeof social !== 'string') return null;
+  const redirect = params.redirect;
+  const redirectPath = Array.isArray(redirect) ? redirect.join('/') : redirect;
+  if (typeof redirectPath !== 'string') return null;
 
-  const path = `/${social}` as keyof typeof redirects;
+  const path = `/${redirectPath}` as keyof typeof redirects;
   if (!(path in redirects)) return null;
 
   return path;
@@ -66,7 +66,12 @@ const hashVisitor = async (request: Request, salt?: string) => {
   return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
 };
 
-const captureRedirect = async (context: RedirectContext, path: keyof typeof redirects) => {
+const captureRedirect = async (
+  context: RedirectContext,
+  path: string,
+  destinationType: 'social' | 'meeting',
+  status: number
+) => {
   const host = context.env.POSTHOG_UPSTREAM_HOST?.trim().replace(/\/+$/, '');
   const apiKey = context.env.PUBLIC_POSTHOG_KEY?.trim();
   if (!host || !apiKey) return;
@@ -80,11 +85,12 @@ const captureRedirect = async (context: RedirectContext, path: keyof typeof redi
   }
 
   const properties: Record<string, string> = {
-    network: path.slice(1),
+    destination_type: destinationType,
     redirect_path: path,
-    status_code: String(redirects[path].status),
+    status_code: String(status),
     ...getTrackingProperties(context.request),
   };
+  if (destinationType === 'social') properties.network = path.slice(1);
   const referrerOrigin = getReferrerOrigin(context.request);
   if (referrerOrigin) properties.referrer_origin = referrerOrigin;
 
@@ -95,7 +101,7 @@ const captureRedirect = async (context: RedirectContext, path: keyof typeof redi
       headers: analyticsHeaders(context.request),
       body: JSON.stringify({
         api_key: apiKey,
-        event: eventName,
+        event: destinationType === 'meeting' ? 'meeting_redirected' : 'social_redirect',
         distinct_id: distinctId,
         properties,
       }),
@@ -109,15 +115,19 @@ const captureRedirect = async (context: RedirectContext, path: keyof typeof redi
 
 const handleRedirect = async (context: RedirectContext) => {
   const path = getRedirectPath(context.params);
-  if (!path) return context.next();
+  if (path) {
+    const redirect = redirects[path];
+    const destinationType =
+      path === '/meeting' || path.startsWith('/meeting/') ? 'meeting' : 'social';
+    context.waitUntil(captureRedirect(context, path, destinationType, redirect.status));
 
-  const redirect = redirects[path];
-  context.waitUntil(captureRedirect(context, path));
+    return new Response(null, {
+      status: redirect.status,
+      headers: { Location: redirect.destination },
+    });
+  }
 
-  return new Response(null, {
-    status: redirect.status,
-    headers: { Location: redirect.destination },
-  });
+  return context.next();
 };
 
 export const onRequestGet = handleRedirect;

@@ -1,4 +1,12 @@
 export const redirects = {
+  '/meeting': {
+    status: 301,
+    destination: 'https://cal.com/abdulsamad-ansari',
+  },
+  '/meeting/20-min': {
+    status: 301,
+    destination: 'https://cal.com/abdulsamad-ansari/20-min-intro',
+  },
   '/resume': {
     status: 301,
     destination:

@@ -5,6 +5,8 @@
     "/github-repo",
     "/zen-route",
     "/zen-route/*",
+    "/meeting",
+    "/meeting/*",
     "/resume",
     "/linkedin",
     "/github",
