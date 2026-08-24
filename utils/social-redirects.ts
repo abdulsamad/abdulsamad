@@ -12,6 +12,10 @@ export const redirects = {
     destination:
       'https://docs.google.com/document/d/1WQmeaF8S1KrQYYNgYjsFaeuyr5zFtKAulfosDsZczic/edit',
   },
+  '/email': {
+    status: 301,
+    destination: 'mailto:hello@abdulsamad.dev',
+  },
   '/linkedin': {
     status: 301,
     destination: 'https://www.linkedin.com/in/abdulsamad-ansari',

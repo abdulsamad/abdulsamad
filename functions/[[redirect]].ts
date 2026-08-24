@@ -121,9 +121,15 @@ const handleRedirect = async (context: RedirectContext) => {
       path === '/meeting' || path.startsWith('/meeting/') ? 'meeting' : 'social';
     context.waitUntil(captureRedirect(context, path, destinationType, redirect.status));
 
+    const headers = new Headers({ Location: redirect.destination });
+    const noIndexPaths = ['/facebook', '/telegram', '/meeting', '/resume', '/email'];
+    if (noIndexPaths.includes(path) || path.startsWith('/meeting/')) {
+      headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive');
+    }
+
     return new Response(null, {
       status: redirect.status,
-      headers: { Location: redirect.destination },
+      headers,
     });
   }
 
