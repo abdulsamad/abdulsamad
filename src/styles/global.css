@@ -489,11 +489,6 @@ button:focus-visible {
   color: var(--color-primary-200);
 }
 
-.project-readme .readme-image-link-disabled {
-  pointer-events: none;
-  cursor: default;
-}
-
 .project-readme img {
   height: auto;
   margin: 1rem 0;
