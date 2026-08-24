@@ -119,6 +119,7 @@
 
 html {
   scrollbar-gutter: stable;
+  overflow-x: clip;
 }
 
 html.project-modal-open,
@@ -135,7 +136,7 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body::before {
@@ -520,9 +521,10 @@ button:focus-visible {
 
 .project-readme pre.readme-mermaid svg {
   display: block;
-  min-width: min(100%, 34rem);
+  width: 100%;
+  min-width: 0;
   height: auto;
-  max-width: none;
+  max-width: 100%;
 }
 
 .project-readme pre.readme-mermaid-error {
@@ -672,22 +674,28 @@ button:focus-visible {
   body::before {
     --wave-angle: 3.5deg;
     --wave-height: clamp(11rem, 29vw, 20rem);
-    right: -10vw;
-    width: calc(100% + 20vw);
+    top: -20px;
+    right: -50px;
+    width: 100%;
+    max-width: 100vw;
+    clip-path: inset(0);
   }
 }
 
 @media (max-width: 640px) {
   .site-main {
     width: min(100% - 2.5rem, 42rem);
+    max-width: 100vw;
+    overflow-x: hidden;
     padding-top: 4.5rem;
   }
 
   body::before {
     --wave-angle: 2deg;
     --wave-height: clamp(14rem, 48vw, 17rem);
-    right: -42%;
-    width: 200%;
+    top: -50px;
+    right: -40px;
+    width: 100%;
     opacity: 0.72;
   }
 
