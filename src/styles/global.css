@@ -693,9 +693,10 @@ button:focus-visible {
   body::before {
     --wave-angle: 2deg;
     --wave-height: clamp(14rem, 48vw, 17rem);
-    top: -50px;
-    right: -40px;
+    top: -5%;
+    right: -55%;
     width: 100%;
+    transform: scale(1.5);
     opacity: 0.72;
   }
 
