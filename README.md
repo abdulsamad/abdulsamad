@@ -9,8 +9,6 @@ I'm a Software Engineer focused on building fast, maintainable web experiences.<
 I work across frontend product development with React, TypeScript, Astro, and modern backend systems.
 </p>
 
-<p align="left">Based in Mumbai, India.</p>
-
 ## What I work with
 
 **Frontend:** React · TypeScript · JavaScript · Astro · Tailwind CSS
