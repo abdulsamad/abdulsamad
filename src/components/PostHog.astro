@@ -1,7 +1,7 @@
 ---
 const PUBLIC_POSTHOG_KEY = import.meta.env.PUBLIC_POSTHOG_KEY;
 const PUBLIC_POSTHOG_HOST = '/zen-route';
-const PUBLIC_POSTHOG_UI_HOST = import.meta.env.PUBLIC_POSTHOG_UI_HOST;
+const PUBLIC_POSTHOG_UI_HOST = import.meta.env.PUBLIC_POSTHOG_UI_HOST || 'https://us.posthog.com';
 ---
 
 <script define:vars={{ PUBLIC_POSTHOG_KEY, PUBLIC_POSTHOG_HOST, PUBLIC_POSTHOG_UI_HOST }} is:inline>
@@ -10,7 +10,10 @@ const PUBLIC_POSTHOG_UI_HOST = import.meta.env.PUBLIC_POSTHOG_UI_HOST;
 
     const posthog = (window.posthog = window.posthog || []);
     posthog._i = posthog._i || [];
-    const posthogMethods = 'capture identify alias people.set people.set_once register register_once unregister opt_out_capturing opt_in_capturing reset'.split(' ');
+    const posthogMethods =
+      'capture identify alias people.set people.set_once register register_once unregister opt_out_capturing opt_in_capturing reset'.split(
+        ' '
+      );
     posthogMethods.forEach((method) => {
       posthog[method] = (...args) => posthog.push([method, ...args]);
     });
@@ -31,6 +34,7 @@ const PUBLIC_POSTHOG_UI_HOST = import.meta.env.PUBLIC_POSTHOG_UI_HOST;
       capture_pageleave: true,
       capture_exceptions: true,
       session_recording: { maskAllInputs: false },
+      debug: import.meta.env.DEV,
     });
 
     const attribution = () => {
@@ -55,8 +59,10 @@ const PUBLIC_POSTHOG_UI_HOST = import.meta.env.PUBLIC_POSTHOG_UI_HOST;
     window.portfolioAnalytics = {
       capture: capturePortfolioEvent,
       headers: () => {
-        const distinctId = typeof posthog.get_distinct_id === 'function' ? posthog.get_distinct_id() : '';
-        const sessionId = typeof posthog.get_session_id === 'function' ? posthog.get_session_id() : '';
+        const distinctId =
+          typeof posthog.get_distinct_id === 'function' ? posthog.get_distinct_id() : '';
+        const sessionId =
+          typeof posthog.get_session_id === 'function' ? posthog.get_session_id() : '';
         return {
           ...(distinctId ? { 'X-PostHog-Distinct-Id': distinctId } : {}),
           ...(sessionId ? { 'X-PostHog-Session-Id': sessionId } : {}),
@@ -64,18 +70,21 @@ const PUBLIC_POSTHOG_UI_HOST = import.meta.env.PUBLIC_POSTHOG_UI_HOST;
       },
     };
 
-    capturePortfolioEvent('portfolio_landing_viewed', { entry_type: performance.getEntriesByType('navigation')[0]?.type ?? 'navigate' });
+    capturePortfolioEvent('portfolio_landing_viewed', {
+      entry_type: performance.getEntriesByType('navigation')[0]?.type ?? 'navigate',
+    });
 
     const sections = document.querySelectorAll('[data-analytics-section]');
     if ('IntersectionObserver' in window) {
       const seenSections = new Set();
       const observer = new IntersectionObserver(
-        (entries) => entries.forEach((entry) => {
-          const section = entry.target.getAttribute('data-analytics-section');
-          if (!entry.isIntersecting || !section || seenSections.has(section)) return;
-          seenSections.add(section);
-          capturePortfolioEvent('portfolio_section_viewed', { section });
-        }),
+        (entries) =>
+          entries.forEach((entry) => {
+            const section = entry.target.getAttribute('data-analytics-section');
+            if (!entry.isIntersecting || !section || seenSections.has(section)) return;
+            seenSections.add(section);
+            capturePortfolioEvent('portfolio_section_viewed', { section });
+          }),
         { threshold: 0.35 }
       );
       sections.forEach((section) => observer.observe(section));
