@@ -1,6 +1,6 @@
 [
   {
-    "name": "Fillmatic",
+    "name": "FillMatic",
     "slug": "fillmatic",
     "description": "A Chrome extension for filling web forms with realistic test data.",
     "homepageUrl": "https://fillmatic.pages.dev",
@@ -13,16 +13,8 @@
         "Heuristic autofill works without AI or a backend"
       ],
       "problem": "Form testing is slow when realistic values must be entered across different frameworks and custom controls.",
-      "architecture": "A Manifest V3 Chrome extension sends messages from the popup and shortcuts to a content script. The content script runs a failure-isolated autofill pipeline with native setters, widget adapters, and reusable Actions and Recipes. Data stays in chrome.storage.local, while the Astro site is a separate static marketing app.",
-      "technologies": [
-        "React",
-        "Vite",
-        "TypeScript",
-        "Chrome Manifest V3",
-        "Astro",
-        "Playwright",
-        "Vitest"
-      ]
+      "architecture": "A Chrome extension sends messages from the popup and shortcuts to a content script. The content script runs a failure-isolated autofill pipeline with native setters, widget adapters, and reusable Actions and Recipes. Data stays in chrome.storage.local, while the Astro site is a separate static marketing app.",
+      "technologies": ["React", "Vite", "TypeScript", "Astro", "Playwright", "Vitest"]
     }
   },
   {
