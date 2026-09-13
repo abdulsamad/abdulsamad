@@ -22,7 +22,3 @@ export const RepositoryDetailsSchema = z.object({
   language: z.string(),
   readmeHtml: z.string(),
 });
-
-export const RepositoryDetailsFallbackSchema = z.object({
-  repositories: z.record(z.string(), RepositoryDetailsSchema),
-});

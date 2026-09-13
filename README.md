@@ -6,7 +6,7 @@
 
 <p align="left">
 I'm a Software Engineer focused on building fast, maintainable web experiences.<br />
-I work across frontend product development with React, TypeScript, Astro, and modern backend systems.
+I work across frontend product development with React, TypeScript, and modern backend systems.
 </p>
 
 ## What I work with

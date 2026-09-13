@@ -1,90 +1,67 @@
 ---
-import fallbackProjects from '@pinned-repos/fallback.json';
+import projects from '@data/projects.json';
 import { githubProfileUrl } from '@utils/github';
-
-const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
 ---
 
-<section
-  class="projects"
-  aria-labelledby="projects-title"
-  data-analytics-section="projects"
-  data-github-profile-url={githubProfileUrl}>
+<section class="projects" aria-labelledby="projects-title" data-analytics-section="projects">
   <div class="section-heading">
-    <div>
-      <p class="eyebrow">Selected work</p>
-      <h2 id="projects-title">Pinned on GitHub</h2>
-    </div>
-    <a
+    <div><p class="eyebrow">Selected work</p><h2 id="projects-title">Selected projects</h2></div><a
       class="section-link"
       href={githubProfileUrl}
       target="_blank"
-      rel="noopener"
-      data-track="portfolio_github_profile_clicked"
-      data-track-destination="github_profile">
-      View all <span aria-hidden="true">↗</span>
-    </a>
+      rel="noopener">View all <span aria-hidden="true">↗</span></a>
   </div>
-
   <div class="project-grid" id="project-grid">
     {
       projects.map((project, index) => (
         <article
           class="project-card"
           data-project-card
-          data-project-repo={project.url.split('/').pop()}
+          data-project-repo={project.slug}
           role="button"
           tabindex="0"
           aria-label={`Open details for ${project.name}`}>
-          <div class="project-card-top">
-            <span class="project-index">0{index + 1}</span>
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener"
-              data-track="portfolio_project_clicked"
-              data-track-project={project.name}
-              data-track-repository={project.url}
-              aria-label={`View ${project.name} on GitHub`}>
-              <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-          <h3 data-project-name>{project.name}</h3>
-          <p data-project-description>{project.description}</p>
-          {/* <div class="project-meta">
-            {project.topics.slice(0, 4).map((topic) => (
-              <span>{topic}</span>
-            ))}
-          </div> */}
+          <>
+            <div class="project-card-top">
+              <span class="project-index">0{index + 1}</span>
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={`View ${project.name} on GitHub`}>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              )}
+            </div>
+            <h3>{project.name}</h3>
+            <p>{project.description}</p>
+          </>
         </article>
       ))
     }
   </div>
-
   <dialog class="project-modal" id="project-modal" aria-labelledby="project-modal-title">
     <button
       class="project-modal-close"
       type="submit"
       form="project-modal-form"
-      aria-label="Close project details">
-      <span aria-hidden="true">×</span>
-    </button>
-    <form class="project-modal-shell" id="project-modal-form" method="dialog">
+      aria-label="Close project details"><span aria-hidden="true">×</span></button
+    ><form class="project-modal-shell" id="project-modal-form" method="dialog">
       <header class="project-modal-header">
-        <p class="eyebrow">Project details</p>
-        <h2 id="project-modal-title" data-project-modal-title></h2>
-        <p data-project-modal-description></p>
-        <div class="project-modal-actions">
+        <p class="eyebrow">Project details</p><h2 id="project-modal-title" data-project-modal-title>
+        </h2><p data-project-modal-description></p><div class="project-modal-actions">
           <a data-project-modal-homepage target="_blank" rel="noopener" hidden
             >Live site <span aria-hidden="true">↗</span></a
-          >
-          <a data-project-modal-github target="_blank" rel="noopener"
-            >GitHub <span aria-hidden="true">↗</span></a
-          >
+          ><a data-project-modal-github target="_blank" rel="noopener" hidden
+            >GitHub <span aria-hidden="true">↗</span></a>
         </div>
-      </header>
-      <div class="project-readme" data-project-readme aria-live="polite">
-        <p class="project-readme-status">Loading README…</p>
+      </header><div class="project-readme" data-project-details aria-live="polite">
+        <h3>Highlights</h3><ul data-project-highlights></ul><h3>Problem solved</h3><p
+          data-project-problem>
+        </p><h3>Architecture</h3><p data-project-architecture></p><h3>Technologies</h3><ul
+          data-project-technologies>
+        </ul>
       </div>
     </form>
   </dialog>
@@ -92,329 +69,100 @@ const projects = fallbackProjects.githubPinnedItems.slice(0, 2);
 
 <script>
   import { navigate } from 'astro:transitions/client';
-
-  const grid = document.querySelector<HTMLElement>('#project-grid');
-  const getRepositoryName = (project: { url: string }) => project.url.split('/').pop() ?? '';
-
-  const projectSection = document.querySelector<HTMLElement>('.projects');
-  const githubProfileUrl = projectSection?.dataset.githubProfileUrl ?? '';
-  if (projectSection && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries.some((entry) => entry.isIntersecting)) return;
-
-        window.portfolioAnalytics?.capture('portfolio_projects_viewed', {
-          project_count: grid?.querySelectorAll('[data-project-card]').length ?? 0,
-        });
-        observer.disconnect();
-      },
-      { threshold: 0.35 }
-    );
-    observer.observe(projectSection);
-  }
-
-  if (grid) {
-    fetch('/pinned-repos')
-      .then((response) => {
-        if (!response.ok) return Promise.reject(response.status);
-        return response.json() as Promise<
-          Array<{ name: string; description: string; url: string; topics: string[] }>
-        >;
-      })
-      .then((projects) => {
-        const cards = new Map(
-          [...grid.querySelectorAll<HTMLElement>('[data-project-card]')].map((card) => [
-            card.dataset.projectRepo,
-            card,
-          ])
-        );
-        const visibleProjects = projects.slice(0, 2);
-        const visibleRepositories = new Set(visibleProjects.map(getRepositoryName));
-
-        cards.forEach((card, repositoryName) => {
-          if (repositoryName && !visibleRepositories.has(repositoryName)) card.remove();
-        });
-
-        visibleProjects.forEach((project, index) => {
-          const repositoryName = getRepositoryName(project);
-          let card = cards.get(repositoryName);
-          if (!card) {
-            card = document.createElement('article');
-            card.className = 'project-card';
-            card.dataset.projectCard = '';
-            card.setAttribute('role', 'button');
-            card.tabIndex = 0;
-            card.innerHTML =
-              '<div class="project-card-top"><span class="project-index"></span><a target="_blank" rel="noopener"><span aria-hidden="true">↗</span></a></div><h3 data-project-name></h3><p data-project-description></p>';
-            grid.appendChild(card);
-          }
-
-          card.dataset.projectRepo = repositoryName;
-          card.setAttribute('aria-label', `Open details for ${project.name}`);
-          card.querySelector<HTMLElement>('.project-index')!.textContent = `0${index + 1}`;
-
-          const title = card.querySelector('[data-project-name]');
-          const description = card.querySelector('[data-project-description]');
-          const link = card.querySelector<HTMLAnchorElement>('.project-card-top a');
-          const meta = card.querySelector('.project-meta');
-
-          if (title) title.textContent = project.name;
-          if (description) description.textContent = project.description;
-          if (link) {
-            link.href = project.url;
-            link.setAttribute('aria-label', `View ${project.name} on GitHub`);
-            link.setAttribute('data-track', 'portfolio_project_clicked');
-            link.setAttribute('data-track-project', project.name);
-            link.setAttribute('data-track-repository', project.url);
-          }
-          if (meta) {
-            meta.replaceChildren(
-              ...project.topics.slice(0, 4).map((topic) => {
-                const tag = document.createElement('span');
-                tag.textContent = topic;
-                return tag;
-              })
-            );
-          }
-        });
-      })
-      .catch(() => undefined);
-  }
+  import projectData from '@data/projects.json';
+  let activeProject = '';
 
   const initialiseProjectModal = () => {
+    const grid = document.querySelector<HTMLElement>('#project-grid');
+    const section = document.querySelector<HTMLElement>('.projects');
     const modal = document.querySelector<HTMLDialogElement>('#project-modal');
-    const projectGrid = document.querySelector<HTMLElement>('#project-grid');
-    if (!modal || !projectGrid) return;
+    const title = modal?.querySelector<HTMLElement>('[data-project-modal-title]');
+    const description = modal?.querySelector<HTMLElement>('[data-project-modal-description]');
+    const homepage = modal?.querySelector<HTMLAnchorElement>('[data-project-modal-homepage]');
+    const github = modal?.querySelector<HTMLAnchorElement>('[data-project-modal-github]');
+    const highlights = modal?.querySelector<HTMLElement>('[data-project-highlights]');
+    const problem = modal?.querySelector<HTMLElement>('[data-project-problem]');
+    const architecture = modal?.querySelector<HTMLElement>('[data-project-architecture]');
+    const technologies = modal?.querySelector<HTMLElement>('[data-project-technologies]');
+    if (
+      !grid ||
+      !section ||
+      !modal ||
+      !title ||
+      !description ||
+      !homepage ||
+      !github ||
+      !highlights ||
+      !problem ||
+      !architecture ||
+      !technologies
+    )
+      return;
 
-    const title = modal.querySelector<HTMLElement>('[data-project-modal-title]');
-    const description = modal.querySelector<HTMLElement>('[data-project-modal-description]');
-    const homepage = modal.querySelector<HTMLAnchorElement>('[data-project-modal-homepage]');
-    const github = modal.querySelector<HTMLAnchorElement>('[data-project-modal-github]');
-    const readme = modal.querySelector<HTMLElement>('[data-project-readme]');
-    const projectName = new URL(window.location.href).searchParams.get('project');
-    let activeProject = '';
-
-    const setReadmeStatus = (message: string) => {
-      if (readme) readme.innerHTML = `<p class="project-readme-status">${message}</p>`;
-    };
-
-    const openProject = async (repositoryName: string) => {
-      if (!title || !description || !homepage || !github || !readme) return;
-
-      title.textContent = repositoryName.replaceAll('-', ' ');
-      description.textContent = '';
-      homepage.hidden = true;
-      github.href = `${githubProfileUrl}/${repositoryName}`;
-      setReadmeStatus('Loading README…');
-      if (!modal.open) {
-        modal.showModal();
-        document.documentElement.classList.add('project-modal-open');
-      }
-      activeProject = repositoryName;
-      window.portfolioAnalytics?.capture('portfolio_project_details_opened', {
-        project_slug: repositoryName,
-        interaction_method: projectName ? 'deep_link' : 'card',
-      });
-
-      try {
-        const response = await fetch(`/github-repo?repo=${encodeURIComponent(repositoryName)}`, {
-          headers: window.portfolioAnalytics?.headers(),
-        });
-        if (!response.ok) throw new Error('Repository details request failed');
-        const project = (await response.json()) as {
-          name: string;
-          description: string;
-          url: string;
-          homepageUrl?: string;
-          defaultBranch?: string;
-          readmeHtml?: string;
-        };
-
-        title.textContent = project.name;
-        description.textContent = project.description || 'No description available.';
-        github.href = project.url;
-        if (project.homepageUrl) {
-          homepage.href = project.homepageUrl;
-          homepage.hidden = false;
-        }
-
-        readme.innerHTML =
-          project.readmeHtml ||
-          '<p class="project-readme-status">No README available for this project.</p>';
-        if (project.readmeHtml)
-          window.portfolioAnalytics?.capture('portfolio_project_readme_viewed', {
-            project_slug: repositoryName,
-          });
-        readme
-          .querySelectorAll('.js-render-enrichment-loader')
-          .forEach((loader) => loader.remove());
-        readme.querySelectorAll<HTMLAnchorElement>('a.anchor').forEach((anchor) => {
-          const isPermalink = anchor.getAttribute('aria-label')?.startsWith('Permalink:');
-          const hasOcticon = anchor.querySelector('svg[data-component="Octicon"]');
-          if (isPermalink && hasOcticon) anchor.remove();
-        });
-
-        const repositoryUrl = new URL(project.url);
-        const [owner, repository] = repositoryUrl.pathname.split('/').filter(Boolean);
-        const rawReadmeBase = `https://raw.githubusercontent.com/${owner}/${repository}/${project.defaultBranch ?? 'main'}/`;
-
-        readme.querySelectorAll<HTMLImageElement>('img').forEach((image) => {
-          const source = image.getAttribute('src');
-          if (!source || source.startsWith('data:')) return;
-
-          const parsedSource = new URL(source, rawReadmeBase);
-          const rawPathParts = parsedSource.pathname.split('/').filter(Boolean);
-          const isTruncatedRawUrl =
-            parsedSource.hostname === 'raw.githubusercontent.com' && rawPathParts.length < 3;
-
-          image.src = isTruncatedRawUrl
-            ? new URL(rawPathParts.join('/'), rawReadmeBase).href
-            : parsedSource.href;
-        });
-
-        readme.querySelectorAll<HTMLAnchorElement>('a').forEach((link) => {
-          if (link.querySelector('img')) {
-            link.removeAttribute('href');
-            link.removeAttribute('target');
-            link.removeAttribute('rel');
-            link.classList.add('readme-image-link-disabled');
-            return;
-          }
-
-          const href = link.getAttribute('href') ?? '';
-          if (href.startsWith('#')) {
-            link.removeAttribute('target');
-            link.removeAttribute('rel');
-            return;
-          }
-
-          link.target = '_blank';
-          link.rel = 'noopener';
-        });
-
-        const mermaidBlocks = Array.from(readme.querySelectorAll<HTMLElement>('pre')).filter(
-          (block) => {
-            const code = block.querySelector('code');
-            const mermaidAncestor = block.closest<HTMLElement>(
-              '[class*="mermaid"], [data-language="mermaid"]'
-            );
-            const definition = code?.textContent?.trim() ?? block.textContent?.trim() ?? '';
-            const looksLikeMermaid =
-              /^(?:%%\{init|graph\s|flowchart\s|sequenceDiagram|classDiagram|stateDiagram|erDiagram|journey|gantt|pie\s|gitGraph|mindmap|timeline|quadrantChart|xychart-beta|C4Context|zenuml)/i.test(
-                definition
-              );
-            return Boolean(
-              /mermaid/i.test(block.className) ||
-              /mermaid/i.test(code?.className ?? '') ||
-              mermaidAncestor ||
-              looksLikeMermaid
-            );
-          }
+    const openProject = (slug: string, method: 'card' | 'deep_link') => {
+      const project = projectData.find((item) => item.slug === slug);
+      if (!project) return;
+      activeProject = project.slug;
+      title.textContent = project.name;
+      description.textContent = project.description;
+      homepage.hidden = !project.homepageUrl;
+      if (project.homepageUrl) homepage.href = project.homepageUrl;
+      github.hidden = !project.githubUrl;
+      if (project.githubUrl) github.href = project.githubUrl;
+      const renderList = (element: HTMLElement, items: string[]) =>
+        element.replaceChildren(
+          ...items.map((text) => {
+            const item = document.createElement('li');
+            item.textContent = text;
+            return item;
+          })
         );
-
-        if (mermaidBlocks.length) {
-          try {
-            const { default: mermaid } = await import('mermaid');
-            mermaid.initialize({
-              startOnLoad: false,
-              theme: 'base',
-              securityLevel: 'strict',
-              themeVariables: {
-                background: '#141f34',
-                primaryColor: '#7c65fb',
-                primaryTextColor: '#f6f7fb',
-                primaryBorderColor: '#aea1fd',
-                lineColor: '#aea1fd',
-                secondaryColor: '#da62c4',
-                tertiaryColor: '#0f182a',
-              },
-            });
-
-            await Promise.all(
-              mermaidBlocks.map(async (block, index) => {
-                const definition =
-                  block.querySelector('code')?.textContent?.trim() ??
-                  block.textContent?.trim() ??
-                  '';
-                if (!definition) return;
-
-                try {
-                  const { svg, bindFunctions } = await mermaid.render(
-                    `project-mermaid-${index}`,
-                    definition
-                  );
-                  block.classList.add('readme-mermaid');
-                  block.innerHTML = svg;
-                  bindFunctions?.(block);
-                } catch {
-                  block.classList.add('readme-mermaid-error');
-                }
-              })
-            );
-          } catch {
-            mermaidBlocks.forEach((block) => block.classList.add('readme-mermaid-error'));
-          }
-        }
-      } catch {
-        window.portfolioAnalytics?.capture('portfolio_project_details_load_failed', {
-          project_slug: repositoryName,
-          endpoint: 'github_repo',
-        });
-        setReadmeStatus('The project details could not be loaded right now.');
-      }
+      renderList(highlights, project.details.highlights);
+      problem.textContent = project.details.problem;
+      architecture.textContent = project.details.architecture;
+      renderList(technologies, project.details.technologies);
+      if (!modal.open) modal.showModal();
+      document.documentElement.classList.add('project-modal-open');
+      window.portfolioAnalytics?.capture('portfolio_project_details_opened', {
+        project_slug: project.slug,
+        interaction_method: method,
+      });
     };
 
-    if (projectName) openProject(projectName);
-
-    projectGrid.addEventListener('click', (event) => {
-      const target = event.target as HTMLElement;
-      if (target.closest('a')) return;
-      const card = target.closest<HTMLElement>('[data-project-card]');
-      const repositoryName = card?.dataset.projectRepo;
-      if (!repositoryName) return;
-      event.preventDefault();
-      navigate(`${window.location.pathname}?project=${encodeURIComponent(repositoryName)}`);
-    });
-
-    projectGrid.addEventListener('keydown', (event) => {
-      if (event.key !== 'Enter' && event.key !== ' ') return;
-      const target = event.target as HTMLElement;
-      if (target.closest('a')) return;
-      const card = target.closest<HTMLElement>('[data-project-card]');
-      const repositoryName = card?.dataset.projectRepo;
-      if (!repositoryName) return;
-      event.preventDefault();
-      navigate(`${window.location.pathname}?project=${encodeURIComponent(repositoryName)}`);
-    });
-
-    modal.addEventListener('click', (event) => {
-      if (event.target === modal) modal.close();
-    });
-
-    modal.addEventListener('close', () => {
-      if (activeProject)
-        window.portfolioAnalytics?.capture('portfolio_project_details_closed', {
-          project_slug: activeProject,
-        });
-      activeProject = '';
-      document.documentElement.classList.remove('project-modal-open');
-      if (new URL(window.location.href).searchParams.has('project'))
-        navigate(window.location.pathname);
-    });
-
-    homepage?.addEventListener('click', () =>
-      window.portfolioAnalytics?.capture('portfolio_project_cta_clicked', {
-        project_slug: activeProject,
-        cta: 'live_site',
-      })
-    );
-    github?.addEventListener('click', () =>
-      window.portfolioAnalytics?.capture('portfolio_project_cta_clicked', {
-        project_slug: activeProject,
-        cta: 'github',
-      })
-    );
+    if (new URL(window.location.href).searchParams.get('project'))
+      openProject(new URL(window.location.href).searchParams.get('project')!, 'deep_link');
+    if (!grid.dataset.modalReady) {
+      grid.dataset.modalReady = 'true';
+      grid.addEventListener('click', (event) => {
+        const target = event.target as HTMLElement;
+        if (target.closest('a')) return;
+        const slug = target.closest<HTMLElement>('[data-project-card]')?.dataset.projectRepo;
+        if (slug) navigate(`${window.location.pathname}?project=${encodeURIComponent(slug)}`);
+      });
+      grid.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        const target = event.target as HTMLElement;
+        if (target.closest('a')) return;
+        const slug = target.closest<HTMLElement>('[data-project-card]')?.dataset.projectRepo;
+        if (slug) {
+          event.preventDefault();
+          navigate(`${window.location.pathname}?project=${encodeURIComponent(slug)}`);
+        }
+      });
+    }
+    if (!modal.dataset.modalReady) {
+      modal.dataset.modalReady = 'true';
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) modal.close();
+      });
+      modal.addEventListener('close', () => {
+        activeProject = '';
+        document.documentElement.classList.remove('project-modal-open');
+        if (new URL(window.location.href).searchParams.has('project'))
+          navigate(window.location.pathname);
+      });
+    }
   };
-
+  initialiseProjectModal();
   document.addEventListener('astro:page-load', initialiseProjectModal);
 </script>

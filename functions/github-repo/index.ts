@@ -1,11 +1,6 @@
-import fallbackProjects from './fallback.json';
 import type { PagesEnv } from '@lib/pages-env';
 import { githubApiBaseUrl, githubOwner, githubUserAgent } from '@utils/github';
-import {
-  GitHubRepositorySchema,
-  RepositoryDetailsFallbackSchema,
-  RepositoryDetailsSchema,
-} from './schemas';
+import { GitHubRepositorySchema, RepositoryDetailsSchema } from './schemas';
 import {
   getCachedResponse,
   putCachedResponse,
@@ -99,18 +94,10 @@ export const onRequestGet = async ({
     return trackResponse(await refresh());
   } catch (error) {
     console.error(error instanceof Error ? error.message : 'Repository details request failed');
-    const fallbackData = RepositoryDetailsFallbackSchema.parse(fallbackProjects);
-    const fallback =
-      fallbackData.repositories[
-        repositoryName.toLowerCase() as keyof typeof fallbackProjects.repositories
-      ];
-    if (!fallback) {
-      captureServerEvent({ request, env, executionCtx }, 'portfolio_project_data_failed', {
-        project_slug: repositoryName.toLowerCase(),
-        outcome: 'not_found',
-      });
-      return Response.json({ error: 'Repository not found' }, { status: 404 });
-    }
-    return trackResponse(responseFromJson(fallback, 'fallback'));
+    captureServerEvent({ request, env, executionCtx }, 'portfolio_project_data_failed', {
+      project_slug: repositoryName.toLowerCase(),
+      outcome: 'fetch_failed',
+    });
+    return Response.json({ error: 'Repository details could not be loaded' }, { status: 502 });
   }
 };

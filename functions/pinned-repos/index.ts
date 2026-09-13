@@ -1,7 +1,6 @@
-import fallbackProjects from '@pinned-repos/fallback.json';
 import { githubPinnedReposQuery } from '@utils/index';
 import { githubApiBaseUrl, githubUserAgent } from '@utils/github';
-import { PinnedProjectsFallbackSchema, toPinnedProjects } from './github-pinned-repos';
+import { toPinnedProjects } from './github-pinned-repos';
 import {
   getCachedResponse,
   putCachedResponse,
@@ -68,7 +67,8 @@ export const onRequestGet = async ({
     return trackResponse(await refresh());
   } catch (error) {
     console.error(error instanceof Error ? error.message : 'Pinned repositories request failed');
-    const fallback = PinnedProjectsFallbackSchema.parse(fallbackProjects);
-    return trackResponse(responseFromJson(fallback.githubPinnedItems, 'fallback'));
+    return trackResponse(
+      Response.json({ error: 'Pinned repositories could not be loaded' }, { status: 502 })
+    );
   }
 };

@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Fillmatic",
+    "slug": "fillmatic",
+    "description": "A Chrome extension for filling web forms with realistic test data.",
+    "homepageUrl": "https://fillmatic.pages.dev",
+    "details": {
+      "highlights": [
+        "One-click realistic names, addresses, emails, dates, and test payment data",
+        "Works with React and Vue controlled inputs",
+        "Handles ARIA widgets, rich-text editors, shadow roots, and iframes",
+        "Reusable Actions and custom Recipes for repeated workflows",
+        "Heuristic autofill works without AI or a backend"
+      ],
+      "problem": "Form testing is slow when realistic values must be entered across different frameworks and custom controls.",
+      "architecture": "A Manifest V3 Chrome extension sends messages from the popup and shortcuts to a content script. The content script runs a failure-isolated autofill pipeline with native setters, widget adapters, and reusable Actions and Recipes. Data stays in chrome.storage.local, while the Astro site is a separate static marketing app.",
+      "technologies": [
+        "React",
+        "Vite",
+        "TypeScript",
+        "Chrome Manifest V3",
+        "Astro",
+        "Playwright",
+        "Vitest"
+      ]
+    }
+  },
+  {
+    "name": "Polychat",
+    "slug": "polychat",
+    "description": "A local-first AI workspace for chat, images, and multilingual work.",
+    "homepageUrl": "https://polychat.pages.dev",
+    "githubUrl": "https://github.com/abdulsamad/polychat",
+    "details": {
+      "highlights": [
+        "Switch between Gemini, OpenAI, Anthropic, Mistral, and DeepSeek",
+        "Use focused assistant profiles and custom instructions",
+        "Stream rich Markdown responses with code, files, and message actions",
+        "Generate images and attach documents or images as context",
+        "Keep threads, images, and provider keys local with an encrypted BYOK vault"
+      ],
+      "problem": "Using different AI providers, conversation settings, and local chat history across separate tools creates unnecessary friction and privacy concerns.",
+      "architecture": "A React client provides the workspace, profiles, streaming UI, image generation, and file context. An authenticated Hono API on AWS Lambda handles provider requests, while a Pages proxy protects the API boundary. Threads, images, preferences, and the encrypted BYOK vault are stored locally in IndexedDB.",
+      "technologies": [
+        "React 19",
+        "React Router 7",
+        "TypeScript 7",
+        "Tailwind CSS 4",
+        "Vercel AI SDK 7",
+        "Hono",
+        "AWS Lambda",
+        "Clerk",
+        "localForage"
+      ]
+    }
+  }
+]

@@ -480,6 +480,26 @@ button:focus-visible {
   font-size: 1.2rem;
 }
 
+.project-readme [data-project-technologies] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-readme [data-project-technologies] li {
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--color-border-accent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-primary-600) 12%, transparent);
+  color: var(--color-primary-100);
+  font-size: 0.8rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .project-readme p,
 .project-readme li {
   color: var(--color-text-muted);

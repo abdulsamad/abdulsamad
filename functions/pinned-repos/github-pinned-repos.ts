@@ -25,20 +25,6 @@ const RepositorySchema = z.object({
   }),
 });
 
-export const PinnedProjectSchema = z.object({
-  homepageUrl: z.union([z.url(), z.literal('')]),
-  description: z.string(),
-  name: z.string(),
-  id: z.string(),
-  url: z.url(),
-  openGraphImageUrl: z.union([z.url(), z.literal('')]),
-  topics: z.array(z.string()),
-});
-
-export const PinnedProjectsFallbackSchema = z.object({
-  githubPinnedItems: z.array(PinnedProjectSchema),
-});
-
 export const GitHubResponseSchema = z.object({
   data: z.object({
     user: z.object({

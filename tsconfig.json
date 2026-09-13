@@ -11,7 +11,8 @@
       "@pinned-repos/*": ["./functions/pinned-repos/*"],
       "@lib/*": ["./src/lib/*"],
       "@layouts/*": ["./src/layouts/*"],
-      "@content/*": ["./src/content/*"]
+      "@content/*": ["./src/content/*"],
+      "@data/*": ["./src/data/*"]
     }
   }
 }

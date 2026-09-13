@@ -88,7 +88,7 @@ export const responseFromCache = (entry: CacheEntry) => {
   });
 };
 
-export const responseFromJson = (data: unknown, source: 'github' | 'fallback') =>
+export const responseFromJson = (data: unknown, source: 'github') =>
   Response.json(data, {
     headers: {
       ...githubCacheHeaders,
