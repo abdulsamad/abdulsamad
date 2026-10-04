@@ -23,7 +23,8 @@ const metaDescription =
 const siteUrl = 'https://abdulsamad.dev';
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const ogImage = `${siteUrl}/abdulsamad.dev-above-the-fold.jpg?v=2`;
-const ogImageAlt = 'Abdul Samad Ansari - Software Engineer. I build fast, dependable web tools for complex workflows.';
+const ogImageAlt =
+  'Abdul Samad Ansari - Software Engineer. I build fast, dependable web tools for complex workflows.';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -33,10 +34,18 @@ const structuredData = {
       '@id': `${siteUrl}/#person`,
       name: 'Abdul Samad Ansari',
       url: siteUrl,
-      jobTitle: 'Software Engineer',
+      jobTitle: ['Software Engineer', 'Frontend Engineer', 'AI Engineer'],
       description: metaDescription,
       address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressCountry: 'IN' },
-      knowsAbout: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Web development'],
+      knowsAbout: [
+        'TypeScript',
+        'React',
+        'Node.js',
+        'PostgreSQL',
+        'Web development',
+        'Frontend engineering',
+        'AI engineering',
+      ],
       sameAs: publicProfileUrls,
     },
     {
@@ -61,7 +70,9 @@ const structuredData = {
     <link rel="canonical" href={canonicalUrl} />
     <meta
       name="robots"
-      content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'}
+      content={
+        noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'
+      }
     />
     <meta name="theme-color" content="#0a0a0a" />
     <meta name="author" content="Abdul Samad Ansari" />
@@ -74,10 +85,7 @@ const structuredData = {
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
-    <meta
-      property="og:description"
-      content={metaDescription}
-    />
+    <meta property="og:description" content={metaDescription} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="2400" />
     <meta property="og:image:height" content="1260" />
@@ -85,21 +93,25 @@ const structuredData = {
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={title} />
-    <meta
-      property="twitter:description"
-      content={metaDescription}
-    />
+    <meta property="twitter:description" content={metaDescription} />
     <meta property="twitter:image" content={ogImage} />
     <meta property="twitter:image:alt" content={ogImageAlt} />
     <link rel="icon" type="image/svg+xml" href="/favicon-plain.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    {!noindex && <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />}
+    {!noindex && (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
+    )}
     <ClientRouter />
     <PostHog />
   </head>
   <body>
-    <svg class="site-wave" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true" transition:persist>
+    <svg
+      class="site-wave"
+      viewBox="0 0 1440 320"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      transition:persist>
       <path d="M0,96L48,117.3C96,139,192,181,288,218.7C384,256,480,288,576,256C672,224,768,128,864,106.7C960,85,1056,139,1152,181.3C1248,224,1344,256,1392,272L1440,288L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
     </svg>
     <div class="site-shell">
