@@ -96,6 +96,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--brand-primary-3
 .site-footer-links a[data-network='twitter'] { --social-hover: var(--social-twitter); }
 .site-footer-links a:hover, .site-footer-links a:focus-visible { color: var(--social-hover, var(--brand-primary-300)); }
 .site-footer-links a:active { transform: scale(0.92); }
+@media (max-width: 40rem) { body::before { width: max(100%, 60rem); height: 12rem; opacity: 0.6; } }
 @keyframes wave-drift { from { transform: rotate(5deg) translate3d(-1%, -1%, 0); } to { transform: rotate(5deg) translate3d(1%, 1%, 0); } }
 @media (prefers-reduced-motion: no-preference) { body::before { animation: wave-drift 22s ease-in-out infinite alternate; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .project-modal, .project-modal::backdrop { animation: none; } * { transition-duration: 0.01ms !important; } }
