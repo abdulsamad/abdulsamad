@@ -10,42 +10,99 @@ import { Content } from '@content/my-info.mdx';
 
 <Layout
   title="Abdul Samad Ansari - Software Engineer"
-  description="Software engineer building fast, dependable web tools and maintainable systems."
->
+  description="Software engineer building fast, dependable web tools and maintainable systems.">
   <main class="site-main">
     <section class="intro" aria-label="Introduction" data-analytics-section="intro">
       <div class="intro-copy" data-reveal data-reveal-delay="0">
         <Content components={{ h1: H1, h3: H3, a: Link }} />
       </div>
-      <p class="intro-location" data-reveal data-reveal-delay="1">Software Engineer - Mumbai, India</p>
+      <p class="intro-location" data-reveal data-reveal-delay="1">
+        Software Engineer - Mumbai, India
+      </p>
       <div class="intro-actions" data-reveal data-reveal-delay="2">
-        <a class="button button-primary" href="#projects">View selected work <span aria-hidden="true">↓</span></a>
-        <a class="button" href="/email" data-track="portfolio_cta_clicked" data-track-cta="email" data-track-surface="hero">Say hello <span aria-hidden="true">↗</span></a>
+        <a class="button button-primary" href="#projects">
+          View selected work <span aria-hidden="true">↓</span>
+        </a>
+        <a
+          class="button"
+          href="/email"
+          data-track="portfolio_cta_clicked"
+          data-track-cta="email"
+          data-track-surface="hero">
+          Say hello <span aria-hidden="true">↗</span>
+        </a>
       </div>
     </section>
 
     <Projects />
 
-    <section class="principles" aria-labelledby="principles-title" data-analytics-section="principles" data-reveal>
+    <section
+      class="principles"
+      aria-labelledby="principles-title"
+      data-analytics-section="principles"
+      data-reveal>
       <div class="section-heading">
-        <div><p class="eyebrow">Working principles</p><h2 id="principles-title">The details are part of the product.</h2></div>
+        <div>
+          <p class="eyebrow">Working principles</p>
+          <h2 id="principles-title">The details are part of the product.</h2>
+        </div>
       </div>
       <div class="principles-grid">
-        <article><span class="principle-number">01</span><h3>Fast interfaces</h3><p>Interfaces should feel immediate, focused, and easy to understand.</p></article>
-        <article><span class="principle-number">02</span><h3>Clear systems</h3><p>Good abstractions make the next feature easier to build and easier for people and AI tools to trust.</p></article>
-        <article><span class="principle-number">03</span><h3>Room to grow</h3><p>Products should stay maintainable as their users, data, and workflows grow.</p></article>
+        <article>
+          <span class="principle-number">01</span>
+          <h3>Fast interfaces</h3>
+          <p>
+            Interfaces should feel immediate, focused, and easy to understand, for people and AI
+            agents alike.
+          </p>
+        </article>
+        <article>
+          <span class="principle-number">02</span>
+          <h3>Clear systems</h3>
+          <p>
+            Good abstractions make the next feature easier to build and easier to trust, especially
+            in the age of AI.
+          </p>
+        </article>
+        <article>
+          <span class="principle-number">03</span>
+          <h3>Room to grow</h3>
+          <p>Products should stay maintainable as their users, data, and workflows grow.</p>
+        </article>
       </div>
     </section>
 
     {/* <Writing /> */}
 
-    <section class="contact" id="contact" aria-labelledby="contact-title" data-analytics-section="contact" data-reveal>
+    <section
+      class="contact"
+      id="contact"
+      aria-labelledby="contact-title"
+      data-analytics-section="contact"
+      data-reveal>
       <p class="eyebrow">Have a problem worth solving?</p>
       <h2 id="contact-title">Let's make it clearer, faster, and more useful.</h2>
-      <p>Whether you are building a product, exploring an idea, or just want to talk shop, I'd be happy to hear from you.</p>
+      <p>
+        Whether you are building a product, exploring an idea, or just want to talk shop, I'd be
+        happy to hear from you.
+      </p>
       <div class="intro-actions">
-        <a class="button button-primary" href="/email" data-track="portfolio_cta_clicked" data-track-cta="email" data-track-surface="contact">Get in touch <span aria-hidden="true">↗</span></a>
-        <a class="button" href="/github" data-track="portfolio_cta_clicked" data-track-cta="github" data-track-surface="contact">GitHub <span aria-hidden="true">↗</span></a>
+        <a
+          class="button button-primary"
+          href="/email"
+          data-track="portfolio_cta_clicked"
+          data-track-cta="email"
+          data-track-surface="contact">
+          Get in touch <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          class="button"
+          href="/github"
+          data-track="portfolio_cta_clicked"
+          data-track-cta="github"
+          data-track-surface="contact">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
       </div>
     </section>
   </main>
@@ -56,16 +113,20 @@ import { Content } from '@content/my-info.mdx';
     const elements = document.querySelectorAll<HTMLElement>('[data-reveal]');
     if (!elements.length) return;
     document.documentElement.classList.add('motion-enabled');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+    if (
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      !('IntersectionObserver' in window)
+    ) {
       elements.forEach((element) => element.classList.add('is-revealed'));
       return;
     }
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-revealed');
-        observer.unobserve(entry.target);
-      }),
+      (entries) =>
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }),
       { threshold: 0.18 }
     );
     elements.forEach((element) => observer.observe(element));
