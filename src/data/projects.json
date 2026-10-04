@@ -2,43 +2,74 @@
   {
     "name": "FillMatic",
     "slug": "fillmatic",
-    "description": "A Chrome extension for filling web forms with realistic test data.",
-    "homepageUrl": "https://fillmatic.pages.dev",
+    "context": "Browser extension - Form testing",
+    "outcome": "Turns repetitive test-data entry into a reusable one-click workflow.",
+    "description": "A Chrome extension that fills real-world web forms with realistic test data in one click, including the controls most autofill tools miss.",
+    "homepageUrl": "https://fillmatic.abdulsamad.dev",
     "details": {
       "highlights": [
-        "One-click realistic names, addresses, emails, dates, and test payment data",
-        "Works with React and Vue controlled inputs",
-        "Handles ARIA widgets, rich-text editors, shadow roots, and iframes",
-        "Reusable Actions and custom Recipes for repeated workflows",
-        "Heuristic autofill works without AI or a backend"
+        "One-click realistic names, emails, addresses, dates, phone numbers, and payment test data",
+        "Framework-aware writes keep React and Vue-style controlled inputs in sync",
+        "Drives ARIA comboboxes, calendars, switches, sliders, and radio groups like a user would",
+        "Rich-text support for ProseMirror, Lexical, Slate, Quill, Trix, and contenteditable",
+        "Profiles, Actions, and Recipes turn repeated test flows into reusable workflows",
+        "Teach mode records custom interactions as safe declarative steps, with no eval or remote code",
+        "Optional on-device AI with Gemini Nano through Chrome's Prompt API refines field maps, while the full heuristic workflow works without it",
+        "Fill-only by default: it never submits a form unless you turn that on"
       ],
-      "problem": "Form testing is slow when realistic values must be entered across different frameworks and custom controls.",
-      "architecture": "A Chrome extension sends messages from the popup and shortcuts to a content script. The content script runs a failure-isolated autofill pipeline with native setters, widget adapters, and reusable Actions and Recipes. Data stays in chrome.storage.local, while the Astro site is a separate static marketing app.",
-      "technologies": ["React", "Vite", "TypeScript", "Astro", "Playwright", "Vitest"]
+      "problem": "Realistic form testing breaks down on modern UIs. Controlled React inputs ignore naive value writes, custom selects and date pickers are not real form controls, and checkout fields often mount only after you interact with the page. Testers end up retyping the same data by hand or maintaining brittle scripts.",
+      "architecture": "A Chrome extension split across popup, settings, side panel, and a background service worker. Content scripts own every DOM mutation, one per frame. Fills run through an ordered strategy pipeline: native inputs first, then a DOM quiet-period and a second pass for late-mounted controls, then user Recipes, widget adapters, and editor-aware insertion. A failure on one element is logged and skipped instead of aborting the whole form. Everything lives in chrome.storage.local, with no application backend. The optional side-panel mapper runs Gemini Nano on-device through Chrome's Prompt API, and its output is reviewed and saved as a normal Action, so running an Action never needs the model.",
+      "engineering": [
+        "Failure-isolated pipeline: one broken field never takes down the rest of the form",
+        "Deterministic value resolution: Actions and profile rules outrank heuristics, so results are predictable",
+        "Privacy by design: no application server, and on-device Gemini Nano means page contents are never transmitted for mapping",
+        "Typed, command-scoped messaging between extension contexts, with a repeat-fill that survives reloads",
+        "Tested in real Chromium with Playwright, including a real Radix Select, shadow DOM, and iframes",
+        "Enforced 90% coverage floors across statements, branches, functions, and lines",
+        "Tagged releases are tested, packaged, and published to the Chrome Web Store through CI"
+      ],
+      "technologies": ["React", "Vite", "TypeScript", "Gemini Nano", "Faker", "shadcn/Radix"]
     }
   },
   {
     "name": "Polychat",
     "slug": "polychat",
-    "description": "A local-first AI workspace for chat, images, and multilingual work.",
+    "context": "Local-first AI workspace - Privacy",
+    "outcome": "Keeps multi-provider workflows and conversation context in one private workspace.",
+    "description": "A local-first AI workspace for chat, images, and multilingual work, with an encrypted bring-your-own-key vault.",
     "homepageUrl": "https://polychat.pages.dev",
     "githubUrl": "https://github.com/abdulsamad/polychat",
     "details": {
       "highlights": [
-        "Switch between Gemini, OpenAI, Anthropic, Mistral, and DeepSeek",
-        "Use focused assistant profiles and custom instructions",
-        "Stream rich Markdown responses with code, files, and message actions",
-        "Generate images and attach documents or images as context",
-        "Keep threads, images, and provider keys local with an encrypted BYOK vault"
+        "Switch between Gemini, OpenAI, Anthropic, Mistral, and DeepSeek in one workspace",
+        "Tune each thread: model, assistant profile, response language, and multi-turn context",
+        "Stream rich Markdown with tables, syntax-highlighted code, copy actions, and file downloads",
+        "Generate images and attach images or documents (PDF, DOCX, CSV, JSON and more) as context",
+        "Threads, messages, images, and preferences stay in your browser, not on a server",
+        "Encrypted BYOK vault with optional passkey unlock on supported devices",
+        "Voice input, speech playback, light, dark, and system themes, and layouts from desktop to mobile",
+        "Per-message and per-thread token counts when you want to see usage"
       ],
-      "problem": "Using different AI providers, conversation settings, and local chat history across separate tools creates unnecessary friction and privacy concerns.",
-      "architecture": "A React client provides the workspace, profiles, streaming UI, image generation, and file context. An authenticated Hono API on AWS Lambda handles provider requests, while a Pages proxy protects the API boundary. Threads, images, preferences, and the encrypted BYOK vault are stored locally in IndexedDB.",
+      "problem": "Polychat started as a tool I needed. I use it myself to try different models sometimes, especially through OpenRouter, and I keep adding the features as required. Using several AI providers usually means juggling separate tools, settings, and chat histories, and handing your conversations and API keys to yet another service. Polychat puts the providers in one place and keeps the data on your device.",
+      "architecture": "A React 19 and React Router 7 SPA with Jotai state and a TipTap composer. Threads, images, and the key vault persist locally in IndexedDB. A small Hono API on AWS Lambda authenticates Clerk JWTs and streams chat as newline-delimited JSON through the Vercel AI SDK, so tokens appear as they arrive. In production, requests go through a Cloudflare Pages proxy that adds a shared secret the Lambda requires. Model metadata and types are shared through a workspace package.",
+      "engineering": [
+        "Envelope encryption: provider keys are sealed with a random AES-GCM vault key",
+        "The vault key is wrapped by a PBKDF2-SHA-256 passphrase key (600,000 iterations)",
+        "Optional WebAuthn PRF device unlock, with passphrase recovery as the fallback",
+        "The server never stores the vault or its passphrase",
+        "Streaming end to end, from the provider through Lambda to the UI",
+        "Type-safe model catalog: provider-compatible model IDs derived from the AI SDK types",
+        "Locked-down API: Clerk JWT checks with an authorized-parties allowlist, plus a proxy secret in production"
+      ],
       "technologies": [
         "React 19",
         "React Router 7",
         "TypeScript 7",
         "Tailwind CSS 4",
         "Vercel AI SDK 7",
+        "TipTap",
+        "Jotai",
+        "Radix UI",
         "Hono",
         "AWS Lambda",
         "Clerk",

@@ -16,41 +16,41 @@ export interface Props {
 }
 
 const { title, noindex, description } = Astro.props;
+
+const metaDescription =
+  description ?? 'Software engineer building fast, dependable web tools and maintainable systems.';
+const canonicalUrl = new URL(Astro.url.pathname, 'https://abdulsamad.dev').href;
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="title" content={title} />
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalUrl} />
     {noindex && <meta name="robots" content="noindex" />}
-    <meta name="theme-color" content="#3F51B5" />
-    <meta
-      name="description"
-      content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
-    />
+    <meta name="theme-color" content="#0a0a0a" />
     <meta name="author" content="Abdul Samad Ansari" />
     <meta
       name="keywords"
       content="web developer, abdul samad ansari, software engineer, react developer"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://abdulsamad.dev" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta
       property="og:description"
-      content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
+      content={metaDescription}
     />
     <meta property="og:image" content="https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg" />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://abdulsamad.dev" />
+    <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={title} />
     <meta
       property="twitter:description"
-      content="A web developer who loves crafting awesome web experiences skilled in HTML, CSS, JavaScript, React, TypeScript, Node, and MongoDB"
+      content={metaDescription}
     />
     <meta
       property="twitter:image"
@@ -61,7 +61,7 @@ const { title, noindex, description } = Astro.props;
     <PostHog />
   </head>
   <body>
-    <div class="text-white">
+    <div class="site-shell">
       <Header transition:persist />
       <slot />
       <Footer />
