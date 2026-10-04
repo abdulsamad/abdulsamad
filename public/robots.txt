@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /email
+Disallow: /resume
+Disallow: /meeting
+Disallow: /telegram
+Disallow: /facebook
+Disallow: /instagram
+Disallow: /pinned-repos
+Disallow: /github-repo
+Disallow: /zen-route
+
+Sitemap: https://abdulsamad.dev/sitemap.xml

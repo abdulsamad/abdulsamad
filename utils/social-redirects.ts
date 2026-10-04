@@ -49,3 +49,9 @@ export const redirects = {
     destination: 'https://bsky.app/profile/abdulsamad.bsky.social',
   },
 } as const;
+
+// Profiles listed publicly (for example in structured data). Add or remove paths here.
+export const publicProfilePaths = ['/github', '/linkedin', '/x'] as const;
+export const publicProfileUrls: string[] = publicProfilePaths.map(
+  (path) => redirects[path].destination,
+);

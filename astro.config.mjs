@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   root: '.',
+  site: 'https://abdulsamad.dev',
   output: 'static',
   integrations: [
     icon(),

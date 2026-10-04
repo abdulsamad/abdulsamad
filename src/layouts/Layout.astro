@@ -6,6 +6,7 @@ import '@fontsource-variable/nunito';
 import Header from '@components/header/index.astro';
 import Footer from '@components/Footer.astro';
 import PostHog from '@components/PostHog.astro';
+import { publicProfileUrls } from '@utils/social-redirects';
 
 import '../styles/global.css';
 
@@ -19,18 +20,49 @@ const { title, noindex, description } = Astro.props;
 
 const metaDescription =
   description ?? 'Software engineer building fast, dependable web tools and maintainable systems.';
-const canonicalUrl = new URL(Astro.url.pathname, 'https://abdulsamad.dev').href;
+const siteUrl = 'https://abdulsamad.dev';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = `${siteUrl}/abdulsamad.dev-above-the-fold.jpg?v=2`;
+const ogImageAlt = 'Abdul Samad Ansari - Software Engineer. I build fast, dependable web tools for complex workflows.';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}/#person`,
+      name: 'Abdul Samad Ansari',
+      url: siteUrl,
+      jobTitle: 'Software Engineer',
+      description: metaDescription,
+      address: { '@type': 'PostalAddress', addressLocality: 'Mumbai', addressCountry: 'IN' },
+      knowsAbout: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Web development'],
+      sameAs: publicProfileUrls,
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: 'Abdul Samad Ansari',
+      inLanguage: 'en',
+      publisher: { '@id': `${siteUrl}/#person` },
+    },
+  ],
+};
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={metaDescription} />
     <link rel="canonical" href={canonicalUrl} />
-    {noindex && <meta name="robots" content="noindex" />}
+    <meta
+      name="robots"
+      content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'}
+    />
     <meta name="theme-color" content="#0a0a0a" />
     <meta name="author" content="Abdul Samad Ansari" />
     <meta
@@ -38,13 +70,18 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://abdulsamad.dev').href;
       content="web developer, abdul samad ansari, software engineer, react developer"
     />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Abdul Samad Ansari" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta
       property="og:description"
       content={metaDescription}
     />
-    <meta property="og:image" content="https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={title} />
@@ -52,11 +89,12 @@ const canonicalUrl = new URL(Astro.url.pathname, 'https://abdulsamad.dev').href;
       property="twitter:description"
       content={metaDescription}
     />
-    <meta
-      property="twitter:image"
-      content="https://abdulsamad.dev/abdulsamad.dev-above-the-fold.jpg"
-    />
+    <meta property="twitter:image" content={ogImage} />
+    <meta property="twitter:image:alt" content={ogImageAlt} />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    {!noindex && <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />}
     <ClientRouter />
     <PostHog />
   </head>
