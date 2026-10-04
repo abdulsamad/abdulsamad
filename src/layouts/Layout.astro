@@ -91,7 +91,7 @@ const structuredData = {
     />
     <meta property="twitter:image" content={ogImage} />
     <meta property="twitter:image:alt" content={ogImageAlt} />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-plain.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     {!noindex && <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />}
@@ -107,6 +107,10 @@ const structuredData = {
       <slot />
       <Footer />
     </div>
+    <script>
+      import { initDynamicFavicon } from '@lib/dynamic-favicon';
+      initDynamicFavicon();
+    </script>
     <style is:global>
       html {
         scroll-behavior: smooth;
